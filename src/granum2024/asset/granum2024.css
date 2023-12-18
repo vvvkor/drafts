@@ -1,11 +1,15 @@
 @import "var.css";
+@import "reset.css";
 @import "typo.css";
 @import "space.css";
-@import "color.css"; /* status, link, dark */
+@import "color.css";
 @import "table.css";
-@import "grid.css";
 @import "input.css";
-@import "toggle.css";
 @import "icon.css";
 @import "custom-switch.css";
 @import "custom-file.css";
+
+@import "grid.css";
+@import "toggle.css";
+@import "badge.css";
+@import "table-fixed.css";

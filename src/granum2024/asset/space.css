@@ -4,11 +4,10 @@
 .width-l {max-width:80rem;}
 
 .fit  {margin:0;border:none;padding:0;border-radius:0;}
-.mar  {margin:0 var(--gap);}
+.mar  {margin:var(--gap) 0;}
 .mars {margin:var(--gap);}
 .pad, button  {padding:calc(.5 * var(--gap)) var(--gap);border:thin solid transparent;}
   :is(a, span):is(.pad, .pads) {display:inline-block;}
   button {min-width:8em;}
 .pads {padding:var(--gap);}
 .bord {border:var(--border);}
-.rad  {border-radius:var(--radius);}

@@ -1,4 +1,8 @@
 :root {
+  /* fonts */
+  --serif: "PT Serif", Georgia, serif;
+  --sans: "PT Sans", Roboto, "Segoe UI", sans-serif;
+  --mono: "PT Mono", monospace;
   /* basic */
   --root-font-size: 1.2;
   --font-coeff: 1.25;
@@ -16,6 +20,8 @@
   --visited: #808;
   --hover: #006;
   --active: #f00;
+  --hilite: #ccc3;
+  --shade: 0 .1em .8em 0em #0003;
 
   --outline-hover: #ddd8;
   --outline-focus: #ccc8;

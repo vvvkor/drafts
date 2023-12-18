@@ -1,10 +1,14 @@
 body {color:var(--front);background-color:var(--back);}
 .diagonals {background:repeating-linear-gradient(135deg, #9990, #9990 1em, #9991 1em, #9991 2em);}
 
+.shade {box-shadow:var(--shade);}
+.hilite, thead, tfoot, pre, blockquote {background-color:var(--hilite);}
+:is(a, button, .check, summary).hover:hover, ul.flex.hover li:is(:hover, :has(:hover)):has(>a), .pop:hover>a.hover, table.hover  tr:hover>*/*, .tabs.hover>:is(a,label):hover*/ {box-shadow:inset 0 0 0 300vh var(--hilite);}
+
 a[href] {color:var(--link);}
 a:visited {color:var(--visited);}
 a:hover {color:var(--hover);}
-a:active {color:var(--active);}
+a:active, details[open] > summary {color:var(--active);}
 
 .neutral {--ff:var(--front);--bb:var(--back);}
 .note    {--ff:#888;--bb:#eee;} /* todo: transparent bg */
@@ -28,7 +32,7 @@ button:disabled {opacity:.5;}
 input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
 :where(input, select, textarea, button, [contenteditable]):focus {outline-color:var(--outline-focus);}
-:where(input, select, textarea, button, [contenteditable]):focus-visible {outline-color:var(--outline-focus-visible);}
+:where(a, summary, input, select, textarea, button, [contenteditable]):focus-visible {outline-color:var(--outline-focus-visible);}
 .validate:valid {outline-color:var(--outline-valid);}
 :invalid {outline-color:var(--outline-invalid);}
 

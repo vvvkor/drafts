@@ -13,9 +13,49 @@
   <body>
     <div class="width-m center">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
+      
+    <h2>Typography</h2>
+    
+    <p>
+    Text
+    <a href="?#">Link</a>
+    <a>Unlink</a>
+    <code>Code</code>
+    <kbd>Kbd</kbd>
+    <q>Quote</q>
+    <small>Small</small>
+    <mark>Mark</mark>
+    <abbr title="Abbreviation">Abbr</abbr>
+    x<sub>sub</sub>
+    x<sup>super</sup>
+    </p>
+
+    <hr>
+    <blockquote>Block quote</blockquote>
+    <pre>Preformatted text
+<code>Code: <var>window</var> = <kbd class="text-y" onclick="this.textContent = window.innerWidth + ' x ' + window.innerHeight">click</kbd></code></pre>
+
+      <details>
+      <summary>Headings</summary>
+        <h1>Heading 1<b class="-target"><br>has a second line</b></h1>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span> 
+        <h2>Heading 2<b class="-target"><br>has a second line</b></h2>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        <h3>Heading 3<b class="-target"><br>has a second line</b></h3>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        <h4>Heading 4<b class="-target"><br>has a second line</b></h4>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        <h5>Heading 5<b class="-target"><br>has a second line</b></h5>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        <h6>Heading 6<b class="-target"><br>has a second line</b></h6>
+        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+      </details>
+
+      <h2>Colors</h2>
+      
       <p>
         Text
-        <a href="http://ya.ru/?x=2" class="icon-link">Link</a>
+        <a href="http://ya.ru/?x=3" class="icon-link">Link</a>
         <a href="" class="icon-time">Visited</a>
         <small class="icon-file note">Small</small>
       </p>
@@ -65,9 +105,12 @@
         <button class="warning">Warning</button>
         <button class="danger">Danger</button>
       </p>
+      
+      <h2>Inputs</h2>
+      
       </p>
         Text
-        <span class="pad bord">Pad</span>
+        <span class="pad bord shade rad serif">Pad</span>
         <button>Button</button>
         <button class="bord">Border</button>
         <button class="danger">Danger</button>
@@ -91,6 +134,8 @@
         <br>
         <textarea></textarea>
         <br>
+        <div contenteditable></div>
+        <br>
         <label><input type="checkbox" id="invert"> Invert</label>
         <label><input type="checkbox" required> Box</label>
         <label><input type="checkbox" class="switch"> Switch</label>
@@ -99,6 +144,103 @@
         <input type="color">
         <input type="range">
       </p>
+      
+      <h2>Lists</h2>
+      
+      <ul>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three
+          <ul>
+            <li>Uno</li>
+            <li>Dos</li>
+            <li>Tres</li>
+          </ul>
+        </li>
+      </ul>
+      
+      <ol>
+        <li>One</li>
+        <li>Two</li>
+        <li>Three
+          <ol>
+            <li>Uno</li>
+            <li>Dos</li>
+            <li>Tres</li>
+          </ol>
+        </li>
+      </ol>
+      
+      <dl>
+        <dt>One</dt>
+          <dd>Uno</dd>
+        <dt>Two</dt>
+          <dd>Dos</dd>
+          <dd>2</dd>
+      </dl>
+      
+      <details>
+        <summary>Summary</summary>
+        Details
+        <details>
+          <summary>Sub-summary</summary>
+          Sub-details
+        </details>
+      </details>
+      
+      <h2>Table</h2>
+
+<div class="roll">
+<table class="wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
+	<caption>Sample table</caption>
+	<thead>
+		<tr><th><input name="boxes" type="checkbox" data-check=".box">&nbsp;
+			<th>Name<th>Area<th>People<th>Cities
+	</thead>
+	<tbody>
+		<tr><td><input type="checkbox" class="box" name="box[]" value="eur">
+			<td>Europe
+			<td>10.2
+			<td>0.7
+      <td>Istanbul, Moscow, London, Paris</td>
+		<tr class="info"><td><input type="checkbox" class="box" name="box[]" value="asi">
+			<td>Asia
+			<td>44.6
+			<td>4.6
+      <td>Tokyo, Delhi, Shanghai, Mumbai</td>
+		<tr class="info bg"><td><input type="checkbox" class="box" name="box[]" value="afr">
+			<td>Africa
+			<td>30.4
+			<td>1.3
+      <td>Cairo, Lagos</td>
+		<tr><td><input type="checkbox" class="box" name="box[]" value="nam">
+			<td class="warning">North America
+			<td class="warning bg">24.7
+			<td class="warning invert">0.6
+      <td class="warning bg text">Mexico, New York</td>
+		<tr><td><input type="checkbox" class="box" name="box[]" value="sam">
+			<td>South America
+			<td>17.8
+			<td>0.43
+      <td>Sao Paulo, Buenos Aires</td>
+		<tr><td><input type="checkbox" class="box" name="box[]" value="aus">
+			<td>Australia
+			<td>8.6
+			<td>0.04
+      <td>Sydney</td>
+		<tr><td><input type="checkbox" class="box" name="box[]" value="ant">
+			<td>Antarctica
+			<td>14
+			<td>0
+      <td></td>
+	</tbody>
+	<tfoot>
+		<tr><td><td>&Sigma;<td>150.3<td>7.6<td></td>
+	</tfoot>
+</table>
+</div>
+
+      
     </div>
   </body>
 </html>
