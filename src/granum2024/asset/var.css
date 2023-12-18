@@ -1,6 +1,7 @@
 :root {
   /* basic */
-  --sz: 1.2;
+  --root-font-size: 1.2;
+  --font-coeff: 1.25;
   --gap: 1rem;
   --radius: .5rem;
   --line: #ccc;
@@ -19,6 +20,8 @@
   --outline-hover: #ccc8;
   --outline-focus: #ccc8;
   --outline-focus-visible: #9cfa;
+  --outline-valid: #3c36;
+  --outline-invalid: #f666;
 
   --input-off: #ccc;
   --input-on: #06f;

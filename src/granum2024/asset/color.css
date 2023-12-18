@@ -29,8 +29,8 @@ input, select, textarea, button, [contenteditable] {outline:.2em solid transpare
 :where(input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
 :where(input, select, textarea, button, [contenteditable]):focus {outline-color:var(--outline-focus);}
 :where(input, select, textarea, button, [contenteditable]):focus-visible {outline-color:var(--outline-focus-visible);}
-.validate:valid {outline-color:#3c36;}
-:invalid {outline-color:#f666;}
+.validate:valid {outline-color:var(--outline-valid);}
+:invalid {outline-color:var(--outline-invalid);}
 
 
 /* smart dark mode */

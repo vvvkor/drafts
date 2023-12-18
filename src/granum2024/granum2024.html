@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff">
     <meta name="theme-color" media="(prefers-color-scheme:dark)" content="#04a">
-    <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23f50'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="asset/granum2024.css">
     <!--script defer src="asset/granum2024.js"></script-->
   </head>
@@ -73,18 +73,26 @@
         <button class="danger">Danger</button>
         <button class="danger bord">Border</button>
         <button disabled class="danger">Disabled</button>
-        <input type="text" required class="validate">
+        Select <select><option value="1">1</option>v<option value="2">2</option></select>
+        <input type="text" required class="validate" name="text">
         <input type="number">
         <input type="search" size="8">
         <input type="email">
+        <input type="password">
         <input type="date">
         <input type="time">
         <input type="datetime-local">
-        <input type="password">
         <input type="submit" value="Submit">
-        <br><input type="file"><br>
+        Ok
+        <br>
+        <input type="file">
+        <br>
+        <label><input type="file">Select file...</label>
+        <br>
+        <textarea></textarea>
+        <br>
         <label><input type="checkbox" id="invert"> Invert</label>
-        <label><input type="checkbox"> Box</label>
+        <label><input type="checkbox" required> Box</label>
         <label><input type="checkbox" class="switch"> Switch</label>
         <label><input type="radio" name="radio" value="1"> Radio1</label>
         <label><input type="radio" name="radio" value="2"> Radio2</label>

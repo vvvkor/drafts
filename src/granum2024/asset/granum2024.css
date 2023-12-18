@@ -5,6 +5,7 @@
 @import "table.css";
 @import "grid.css";
 @import "input.css";
-@import "input-custom.css";
 @import "toggle.css";
 @import "icon.css";
+@import "custom-switch.css";
+@import "custom-file.css";
