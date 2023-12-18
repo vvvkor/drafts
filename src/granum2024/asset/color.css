@@ -1,0 +1,45 @@
+body {color:var(--front);background-color:var(--back);}
+.diagonals {background:repeating-linear-gradient(135deg, #9990, #9990 1em, #9991 1em, #9991 2em);}
+
+a[href] {color:var(--link);}
+a:visited {color:var(--visited);}
+a:hover {color:var(--hover);}
+a:active {color:var(--active);}
+
+.neutral {--ff:var(--front);--bb:var(--back);}
+.note    {--ff:#888;--bb:#eee;} /* todo: transparent bg */
+.info    {--ff:#08a;--bb:#bef;}
+.success {--ff:#181;--bb:#beb;}
+.warning {--ff:#d70;--bb:#fd9;}
+.danger  {--ff:#c00;--bb:#fbb;}
+
+.text , :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg) {color:var(--ff, var(--front));}
+.bg {background-color:var(--bb, var(--back));}
+.bord {border:thin solid var(--ff, var(--line));}
+body .invert, button:not(.bord) {color:var(--front-invert);}
+body .invert {background-color:var(--ff, var(--back-invert));}
+button:not(.bord) {background-color:var(--ff, var(--link));}
+button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
+button:disabled {opacity:.5;}
+
+.hover{}
+
+
+input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
+:where(input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
+:where(input, select, textarea, button, [contenteditable]):focus {outline-color:var(--outline-focus);}
+:where(input, select, textarea, button, [contenteditable]):focus-visible {outline-color:var(--outline-focus-visible);}
+.validate:valid {outline-color:#3c36;}
+:invalid {outline-color:#f666;}
+
+
+/* smart dark mode */
+
+html {background-color:var(--back);}
+html, img, video, iframe, .invert {filter:var(--mode);}
+html {--mode:none;}
+html.invert, html:has(#invert:checked) {--mode:invert(.95) hue-rotate(180deg);}
+@media (prefers-color-scheme: dark) {
+  html:not(.invert) {--mode:invert(.95) hue-rotate(180deg);}
+  html.invert, html:has(#invert:checked) {--mode:none;}
+}

@@ -1,0 +1,29 @@
+:root {
+  /* basic */
+  --sz: 1.2;
+  --gap: 1rem;
+  --radius: .5rem;
+  --line: #ccc;
+  --line-input: #999;
+  --front-default: #000;
+  --back-default: #fff;
+  --front: #333;
+  --back: #fff;
+  --front-invert: #fff;
+  --back-invert: #666;
+  --link: #04a;
+  --visited: #808;
+  --hover: #006;
+  --active: #f00;
+
+  --outline-hover: #ccc8;
+  --outline-focus: #ccc8;
+  --outline-focus-visible: #9cfa;
+
+  --input-off: #ccc;
+  --input-on: #06f;
+  --input-dot: #fff;
+  
+  /* derivative */
+  --bord: thin solid var(--line);
+}

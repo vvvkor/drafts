@@ -1,0 +1,6 @@
+button, [type="submit"], [type="search"] {-webkit-appearance:none;} /* safari */
+button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {border:none;} /* firefox */
+
+input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"], [type="file"]), select, textarea, [contenteditable] {border:thin solid var(--line-input);border-radius:calc(.5 * var(--radius));padding:calc(.5 * var(--gap));}
+button {border-radius:var(--radius);}
+button:not(.disabled) {cursor:pointer;}

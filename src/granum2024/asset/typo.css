@@ -1,0 +1,10 @@
+body, h1, h2, h3, h4, h5, h6, small {font-size:calc(1rem * var(--sz, 1) * var(--fsz, 1));}
+body {--fsz:1;font-family:'pt sans', sans-serif;line-height:1.5;}
+  h1 {--fsz:2;}
+  h2 {--fsz:1.55;}
+  h3 {--fsz:1.2;}
+  h4 {--fsz:1;}
+  h5 {--fsz:.83;}
+  h6 {--fsz:.67;}
+  small {--fsz:.83;}
+input, select, textarea, button, table {font:inherit;}

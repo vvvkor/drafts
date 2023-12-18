@@ -1,0 +1,14 @@
+.center {margin-inline:auto;}
+.width-s {max-width:30rem;}
+.width-m {max-width:50rem;}
+.width-l {max-width:80rem;}
+
+.fit  {margin:0;border:none;padding:0;border-radius:0;}
+.mar  {margin:0 var(--gap);}
+.mars {margin:var(--gap);}
+.pad, button  {padding:calc(.5 * var(--gap)) var(--gap);border:thin solid transparent;}
+  :is(a, span):is(.pad, .pads) {display:inline-block;}
+  button {min-width:8em;}
+.pads {padding:var(--gap);}
+.bord {border:var(--border);}
+.rad  {border-radius:var(--radius);}
