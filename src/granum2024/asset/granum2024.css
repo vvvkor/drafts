@@ -8,8 +8,8 @@
 @import "input.css";
 @import "custom-switch.css";
 @import "dropzone.css";
+@import "layout.css";
 
-@import "grid.css";
 @import "toggle.css";
 @import "badge.css";
 @import "table-fixed.css";

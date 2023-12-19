@@ -15,12 +15,12 @@
 
 .check {}
 .hint {}
-ul.flex {} /* dropdown */
+ul.row {} /* dropdown */
 .tree {}
 .tabs {}
 .gallery {}
 
-summary {display:block;overflow:hidden;}
+summary[class*="icon-"] {display:block;overflow:hidden;}
 
 details.pop {position:relative;}
 details.pop, details.pop > summary {display:inline-block;}

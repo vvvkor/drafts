@@ -4,7 +4,7 @@ body {color:var(--front);background-color:var(--back);}
 .shade {box-shadow:var(--shade);}
 .hilite, thead, tfoot, pre, code, blockquote, input[readonly] {background-color:var(--hilite);}
   pre code {background:none;}
-:is(a, button, .check, summary).hover:hover, ul.flex.hover li:is(:hover, :has(:hover)):has(>a), .pop:hover>a.hover, table.hover  tr:hover>*/*, .tabs.hover>:is(a,label):hover*/ {box-shadow:inset 0 0 0 300vh var(--hilite);}
+:is(a, button, .check, summary).hover:hover, ul.row.hover li:is(:hover, :has(:hover)):has(>a), .pop:hover>a.hover, table.hover  tr:hover>*/*, .tabs.hover>:is(a,label):hover*/ {box-shadow:inset 0 0 0 300vh var(--hilite);}
 
 a[href] {color:var(--link);}
 a:visited {color:var(--visited);}
@@ -22,7 +22,14 @@ a:active, details[open] > summary {color:var(--active);}
 .bg {background-color:var(--bb, var(--back));}
 .bord {border:thin solid var(--ff, var(--line));}
 body .invert, button:not(.bord) {color:var(--front-invert);}
-body .invert {background-color:var(--ff, var(--back-invert));}
+body .invert {
+  background-color:var(--ff, var(--back-invert));
+  --link: var(--link-invert);
+  --visited: var(--link);
+  --hover: var(--link);
+  --active: var(--link);
+}
+body a.invert {color:var(--link-invert);}
 button:not(.bord) {background-color:var(--ff, var(--link));}
 button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
 button:disabled {opacity:.5;}

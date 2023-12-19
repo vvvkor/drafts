@@ -60,6 +60,10 @@
         <small class="icon-file note">Small</small>
       </p>
       <p>
+        <a href="" class="icon-refresh success invert pad">Inverted</a>
+        <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
+      </p>
+      <p>
         <span class="neutral">Neutral</span>
         <span class="note">Note</span>
         <span class="info">Info</span>
@@ -146,6 +150,46 @@
         <input type="range">
       </div>
       
+      <h2>Layout</h2>
+      
+      <details class="mar">
+        <summary>Regular grid</summary>
+        <div class="grid-xs gap mar hilite pad">
+          <div class="pad success bg -resize">1</div>
+          <div class="pad warning bg bord">2</div>
+          <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
+          <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
+          <a href="#img3"><img alt="pic" class="fit" src="https://placehold.co/200x200/039/fff.png?text=~~~"></a>
+          <!--a href="#img4"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=---"></a-->
+          <img alt="pic" src="https://placehold.co/150x200/777/fff.png?text=---">
+          <div class="pad info invert -span-2"><a href="#">Inverted</a></div>
+        </div>
+      </details>
+      
+      <details class="mar">
+        <summary>Flex row</summary>
+        <div class="row gap -mid -wrap stretch -vert -full -scroll  hilite pad">
+          <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
+          <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
+          <a href="#img3" class="-push"><img alt="pic" class="fit" src="https://placehold.co/200x200/039/fff.png?text=~~~"></a>
+          <a href="#img4" class="-shift"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=---"></a>
+        </div>
+      </details>
+
+      <div class="stack mar rad pad note bg">
+        <p>Stacked paragraph one.</p>
+        <p>Stacked paragraph two.</p>
+        <p>Stacked paragraph three.</p>
+      </div>
+      <div class="stack mar rad line note bg">
+        <div class="pad">Stacked div one.</div>
+        <div class="pad">Stacked div two.</div>
+        <div class="pad">Stacked div three.</div>
+      </div>
+      
+      <footer class="stick shade pad">Stick to bottom</footer>
+      <div class="stick shade pad mar">Stick to top</div>
+
       <h2>Lists</h2>
       
       <ul>
@@ -206,7 +250,7 @@
       
       <h2>Table</h2>
 
-<div class="roll">
+<div class="scroll">
 <table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
 	<caption>Sample table</caption>
 	<thead>
