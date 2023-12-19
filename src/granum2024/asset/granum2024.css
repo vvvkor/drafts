@@ -2,12 +2,12 @@
 @import "reset.css";
 @import "typo.css";
 @import "space.css";
-@import "color.css";
 @import "table.css";
-@import "input.css";
+@import "color.css";
 @import "icon.css";
+@import "input.css";
 @import "custom-switch.css";
-@import "custom-file.css";
+@import "dropzone.css";
 
 @import "grid.css";
 @import "toggle.css";

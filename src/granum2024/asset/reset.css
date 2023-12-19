@@ -3,7 +3,5 @@ button, input, select, textarea {margin:0;}
 img, iframe, fieldset, hr {border:none;}
 img {object-fit:cover;}
 html, body, li, dt, dd, legend, iframe, fieldset {margin:0;padding:0;}
-table {border-collapse:collapse;border-spacing:0}
-td, th {padding:0;text-align:left}
 * {box-sizing:content-box;}
-table, img, embed, iframe, object, audio, video, button, input, select, textarea {box-sizing:border-box;}
+table, img, embed, iframe, object, audio, video, button, input, select, textarea, [contenteditable] {box-sizing:border-box;}

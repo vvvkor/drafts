@@ -11,7 +11,7 @@
     <!--script defer src="asset/granum2024.js"></script-->
   </head>
   <body>
-    <div class="width-m center">
+    <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
     <h2>Typography</h2>
@@ -36,7 +36,7 @@
 <code>Code: <var>window</var> = <kbd class="text-y" onclick="this.textContent = window.innerWidth + ' x ' + window.innerHeight">click</kbd></code></pre>
 
       <details>
-      <summary>Headings</summary>
+      <summary class="icon-next">Headings</summary>
         <h1>Heading 1<b class="-target"><br>has a second line</b></h1>
         <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span> 
         <h2>Heading 2<b class="-target"><br>has a second line</b></h2>
@@ -108,7 +108,7 @@
       
       <h2>Inputs</h2>
       
-      </p>
+      <div class="mar">
         Text
         <span class="pad bord shade rad serif">Pad</span>
         <button>Button</button>
@@ -116,7 +116,7 @@
         <button class="danger">Danger</button>
         <button class="danger bord">Border</button>
         <button disabled class="danger">Disabled</button>
-        Select <select><option value="1">1</option>v<option value="2">2</option></select>
+        Select <select><option value="1">1</option><option value="2">2</option></select>
         <input type="text" required class="validate" name="text">
         <input readonly>
         <input type="number">
@@ -129,9 +129,9 @@
         <input type="submit" value="Submit">
         Ok
         <br>
-        <input type="file">
-        <br>
-        <label><input type="file">Select file...</label>
+        <input type="file" class="dropzone wide">
+        <!--br>
+        <label><input type="file">Select file...</label-->
         <br>
         <textarea></textarea>
         <br>
@@ -144,7 +144,7 @@
         <label><input type="radio" name="radio" value="2"> Radio2</label>
         <input type="color">
         <input type="range">
-      </p>
+      </div>
       
       <h2>Lists</h2>
       
@@ -180,19 +180,34 @@
           <dd>2</dd>
       </dl>
       
-      <details>
-        <summary>Summary</summary>
-        Details
-        <details>
-          <summary>Sub-summary</summary>
-          Sub-details
-        </details>
+      <details class="hilite mar">
+        <summary class="icon-add hover">Summary</summary>
+        <div class="pad">
+          Details
+          <details>
+            <summary class="icon-folder">Sub</summary>
+            Sub-details
+            <ul><li>Sub-list</li></ul>
+          </details>
+        </div>
       </details>
+      
+      Before <details class="pop">
+        <summary class="icon-add hover">Popoup summary</summary>
+        <div class="pad -l">
+          Details.
+          <details>
+            <summary class="icon-folder">Sub</summary>
+            Sub-details. Long line of text. Long line of text. Long line of text. Long line of text.
+            <ul><li>Sub-list</li></ul>
+          </details>
+        </div>
+      </details> After
       
       <h2>Table</h2>
 
 <div class="roll">
-<table class="wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
+<table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
 	<caption>Sample table</caption>
 	<thead>
 		<tr><th><input name="boxes" type="checkbox" data-check=".box">&nbsp;
@@ -220,7 +235,7 @@
 			<td class="warning invert">0.6
       <td class="warning bg text">Mexico, New York</td>
 		<tr><td><input type="checkbox" class="box" name="box[]" value="sam">
-			<td>South America
+			<td>South<br>America
 			<td>17.8
 			<td>0.43
       <td>Sao Paulo, Buenos Aires</td>

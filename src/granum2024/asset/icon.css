@@ -1,3 +1,5 @@
+/* todo: all icons big, to scale down (to avoid parent overflow) */
+
 [class*="icon-"].empty > * {display:none;}
 [class*="icon-"]:not(:empty):not(.empty):before {margin-right:var(--icon-mar, .3em);}
 

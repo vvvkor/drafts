@@ -1,0 +1,2 @@
+.dropzone {padding:calc(3 * var(--gap));border:thick dashed var(--line);}
+/*.dropzone:hover {border-color:var(--outline-focus-visible);}*/

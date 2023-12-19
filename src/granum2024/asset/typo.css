@@ -1,76 +1,40 @@
-/* font */
+/* typography */
+input, select, textarea, button, table {font:inherit;}
 body, h1, h2, h3, h4, h5, h6, small {font-size:calc(1rem * var(--root-font-size, 1) * var(--fsz, 1));}
 body {--fsz:1;line-height:1.5;}
-  h1 {--fsz:calc(var(--font-coeff) * var(--font-coeff) * var(--font-coeff));}
-  h2 {--fsz:calc(var(--font-coeff) * var(--font-coeff));}
-  h3 {--fsz:var(--font-coeff);}
-  h4 {--fsz:1;}
-  h5, small {--fsz:calc(1 / var(--font-coeff));}
-  h6 {--fsz:calc(1 / var(--font-coeff) / var(--font-coeff));}
-  h1, h2, h3, h4, h5, h6{margin:calc(2 * var(--gap)) 0 var(--gap) 0;}
-  h1, h2 {line-height:1.3;}
-input, select, textarea, button, table {font:inherit;}
+h1 {--fsz:calc(var(--font-coeff) * var(--font-coeff) * var(--font-coeff));}
+h2 {--fsz:calc(var(--font-coeff) * var(--font-coeff));}
+h3 {--fsz:var(--font-coeff);}
+h4 {--fsz:1;}
+h5, small {--fsz:calc(1 / var(--font-coeff));}
+h6 {--fsz:calc(1 / var(--font-coeff) / var(--font-coeff));}
+h1, h2, h3, h4, h5, h6{margin:calc(2 * var(--gap)) 0 var(--gap) 0;}
+h1, h2 {line-height:1.3;}
 
-/* typography */
 .sans, body {font-family:var(--sans);}
 .serif {font-family:var(--serif);}
 .mono, pre, code, kbd, samp {font-family:var(--mono);font-size:90%;}
-  pre, code  {white-space:pre-wrap;}
-  pre {overflow:auto;max-height:80vh;}
-  pre code {}
-  code, kbd {padding:calc(.1 * var(--gap)) calc(.2 * var(--gap));}
-  pre code {font-size:100%;padding:0;border:none;border-radius:0;background:none;}
-/*.mar,*/ ul, ol, dl, blockquote, pre, hr, p, figure {margin:var(--gap) 0;}
-/*.pad,*/ fieldset, blockquote, pre {padding:calc(.5 * var(--gap)) var(--gap);}
-	legend {margin-left:var(--gap);}
-	legend {padding:0 calc(.25 * var(--gap));}
-/*.bord,*/ kbd, fieldset, hr {border:var(--bord);}
-  hr {border-width:thin 0 0 0;}
-.rad, code, kbd, pre, button, [type="submit"] {border-radius:var(--radius);}
-  abbr {border-bottom:thin dotted;text-decoration:none;}
-sub, sup {line-height:0em;}
+pre, code  {white-space:pre-wrap;}
+pre code {font-size:100%;}
+
+/* align */
+caption, figcaption {text-align:left;font-style:italic;}
+.l {text-align:left;}
+.c {text-align:center;}
+.r {text-align:right;}
+.mid, img.c, table.mid>*>tr>*, tr.mid>*, tr>.mid, .mid {vertical-align:middle;}
 
 /* image */
 main, img.fit, img.center {display:block;}
-  img.wide {width:100%;}
-  img.c {border-radius:50%;aspect-ratio:1;}
+img.c {border-radius:50%;aspect-ratio:1;}
 
 /* list */
 ul {list-style:disc outside;}
 ul, ol, dl {margin:var(--gap) 0;}
-ul, ol, dd {padding:0 0 0 var(--gap);}
+ul, ol, dd {padding:0 0 0 calc(1.5 * var(--gap));}
 details > :is(details, ul, ol, dl) {margin-left:var(--gap);}
-li, dt, dd {margin:calc(.25 * var(--gap)) 0;}
+/*li, dt, dd {margin:calc(.25 * var(--gap)) 0;}*/
 li ul, li ol {margin:calc(.5 * var(--gap)) 0;}
 dt {font-weight:bold;}
-ul.fit, ul.fit ul {list-style:none;}
+:is(ul, ol).fit, :is(ul, ol).fit :is(ul, ol) {list-style:none;}
 
-/* table */
-caption, figcaption {text-align:left;font-style:italic;}
-table.wide {width:100%;}
-table:not(.fit)>*>tr>* {padding:calc(.25 * var(--gap)) calc(.5 * var(--gap));}
-tr>* {vertical-align:top;background-clip:padding-box;}
-table.bord {border:none;}
-table.bord>*>tr>* {border:var(--bord);}
-table.line>*>tr>* {border-bottom:var(--bord);}
-  table.line>:last-child>tr:last-child>* {border-bottom:none;}
-table.mid>*>tr>*, tr.mid>*, tr>.mid, img.mid, img.c {vertical-align:middle;}
-table.c>*>tr>* {text-align:center;}
-.c1 td:nth-child(1) {text-align:center;}
-.c2 td:nth-child(2) {text-align:center;}
-.c3 td:nth-child(3) {text-align:center;}
-.c4 td:nth-child(4) {text-align:center;}
-.c5 td:nth-child(5) {text-align:center;}
-.c6 td:nth-child(6) {text-align:center;}
-.c7 td:nth-child(7) {text-align:center;}
-.c8 td:nth-child(8) {text-align:center;}
-.c9 td:nth-child(9) {text-align:center;}
-.r1 td:nth-child(1) {text-align:right;}
-.r2 td:nth-child(2) {text-align:right;}
-.r3 td:nth-child(3) {text-align:right;}
-.r4 td:nth-child(4) {text-align:right;}
-.r5 td:nth-child(5) {text-align:right;}
-.r6 td:nth-child(6) {text-align:right;}
-.r7 td:nth-child(7) {text-align:right;}
-.r8 td:nth-child(8) {text-align:right;}
-.r9 td:nth-child(9) {text-align:right;}
