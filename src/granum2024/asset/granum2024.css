@@ -4,7 +4,7 @@
 @import "space.css";
 @import "table.css";
 @import "color.css";
-@import "icon.css";
+@import "icon-path.css";
 @import "input.css";
 @import "custom-switch.css";
 @import "dropzone.css";
@@ -13,3 +13,7 @@
 @import "toggle.css";
 @import "badge.css";
 @import "table-fixed.css";
+
+/*
+@import "icon-bg.css";
+*/

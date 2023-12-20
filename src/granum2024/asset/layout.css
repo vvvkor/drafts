@@ -1,12 +1,21 @@
-.col, .row, .row>*, .container, .container>*, .stick {box-sizing:border-box;}
+.row, .row>*, .container, .container>*, .stick {box-sizing:border-box;}
 
 /* row */
+/* 
+  notes:
+  1. padding on flex items breaks ratios:
+     https://stackoverflow.com/questions/33145242/why-is-padding-expanding-a-flex-item
+  2. for valign center ul>li>a must be flex
+*/
 .row {--flow:row nowrap;--push:auto;display:flex;flex-flow:var(--flow);}
 .row.wrap, ul.row {--flow:row wrap;}
+  ul:where(.row), ul.row ul, ul.row li {list-style:none;margin:0;padding:0;}
+  ul.row a {padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;}
 .row.vert {--flow:column nowrap;--push:0;}
 .row.gap, [class*="grid-"].gap {gap:var(--gap);}
   .row:not(ul).mid {align-items:center;}
-  .row>.mid, ul.row>li>.mid:not(ul) {align-self:center;}
+  ul.row li {display:flex;}
+  ul.row.mid li a, ul.row li a.mid {display:flex;align-items:center;}
 .col-1, .stretch>* {flex:1;}
 .col-0 {flex:initial;}
 .col-2 {flex:2;}
@@ -36,7 +45,8 @@
 
 /* stick */
 @media screen {
-  .stick {position:sticky;top:0;z-index:35;background:var(--back);}
+  .stick {position:sticky;top:0;z-index:35;}
+  :where(.stick) {background:var(--back);}
   footer.stick {top:auto;bottom:0;z-index:30;}
   .row .stick{align-self:start;max-height:100vh;max-height:100dvh;}
 }

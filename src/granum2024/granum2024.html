@@ -9,8 +9,17 @@
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="asset/granum2024.css">
     <!--script defer src="asset/granum2024.js"></script-->
+    <script>
+      // demo icons
+      document.addEventListener('DOMContentLoaded', e => {
+        [...document.querySelectorAll('.icons [class*="icon-"]')].forEach(n => {
+          n.title = n.getAttribute('class').slice(5)
+          n.classList.add('pad', 'hover')
+        });
+      })
+    </script>
   </head>
-  <body>
+  <body class="diagonals">
     <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
@@ -57,6 +66,7 @@
         Text
         <a href="http://ya.ru/?x=3" class="icon-link">Link</a>
         <a href="" class="icon-time">Visited</a>
+        <a href="#status" class="icon-chart info">Status</a>
         <small class="icon-file note">Small</small>
       </p>
       <p>
@@ -97,7 +107,7 @@
         <span class="pad danger text bg">Text bg</span>
         <span class="pad danger bord bg">Border bg</span>
         <span class="pad danger text bg bord">Text bg border</span>
-        <span class="pad danger invert">Invert</span>
+        <span class="pad danger invert icon-pin">Invert</span>
       </p>
       <p>
         <span class="pad bord">Pad</span>
@@ -115,10 +125,10 @@
       <div class="mar">
         Text
         <span class="pad bord shade rad serif">Pad</span>
-        <button>Button</button>
-        <button class="bord">Border</button>
-        <button class="danger">Danger</button>
-        <button class="danger bord">Border</button>
+        <button class="icon-ok">Button</button>
+        <button class="bord icon-time">Border</button>
+        <button class="danger icon-delete">Danger</button>
+        <button class="danger bord icon-ban">Border</button>
         <button disabled class="danger">Disabled</button>
         Select <select><option value="1">1</option><option value="2">2</option></select>
         <input type="text" required class="validate" name="text">
@@ -167,7 +177,31 @@
       </details>
       
       <details class="mar">
-        <summary>Flex row</summary>
+        <summary>Flex row wrap</summary>
+        <div class="hilite pads stack">
+          <div class="row wrap -mid mar">
+            <div class="info bg col-3 stick">3 stick</div>
+            <div class="success bg col-2">2</div>
+            <div class="warning bg col-1">1</div>
+            <div class="danger bg col-0">Auto<br> width</div>
+          </div>
+          <div class="row -gap wrap mar">
+            <div class="note bg bord pad col-3">Three</div>
+            <div class="note bg bord pad col-2">Two</div>
+            <div class="note bg bord pad col-1">Fraction</div>
+            <div class="note bg bord pad col-0">Auto width</div>
+          </div>
+          <ul class="row wrap hilite hover mid mar">
+            <li><a href="#x">1</a></li>
+            <li><a href="#x" class="mid">2</a></li>
+            <li><a href="#x">3<br><b>3</b></a></li>
+            <li class="shift"><a href="#x"><span>Two<br><small>lines</small></span></a></li>
+          </ul>
+        </div>
+      </details>
+
+      <details class="mar">
+        <summary>Flex row nowrap</summary>
         <div class="row gap -mid -wrap stretch -vert -full -scroll  hilite pad">
           <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
           <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
@@ -300,6 +334,93 @@
 </table>
 </div>
 
+    <h2>Icons</h2>
+
+    <div class="icons">
+    <a class="icon-menu"></a>
+    <a class="icon-sort"></a>
+    <a class="icon-more"></a>
+    <a class="icon-grid"></a>
+    <a class="icon-home"></a>
+    <a class="icon-find"></a>
+    <a class="icon-config"></a>
+    <a class="icon-close"></a>
+    <a class="icon-user"></a>
+    <a class="icon-exit"></a>
+    <a class="icon-key"></a>
+    <a class="icon-lock"></a>
+    <a class="icon-edit"></a>
+    <a class="icon-add"></a>
+    <a class="icon-delete"></a>
+    <a class="icon-ok"></a>
+    <a class="icon-up"></a>
+    <a class="icon-down"></a>
+    <a class="icon-left"></a>
+    <a class="icon-right"></a>
+    <a class="icon-asc"></a>
+    <a class="icon-desc"></a>
+    <a class="icon-prev"></a>
+    <a class="icon-next"></a>
+    <a class="icon-upload"></a>
+    <a class="icon-download"></a>
+    <a class="icon-first"></a>
+    <a class="icon-last"></a>
+    <a class="icon-folder"></a>
+    <a class="icon-open"></a>
+    <a class="icon-file"></a>
+    <a class="icon-attach"></a>
+    <a class="icon-audio"></a>
+    <a class="icon-video"></a>
+    <a class="icon-image"></a>
+    <a class="icon-text"></a>
+    <a class="icon-tree"></a>
+    <a class="icon-list"></a>
+    <a class="icon-link"></a>
+    <a class="icon-chart"></a>
+    <a class="icon-no"></a>
+    <a class="icon-ban"></a>
+    <a class="icon-warning"></a>
+    <a class="icon-info"></a>
+    <a class="icon-share"></a>
+    <a class="icon-world"></a>
+    <a class="icon-flag"></a>
+    <a class="icon-pin"></a>
+    <a class="icon-date"></a>
+    <a class="icon-time"></a>
+    <a class="icon-refresh"></a>
+    <a class="icon-view"></a>
+    <a class="icon-card"></a>
+    <a class="icon-sum"></a>
+    <a class="icon-copy"></a>
+    <a class="icon-help"></a>
+    <a class="icon-phone"></a>
+    <a class="icon-mail"></a>
+    <a class="icon-chat"></a>
+    <a class="icon-send"></a>
+    <a class="icon-bookmark"></a>
+    <a class="icon-star"></a>
+    <a class="icon-heart"></a>
+    <a class="icon-tag"></a>
+    <a class="icon-expand"></a>
+    <a class="icon-collapse"></a>
+    <a class="icon-box"></a>
+    <a class="icon-columns"></a>
+    <a class="icon-storage"></a>
+    <a class="icon-settings"></a>
+    <a class="icon-power"></a>
+    <a class="icon-energy"></a>
+    <a class="icon-sound"></a>
+    <a class="icon-mic"></a>
+    <a class="icon-photo"></a>
+    <a class="icon-print"></a>
+    <a class="icon-play"></a>
+    <a class="icon-pause"></a>
+    <a class="icon-stop"></a>
+    <a class="icon-rec"></a>
+    <a class="icon-layers"></a>
+    <a class="icon-none"></a>
+    <a class="icon-unknown"></a>
+    </div>
       
     </div>
   </body>
