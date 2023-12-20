@@ -10,7 +10,7 @@
 .row {--flow:row nowrap;--push:auto;display:flex;flex-flow:var(--flow);}
 .row.wrap, ul.row {--flow:row wrap;}
   ul:where(.row), ul.row ul, ul.row li {list-style:none;margin:0;padding:0;}
-  ul.row a {padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;}
+  ul.row a {padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;width:100%;}
 .row.vert {--flow:column nowrap;--push:0;}
 .row.gap, [class*="grid-"].gap {gap:var(--gap);}
   .row:not(ul).mid {align-items:center;}
@@ -21,10 +21,6 @@
 .col-2 {flex:2;}
 .col-3 {flex:3;}
 .row .push+*, .row .shift {margin-left:var(--push);}
-
-@media (width < 50rem) {
-  .row.resp {--flow:column nowrap;--push:0;}
-}
 
 /* grid */
 [class*="grid-"] {--cell-width:16rem;display:grid;grid-template-columns:repeat(auto-fill, minmax(min(100%, var(--cell-width)), 1fr));}
@@ -48,5 +44,12 @@
   .stick {position:sticky;top:0;z-index:35;}
   :where(.stick) {background:var(--back);}
   footer.stick {top:auto;bottom:0;z-index:30;}
-  .row .stick{align-self:start;max-height:100vh;max-height:100dvh;}
+  .row:not(.vert) .stick{align-self:start;max-height:100vh;max-height:100dvh;}
+}
+
+ul.row.vert {width:var(--wid);}
+@media (width < 50rem) {
+  .row.resp {--flow:column nowrap;--push:0;}
+  .row.resp .stick {align-self:stretch;}
+  ul.row.resp {width:var(--wid);}
 }
