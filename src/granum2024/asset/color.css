@@ -9,7 +9,7 @@ body {color:var(--front);background-color:var(--back);}
 a:where([href]) {color:var(--link);}
 a:where([href]:visited) {color:var(--visited);}
 a:where([href]:hover) {color:var(--hover);}
-a:where([href]:active), details[open] > summary {color:var(--active);}
+a:where([href]:active), details[open] > summary, .act {color:var(--active);}
 
 .neutral {--ff:var(--front);--bb:var(--back);}
 .note    {--ff:#888;--bb:#eee;} /* todo: transparent bg */

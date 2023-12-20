@@ -1,4 +1,9 @@
-.row, .row>*, .container, .container>*, .stick {box-sizing:border-box;}
+.row, .row>*, .container, .stick {box-sizing:border-box;}
+
+/* containers */
+/* can not have <html> as container, because modals are centered inside container */
+/* do not use .modal and .drawer inside container (position and z-index issues) */
+.container {container: block / inline-size;/*position:relative;z-index:20;*/}
 
 /* row */
 /* 

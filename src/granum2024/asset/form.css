@@ -1,0 +1,15 @@
+.form {display:grid;gap:calc(.1 * var(--gap));grid-template-columns:1fr;justify-items:start;align-items:first baseline;flex-wrap:wrap;}
+.form > :is(label, a):not(:first-child) {margin-top:calc(.5 * var(--gap));}
+.form.just > :where(.span, :not(label, a)) {justify-self:stretch;}
+
+/*@media (width >= 500rem) {*/
+@container block (width >= 24em) {
+  .form.resp {gap:calc(.5 * var(--gap)) var(--gap);grid-template-columns:minmax(min-content, 1fr) 2fr;}
+  .form.resp > .span {grid-column-end:span 2;}
+  .form.resp > .just-l {justify-self:start;}
+  .form.resp > .just-c {justify-self:center;}
+  .form.resp > .just-r {justify-self:end;}
+  .form.resp > .just-s {justify-self:stretch;}
+  :where(.form.resp.near) > :is(label, a) {justify-self:end;}
+  .form.resp > * {margin-bottom:0;}
+}

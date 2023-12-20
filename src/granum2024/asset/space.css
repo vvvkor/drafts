@@ -1,6 +1,7 @@
 .fit {margin:0;border:none;padding:0;border-radius:0;}
-.scroll {overflow:auto;min-width:5em;min-height:5em;}
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
+.resize {resize:both;overflow:auto;}
+.scroll {overflow:auto;min-width:5em;min-height:5em;}
 
 pre {overflow:auto;max-height:80vh;}
 pre code {}
@@ -8,7 +9,7 @@ code, kbd {padding:calc(.1 * var(--gap)) calc(.2 * var(--gap));}
 pre code {padding:0;border:none;border-radius:0;}
 .mar, ul, ol, dl, blockquote, pre, hr, p, figure {margin:var(--gap) 0;}
 .pad, button, fieldset, blockquote, pre {padding:calc(.5 * var(--gap)) var(--gap);border:thin solid transparent;}
-legend {margin-left:var(--gap);}
+/*legend {margin-left:var(--gap);}*/
 legend {padding:0 calc(.25 * var(--gap));}
 /*.bord,*/ kbd, fieldset, hr {border:var(--bord);}
 hr {border-width:thin 0 0 0;}
@@ -17,9 +18,10 @@ abbr {border-bottom:thin dotted;text-decoration:none;}
 sub, sup {line-height:0em;}
 
 .wide {width:100%;}
-.wide-s {max-width:30rem;}
+.wide-s {max-width:32rem;}
 .wide-m {max-width:50rem;}
 .wide-l {max-width:80rem;}
+[class*="wide"] {box-sizing:border-box;}
 
 :is(a, span):is(.pad, .pads) {display:inline-block;}
 .center {margin-inline:auto;}

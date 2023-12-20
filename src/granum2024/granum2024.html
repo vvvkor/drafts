@@ -120,6 +120,60 @@
         <button class="danger">Danger</button>
       </p>
       
+      <h2>Form</h2>
+      
+      <div class="container resize  hilite pad rad wide-s center">
+      <form class="form resp near just">
+        <label for="name">Name</label>
+          <input id="name" type="text">
+        <label for="age">Age</label>
+          <input id="age" type="number">
+        <label for="note">Note</label>
+          <textarea id="note"></textarea>
+        <label class="just-c" for="sel">Select</label>
+          <select id="sel"><option value="1">1</option><option value="2">2</option></select>
+        <br>
+          <fieldset class="wide rad">
+            <legend>Boxes</legend>
+            <div><input id="box" type="checkbox"> <label for="box">Box</label></div>
+            <div><input id="switch" type="checkbox" class="switch"> <label for="switch">Box</label></div>
+            <div><input id="radio1" type="radio" name="rad" value="1"> <label for="radio1">Box</label></div>
+            <div><input id="radio2" type="radio" name="rad" value="2"> <label for="radio2">Box</label></div>
+          </fieldset>
+        <label for="date">Date</label>
+          <input id="date" type="date">
+        <label for="time">Time</label>
+          <input id="time" type="time">
+        <label for="datetime">Datetime</label>
+          <input id="datetime" type="datetime-local">
+        <label for="file">File</label>
+          <input id="file" type="file" class="dropzone wide">
+        <label for="color">Color</label>
+          <input id="color" type="color">
+        <label for="range">Range</label>
+          <input id="range" type="range">
+        <a x-href="#edit" tabindex="-1" onclick="edit.focus();return false;">Edit</a>
+          <div id="edit" contenteditable class="wide bg"></div>
+        <fieldset class="span wide">
+          <legend>Subitems</legend>
+          <div class="form resp just">
+            <label for="pass">Password</label>
+              <input id="pass" type="password">
+            <button class="span -wide">OK</button>
+          </div>
+        </fieldset>
+        <br>
+          <button class="just-l">Left</button>
+        <br>
+          <button class="just-c">Center</button>
+        <button class="span">Big</button>
+        <div class="span just-c">
+          <button>Centered span</button>
+          Text
+        </div>
+      </form>
+      </div>
+      
       <h2>Inputs</h2>
       
       <div class="mar">
@@ -149,7 +203,7 @@
         <br>
         <textarea></textarea>
         <br>
-        <div contenteditable></div>
+        <div contenteditable class="bg"></div>
         <br>
         <label><input type="checkbox" id="invert"> Invert</label>
         <label><input type="checkbox" required> Box</label>
@@ -199,7 +253,7 @@
           </div>
           <ul class="row wrap hilite hover mid mar resp">
             <li><a href="#x">1</a></li>
-            <li><a href="#x" class="mid">2</a></li>
+            <li><a href="#x" class="mid -act">2</a></li>
             <li><a href="#x">3<br><b>3</b></a></li>
             <li class="shift"><a href="#x"><span>Two<br><small>lines</small></span></a></li>
           </ul>
