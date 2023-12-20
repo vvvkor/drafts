@@ -3,13 +3,13 @@
 ## Todo
 
 - .check
-- @print
-- .check
-- toggle.js
+- toggle.js (dropdown, hint; modal, drawer, gallery, accordion; tabs)
 - #x1:checked
+- @print
+- .screenX .ifX (responsive)
 - .scrollbar
 - .h1 .small
-- .tabg .badge .circle
+- .tag .badge .circle
 
 ## Typography
 
