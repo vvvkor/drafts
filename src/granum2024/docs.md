@@ -8,6 +8,8 @@
 - @screen
 - .screenX .ifX (responsive) = .hide-s/m/l
 - .tag .badge .circle
+- mobile: footer.stick inside container?
+- mobile: stretchdate inputs?
 + #x1:checked
 + @print
 + .scrollbar
