@@ -6,11 +6,16 @@ select::-moz-focus-inner, button::-moz-focus-inner, [type="submit"]::-moz-focus-
 
 /* inputs */
 
-input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"], [type="file"]), select, textarea, [contenteditable]/*, label:has([type="file"])*/ {border:thin solid var(--line-input);border-radius:calc(.5 * var(--radius));padding:calc(.5 * var(--gap));/*line-height:1.5;min-height:1.5em;*/}
+.input, input:not([type="checkbox"], [type="radio"], [type="color"], [type="range"], [type="file"]), select, textarea, [contenteditable]/*, label:has([type="file"])*/ {border:thin solid var(--line-input);border-radius:calc(.5 * var(--radius));padding:calc(.5 * var(--gap));background-color:var(--back-default);/*line-height:1.5;min-height:1.5em;*/}
 button {border-radius:var(--radius);}
 button:not([disabled]) {cursor:pointer;}
 button {min-width:8em;}
 /*input[type="submit"] {background-color:var(--line);}*/
+
+/* custom input */
+
+.input {display:inline-flex;width:max-content;padding:0 calc(.5 * var(--gap));align-items:center;}
+.input input {flex:1;margin:0;border:none;outline:none !important;}
 
 
 /* fix inconsistent height of select and dates */

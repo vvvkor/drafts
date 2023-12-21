@@ -1,12 +1,12 @@
 /* typography */
 input, select, textarea, button, table {font:inherit;}
-body, h1, h2, h3, h4, h5, h6, small {font-size:calc(1rem * var(--root-font-size, 1) * var(--fsz, 1));}
+body, h1, h2, h3, h4, h5, h6, small, .small {font-size:calc(1rem * var(--root-font-size, 1) * var(--fsz, 1));}
 body {--fsz:1;line-height:1.5;}
 h1 {--fsz:calc(var(--font-coeff) * var(--font-coeff) * var(--font-coeff));}
 h2 {--fsz:calc(var(--font-coeff) * var(--font-coeff));}
 h3 {--fsz:var(--font-coeff);}
 h4 {--fsz:1;}
-h5, small {--fsz:calc(1 / var(--font-coeff));}
+h5, small, .small {--fsz:calc(1 / var(--font-coeff));}
 h6 {--fsz:calc(1 / var(--font-coeff) / var(--font-coeff));}
 h1, h2, h3, h4, h5, h6{margin:calc(2 * var(--gap)) 0 var(--gap) 0;}
 h1, h2 {line-height:1.3;}

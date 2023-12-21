@@ -123,37 +123,81 @@
       <h2>Form</h2>
       
       <div class="container resize  hilite pad rad wide-s center">
-      <form class="form resp near just">
+      <form class="form resp just dock">
+      
         <label for="name">Name</label>
-          <input id="name" type="text">
-        <label for="age">Age</label>
-          <input id="age" type="number">
-        <label for="note">Note</label>
-          <textarea id="note"></textarea>
-        <label class="just-c" for="sel">Select</label>
-          <select id="sel"><option value="1">1</option><option value="2">2</option></select>
+        <input id="name" type="text">
+
         <br>
-          <fieldset class="wide rad">
-            <legend>Boxes</legend>
-            <div><input id="box" type="checkbox"> <label for="box">Box</label></div>
-            <div><input id="switch" type="checkbox" class="switch"> <label for="switch">Box</label></div>
-            <div><input id="radio1" type="radio" name="rad" value="1"> <label for="radio1">Box</label></div>
-            <div><input id="radio2" type="radio" name="rad" value="2"> <label for="radio2">Box</label></div>
-          </fieldset>
+        <div><label for="age">Age</label><small class="tip">Info<br>text</small></div>
+        <div>
+          <input id="age" type="number" required>
+          <small class="tip">
+            Tip
+            <span class="danger icon-ban">Value required</span>
+            <span class="success icon-ok">Correct value</span>
+          </small>
+        </div>
+        
+        <br>
+        <div><label for="custom">Custom</label><small class="tip">Info</small></div>
+        <div>
+          <span class="input"><b>#</b><input id="custom" type="text" required><a class="icon-key" onclick="this.previousSibling.value = ''"></a></span>
+          <div class="tip small">
+            Tip
+            <div class="danger icon-ban">Value required</div>
+            <div class="success icon-ok">Correct value</div>
+          </div>
+        </div>
+
+        <br>
+        <label for="note">Note</label>
+        <textarea id="note"></textarea>
+
+        <br>
+        <label class="just-c" for="sel">Select</label>
+        <select id="sel"><option value="1">1</option><option value="2">2</option></select>
+        
+        <br>
+        <!--wbr-->
+        <fieldset class="shift -wide rad">
+          <legend>Boxes</legend>
+          <div><input id="box" type="checkbox"> <label for="box">Box</label></div>
+          <div><input id="switch" type="checkbox" class="switch"> <label for="switch">Box</label></div>
+          <div><input id="radio1" type="radio" name="rad" value="1"> <label for="radio1">Box</label></div>
+          <div><input id="radio2" type="radio" name="rad" value="2"> <label for="radio2">Box</label></div>
+        </fieldset>
+        
+        <br>
         <label for="date">Date</label>
-          <input id="date" type="date">
+        <input id="date" type="date">
+
+        <br>
         <label for="time">Time</label>
-          <input id="time" type="time">
+        <input id="time" type="time">
+
+        <br>
         <label for="datetime">Datetime</label>
-          <input id="datetime" type="datetime-local">
+        <input id="datetime" type="datetime-local">
+
+        <br>
         <label for="file">File</label>
-          <input id="file" type="file" class="dropzone wide">
+        <input id="file" type="file" class="dropzone wide">
+
+        <br>
         <label for="color">Color</label>
-          <input id="color" type="color">
+        <input id="color" type="color">
+
+        <br>
         <label for="range">Range</label>
-          <input id="range" type="range">
+        <input id="range" type="range">
+
+        <br>
         <a x-href="#edit" tabindex="-1" onclick="edit.focus();return false;">Edit</a>
-          <div id="edit" contenteditable class="wide bg"></div>
+        <div id="edit" contenteditable class="wide bg"></div>
+
+        <br>
+        <wbr>
         <fieldset class="span wide">
           <legend>Subitems</legend>
           <div class="form resp just">
@@ -162,10 +206,16 @@
             <button class="span -wide">OK</button>
           </div>
         </fieldset>
+        
         <br>
-          <button class="just-l">Left</button>
+        <wbr>
+        <button class="just-l">Left</button>
+        
         <br>
-          <button class="just-c">Center</button>
+        <wbr>
+        <button class="just-c">Center</button>
+        
+        <br>
         <button class="span">Big</button>
         <div class="span just-c">
           <button>Centered span</button>
@@ -230,7 +280,7 @@
         </div>
       </details>
       
-      <details class="mar" open>
+      <details class="mar">
         <summary>Flex row wrap</summary>
         <div class="hilite pads stack">
           <div class="row wrap mar">

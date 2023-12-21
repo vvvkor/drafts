@@ -2,18 +2,19 @@
 
 ## Todo
 
-- .check
-- toggle.js (dropdown, hint; modal, drawer, gallery, accordion; tabs)
+- toggle.js (dropdown, hint; modal, drawer, gallery, accordion, tabs)
+- .icon-spin
 - #x1:checked
 - @print
 - .screenX .ifX (responsive)
 - .scrollbar
-- .h1 .small
 - .tag .badge .circle
+= .h1
+= .check
 
 ## Typography
 
-.sans .serif .mono .l .r .c .mid
+.sans .serif .mono .l .r .c .mid .small
 img.c.fit
 table.wide.mid.fit.line.bord.c.c#.r#
 ul.fit
@@ -34,10 +35,13 @@ body.invert
 
 ## Form
 
-.form.resp.just.near > .span.just-l/c/r/s
+.form.resp.just.dock > .shift.span.just-l/c/r/s
 
 ## Inputs
 
+.validate
+.input
+.tip
 .switch
 .dropzone
 

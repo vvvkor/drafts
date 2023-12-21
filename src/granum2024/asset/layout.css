@@ -1,3 +1,4 @@
+.hide {display:none !important;}
 .row, .row>*, .container, .stick {box-sizing:border-box;}
 
 /* containers */
