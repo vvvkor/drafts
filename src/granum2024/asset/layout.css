@@ -1,4 +1,16 @@
 .hide {display:none !important;}
+
+/* todo: s/m/l sizes?  */
+@media (width >= 50rem) {
+  .show-l {display:initial !important;}
+  .hide-l {display:none !important;}
+}
+@container block (width >= 50rem) {
+  .show-l {display:initial !important;}
+  .hide-l {display:none !important;}
+}
+
+
 .row, .row>*, .container, .stick {box-sizing:border-box;}
 
 /* containers */

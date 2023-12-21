@@ -4,11 +4,13 @@
 
 - toggle.js (dropdown, hint; modal, drawer, gallery, accordion, tabs)
 - .icon-spin
-- #x1:checked
-- @print
-- .screenX .ifX (responsive)
-- .scrollbar
+- icon @print
+- @screen
+- .screenX .ifX (responsive) = .hide-s/m/l
 - .tag .badge .circle
++ #x1:checked
++ @print
++ .scrollbar
 = .h1
 = .check
 
@@ -22,7 +24,7 @@ ul.fit
 
 ## Space
 
-.fit .mar mars .pad .pads .bord .rad .full .scroll .resize
+.fit .mar mars .pad .pads .bord .rad .full .resize .scroll .scrollbar
 .wide .wide-s/m/l .center
 
 ## Colors
@@ -66,6 +68,7 @@ body.invert
 ## Toggle
 
 details.pop summary.icon-x div.l
+#x1:checked .x1
 
 ## Icons
 

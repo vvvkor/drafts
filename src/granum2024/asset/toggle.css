@@ -33,6 +33,23 @@ details.pop > div.l {left:auto;right:0;}
 
 :where(details.pop) > div, :where(.modal, .drawer):target {background:var(--back);box-shadow:var(--shade);}
 
+/* switches */
+html:has(#x1:not(:checked)) .x1,
+html:has(#x2:not(:checked)) .x2,
+html:has(#x3:not(:checked)) .x3,
+html:has(#x4:not(:checked)) .x4,
+html:has(#x5:not(:checked)) .x5,
+html:has(#x6:not(:checked)) .x6,
+html:has(#x7:not(:checked)) .x7,
+html:has(#x8:not(:checked)) .x8,
+html:has(#x9:not(:checked)) .x9
+{display:none;}
+
+/* animations */
+.modal:not(.full)/*, ul.row ul*/ {animation:appear .3s;}
+@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
+
+
 /*
 summary[class*="icon-"] {--fsz:.6;}
 summary[class*="icon-"]:before {vertical-align:baseline;}
