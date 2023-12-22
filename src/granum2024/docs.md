@@ -3,13 +3,13 @@
 ## Todo
 
 - toggle.js (dropdown, hint; modal, drawer, gallery, accordion, tabs)
-- .icon-spin
-- icon @print
 - @screen
 - .screenX .ifX (responsive) = .hide-s/m/l
 - .tag .badge .circle
-- mobile: footer.stick inside container?
-- mobile: stretchdate inputs?
+- mobile: stretch date inputs?
++ mobile: footer.stick inside container? [inside scrollable]
+= icon @print [enable bg grapgics]
++ .icon-spin
 + #x1:checked
 + @print
 + .scrollbar
@@ -75,3 +75,5 @@ details.pop summary.icon-x div.l
 ## Icons
 
 .icon-x.empty:empty
+.icon-menu/close, -next/desc, -folde/open, -add/no
+.icon-spin
