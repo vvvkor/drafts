@@ -2,9 +2,10 @@
 
 ## Todo
 
-- toggle.js (dropdown, hint; modal, drawer, gallery, accordion, tabs)
+- minimal.css
+- toggle.js (dropdown, hint; +target, +accordion, +modal, +drawer, gallery, tabs)
 - @screen
-- .screenX .ifX (responsive) = .hide-s/m/l
+- .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
 - .tag .badge .circle
 - mobile: stretch date inputs?
 + mobile: footer.stick inside container? [inside scrollable]
@@ -70,10 +71,14 @@ body.invert
 ## Toggle
 
 details.pop summary.icon-x div.l
+.target
+.modal.full
+.drawer.shift
+.backdrop, body>.backdrop
 #x1:checked .x1
 
 ## Icons
 
 .icon-x.empty:empty
-.icon-menu/close, -next/desc, -folde/open, -add/no
+.icon-menu/close, -next/desc, -folder/open, -add/no, -expand/collapse
 .icon-spin

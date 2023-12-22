@@ -3,15 +3,14 @@
 - hint
 - dropdown
 + toggle - details
-- accordion
++ accordion - .target nested
 + tree - details nested
 - tabs
-- modal
++ modal
++ drawer
 - gallery
-- drawer
 */
 
-.modal, .drawer {box-sizing:border-box;}
 
 .check {}
 .hint {}
@@ -20,18 +19,48 @@ ul.row {} /* dropdown */
 .tabs {}
 .gallery {}
 
+/* common */
+:where(details.pop) > div, :where(.modal, .drawer):is(:target, :has(:target)) {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
+:is(.modal, .target):where(:not(:target, :has(:target))) {display:none;}
+
+/* target */
+.target {scroll-margin-top:3em;}
+
+/* details */
 summary[class*="icon-"] {display:block;overflow:hidden;}
 
+/* details popup */
 details.pop {position:relative;}
 details.pop, details.pop > summary {display:inline-block;}
 details.pop > summary {vertical-align:bottom;}
 details.pop > div {position:absolute;left:0;top:100%;z-index:50;width:max-content;min-width:5em;max-width:var(--wid);}
 details.pop > div.l {left:auto;right:0;}
 
-.drawer {z-index:60;}
-.modal {z-index:100;}
+/* modal - do not nest!*/
+.modal {z-index:100;position:fixed;overflow:auto;}
+.modal:not(.full) {min-height:10rem;max-height:90dvh;min-width:18rem;max-width:90vw;inset:50% auto auto 50%;transform:translate(-50%,-50%);}
+.modal.full {inset:0;/*calc(5 * var(--gap));*/}
+body:has(.modal.full:target, .modal.full :target) {overflow:hidden;}
+/* animations */
+.modal:not(.full)/*, ul.row ul*/ {animation:appear .3s;}
+@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
 
-:where(details.pop) > div, :where(.modal, .drawer):target {background:var(--back);box-shadow:var(--shade);}
+/* drawer */
+.drawer {--wdr:20em;--wdr1:calc(1em + var(--wdr));position:fixed;inset:0 auto 0 calc(0em - var(--wdr1));width:min(var(--wdr), 80%);z-index:80;transition:left .2s, right .2s;overflow:auto;}
+.drawer:is(:target, :has(:target)) {left:0;}
+.drawer.shift {inset:0 calc(0px - var(--wdr1)) 0 auto;}
+.drawer.shift:is(:target, :has(:target)) {right:0;}
+
+/* backdrop */
+:where(.backdrop) {
+  --backdrop: #6669;/*#0006;/*#0002;*/
+  display:none;position:fixed;inset:-5em;z-index:50;cursor:default;outline:none;
+  background:var(--backdrop);opacity:.5;
+  /*backdrop-filter:blur(.1em) contrast(.7) brightness(.9);*/
+}
+:where(:is(.modal, .drawer):is(:target, :has(:target))) + .backdrop, 
+body:has(:is(.modal, .drawer):target, :is(.modal, .drawer) :target) > .backdrop
+  {display:block;}
 
 /* switches */
 html:has(#x1:not(:checked)) .x1,
@@ -44,10 +73,6 @@ html:has(#x7:not(:checked)) .x7,
 html:has(#x8:not(:checked)) .x8,
 html:has(#x9:not(:checked)) .x9
 {display:none;}
-
-/* animations */
-.modal:not(.full)/*, ul.row ul*/ {animation:appear .3s;}
-@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
 
 
 /*
