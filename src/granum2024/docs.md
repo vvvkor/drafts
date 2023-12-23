@@ -3,7 +3,11 @@
 ## Todo
 
 - minimal.css
-- toggle.js (dropdown, hint; +target, +accordion, +modal, +drawer, gallery, tabs)
+- compatible.css (no :has)
+- validate: border
+- status color vars
+- vars by files
+- toggle.js (dropdown, hint, pop:hover; tree-nest details +target, +accordion, +modal, +drawer, gallery, tabs)
 - @screen
 - .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
 - .tag .badge .circle
