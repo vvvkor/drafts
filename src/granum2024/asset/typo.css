@@ -1,3 +1,11 @@
+:root {
+  --root-font-size: 1.2;
+  --font-coeff: 1.25; /* headings multiplier*/
+  --serif: "PT Serif", Georgia, serif;
+  --sans: "PT Sans", Roboto, "Segoe UI", sans-serif;
+  --mono: "PT Mono", monospace;
+}
+
 /* typography */
 input, select, textarea, button, table {font:inherit;}
 body, h1, h2, h3, h4, h5, h6, small, .small {font-size:calc(1rem * var(--root-font-size, 1) * var(--fsz, 1));}

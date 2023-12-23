@@ -1,8 +1,15 @@
+:root {
+  --input-off: #ccc;
+  --input-on: #06f;
+  --input-dot: #fff;
+  --dot: .5em;
+}
+
 /* radio, checkbox */
-:is([type="checkbox"], [type="radio"]) {--input-color:var(--input-off);--dot:.5em;--pos:0em;appearance:none;display:inline-block;height:1.2em;width:1.2em;background-color:var(--input-color);border-radius:1em;vertical-align:-15%;position:relative;transition:background-color .2s;line-height:1.2;margin:0 .2em;border:thin solid transparent;}
+:is([type="checkbox"], [type="radio"]) {--input-color:var(--input-off);--pos:0em;appearance:none;display:inline-block;height:1.2em;width:1.2em;background-color:var(--input-color);border-radius:1em;vertical-align:-15%;position:relative;transition:background-color .2s;line-height:1.2;margin:0 .2em;border:thin solid transparent;}
 :is([type="checkbox"], [type="radio"]):checked {--input-color:var(--input-on);}
 :is([type="checkbox"], [type="radio"]):before {content:"";display:inline-block;width:var(--dot);height:var(--dot);background-color:var(--input-dot);border-radius:1em;transition:translate .2s;position:absolute;top:50%;left:50%;translate:calc(var(--pos) - 50%) -50%;}
-:is([type="checkbox"]:not(.switch), [type="radio"]):not(:checked) {border-color:var(--line-input);background-color:var(--back);}
+:is([type="checkbox"]:not(.switch), [type="radio"]):not(:checked) {border-color:var(--line-input, #999);background-color:var(--back-default);}
 /* box */
 [type="checkbox"]:not(.switch) {border-radius:.25em;}
 [type="checkbox"]:not(.switch):before {border-radius:0;background:none;border:0 solid var(--input-dot);border-width:0 0 .2em .2em;height:calc(.5 * var(--dot));rotate:-45deg;translate:calc(var(--pos) - 55%) -75%;}

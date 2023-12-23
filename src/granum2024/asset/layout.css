@@ -65,9 +65,9 @@
   .row:not(.vert) .stick{align-self:start;max-height:100vh;max-height:100dvh;}
 }
 
-ul.row.vert {width:var(--wid);}
+ul.row.vert {width:var(--list-width);}
 @media (width < 50rem) {
   .row.resp {--flow:column nowrap;--push:0;}
   .row.resp .stick {align-self:stretch;}
-  ul.row.resp {width:var(--wid);}
+  ul.row.resp {width:var(--list-width);}
 }

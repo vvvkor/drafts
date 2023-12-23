@@ -1,3 +1,23 @@
+:root {
+  --front-note: #888;
+  --front-info: #08a;
+  --front-success: #181;
+  --front-warning: #d70;
+  --front-danger: #c00;
+  --back-note: #eee;
+  --back-info: #bef;
+  --back-success: #beb;
+  --back-warning: #fd9;
+  --back-danger: #fbb;
+  /* todo: transparent bg? */
+
+  --outline-hover: #ddd8;
+  --outline-focus: #ccc8;
+  --outline-focus-visible: #9cfa;
+  --outline-valid: #3c36;
+  --outline-invalid: #f666;
+}
+
 body {color:var(--front);background-color:var(--back);}
 .diagonals {background:repeating-linear-gradient(135deg, #9990, #9990 1em, #9991 1em, #9991 2em);}
 
@@ -12,11 +32,11 @@ a:where([href]:hover) {color:var(--hover);}
 a:where([href]:active), details[open] > summary, .act {color:var(--active);}
 
 .neutral {--ff:var(--front);--bb:var(--back);}
-.note    {--ff:#888;--bb:#eee;} /* todo: transparent bg */
-.info    {--ff:#08a;--bb:#bef;}
-.success {--ff:#181;--bb:#beb;}
-.warning {--ff:#d70;--bb:#fd9;}
-.danger  {--ff:#c00;--bb:#fbb;}
+.note    {--ff:var(--front-note);--bb:var(--back-note);} /* todo: transparent bg */
+.info    {--ff:var(--front-info);--bb:var(--back-info);}
+.success {--ff:var(--front-success);--bb:var(--back-success);}
+.warning {--ff:var(--front-warning);--bb:var(--back-warning);}
+.danger  {--ff:var(--front-danger);--bb:var(--back-danger);}
 
 .text , :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg) {color:var(--ff, var(--front));}
 .bg {background-color:var(--bb, var(--back));}
@@ -42,7 +62,8 @@ button:disabled {opacity:.5;}
 :where(input, select, textarea, button, [contenteditable]):focus {outline-color:var(--outline-focus);}
 :where(a, summary, input, select, textarea, button, [contenteditable]):focus-visible, :where(.input):focus-within {outline-color:var(--outline-focus-visible);}
 .validate:valid {outline-color:var(--outline-valid);}
-:invalid {outline-color:var(--outline-invalid);}
+:invalid, .input:has(:invalid) {border-color:var(--front-danger);}
+:invalid:focus, .input:has(:invalid):focus-within {outline-color:var(--outline-invalid);}
 
 
 /* smart dark mode */
