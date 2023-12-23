@@ -4,7 +4,7 @@
 
 - minimal.css
 - compatible.css (no :has)
-- validate: border
+- validate: border & .input
 - status color vars
 - vars by files
 - toggle.js (dropdown, hint, pop:hover; tree-nest details +target, +accordion, +modal, +drawer, gallery, tabs)
