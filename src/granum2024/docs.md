@@ -4,17 +4,17 @@
 
 - minimal.css
 - compatible.css (no :has)
+=? container: overflow?
+- .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
+- .resp-X, .hide/show-X, @container
+- toggle.js (dropdown, hint, pop:hover#target; +tree-nest-details +target, +accordion, +modal, +drawer, gallery, tabs)
+- .tag .badge .circle
+- @screen
+-? mobile: stretch date inputs?
++ .input details.pop
 + validate: border & .input
 + status color vars
-- vars by files: inverted
--? container: overflow?, .resp-X, .hide/show-X
-- .input .pop
-- toggle.js (dropdown, hint, pop:hover#target; tree-nest details +target, +accordion, +modal, +drawer, gallery, tabs)
-- tree: nested details example
-- @screen
-- .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
-- .tag .badge .circle
-- mobile: stretch date inputs?
++ vars by files; inverted
 =? .invert {--link:link-invert}
 + mobile: footer.stick inside container? [inside scrollable]
 = icon @print [enable bg grapgics]

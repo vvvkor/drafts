@@ -1,4 +1,8 @@
 :root {
+  --front-invert: #fff;
+  --back-invert: #666;
+  --link-invert: #fe3;
+
   --front-note: #888;
   --front-info: #08a;
   --front-success: #181;
@@ -53,9 +57,6 @@ body a.invert {color:var(--link-invert);}
 button:not(.bord) {background-color:var(--ff, var(--link));}
 button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
 button:disabled {opacity:.5;}
-
-.hover{}
-
 
 .input, input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}

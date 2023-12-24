@@ -48,7 +48,8 @@ img.c {border-radius:50%;aspect-ratio:1;}
 ul {list-style:disc outside;}
 ul, ol, dl {margin:var(--gap) 0;}
 ul, ol, dd {padding:0 0 0 calc(1.5 * var(--gap));}
-details > :is(details, ul, ol, dl) {margin-left:var(--gap);}
+details > :is(details, ul, ol, dl) {/*margin-left:var(--gap);*/margin:0 0 0 var(--gap);}
+details > :is(ul, ol, dl) {padding-left:var(--gap);}
 /*li, dt, dd {margin:calc(.25 * var(--gap)) 0;}*/
 li ul, li ol {margin:calc(.5 * var(--gap)) 0;}
 dt {font-weight:bold;}

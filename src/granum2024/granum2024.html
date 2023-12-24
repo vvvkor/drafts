@@ -88,6 +88,24 @@
       </details> After
       </div>
       
+      <div class="mar">
+        <details><summary class="hover icon-folder">Tree item 1</summary>
+          <details><summary class="hover">1.1</summary>
+            <ul><li>1.1.1</li><li>1.1.2</li></ul>
+          </details>
+          <details><summary class="hover">1.2</summary>
+            <ul><li>1.2.1</li><li>1.2.2</li></ul>
+          </details>
+        </details>
+        <details>
+          <summary class="hover icon-folder">Tree item 2</summary>
+          <details>
+            <summary class="hover">2.1</summary>
+            <ul><li>2.1.1</li><li>2.1.2</li></ul>
+          </details>
+        </details>
+      </div>
+      
       <a href="#trg-sub">Target sub</a>
       <a href="#trg" class="icon-next">Target</a>
       <div id="trg" class="target mar pad hilite">
@@ -272,7 +290,12 @@
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
         <div>
-          <span class="input"><b>#</b><input id="custom" type="text" required><a href="#x" class="icon-key" onclick="this.previousSibling.value = ''"></a></span>
+          <span class="input">
+            <b>#</b>
+            <input id="custom" type="text" required>
+            <a href="#x" class="icon-key" onclick="this.previousSibling.value = ''"></a>
+            <details class="pop"><summary class="icon-desc"></summary><div class="pad l">Popup</div></details>
+          </span>
           <div class="tip small">
             Tip
             <div class="danger icon-ban">Value required</div>
