@@ -4,14 +4,18 @@
 
 - minimal.css
 - compatible.css (no :has)
-- validate: border & .input
-- status color vars
-- vars by files
-- toggle.js (dropdown, hint, pop:hover; tree-nest details +target, +accordion, +modal, +drawer, gallery, tabs)
++ validate: border & .input
++ status color vars
+- vars by files: inverted
+-? container: overflow?, .resp-X, .hide/show-X
+- .input .pop
+- toggle.js (dropdown, hint, pop:hover#target; tree-nest details +target, +accordion, +modal, +drawer, gallery, tabs)
+- tree: nested details example
 - @screen
 - .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
 - .tag .badge .circle
 - mobile: stretch date inputs?
+=? .invert {--link:link-invert}
 + mobile: footer.stick inside container? [inside scrollable]
 = icon @print [enable bg grapgics]
 + .icon-spin
