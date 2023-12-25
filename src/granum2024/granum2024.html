@@ -23,6 +23,22 @@
     <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
+    <h2>Display</h2>
+    
+    <div class="container resize mar pad hilite rad">
+      Screen:
+      <b class="hide show-s">S</b>
+      <b class="hide show-m">M</b>
+      <b class="hide show-l">L</b>
+      <br>
+      Container:
+      <b class="hide show-cs">S</b>
+      <b class="hide show-cm">M</b>
+      <b class="hide show-cl">L</b>
+    </div>
+    <a href="#target-resp" class="icon-menu">Responsive target</a>
+    <div id="target-resp" class="target show-s  pad hilite rad">Shown on target and on small screen <a href="#close" class="icon-close">Close</a></div>
+    
     <h2>Typography</h2>
     
     <p>
@@ -270,7 +286,7 @@
       
       <h2>Form</h2>
       
-      <div class="container resize scrollbar  hilite pad rad wide-s center">
+      <div class="container resize scrollbar  hilite pad rad -wide-s center">
       <form class="form resp just dock">
       
         <label for="name">Name</label>
@@ -293,7 +309,7 @@
           <span class="input">
             <b>#</b>
             <input id="custom" type="text" required>
-            <a href="#x" class="icon-key" onclick="this.previousSibling.value = ''"></a>
+            <a href="#x" class="icon-key" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop"><summary class="icon-desc"></summary><div class="pad l">Popup</div></details>
           </span>
           <div class="tip small">
@@ -433,7 +449,7 @@
         </div>
       </details>
       
-      <details class="mar">
+      <details class="mar container resize" open>
         <summary>Flex row wrap</summary>
         <div class="hilite pads stack">
           <div class="row wrap mar">
@@ -442,7 +458,7 @@
             <div class="warning bg col-1">1</div>
             <div class="danger bg col-0">Auto</div>
           </div>
-          <div class="row wrap -mid mar resp">
+          <div class="row wrap -mid mar resp-s">
             <div class="info bg col-3 stick">3 stick</div>
             <div class="success bg col-2">2</div>
             <div class="warning bg col-1">1</div>
@@ -454,7 +470,7 @@
             <div class="note bg bord pad col-1">Fraction</div>
             <div class="note bg bord pad col-0">Auto width</div>
           </div>
-          <ul class="row wrap hilite hover mid mar resp">
+          <ul class="row wrap hilite hover mid mar resp-s">
             <li><a href="#x">1</a></li>
             <li><a href="#x" class="mid -act">2</a></li>
             <li><a href="#x">3<br><b>3</b></a></li>
@@ -462,6 +478,60 @@
           </ul>
         </div>
       </details>
+
+          <ul class="row hilite mid hover">
+          <!--ul class="row gap"-->
+            <li><a><span>Style<br><small class="note">CSS</small></span></a>
+              <ul>
+                <li><a><span><span class="-badge">Color <span class="tag">3</span></span><br><small class="note">Status</small></span></a>
+                  <ul>
+                    <li><a href="#x" class="danger">Red</a></li>
+                    <li><a href="#x" class="success">Green</a></li>
+                    <li><a href="#x" class="info">Blue</a></li>
+                  </ul>
+                </li>
+                <li><a>Font</a>
+                  <ul>
+                    <li class="serif"><a href="#x">Serif</a></li>
+                    <li class="sans"><a href="#x">Sans</a></li>
+                    <li class="mono"><a href="#x">Mono</a></li>
+                  </ul>
+                </li>
+                <li><a>Position</a>
+                  <ul class="pos-rt">
+                    <li><a href="#x">Relative</a></li>
+                    <li><a href="#x">Absolute</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="-push"><a href="#x" class="icon-text note">Text</a></li>
+            <li class="-push"><a>Markup</a>
+              <ul class="pos-bl">
+                <li><a href="?" class="icon-info info">Semantics</a></li>
+                <li><a href="?" class="icon-bookmark danger">Decoration</a></li>
+                <li><a href="?" class="icon-energy warning">Function</a></li>
+              </ul>
+            </li>
+            <li class="-push"><a>Tags</a>
+              <ul class="scrollbar">
+                <li><a href="#x">a</a></li>
+                <li><a href="#x">b</a></li>
+                <li><a href="#x">code</a></li>
+                <li><a href="#x">div</a></li>
+                <li><a href="#x">em</a></li>
+                <li><a href="#x">form</a></li>
+                <li><a href="#x">g</a></li>
+                <li><a href="#x">h1</a></li>
+                <li><a href="#x">img</a></li>
+                <li><a href="#x">kbd</a></li>
+                <li><a href="#x">li</a></li>
+                <li><a href="#x">mark</a></li>
+                <li><a href="#x">nav</a></li>
+              </ul>
+            </li>
+            <li class="shift -mid"><form action="?#search"><div class="input">#<input id="search" type="search" name="q" size="8" accesskey="4"></input></form></li>
+          </ul>
 
       <details class="mar">
         <summary>Flex row nowrap</summary>

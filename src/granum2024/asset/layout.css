@@ -1,16 +1,3 @@
-.hide {display:none !important;}
-
-/* todo: s/m/l sizes?  */
-@media (width >= 50rem) {
-  .show-l {display:initial !important;}
-  .hide-l {display:none !important;}
-}
-@container block (width >= 50rem) {
-  .show-l {display:initial !important;}
-  .hide-l {display:none !important;}
-}
-
-
 .row, .row>*, .container, .stick {box-sizing:border-box;}
 
 /* containers */
@@ -28,12 +15,12 @@
 .row {--flow:row nowrap;--push:auto;display:flex;flex-flow:var(--flow);}
 .row.wrap, ul.row {--flow:row wrap;}
   ul:where(.row), ul.row ul, ul.row li {list-style:none;margin:0;padding:0;}
-  ul.row a {padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;width:100%;}
+  ul.row li>:not(ul, form){padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;width:100%;}
 .row.vert {--flow:column nowrap;--push:0;}
 .row.gap, [class*="grid-"].gap {gap:var(--gap);}
   .row:not(ul).mid {align-items:center;}
   ul.row li {display:flex;}
-  ul.row.mid li a, ul.row li a.mid {display:flex;align-items:center;}
+  ul.row.mid li>:not(ul), ul.row li>:not(ul).mid {display:flex;align-items:center;}
 .col-1, .stretch>* {flex:1;}
 .col-0 {flex:initial;}
 .col-2 {flex:2;}
@@ -66,8 +53,25 @@
 }
 
 ul.row.vert {width:var(--list-width);}
+
 @media (width < 50rem) {
   .row.resp {--flow:column nowrap;--push:0;}
   .row.resp .stick {align-self:stretch;}
   ul.row.resp {width:var(--list-width);}
+}
+@container block (width < 50rem) {
+  .row.resp {--flow:column nowrap;--push:0;}
+  .row.resp .stick {align-self:stretch;}
+  ul.row.resp {width:var(--list-width);}
+}
+
+@media (width < 32rem) {
+  .row.resp-s {--flow:column nowrap;--push:0;}
+  .row.resp-s .stick {align-self:stretch;}
+  ul.row.resp-s {width:var(--list-width);}
+}
+@container block (width < 32rem) {
+  .row.resp-s {--flow:column nowrap;--push:0;}
+  .row.resp-s .stick {align-self:stretch;}
+  ul.row.resp-s {width:var(--list-width);}
 }

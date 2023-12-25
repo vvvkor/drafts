@@ -4,13 +4,13 @@
 
 - minimal.css
 - compatible.css (no :has)
-=? container: overflow?
-- .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
-- .resp-X, .hide/show-X, @container
 - toggle.js (dropdown, hint, pop:hover#target; +tree-nest-details +target, +accordion, +modal, +drawer, gallery, tabs)
 - .tag .badge .circle
 - @screen
+=? container: overflow?
 -? mobile: stretch date inputs?
++ .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
++ .resp-X, .hide/show-X, @container
 + .input details.pop
 + validate: border & .input
 + status color vars
@@ -46,9 +46,15 @@ ul.fit
 body.invert
 .act
 
+## Display
+
+.show.hide
+.show-s/m/l, .hide-s/m/l (@media)
+.show-cs/cm/cl, .hide-cs/cm/cl (@container)
+
 ## Form
 
-.form.resp.just.dock > .shift.span.just-l/c/r/s
+.form.resp.just.dock > .shift.span.just-l/c/r/s (.resp@container)
 
 ## Inputs
 
@@ -66,7 +72,7 @@ body.invert
 
 ### Row
 
-.row.wrap.resp.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick
+.row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick (.resp@container@media)
 
 ### Stack
 
