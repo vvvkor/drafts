@@ -32,7 +32,8 @@ ul.row {} /* dropdown */
 .target {scroll-margin-top:3em;}
 
 /* details */
-summary[class*="icon-"] {display:block;overflow:hidden;}
+summary[class*="icon-"] {/*list-style:none;*/display:block;overflow:hidden;}
+summary[class*="icon-"]::-webkit-details-marker {display:none;} /* safari */
 
 /* details popup */
 details.pop {position:relative;}
