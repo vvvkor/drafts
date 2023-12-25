@@ -91,14 +91,16 @@
       </details>
       
       <div class="mar">
-      Before <details class="pop hilite">
+      Before <details class="pop -l hilite">
         <summary class="icon-add hover">Popoup summary</summary>
-        <div class="pad -l">
+        <div class="pad">
           Details.
-          <details>
+          <details class="pop">
             <summary class="icon-folder">Sub</summary>
-            Sub-details. Long line of text. Long line of text. Long line of text. Long line of text.
-            <ul><li>Sub-list</li></ul>
+            <div class="pad">
+              Sub-details. Long line of text. Long line of text. Long line of text. Long line of text.
+              <ul><li>Sub-list</li></ul>
+            </div>
           </details>
         </div>
       </details> After
@@ -479,7 +481,7 @@
         </div>
       </details>
 
-          <ul class="row hilite mid hover">
+          <ul class="row hilite mid hover resp">
           <!--ul class="row gap"-->
             <li><a><span>Style<br><small class="note">CSS</small></span></a>
               <ul>
@@ -498,19 +500,19 @@
                   </ul>
                 </li>
                 <li><a>Position</a>
-                  <ul class="pos-rt">
+                  <ul>
                     <li><a href="#x">Relative</a></li>
                     <li><a href="#x">Absolute</a></li>
                   </ul>
                 </li>
               </ul>
             </li>
-            <li class="-push"><a href="#x" class="icon-text note">Text</a></li>
+            <li class="-push"><a href="#x" class="icon-text note ic">Text</a></li>
             <li class="-push"><a>Markup</a>
-              <ul class="pos-bl">
-                <li><a href="?" class="icon-info info">Semantics</a></li>
-                <li><a href="?" class="icon-bookmark danger">Decoration</a></li>
-                <li><a href="?" class="icon-energy warning">Function</a></li>
+              <ul class="l">
+                <li><a href="?" class="icon-info info ic">Semantics</a></li>
+                <li><a href="?" class="icon-bookmark danger ic">Decoration</a></li>
+                <li><a href="?" class="icon-energy warning ic">Function</a></li>
               </ul>
             </li>
             <li class="-push"><a>Tags</a>
@@ -532,6 +534,14 @@
             </li>
             <li class="shift -mid"><form action="?#search"><div class="input">#<input id="search" type="search" name="q" size="8" accesskey="4"></input></form></li>
           </ul>
+    
+    <div class="mar">
+      Before popup 
+      <div class="pop"><a class="hover" tabindex="0">Default</a> <div class="pad">Info<br>Text <span><a class="check"></a></span>
+        <div class="pop l"><a class="hover" tabindex="0">Nested</a> <div class="pad">More info<p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p></div></div>
+      </div></div>
+      After <a class="c" data-hint="some info" tabindex="0">Hint</a>.
+    </div>
 
       <details class="mar">
         <summary>Flex row nowrap</summary>

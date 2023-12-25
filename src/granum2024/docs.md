@@ -4,7 +4,7 @@
 
 - minimal.css
 - compatible.css (no :has)
-- toggle.js (dropdown, hint, pop:hover#target; +tree-nest-details +target, +accordion, +modal, +drawer, gallery, tabs)
+- toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, gallery, tabs)
 - .tag .badge .circle
 - @screen
 =? container: overflow?
@@ -42,7 +42,7 @@ ul.fit
 
 .hilite .hover .shade .diagonals
 .neutral .note .info .success .warning .danger
-.bg .text .bord .invert
+.bg .text .ic .bord .invert
 body.invert
 .act
 
@@ -73,6 +73,7 @@ body.invert
 ### Row
 
 .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick (.resp@container@media)
+ul.row ul.l
 
 ### Stack
 
@@ -84,11 +85,14 @@ body.invert
 
 ## Toggle
 
-details.pop summary.icon-x div.l
-.target
-.modal.full
-.drawer.shift
-.backdrop, body>.backdrop
+details.pop.l[open] summary.icon-x > :last-child
+ul.row:hover - see [row]
+.pop.l:hover
+[data-hint]:hover
+.target#target
+.modal.full#target
+.drawer.shift#target
+#target + .backdrop, body>.backdrop
 #x1:checked .x1
 
 ## Icons

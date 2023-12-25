@@ -40,7 +40,7 @@ body {color:var(--front);background-color:var(--back);}
   pre code {background:none;}
 :is(a, button, .check, summary).hover:hover, ul.row.hover li:is(:hover, :has(:hover))>a/*:has(>a)*/, .pop:hover>a.hover, table.hover  tr:hover>*/*, .tabs.hover>:is(a,label):hover*/ {box-shadow:inset 0 0 0 300vh var(--hilite);}
 
-a:where([href]) {color:var(--link);}
+a:where([href]), ul.row a, .pop > a {color:var(--link);}
 a:where([href]:not([href^="#"]):visited) {color:var(--visited);}
 a:where([href]:hover) {color:var(--hover);}
 a:where([href]:active), details[open] > summary, .act {color:var(--active);}
@@ -52,7 +52,7 @@ a:where([href]:active), details[open] > summary, .act {color:var(--active);}
 .warning {--ff:var(--front-warning);--bb:var(--back-warning);}
 .danger  {--ff:var(--front-danger);--bb:var(--back-danger);}
 
-.text , :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg) {color:var(--ff, var(--front));}
+.text, .ic:before, :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg, .ic) {color:var(--ff, var(--front));}
 .bg {background-color:var(--bb, var(--back));}
 .bord {border:thin solid var(--ff, var(--line));}
 body .invert, button:not(.bord) {color:var(--front-invert);}
