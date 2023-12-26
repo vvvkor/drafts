@@ -26,6 +26,8 @@ html {scroll-padding-top:5rem;}
 /* common */
 :where(ul.row) ul, :where(.pop) > :last-child, :where(.modal, .drawer):is(:target, :has(:target)), [data-hint]:after {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
 :is(.modal, .target):where(:not(:target, :has(:target))) {display:none;}
+
+/* check */
 .check:where(input:not(:checked), :has(input:not(:checked))) + :not(:target):not(:has(:target)), .check input, input.check {display:none;}
 
 /* target */
