@@ -36,8 +36,10 @@
       <b class="hide show-cm">M</b>
       <b class="hide show-cl">L</b>
     </div>
-    <a href="#target-resp" class="icon-menu">Responsive target</a>
-    <div id="target-resp" class="target show-s  pad hilite rad">Shown on target and on small screen <a href="#close" class="icon-close">Close</a></div>
+    <div class="mar pad rad hilite">
+      <a href="#target-resp" class="icon-menu hide-s">Responsive target</a>
+      <div id="target-resp" class="target show-s">Shown on target and on small screen <a href="#close" class="icon-close hide-s">Close</a></div>
+    </div>
     
     <h2>Typography</h2>
     
@@ -191,21 +193,21 @@
       <a href="#close-drawer-right" class="backdrop warning bg"></a>
       
       <ul>
-        <li><a href="#branch1">One</a>
+        <li><a href="#branch1">Accordion item 1</a>
           <ul id="branch1" class="target">
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </ul>
         </li>
-        <li><a href="#branch2">Two</a>
+        <li><a href="#branch2">Accordion item 2</a>
           <ul id="branch2" class="target">
             <li>A</li>
             <li>B</li>
             <li>C</li>
           </ul>
         </li>
-        <li><a href="#branch3">Three</a>
+        <li><a href="#branch3">Accordion item 3</a>
           <ul id="branch3" class="target">
             <li><a href="#branch31">Uno</a>
               <ul id="branch31" class="target">
@@ -276,14 +278,17 @@
         <span class="pad danger invert icon-pin">Invert</span>
       </p>
       <p>
-        <span class="pad bord">Pad</span>
-        <button class="">Button</button>
-        <button class="neutral">Neutral</button>
-        <button class="note">Note</button>
-        <button class="info">Info</button>
-        <button class="success">Success</button>
-        <button class="warning">Warning</button>
-        <button class="danger">Danger</button>
+        <span class="pad bord rad">Pad text</span>
+        <button class="icon-ok">Button</button>
+        <button class="neutral icon-more">Neutral</button>
+        <button class="note icon-file">Note</button>
+        <button class="info icon-info">Info</button>
+        <button class="success icon-ok">Success</button>
+        <button class="warning icon-warning">Warning</button>
+        <button class="danger icon-ban">Danger</button>
+        <button class="bord icon-time">Border</button>
+        <button class="danger bord icon-close">Border</button>
+        <button disabled class="danger icon-spin">Disabled</button>
       </p>
       
       <h2>Form</h2>
@@ -291,13 +296,25 @@
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
       <form class="form resp just dock">
       
-        <label for="name">Name</label>
-        <input id="name" type="text">
+        <label for="text">Text</label>
+        <input id="text" type="text">
+        
+        <br>
+        <label for="search">Search</label>
+        <input id="search" type="search">
+        
+        <br>
+        <label for="ro">Readonly</label>
+        <input id="ro" type="text" readonly value="readonly">
 
         <br>
-        <div><label for="age">Age</label><small class="tip">Info<br>text</small></div>
+        <label for="dis">Disabled</label>
+        <input id="dis" type="text" disabled value="disabled">
+
+        <br>
+        <div><label for="num">Number</label><small class="tip">Info<br>text</small></div>
         <div>
-          <input id="age" type="number" required>
+          <input id="num" type="number" required>
           <small class="tip">
             Tip
             <span class="danger icon-ban">Value required</span>
@@ -322,8 +339,8 @@
         </div>
 
         <br>
-        <label for="note">Note</label>
-        <textarea id="note"></textarea>
+        <label for="area">Textarea</label>
+        <textarea id="area"></textarea>
 
         <br>
         <label class="just-c" for="sel">Select</label>
@@ -365,8 +382,12 @@
 
         <br>
         <a x-href="#edit" tabindex="-1" onclick="edit.focus();return false;">Edit</a>
-        <div id="edit" contenteditable class="wide bg"></div>
+        <div id="edit" contenteditable class="wide"></div>
 
+        <br>
+        <wbr>
+        <input type="submit" value="Submit" class="-info -bg -bord -text">
+        
         <br>
         <wbr>
         <fieldset class="span wide">
@@ -389,50 +410,12 @@
         <br>
         <button class="span">Big</button>
         <div class="span just-c">
+          <div class="c">
           <button>Centered span</button>
           Text
+          </div>
         </div>
       </form>
-      </div>
-      
-      <h2>Inputs</h2>
-      
-      <div class="mar">
-        Text
-        <span class="pad bord shade rad serif">Pad</span>
-        <button class="icon-ok">Button</button>
-        <button class="bord icon-time">Border</button>
-        <button class="danger icon-delete">Danger</button>
-        <button class="danger bord icon-ban">Border</button>
-        <button disabled class="danger">Disabled</button>
-        Select <select><option value="1">1</option><option value="2">2</option></select>
-        <input type="text" required class="validate" name="text">
-        <input readonly>
-        <input type="number">
-        <input type="search" size="8">
-        <input type="email">
-        <input type="password">
-        <input type="date">
-        <input type="time">
-        <input type="datetime-local">
-        <input type="submit" value="Submit">
-        Ok
-        <br>
-        <input type="file" class="dropzone wide">
-        <!--br>
-        <label><input type="file">Select file...</label-->
-        <br>
-        <textarea></textarea>
-        <br>
-        <div contenteditable class="bg"></div>
-        <br>
-        <label><input type="checkbox" id="invert"> Invert</label>
-        <label><input type="checkbox" required> Box</label>
-        <label><input type="checkbox" class="switch"> Switch</label>
-        <label><input type="radio" name="radio" value="1"> Radio1</label>
-        <label><input type="radio" name="radio" value="2"> Radio2</label>
-        <input type="color">
-        <input type="range">
       </div>
       
       <h2>Layout</h2>
@@ -451,7 +434,17 @@
         </div>
       </details>
       
-      <details class="mar container resize" open>
+      <details class="mar">
+        <summary>Flex row nowrap</summary>
+        <div class="row gap -mid -wrap stretch -vert -full -scroll  hilite pad">
+          <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
+          <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
+          <a href="#img3" class="-push"><img alt="pic" class="fit" src="https://placehold.co/200x200/039/fff.png?text=~~~"></a>
+          <a href="#img4" class="-shift"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=---"></a>
+        </div>
+      </details>
+
+      <details class="mar container resize">
         <summary>Flex row wrap</summary>
         <div class="hilite pads stack">
           <div class="row wrap mar">
@@ -480,8 +473,8 @@
           </ul>
         </div>
       </details>
-
-          <ul class="row hilite mid hover resp">
+      
+          <ul class="row hilite mid hover resp -scroll -scrollbar">
           <!--ul class="row gap"-->
             <li><a><span>Style<br><small class="note">CSS</small></span></a>
               <ul>
@@ -532,7 +525,7 @@
                 <li><a href="#x">nav</a></li>
               </ul>
             </li>
-            <li class="shift -mid"><form action="?#search"><div class="input">#<input id="search" type="search" name="q" size="8" accesskey="4"></input></form></li>
+            <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="bord hover icon-find"></button></input></form></li>
           </ul>
     
     <div class="mar">
@@ -542,16 +535,6 @@
       </div></div>
       After <a class="c" data-hint="some info" tabindex="0">Hint</a>.
     </div>
-
-      <details class="mar">
-        <summary>Flex row nowrap</summary>
-        <div class="row gap -mid -wrap stretch -vert -full -scroll  hilite pad">
-          <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
-          <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
-          <a href="#img3" class="-push"><img alt="pic" class="fit" src="https://placehold.co/200x200/039/fff.png?text=~~~"></a>
-          <a href="#img4" class="-shift"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=---"></a>
-        </div>
-      </details>
 
       <div class="stack mar rad pad note bg">
         <p>Stacked paragraph one.</p>
@@ -569,37 +552,41 @@
 
       <h2>Lists</h2>
       
-      <ul>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three
-          <ul>
-            <li>Uno</li>
-            <li>Dos</li>
-            <li>Tres</li>
-          </ul>
-        </li>
-      </ul>
+      <div class="row resp-s stretch">
       
-      <ol>
-        <li>One</li>
-        <li>Two</li>
-        <li>Three
-          <ol>
-            <li>Uno</li>
-            <li>Dos</li>
-            <li>Tres</li>
-          </ol>
-        </li>
-      </ol>
-      
-      <dl>
-        <dt>One</dt>
-          <dd>Uno</dd>
-        <dt>Two</dt>
-          <dd>Dos</dd>
-          <dd>2</dd>
-      </dl>
+        <ul>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three
+            <ul>
+              <li>Uno</li>
+              <li>Dos</li>
+              <li>Tres</li>
+            </ul>
+          </li>
+        </ul>
+        
+        <ol>
+          <li>One</li>
+          <li>Two</li>
+          <li>Three
+            <ol>
+              <li>Uno</li>
+              <li>Dos</li>
+              <li>Tres</li>
+            </ol>
+          </li>
+        </ol>
+        
+        <dl>
+          <dt>One</dt>
+            <dd>Uno</dd>
+          <dt>Two</dt>
+            <dd>Dos</dd>
+            <dd>2</dd>
+        </dl>
+        
+      </div>
       
       <h2>Table</h2>
 

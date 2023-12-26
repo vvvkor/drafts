@@ -13,7 +13,7 @@
   2. for valign center ul>li>a must be flex
 */
 .row {--flow:row nowrap;--push:auto;display:flex;flex-flow:var(--flow);}
-.row.wrap, ul.row {--flow:row wrap;}
+.row.wrap, ul.row:where:not(.scroll) {--flow:row wrap;}
   ul:where(.row), ul.row ul, ul.row li {list-style:none;margin:0;padding:0;}
   ul.row li>:not(ul, form){padding:calc(.5 * var(--gap)) var(--gap);text-decoration:none;width:100%;}
   ul.row li>form {padding:calc(.2 * var(--gap));}
