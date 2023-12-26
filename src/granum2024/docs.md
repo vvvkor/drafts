@@ -3,8 +3,8 @@
 ## Todo
 
 - minimal.css
-- compatible.css (no :has)
-- toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, gallery, tabs)
+= compatible.css (no :has)
++ toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, +gallery, +tabs, +.check)
 - .tag .badge .circle
 - @screen
 =? container: overflow?
@@ -58,11 +58,16 @@ body.invert
 
 ## Inputs
 
-.validate
 .input
-.tip
 .switch
 .dropzone
+
+## Validation
+
+.validate
+.tip
+.detect
+.inact
 
 ## Layout
 
@@ -91,7 +96,11 @@ ul.row:hover - see [row]
 [data-hint]:hover
 .target#target
 .modal.full#target
+.modal.full + (.corner a[#first] + a[#close]) + (a[#next] > img.target#target)
 .drawer.shift#target
+ul.row.tabs + div>#
+(label.check > input) + *
+label ... input.check + *
 #target + .backdrop, body>.backdrop
 #x1:checked .x1
 

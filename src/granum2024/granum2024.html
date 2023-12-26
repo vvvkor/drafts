@@ -80,6 +80,8 @@
 
       <h2>Toggle</h2>
       
+      <h3>Open</h3>
+      
       <details class="hilite mar">
         <summary class="icon-add hover">Summary</summary>
         <div class="pad">
@@ -126,6 +128,8 @@
         </details>
       </div>
       
+      <h3>Target</h3>
+      
       <a href="#trg-sub">Target sub</a>
       <a href="#trg" class="icon-next">Target</a>
       <div id="trg" class="target mar pad hilite">
@@ -141,6 +145,7 @@
       <a href="#modal" class="icon-collapse" accesskey="w">Modal</a>
       <a href="#anchor" class="icon-pin" accesskey="a">Anchor</a>
       <a href="#modal-full" class="icon-expand">Modal full</a>
+      <a href="#img1" class="icon-image">Gallery</a>
       <br>
       <a href="#drawer-left" class="icon-left" accesskey="q">Drawer left</a>
       <a href="#drawer-anchor" class="icon-pin">Drawer anchor</a>
@@ -186,6 +191,18 @@
         </details>
       </div>
       
+    <div class="modal full -invert">
+      <div class="corner">
+        <a href="#img1" class="pad icon-first note"></a>
+        <a href="#cancel" class="pad icon-close note"></a>
+      </div>
+      <a href="#img2"><img id="img1" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=Red"  ></a>
+      <a href="#img3"><img id="img2" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=Green"></a>
+      <a href="#img4"><img id="img3" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=Blue" ></a>
+      <a href="#img1"><img id="img4" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=Grey" ></a>
+    </div>
+    <a href="#close-gallery" class="overlay"></a>
+
       <div id="drawer-right" class="drawer shift pad">
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
         <h3 class="mar">Drawer right</h3>
@@ -228,6 +245,110 @@
         </li>
       </ul>
       
+      <ul class="row tabs hover">
+        <li><b>Tabs</b></li>
+        <li><a href="#tab1">One</a></li>
+        <li><a href="#tab2">Two</a></li>
+        <li><a href="#tab3">Three</a></li>
+      </ul>
+      <div class="pads hilite">
+        <div id="tab1">
+          <div class="danger">Jumps to hash</div>
+          <div class="danger">No active tab highlight</div>
+        </div>
+        <div id="tab2">Tab 2</div>
+        <div id="tab3">
+          <ul class="row tabs hover">
+            <li><b>Nested tabs</b></li>
+            <li><a href="#tab1n">One</a></li>
+            <li><a href="#tab2n">Two</a></li>
+            <li><a href="#tab3n">Three</a></li>
+          </ul>
+          <div class="pad warning bg">
+            <div id="tab1n">Tab 1</div>
+            <div id="tab2n">Tab 2<br>line</div>
+            <div id="tab3n">Tab 3<br>line<br>line</div>
+          </div>
+        </div>
+      </div>
+    
+      <h3>Hover</h3>
+      
+      <ul class="row hilite mid hover resp -scroll -scrollbar">
+      <!--ul class="row gap"-->
+        <li><a><span>Style<br><small class="note">CSS</small></span></a>
+          <ul>
+            <li><a><span><span class="-badge">Color <span class="tag">3</span></span><br><small class="note">Status</small></span></a>
+              <ul>
+                <li><a href="#x" class="danger">Red</a></li>
+                <li><a href="#x" class="success">Green</a></li>
+                <li><a href="#x" class="info">Blue</a></li>
+              </ul>
+            </li>
+            <li><a>Font</a>
+              <ul>
+                <li class="serif"><a href="#x">Serif</a></li>
+                <li class="sans"><a href="#x">Sans</a></li>
+                <li class="mono"><a href="#x">Mono</a></li>
+              </ul>
+            </li>
+            <li><a>Position</a>
+              <ul>
+                <li><a href="#x">Relative</a></li>
+                <li><a href="#x">Absolute</a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        <li class="-push"><a href="#x" class="icon-text note ic">Text</a></li>
+        <li class="-push"><a>Markup</a>
+          <ul class="l">
+            <li><a href="?" class="icon-info info ic">Semantics</a></li>
+            <li><a href="?" class="icon-bookmark danger ic">Decoration</a></li>
+            <li><a href="?" class="icon-energy warning ic">Function</a></li>
+          </ul>
+        </li>
+        <li class="-push"><a>Tags</a>
+          <ul class="scrollbar">
+            <li><a href="#x">a</a></li>
+            <li><a href="#x">b</a></li>
+            <li><a href="#x">code</a></li>
+            <li><a href="#x">div</a></li>
+            <li><a href="#x">em</a></li>
+            <li><a href="#x">form</a></li>
+            <li><a href="#x">g</a></li>
+            <li><a href="#x">h1</a></li>
+            <li><a href="#x">img</a></li>
+            <li><a href="#x">kbd</a></li>
+            <li><a href="#x">li</a></li>
+            <li><a href="#x">mark</a></li>
+            <li><a href="#x">nav</a></li>
+          </ul>
+        </li>
+        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="bord hover icon-find"></button></input></form></li>
+      </ul>
+      
+      <div class="mar">
+        Before popup 
+        <div class="pop"><a class="hover" tabindex="0">Default</a> <div class="pad">Info<br>Text <span><a class="check"></a></span>
+          <div class="pop l"><a class="hover" tabindex="0">Nested</a> <div class="pad">More info<p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p></div></div>
+        </div></div>
+        After <a class="c" data-hint="some info" tabindex="0">Hint</a>.
+      </div>
+      
+      <h3>Checked</h3>
+      
+      <div class="mar">
+        <label class="icon-add check hover" for="chk1"><input type="checkbox" id="chk1">Open 1</label>
+        <div class="pad rad warning bg">Checked 1</div>
+      </div>
+
+      <div class="mar">
+        <label class="icon-add check hover" for="chk2">Open 2</label> <i>with separator</i>
+        <input type="checkbox" id="chk2" class="check">
+        <div class="pad rad warning bg">Checked 2</div>
+      </div>
+
       <h2>Colors</h2>
       
       <p>
@@ -405,13 +526,13 @@
         
         <br>
         <wbr>
-        <button class="just-c">Center</button>
+        <button class="just-c" disabled>Center disabled</button>
         
         <br>
-        <button class="span">Big</button>
+        <button class="span detect">Big detect</button>
         <div class="span just-c">
-          <div class="c">
-          <button>Centered span</button>
+          <div class="c inact">
+          <button>Centered span inactive</button>
           Text
           </div>
         </div>
@@ -474,68 +595,6 @@
         </div>
       </details>
       
-          <ul class="row hilite mid hover resp -scroll -scrollbar">
-          <!--ul class="row gap"-->
-            <li><a><span>Style<br><small class="note">CSS</small></span></a>
-              <ul>
-                <li><a><span><span class="-badge">Color <span class="tag">3</span></span><br><small class="note">Status</small></span></a>
-                  <ul>
-                    <li><a href="#x" class="danger">Red</a></li>
-                    <li><a href="#x" class="success">Green</a></li>
-                    <li><a href="#x" class="info">Blue</a></li>
-                  </ul>
-                </li>
-                <li><a>Font</a>
-                  <ul>
-                    <li class="serif"><a href="#x">Serif</a></li>
-                    <li class="sans"><a href="#x">Sans</a></li>
-                    <li class="mono"><a href="#x">Mono</a></li>
-                  </ul>
-                </li>
-                <li><a>Position</a>
-                  <ul>
-                    <li><a href="#x">Relative</a></li>
-                    <li><a href="#x">Absolute</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li class="-push"><a href="#x" class="icon-text note ic">Text</a></li>
-            <li class="-push"><a>Markup</a>
-              <ul class="l">
-                <li><a href="?" class="icon-info info ic">Semantics</a></li>
-                <li><a href="?" class="icon-bookmark danger ic">Decoration</a></li>
-                <li><a href="?" class="icon-energy warning ic">Function</a></li>
-              </ul>
-            </li>
-            <li class="-push"><a>Tags</a>
-              <ul class="scrollbar">
-                <li><a href="#x">a</a></li>
-                <li><a href="#x">b</a></li>
-                <li><a href="#x">code</a></li>
-                <li><a href="#x">div</a></li>
-                <li><a href="#x">em</a></li>
-                <li><a href="#x">form</a></li>
-                <li><a href="#x">g</a></li>
-                <li><a href="#x">h1</a></li>
-                <li><a href="#x">img</a></li>
-                <li><a href="#x">kbd</a></li>
-                <li><a href="#x">li</a></li>
-                <li><a href="#x">mark</a></li>
-                <li><a href="#x">nav</a></li>
-              </ul>
-            </li>
-            <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="bord hover icon-find"></button></input></form></li>
-          </ul>
-    
-    <div class="mar">
-      Before popup 
-      <div class="pop"><a class="hover" tabindex="0">Default</a> <div class="pad">Info<br>Text <span><a class="check"></a></span>
-        <div class="pop l"><a class="hover" tabindex="0">Nested</a> <div class="pad">More info<p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p><p>p</p></div></div>
-      </div></div>
-      After <a class="c" data-hint="some info" tabindex="0">Hint</a>.
-    </div>
-
       <div class="stack mar rad pad note bg">
         <p>Stacked paragraph one.</p>
         <p>Stacked paragraph two.</p>

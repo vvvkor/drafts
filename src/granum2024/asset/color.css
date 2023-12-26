@@ -43,7 +43,7 @@ body {color:var(--front);background-color:var(--back);}
 a:where([href]), ul.row a, .pop > a {color:var(--link);}
 a:where([href]:not([href^="#"]):visited) {color:var(--visited);}
 a:where([href]:hover) {color:var(--hover);}
-a:where([href]:active), details[open] > summary, .act {color:var(--active);}
+a:where([href]:active), details[open] > summary, .act, .check:has(:checked) {color:var(--active);}
 
 .neutral {--ff:var(--front);--bb:var(--back);}
 .note    {--ff:var(--front-note);--bb:var(--back-note);} /* todo: transparent bg */
@@ -66,7 +66,6 @@ body .invert {
 body a.invert {color:var(--link-invert);}
 button:not(.bord) {background-color:var(--ff, var(--link));}
 button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
-button:disabled {opacity:.5;}
 
 .input, input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
