@@ -14,16 +14,35 @@
       document.addEventListener('DOMContentLoaded', e => {
         [...document.querySelectorAll('.icons [class*="icon-"]')].forEach(n => {
           n.title = n.getAttribute('class').slice(5)
-          n.classList.add('pad', 'hover')
+          n.classList.add('pad', 'hover', 'c')
+          n.dataset.hint = n.title
         });
       })
     </script>
   </head>
   <body class="diagonals">
+    <div class="stick shade small">
+      <ul class="row hover">
+        <li><a href="?#">Granum v2</a></li>
+        <li><a href="#display">Display</a></li>
+        <li><a href="#typo">Typo</a></li>
+        <li><a href="#toggle">Toggle</a></li>
+        <li><a href="#colors">Colors</a></li>
+        <li><a href="#forms">Forms</a></li>
+        <li><a href="#layout">Layout</a></li>
+        <li><a href="#lists">Lists</a></li>
+        <li><a href="#tables">Tables</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li><a href="#icons">Icons</a></li>
+        <li class="shift"><label class="-check"><input type="checkbox" id="invert"> Invert</label></li>
+      </ul>
+    </div>
+  
+  
     <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
-    <h2>Display</h2>
+    <h2 id="display">Display <a href="#display" class="fit">#</a></h2>
     
     <div class="container resize mar pad hilite rad">
       Screen:
@@ -41,7 +60,7 @@
       <div id="target-resp" class="target show-s">Shown on target and on small screen <a href="#close" class="icon-close hide-s">Close</a></div>
     </div>
     
-    <h2>Typography</h2>
+    <h2 id="typo">Typography <a href="#typo" class="fit">#</a></h2>
     
     <p>
     Text
@@ -78,7 +97,7 @@
         <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
       </details>
 
-      <h2>Toggle</h2>
+      <h2 id="toggle">Toggle <a href="#toggle" class="fit">#</a></h2>
       
       <h3>Open</h3>
       
@@ -248,13 +267,14 @@
       <ul class="row tabs hover">
         <li><b>Tabs</b></li>
         <li><a href="#tab1">One</a></li>
-        <li><a href="#tab2">Two</a></li>
+        <li><a href="#tab2" class="-success">Two</a></li>
         <li><a href="#tab3">Three</a></li>
       </ul>
       <div class="pads hilite">
         <div id="tab1">
+          Drawbacks:
           <div class="danger">Jumps to hash</div>
-          <div class="danger">No active tab highlight</div>
+          <div class="danger">No active tab highlighting</div>
         </div>
         <div id="tab2">Tab 2</div>
         <div id="tab3">
@@ -300,8 +320,8 @@
             </li>
           </ul>
         </li>
-        <li class="-push"><a href="#x" class="icon-text note ic">Text</a></li>
-        <li class="-push"><a tabindex="0">Markup</a>
+        <li class="push"><a href="#x" class="icon-text note ic">Text</a></li>
+        <li class="shift push"><a tabindex="0">Markup</a>
           <ul class="l">
             <li><a href="?" class="icon-info info ic">Semantics</a></li>
             <li><a href="?" class="icon-bookmark danger ic">Decoration</a></li>
@@ -325,7 +345,7 @@
             <li><a href="#x">nav</a></li>
           </ul>
         </li>
-        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="bord hover icon-find"></button></input></form></li>
+        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></input></form></li>
       </ul>
       
       <div class="mar">
@@ -349,7 +369,7 @@
         <div class="pad rad warning bg">Checked 2</div>
       </div>
 
-      <h2>Colors</h2>
+      <h2 id="colors">Colors <a href="#colors" class="fit">#</a></h2>
       
       <p>
         Text
@@ -412,7 +432,7 @@
         <button disabled class="danger icon-spin">Disabled</button>
       </p>
       
-      <h2>Form</h2>
+      <h2 id="forms">Forms <a href="#forms" class="fit">#</a></h2>
       
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
       <form class="form resp just dock">
@@ -435,7 +455,7 @@
         <br>
         <div><label for="num">Number</label><small class="tip">Info<br>text</small></div>
         <div>
-          <input id="num" type="number" required>
+          <input id="num" type="number" required class="validate">
           <small class="tip">
             Tip
             <span class="danger icon-ban">Value required</span>
@@ -446,11 +466,12 @@
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
         <div>
-          <span class="input">
+          <span class="input validate">
             <b>#</b>
             <input id="custom" type="text" required>
-            <a href="#x" class="icon-key" onclick="this.previousElementSibling.value = ''"></a>
+            <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
+            <button type="submit" class="icon-ok success -bg -bord" formaction="?#custom"></button>
           </span>
           <div class="tip small">
             Tip
@@ -539,7 +560,7 @@
       </form>
       </div>
       
-      <h2>Layout</h2>
+      <h2 id="layout">Layout <a href="#layout" class="fit">#</a></h2>
       
       <details class="mar">
         <summary>Regular grid</summary>
@@ -595,6 +616,26 @@
         </div>
       </details>
       
+      <details class="mar container resize">
+        <summary>Stick</summary>
+        <div class="full scroll warning bg">
+          <div class="stick shade pad warning bg">Stick to top</div>
+          <div class="pad stack">
+            <p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p
+            <p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p
+            <p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p<p>p
+          </div>
+          <footer class="stick shade pad warning bg">Stick to bottom</footer>
+        </div>
+      </details>
+        
+      <details class="mar container resize">
+        <summary>Full center</summary>
+        <div class="full info bg row mid">
+          <div class="shift push">Center</div>
+        </div>
+      </details>
+
       <div class="stack mar rad pad note bg">
         <p>Stacked paragraph one.</p>
         <p>Stacked paragraph two.</p>
@@ -606,10 +647,7 @@
         <div class="pad">Stacked div three.</div>
       </div>
       
-      <footer class="stick shade pad">Stick to bottom</footer>
-      <div class="stick shade pad mar">Stick to top</div>
-
-      <h2>Lists</h2>
+      <h2 id="lists">Lists <a href="#lists" class="fit">#</a></h2>
       
       <div class="row resp-s stretch">
       
@@ -647,7 +685,7 @@
         
       </div>
       
-      <h2>Table</h2>
+      <h2 id="tables">Tables <a href="#tables" class="fit">#</a></h2>
 
 <div class="scroll">
 <table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
@@ -699,7 +737,7 @@
 </table>
 </div>
 
-    <h2>Icons</h2>
+    <h2 id="icons">Icons <a href="#icons" class="fit">#</a></h2>
 
     <div class="icons">
     <a class="icon-menu"></a>

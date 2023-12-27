@@ -5,8 +5,11 @@
 - minimal.css
 = compatible.css (no :has)
 + toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, +gallery, +tabs, +.check)
+- slider
 - .tag .badge .circle
 - @screen
+- repo: rearrange folders, buld, demo page
+- js? (#back, #prev, #next, esc, splitter, dialog, drag, freedrag, pos?, progress)
 =? container: overflow?
 -? mobile: stretch date inputs?
 + .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
@@ -25,6 +28,24 @@
 = .h1
 = .check
 
+## Changes
+
+.report -- .tip
+.roll -- .scroll
+.text-X -- .danger...
+.bg-X -- .bg.danger...
+
+## Additions
+
+.bord.danger...
+.mars .pads .wide-s/m/l
+.show-s/m/l .hide-s/m/l .show-cs/cm/cl .hide-cs/cm/cl
+.form.resp.just.dock > .shift.span.just-l/c/r/s
+.input .switch .dropzone .validate .detect
+label.check, input.check
+.row.stretch details.pop .backdrop
+.grid-xs/s/m/l.gap > .span-2/3/4
+
 ## Typography
 
 .sans .serif .mono .l .r .c .mid .small
@@ -35,7 +56,7 @@ ul.fit
 
 ## Space
 
-.fit .mar mars .pad .pads .bord .rad .full .resize .scroll .scrollbar
+.fit .mar .mars .pad .pads .bord .rad .full .resize .scroll .scrollbar
 .wide .wide-s/m/l .center
 
 ## Colors

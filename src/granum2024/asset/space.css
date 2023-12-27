@@ -1,4 +1,5 @@
 .fit {margin:0;border:none;padding:0;border-radius:0;}
+  a.fit {text-decoration:none;}
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
 .resize {resize:both;overflow:auto;}
 .scroll {overflow:auto;min-width:5em;min-height:5em;}

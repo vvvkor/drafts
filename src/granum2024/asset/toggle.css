@@ -113,6 +113,14 @@ ul.tabs + div:not(:has(:target)) > :not(:first-child),
 ul.tabs + div:has(:target) > :not(:is(:target, :has(:target)))
 {display:none;}
 
+/* hilite active tab * /
+:where(.tabs:has(+div>:nth-child(1):target)>li:nth-child(1)) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(2):target)>li:nth-child(2)) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(3):target)>li:nth-child(3)) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(4):target)>li:nth-child(4)) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(5):target)>li:nth-child(5)) a {color:var(--active);}
+/**/
+
 /*
 summary[class*="icon-"] {--fsz:.6;}
 summary[class*="icon-"]:before {vertical-align:baseline;}

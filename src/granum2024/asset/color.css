@@ -40,7 +40,7 @@ body {color:var(--front);background-color:var(--back);}
   pre code {background:none;}
 :is(a, button, summary, label, .check).hover:hover, ul.row.hover li:is(:hover, :has(:hover))>a/*:has(>a)*/, .pop:hover>a.hover, table.hover  tr:hover>*/*, .tabs.hover>:is(a,label):hover*/ {box-shadow:inset 0 0 0 300vh var(--hilite);}
 
-a:where([href]), ul.row a, .pop > a {color:var(--link);}
+a:where([href]), :where(ul.row) a, .pop > a {color:var(--link);}
 a:where([href]:not([href^="#"]):visited) {color:var(--visited);}
 a:where([href]:hover) {color:var(--hover);}
 a:where([href]:active), details[open] > summary, .act, .check:has(:checked) {color:var(--active);}
@@ -71,7 +71,7 @@ button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
 :where(input, select, textarea, button, [contenteditable]):focus {outline-color:var(--outline-focus);}
 :where(a, summary, input, select, textarea, button, [contenteditable], label):focus-visible, :where(.input):focus-within {outline-color:var(--outline-focus-visible);}
-.validate:valid {outline-color:var(--outline-valid);}
+.validate:valid, .input.validate:not(:has(:invalid)) {outline-color:var(--outline-valid);}
 :invalid, .input:has(:invalid) {border-color:var(--front-danger);}
 :invalid:focus, .input:has(:invalid):focus-within {outline-color:var(--outline-invalid);}
 
