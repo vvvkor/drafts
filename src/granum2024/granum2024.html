@@ -34,7 +34,7 @@
         <li><a href="#icon">Icon</a></li>
         <li class="shift"><label class="-check"><input type="checkbox" id="invert"> Invert</label></li>
       </ul-->
-      <div class="row gap pad nodec">
+      <div class="row gap wrap pad nodec">
         <a href="?#"><b class="text">Granum v2</b></a>
         <a href="#typo">Typo</a>
         <a href="#toggle">Toggle</a>
@@ -362,7 +362,7 @@
             <li><a href="#x">nav</a></li>
           </ul>
         </li>
-        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></input></form></li>
+        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></div></form></li>
       </ul>
       
       <div class="mar">
@@ -503,13 +503,13 @@
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
         <div>
-          <span class="input validate">
+          <div class="input validate">
             <b>#</b>
             <input id="custom" type="text" size="12" required>
             <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
             <button type="submit" class="icon-ok success -bg -bord" formaction="?#custom"></button>
-          </span>
+          </div>
           <div class="tip small">
             Type in some text
             <div class="danger icon-ban">Value required</div>
@@ -552,15 +552,15 @@
         <input id="file" type="file" class="dropzone wide">
 
         <br>
-        <label for="color">Color</label>
-        <input id="color" type="color">
+        <label for="clr">Color</label>
+        <input id="clr" type="color">
 
         <br>
         <label for="range">Range</label>
         <input id="range" type="range">
 
         <br>
-        <a x-href="#edit" tabindex="-1" onclick="edit.focus();return false;">Edit</a>
+        <a tabindex="-1" onclick="edit.focus();return false;">Edit</a> <!-- href="#edit" -->
         <div id="edit" contenteditable class="wide"></div>
 
         <br>
@@ -607,7 +607,7 @@
           <a href="#img1"><img alt="pic" class="fit" src="https://placehold.co/200x100/b33/fff.png?text=***"></a>
           <a href="#img2"><img alt="pic" class="fit" src="https://placehold.co/180x120/393/fff.png?text=///"></a>
           <a href="#img3"><img alt="pic" class="fit" src="https://placehold.co/200x200/039/fff.png?text=~~~"></a>
-          <!--a href="#img4"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=---"></a-->
+          <!--a href="#img4"><img alt="pic" class="fit" src="https://placehold.co/150x200/777/fff.png?text=vvv"></a-->
           <img alt="pic" src="https://placehold.co/150x200/777/fff.png?text=---">
           <div class="pad info invert -span-2"><a href="#">Inverted</a></div>
         </div>
