@@ -12,7 +12,7 @@
   .form.resp > br + * {grid-column-start:1;}
   .form.resp > .shift {grid-column-start:2;}
   .form.resp > .span {grid-column:1 / span 2;}
-  :where(.form.resp.dock) > *:is(:first-child, br + *):not(.span, .shift) {justify-self:end;}
+  :where(.form.resp.stretch) > *:is(:first-child, br + *):not(.span, .shift) {justify-self:end;}
   .form.resp > .just-l {justify-self:start;}
   .form.resp > .just-c {justify-self:center;}
   .form.resp > .just-r {justify-self:end;}
@@ -21,10 +21,10 @@
 
 /* validation tips */
 
-.form .tip {display:block;margin-block:calc(.3 * var(--gap));line-height:1.2;}
+.form .tip {display:block;margin-block:calc(.3 * var(--gap));/*line-height:1.2;*/}
 /*:not(:user-valid, :user-invalid) + .tip > :is(.danger, .success), :user-valid + .tip > .danger, :user-invalid + .tip > .success {display:none;}*/
 :valid + .tip > .danger, :invalid + .tip > .success {display:none;}
-.input:has(:valid) + .tip > .danger, .input:has(:invalid) + .tip > .success {display:none;}
+.input:not(:has(:invalid)) + .tip > .danger, .input:has(:invalid) + .tip > .success {display:none;}
 
 /* animations */
 .tip > * {animation:delay-appear .5s;}

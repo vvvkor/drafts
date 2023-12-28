@@ -4,14 +4,14 @@
 
 - minimal.css
 = compatible.css (no :has)
-+ toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, +gallery, +tabs, +.check)
 - slider
-- .tag .badge .circle
 - @screen
-- repo: rearrange folders, buld, demo page
+- repo: rearrange folders, build, demo page
 - js? (#back, #prev, #next, esc, splitter, dialog, drag, freedrag, pos?, progress)
 =? container: overflow?
 -? mobile: stretch date inputs?
++ .tag
++ toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, +gallery, +tabs, +.check)
 + .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
 + .resp-X, .hide/show-X, @container
 + .input details.pop
@@ -37,10 +37,11 @@
 
 ## Additions
 
+.nodec
 .bord.danger...
 .mars .pads .wide-s/m/l
 .show-s/m/l .hide-s/m/l .show-cs/cm/cl .hide-cs/cm/cl
-.form.resp.just.dock > .shift.span.just-l/c/r/s
+.form.resp.just.stretch > .shift.span.just-l/c/r/s
 .input .switch .dropzone .validate .detect
 label.check, input.check
 .row.stretch details.pop .backdrop
@@ -52,12 +53,13 @@ label.check, input.check
 img.c.fit
 table.wide.mid.fit.line.bord.c.c#.r#
 ul.fit
-.nobr
+.nobr .nodec
 
 ## Space
 
 .fit .mar .mars .pad .pads .bord .rad .full .resize .scroll .scrollbar
 .wide .wide-s/m/l .center
+.tag.c, sup.tag.c
 
 ## Colors
 
@@ -75,7 +77,7 @@ body.invert
 
 ## Form
 
-.form.resp.just.dock > .shift.span.just-l/c/r/s (.resp@container)
+.form.resp.just.stretch > .shift.span.just-l/c/r/s (.resp@container)
 
 ## Inputs
 
@@ -116,9 +118,9 @@ ul.row:hover - see [row]
 .pop.l:hover
 [data-hint]:hover
 .target#target
-.modal.full#target
+.modal.full.show#target
 .modal.full + (.corner a[#first] + a[#close]) + (a[#next] > img.target#target)
-.drawer.shift#target
+.drawer.shift.show#target
 ul.row.tabs + div>#
 (label.check > input) + *
 label ... input.check + *

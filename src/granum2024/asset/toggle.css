@@ -24,8 +24,8 @@ html {scroll-padding-top:5rem;}
 .gallery {}
 
 /* common */
-:where(ul.row) ul, :where(.pop) > :last-child, :where(.modal, .drawer):is(:target, :has(:target)), [data-hint]:after {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
-:is(.modal, .target):where(:not(:target, :has(:target))) {display:none;}
+:where(ul.row) ul, :where(.pop) > :last-child, :where(.modal, .drawer), [data-hint]:after {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
+:is(.modal, .target):where(:not(:target, :has(:target), .show)) {display:none;}
 
 /* check */
 .check:where(input:not(:checked), :has(input:not(:checked))) + :not(:target):not(:has(:target)), .check input, input.check {display:none;}
@@ -34,6 +34,7 @@ html {scroll-padding-top:5rem;}
 /*.target {scroll-margin-top:3em;}*/
 
 /* details */
+summary {cursor:pointer;}
 summary[class*="icon-"] {/*list-style:none;*/display:block;overflow:hidden;}
 summary[class*="icon-"]::-webkit-details-marker {display:none;} /* safari */
 
@@ -59,9 +60,9 @@ img:target {position:absolute;display:block;inset:0;width:100%;height:100%;objec
 
 /* drawer */
 .drawer {--wdr:calc(1em + var(--drawer-width));position:fixed;inset:0 auto 0 calc(0em - var(--wdr));width:min(var(--drawer-width), 80%);z-index:80;transition:left .2s, right .2s;overflow:auto;}
-.drawer:is(:target, :has(:target)) {left:0;}
+.drawer:is(:target, :has(:target), .show) {left:0;}
 .drawer.shift {inset:0 calc(0px - var(--wdr)) 0 auto;}
-.drawer.shift:is(:target, :has(:target)) {right:0;}
+.drawer.shift:is(:target, :has(:target), .show) {right:0;}
 
 /* backdrop */
 :where(.backdrop) {
@@ -112,8 +113,15 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
 ul.tabs + div:not(:has(:target)) > :not(:first-child),
 ul.tabs + div:has(:target) > :not(:is(:target, :has(:target)))
 {display:none;}
+ul.tabs + div > * {scroll-margin-top:2em;}
 
 /* hilite active tab * /
+body:has(#tab1:target) [href="#tab1"],
+body:has(#tab2:target) [href="#tab2"],
+body:has(#tab3:target) [href="#tab3"],
+ul.tabs:not(:has(+div :target)) li:nth-child(2) a
+  {border-color:var(--link);}
+/** /
 :where(.tabs:has(+div>:nth-child(1):target)>li:nth-child(1)) a {color:var(--active);}
 :where(.tabs:has(+div>:nth-child(2):target)>li:nth-child(2)) a {color:var(--active);}
 :where(.tabs:has(+div>:nth-child(3):target)>li:nth-child(3)) a {color:var(--active);}

@@ -1,7 +1,7 @@
 :root {
   /* link state */
   --visited: #808;
-  --hover: #006;
+  --hover: #036;
   --active: #f00;
   
   /* invert */
@@ -55,7 +55,7 @@ a:where([href]:active), details[open] > summary, .act, .check:has(:checked) {col
 .text, .ic:before, :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg, .ic) {color:var(--ff, var(--front));}
 .bg {background-color:var(--bb, var(--back));}
 .bord {border:thin solid var(--ff, var(--line));}
-body .invert, button:not(.bord) {color:var(--front-invert);}
+body .invert, :where(button, .tag):not(.bord) {color:var(--front-invert);}
 body .invert {
   background-color:var(--ff, var(--back-invert));
   --link: var(--link-invert);
@@ -65,7 +65,8 @@ body .invert {
 }
 body a.invert {color:var(--link-invert);}
 button:not(.bord) {background-color:var(--ff, var(--link));}
-button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
+:where(.tag):not(.bord) {background-color:var(--ff, var(--front-note));}
+:where(button, .tag).bord:not(.bg) {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
 
 .input, input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
@@ -81,7 +82,7 @@ button.bord {background-color:var(--back-default);/*var(--bb, var(--back-default
 html {background-color:var(--back);}
 html, img, video, iframe, .invert {filter:var(--mode);}
 html {--mode:none;}
-html.invert, html:has(#invert:checked) {--mode:invert(.95) hue-rotate(180deg);}
+html.invert, html:has(#invert:checked) {--mode:invert(.95) hue-rotate(180deg);--back:#ccc;--shade:0 0 .5em 0em #fff;}
 @media (prefers-color-scheme: dark) {
   html:not(.invert) {--mode:invert(.95) hue-rotate(180deg);}
   html.invert, html:has(#invert:checked) {--mode:none;}

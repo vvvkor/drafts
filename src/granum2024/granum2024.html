@@ -22,45 +22,38 @@
   </head>
   <body class="diagonals">
     <div class="stick shade small">
-      <ul class="row hover">
+      <!--ul class="row hover">
         <li><a href="?#">Granum v2</a></li>
-        <li><a href="#display">Display</a></li>
         <li><a href="#typo">Typo</a></li>
         <li><a href="#toggle">Toggle</a></li>
-        <li><a href="#colors">Colors</a></li>
-        <li><a href="#forms">Forms</a></li>
+        <li><a href="#color">Color</a></li>
+        <li><a href="#form">Form</a></li>
         <li><a href="#layout">Layout</a></li>
-        <li><a href="#lists">Lists</a></li>
-        <li><a href="#tables">Tables</a></li>
-        <li><a href="#icons">Icons</a></li>
-        <li><a href="#icons">Icons</a></li>
+        <li><a href="#list">List</a></li>
+        <li><a href="#table">Table</a></li>
+        <li><a href="#icon">Icon</a></li>
         <li class="shift"><label class="-check"><input type="checkbox" id="invert"> Invert</label></li>
-      </ul>
+      </ul-->
+      <div class="row gap pad nodec">
+        <a href="?#"><b class="text">Granum v2</b></a>
+        <a href="#typo">Typo</a>
+        <a href="#toggle">Toggle</a>
+        <a href="#color">Color</a>
+        <a href="#form">Form</a>
+        <a href="#layout">Layout</a>
+        <a href="#list">List</a>
+        <a href="#table">Table</a>
+        <a href="#icon">Icon</a>
+        <label class="shift -check"><input type="checkbox" id="invert"> Invert</label>
+      </div>
     </div>
   
   
     <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
-    <h2 id="display">Display <a href="#display" class="fit">#</a></h2>
     
-    <div class="container resize mar pad hilite rad">
-      Screen:
-      <b class="hide show-s">S</b>
-      <b class="hide show-m">M</b>
-      <b class="hide show-l">L</b>
-      <br>
-      Container:
-      <b class="hide show-cs">S</b>
-      <b class="hide show-cm">M</b>
-      <b class="hide show-cl">L</b>
-    </div>
-    <div class="mar pad rad hilite">
-      <a href="#target-resp" class="icon-menu hide-s">Responsive target</a>
-      <div id="target-resp" class="target show-s">Shown on target and on small screen <a href="#close" class="icon-close hide-s">Close</a></div>
-    </div>
-    
-    <h2 id="typo">Typography <a href="#typo" class="fit">#</a></h2>
+    <h2 id="typo">Typography <a href="#typo" class="nodec">#</a></h2>
     
     <p>
     Text
@@ -81,23 +74,47 @@
     <pre>Preformatted text
 <code>Code: <var>window</var> = <kbd class="text-y" onclick="this.textContent = window.innerWidth + ' x ' + window.innerHeight">click</kbd></code></pre>
 
-      <details>
+      <details class="mar">
+      <summary class="icon-next">Tags and badges</summary>
+        <div class="hilite pad rad stack">
+          <span class="tag">Tag</span>
+          <span class="tag bord">Border</span>
+          <span class="tag info bord bg text">Info</span>
+          <span class="tag success">Text</span>
+          <span class="tag warning bg">Bg</span>
+          <span class="tag danger invert">Invert</span>
+          <span class="tag c success">1</span>
+          <span class="tag c danger">Invert</span>
+          <small class="tag c info">Small</small>
+          <span class="tag c warning small">8</span>
+          <p>
+            <a href="#">Link <span class="tag info c small">1</span></a>
+            <a href="#">Link <sup class="tag success c small">8</sup></a>
+            <button>Link <span class="tag warning c small">16</span></button>
+            <button>Link <sup class="tag danger c small">100</sup></button>
+          </p>
+        </div>
+      </details>
+      
+      <details class="mar">
       <summary class="icon-next">Headings</summary>
-        <h1>Heading 1<b class="-target"><br>has a second line</b></h1>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span> 
-        <h2>Heading 2<b class="-target"><br>has a second line</b></h2>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
-        <h3>Heading 3<b class="-target"><br>has a second line</b></h3>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
-        <h4>Heading 4<b class="-target"><br>has a second line</b></h4>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
-        <h5>Heading 5<b class="-target"><br>has a second line</b></h5>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
-        <h6>Heading 6<b class="-target"><br>has a second line</b></h6>
-        <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        <div class="hilite pad rad stack">
+          <h1>Heading 1<b class="-target"><br>has a second line</b></h1>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span> 
+          <h2>Heading 2<b class="-target"><br>has a second line</b></h2>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+          <h3>Heading 3<b class="-target"><br>has a second line</b></h3>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+          <h4>Heading 4<b class="-target"><br>has a second line</b></h4>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+          <h5>Heading 5<b class="-target"><br>has a second line</b></h5>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+          <h6>Heading 6<b class="-target"><br>has a second line</b></h6>
+          <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span>
+        </div>
       </details>
 
-      <h2 id="toggle">Toggle <a href="#toggle" class="fit">#</a></h2>
+      <h2 id="toggle">Toggle <a href="#toggle" class="nodec">#</a></h2>
       
       <h3>Open</h3>
       
@@ -170,7 +187,7 @@
       <a href="#drawer-anchor" class="icon-pin">Drawer anchor</a>
       <a href="#drawer-right" class="icon-right">Drawer right</a>
       
-      <div id="modal" class="modal pads -row -vert">
+      <div id="modal" class="modal -show pads -row -vert">
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
         <h3 class="mar">Modal</h3>
         <a href="#anchor" class="icon-pin">Anchor</a><br>
@@ -298,21 +315,21 @@
       <!--ul class="row gap"-->
         <li><a tabindex="0"><span>Style<br><small class="note">CSS</small></span></a>
           <ul>
-            <li><a tabindex="0"><span><span class="-badge">Color <span class="tag">3</span></span><br><small class="note">Status</small></span></a>
+            <li><a tabindex="0"><span class="col-1">Color<br><small class="note">Status</small></span><small class="tag c -success">3</small></a>
               <ul>
                 <li><a href="#x" class="danger">Red</a></li>
                 <li><a href="#x" class="success">Green</a></li>
                 <li><a href="#x" class="info">Blue</a></li>
               </ul>
             </li>
-            <li><a tabindex="0">Font</a>
+            <li><a tabindex="0"><span class="col-1">Font</span><small class="tag info bg">3</small></a>
               <ul>
                 <li class="serif"><a href="#x">Serif</a></li>
                 <li class="sans"><a href="#x">Sans</a></li>
                 <li class="mono"><a href="#x">Mono</a></li>
               </ul>
             </li>
-            <li><a tabindex="0">Position</a>
+            <li><a tabindex="0"><span>Position <sup class="tag c danger">2</sup></span></a>
               <ul>
                 <li><a href="#x">Relative</a></li>
                 <li><a href="#x">Absolute</a></li>
@@ -369,7 +386,26 @@
         <div class="pad rad warning bg">Checked 2</div>
       </div>
 
-      <h2 id="colors">Colors <a href="#colors" class="fit">#</a></h2>
+      <h3>Display</h3>
+    
+      <div class="container resize mar pad hilite rad">
+        Screen:
+        <b class="hide show-s">S</b>
+        <b class="hide show-m">M</b>
+        <b class="hide show-l">L</b>
+        <br>
+        Container:
+        <b class="hide show-cs">S</b>
+        <b class="hide show-cm">M</b>
+        <b class="hide show-cl">L</b>
+      </div>
+      <div class="mar pad rad hilite">
+        <a href="#target-resp" class="icon-menu hide-s">Responsive target</a>
+        <div id="target-resp" class="target show-s">Shown on target and on small screen <a href="#close" class="icon-close hide-s">Close</a></div>
+      </div>
+    
+    
+      <h2 id="color">Color <a href="#color" class="nodec">#</a></h2>
       
       <p>
         Text
@@ -429,13 +465,14 @@
         <button class="danger icon-ban">Danger</button>
         <button class="bord icon-time">Border</button>
         <button class="danger bord icon-close">Border</button>
+        <button class="danger bord text bg icon-close">Border</button>
         <button disabled class="danger icon-spin">Disabled</button>
       </p>
       
-      <h2 id="forms">Forms <a href="#forms" class="fit">#</a></h2>
+      <h2 id="form">Form <a href="#form" class="nodec">#</a></h2>
       
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
-      <form class="form resp just dock">
+      <form class="form resp just stretch">
       
         <label for="text">Text</label>
         <input id="text" type="text">
@@ -457,7 +494,7 @@
         <div>
           <input id="num" type="number" required class="validate">
           <small class="tip">
-            Tip
+            Type in the number
             <span class="danger icon-ban">Value required</span>
             <span class="success icon-ok">Correct value</span>
           </small>
@@ -468,13 +505,13 @@
         <div>
           <span class="input validate">
             <b>#</b>
-            <input id="custom" type="text" required>
+            <input id="custom" type="text" size="12" required>
             <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
             <button type="submit" class="icon-ok success -bg -bord" formaction="?#custom"></button>
           </span>
           <div class="tip small">
-            Tip
+            Type in some text
             <div class="danger icon-ban">Value required</div>
             <div class="success icon-ok">Correct value</div>
           </div>
@@ -560,7 +597,7 @@
       </form>
       </div>
       
-      <h2 id="layout">Layout <a href="#layout" class="fit">#</a></h2>
+      <h2 id="layout">Layout <a href="#layout" class="nodec">#</a></h2>
       
       <details class="mar">
         <summary>Regular grid</summary>
@@ -647,7 +684,7 @@
         <div class="pad">Stacked div three.</div>
       </div>
       
-      <h2 id="lists">Lists <a href="#lists" class="fit">#</a></h2>
+      <h2 id="list">List <a href="#list" class="nodec">#</a></h2>
       
       <div class="row resp-s stretch">
       
@@ -685,7 +722,7 @@
         
       </div>
       
-      <h2 id="tables">Tables <a href="#tables" class="fit">#</a></h2>
+      <h2 id="table">Table <a href="#table" class="nodec">#</a></h2>
 
 <div class="scroll">
 <table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
@@ -737,7 +774,7 @@
 </table>
 </div>
 
-    <h2 id="icons">Icons <a href="#icons" class="fit">#</a></h2>
+    <h2 id="icon">Icon <a href="#icon" class="nodec">#</a></h2>
 
     <div class="icons">
     <a class="icon-menu"></a>
