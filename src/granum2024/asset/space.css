@@ -16,7 +16,7 @@ hr {border-width:thin 0 0 0;}
 .rad, .tag, code, kbd, pre, button, [type="submit"] {border-radius:var(--radius);}
 abbr {border-bottom:thin dotted;text-decoration:none;}
 /*sub, sup {line-height:0em;}*/
-.tag {padding:0 .5em;display:inline-block;}
+.tag {padding:0 .5em;display:inline-block;line-height:1.5;}
 .tag.c {border-radius:1em;min-width:.5em;text-align:center;}
   :has(>sup.tag) {position:relative;margin-right:1em;}
   sup.tag {position:absolute;inset:0 0 auto auto;translate:70% -30%;font-size:80%;}

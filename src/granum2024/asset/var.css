@@ -1,5 +1,5 @@
 :root {
-  --gap: 1rem;
+  --gap: 1rem; /* overridden in typo.css */
   --list-width: 12rem;
   --radius: .5rem;
   

@@ -1,6 +1,6 @@
 :root {
   --root-font-size: 1.2;
-  --font-coeff: 1.25; /* headings multiplier*/
+  --font-coeff: 1.25; /* headings multiplier */
   --serif: "PT Serif", Georgia, serif;
   --sans: "PT Sans", Roboto, "Segoe UI", sans-serif;
   --mono: "PT Mono", monospace;
