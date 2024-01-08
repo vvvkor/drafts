@@ -1,6 +1,8 @@
 :root {
   --root-font-size: 1.2;
   --font-coeff: 1.25; /* headings multiplier */
+  /*--gap: calc(1rem * var(--root-font-size));*/
+  --gap: calc(1rem * 1);
   --serif: "PT Serif", Georgia, serif;
   --sans: "PT Sans", Roboto, "Segoe UI", sans-serif;
   --mono: "PT Mono", monospace;

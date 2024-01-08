@@ -1,12 +1,12 @@
 :root {
   --gap: 1rem; /* overridden in typo.css */
   --list-width: 12rem;
-  --radius: .5rem;
+  --radius: calc(.3 * var(--gap));
   
   --hilite: #ccc3;
   --line: #ccc;
   --bord: thin solid var(--line);
-  --shade: 0 .1em .8em 0em #0003;
+  --shade: 0 .1rem .8rem 0 #0003;
   
   --front-default: #000;
   --back-default: #fff;
