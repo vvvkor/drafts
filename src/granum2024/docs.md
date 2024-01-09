@@ -10,6 +10,7 @@
 - js? (#back, #prev, #next, esc, splitter, dialog, drag, freedrag, pos?, progress)
 =? container: overflow?
 -? mobile: stretch date inputs?
++ progress
 + .tag
 + toggle.js (+dropdown, +hint, +pop:hover =.pop#target; +tree-nest-details, +target, +accordion, +modal, +drawer, +gallery, +tabs, +.check)
 + .screenX .ifX (responsive) = .hide-s/m/l, .show-s/m/l (override #target)
@@ -46,6 +47,7 @@
 label.check, input.check
 .row.stretch details.pop .backdrop
 .grid-xs/s/m/l.gap > .span-2/3/4
+progress
 
 ## Typography
 
@@ -60,6 +62,7 @@ ul.fit
 .fit .mar .mars .pad .pads .bord .rad .full .resize .scroll .scrollbar
 .wide .wide-s/m/l .center
 .tag.c, sup.tag.c
+progress
 
 ## Colors
 

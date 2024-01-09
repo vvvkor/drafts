@@ -7,7 +7,7 @@
   /* invert */
   --front-invert: #fff;
   --back-invert: #666;
-  --link-invert: #fe3;
+  --link-invert: #8cf;/*#fe3;*/
 
   /* status */
   --front-note: #888;
@@ -66,7 +66,7 @@ body .invert {
 body a.invert {color:var(--link-invert);}
 button:not(.bord) {background-color:var(--ff, var(--link));}
 :where(.tag):not(.bord) {background-color:var(--ff, var(--front-note));}
-:where(button, .tag).bord:not(.bg) {background-color:var(--back-default);/*var(--bb, var(--back-default));*/}
+:where(button, .tag).bord:not(.bg) {background-color:var(--back);/*var(--back-default);*//*var(--bb, var(--back-default));*/}
 
 .input, input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}
@@ -76,13 +76,16 @@ button:not(.bord) {background-color:var(--ff, var(--link));}
 :invalid, .input:has(:invalid) {border-color:var(--front-danger);}
 :invalid:focus, .input:has(:invalid):focus-within {outline-color:var(--outline-invalid);}
 
+/* progress */
+progress {accent-color:var(--ff, var(--link));}
+
 
 /* smart dark mode */
 
 html {background-color:var(--back);}
 html, img, video, iframe, .invert {filter:var(--mode);}
 html {--mode:none;}
-html.invert, html:has(#invert:checked) {--mode:invert(.95) hue-rotate(180deg);--back:#ccc;--shade:0 0 .5em 0em #fff;}
+html.invert, html:has(#invert:checked) {--mode:invert(.95) hue-rotate(180deg);--back:#ccc;--line:#aaa; /*!!!*/ --shade:0 0 .5em 0 #fff;--hilite:#ddd8;}
 @media (prefers-color-scheme: dark) {
   html:not(.invert) {--mode:invert(.95) hue-rotate(180deg);}
   html.invert, html:has(#invert:checked) {--mode:none;}

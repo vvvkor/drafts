@@ -55,7 +55,7 @@
     
     <h2 id="typo">Typography <a href="#typo" class="nodec">#</a></h2>
     
-    <p>
+    <p class="-invert">
     Text
     <a href="?#">Link</a>
     <a>Unlink</a>
@@ -75,7 +75,7 @@
 <code>Code: <var>window</var> = <kbd class="text-y" onclick="this.textContent = window.innerWidth + ' x ' + window.innerHeight">click</kbd></code></pre>
 
       <details class="mar">
-      <summary class="icon-next">Tags and badges</summary>
+      <summary class="icon-next">Tags, badges, progress</summary>
         <div class="hilite pad rad stack">
           <span class="tag">Tag</span>
           <span class="tag bord">Border</span>
@@ -89,9 +89,20 @@
           <span class="tag c warning small">8</span>
           <p>
             <a href="#">Link <span class="tag info c small">1</span></a>
-            <a href="#">Link <sup class="tag success c small">8</sup></a>
-            <button>Link <span class="tag warning c small">16</span></button>
-            <button>Link <sup class="tag danger c small">100</sup></button>
+            <a href="#">Link <sup class="tag success c">8</sup></a>
+            <a href="#">Link <sup class="tag danger c"></sup></a>
+            <button>Button <span class="tag warning c small">16</span></button>
+            <button>Button <sup class="tag danger c">100</sup></button>
+            <button>Button <sup class="tag danger c -bord"></sup></button>
+          </p>
+            <progress value=".4">40%</progress> Default<br>
+            <progress value=".5" class="neutral">50%</progress> Neutral<br>
+            <progress value=".6" class="note">60%</progress> Note<br>
+            <progress value=".7" class="info">70%</progress> Info<br>
+            <progress value=".8" class="success">80%</progress> Success<br>
+            <progress value=".9" class="warning">90%</progress> Warning<br>
+            <progress value="1" class="danger">100%</progress> Danger
+          <p>
           </p>
         </div>
       </details>
