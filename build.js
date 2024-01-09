@@ -25,6 +25,7 @@ if (fs.existsSync(distMin)) fs.unlinkSync(distMin)
 'dropzone',
 'layout',
 'toggle',
+'slider',
 'print'
 ].forEach(n => {
   console.log('Minify ' + n + '.css...');

@@ -47,6 +47,7 @@
 label.check, input.check
 .row.stretch details.pop .backdrop
 .grid-xs/s/m/l.gap > .span-2/3/4
+.slider
 progress
 
 ## Typography
@@ -127,6 +128,7 @@ ul.row:hover - see [row]
 ul.row.tabs + div>#
 (label.check > input) + *
 label ... input.check + *
+.slider (> div) + nav a
 #target + .backdrop, body>.backdrop
 #x1:checked .x1
 
