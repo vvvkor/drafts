@@ -13,8 +13,8 @@
 
 :root {
   --backdrop: #6669;/*#0006;/*#0002;*/
-  --drawer-width: 24rem;
-  --pop-height: 24rem;
+  --drawer-width: 20rem;
+  --pop-height: 20rem;
 }
 
 html {scroll-padding-top:5rem;}
