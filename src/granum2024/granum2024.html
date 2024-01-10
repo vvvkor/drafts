@@ -88,7 +88,7 @@
           <span class="tag c warning small">8</span>
           <p>
             <a href="#">Link <span class="tag info c small">1</span></a>
-            <a href="#">Link <sup class="tag success c">8</sup></a>
+            <a href="#" class="icon-grid"><span>Link <sup class="tag success c">8</sup></span></a>
             <a href="#">Link <sup class="tag danger c"></sup></a>
             <a href="#" class="icon-grid"><sup class="tag danger c"></sup></a>
             <a href="#" class="icon-grid"><sup class="tag danger c">5</sup></a>
@@ -107,6 +107,21 @@
           </p>
         </div>
       </details>
+      
+      <details class="mar">
+      <summary class="icon-next">Image</summary>
+      <div class="pads rad hilite stack">
+        <img class="c" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="80"> Circled image
+        <hr>
+        <img class="center" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="100">
+        <hr>
+        <figure>
+          <img class="" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="100">
+          <figcaption>Figure caption</figcaption>
+        </figure>
+      </div>
+      </details>
+      
       
       <details class="mar">
       <summary class="icon-next">Headings</summary>
@@ -244,10 +259,10 @@
         <a href="#img1" class="pad icon-first note"></a>
         <a href="#cancel" class="pad icon-close note"></a>
       </div>
-      <a href="#img2"><img id="img1" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=Red"  ></a>
-      <a href="#img3"><img id="img2" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=Green"></a>
-      <a href="#img4"><img id="img3" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=Blue" ></a>
-      <a href="#img1"><img id="img4" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=Grey" ></a>
+      <a href="#img2"><img id="img1" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=***"  ></a>
+      <a href="#img3"><img id="img2" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=///"></a>
+      <a href="#img4"><img id="img3" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=~~~" ></a>
+      <a href="#img1"><img id="img4" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=---" ></a>
     </div>
     <a href="#close-gallery" class="overlay"></a>
 
@@ -688,20 +703,30 @@
       <details class="mar">
         <summary>Slider</summary>
         <div class="slider scrollbar nodec rad">    
-          <div id="slide1" class="pad hilite row mid stretch"><div class="c">One</div></div>
+          <div id="slide1" class="pad hilite row mid stretch">
+            <div class="c">
+              <a href="#slide4">&larr;</a>
+              One
+              <a href="#slide2">&rarr;</a>
+            </div>
+          </div>
           <div id="slide2" class="info bg row mid">
             <a href="#slide1" class="pad hover">&lsaquo;</a>
             <div class="col-1 c pad">Two</div>
             <a href="#slide3" class="pad hover">&rsaquo;</a>
           </div>
-          <div id="slide3" class="pad warning bg">Three</div>
-          <div id="slide4" class="pad danger invert">Four</div>
+          <div id="slide3" class="pad warning bg">
+            Three
+          </div>
+          <div id="slide4" class="pad danger invert">
+            Four
+          </div>
         </div>
         <nav class="c nodec">
-          <a href="#slide1">&#x25cf;</a>
-          <a href="#slide2">&#x25cf;</a>
-          <a href="#slide3">&#x25cf;</a>
-          <a href="#slide4">&#x25cf;</a>
+          <a href="#slide1" class="pad">&#x25cf;</a>
+          <a href="#slide2" class="pad">&#x25cf;</a>
+          <a href="#slide3" class="pad">&#x25cf;</a>
+          <a href="#slide4" class="pad">&#x25cf;</a>
         </nav>
       </details>
       

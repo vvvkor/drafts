@@ -1,6 +1,7 @@
 .slider {height:16rem;max-height:50vh;overflow:auto;display:flex;scroll-snap-type:x mandatory;scroll-behavior:smooth;}
 .slider > div {box-sizing:border-box;width:100%;flex:none;scroll-snap-align:center;}
 
+/*
 .slider + nav a {opacity:.25;padding-inline:.25em;filter:grayscale(1);}
 .slider:not(:has(:hover, :target)) + nav>a:nth-child(1),
 .slider:has( :is(:hover, :target):nth-child(1)) + nav>a:nth-child(1),
@@ -9,4 +10,4 @@
 .slider:has( :is(:hover, :target):nth-child(4)) + nav>a:nth-child(4),
 .slider:has( :is(:hover, :target):nth-child(5)) + nav>a:nth-child(5),
 .slider:has( :is(:hover, :target):nth-child(6)) + nav>a:nth-child(6)
-{/*color:var(--active);*/opacity:1;}
+{opacity:1;}*/ /*color:var(--active);*/

@@ -19,8 +19,8 @@ abbr {border-bottom:thin dotted;text-decoration:none;}
 .tag {padding:0 .5em;display:inline-block;line-height:1.5;}
 .tag.c {border-radius:1em;min-width:.5em;text-align:center;}
   :has(>sup.tag) {position:relative;margin-right:1em;}
-  :has(>sup)>sup.tag {position:absolute;inset:0 0 auto auto;translate:70% -30%;font-size:80%;}
-  button:has(>sup) > sup.tag {translate:50% -40%;}
+  sup.tag {position:absolute;inset:0 0 auto auto;translate:50% -30%;font-size:80%;}
+  button > sup.tag {translate:50% -50%;}
   sup.tag {outline:thin solid var(--back);}
   sup.tag:empty {min-width:0;padding:.5em;}
 

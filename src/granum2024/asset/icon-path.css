@@ -1,7 +1,7 @@
 /* todo: all icons big, to scale down (to avoid parent overflow) */
 
 [class*="icon-"].empty > * {display:none;}
-:where([class*="icon-"]:not(:empty):not(.empty):not(:has(sup))):before {margin-right:var(--icon-mar, .3em);}
+:where([class*="icon-"]:not(:empty):not(.empty):not(:has(>sup))):before {margin-right:var(--icon-mar, .3em);}
 
 [class*="icon-"] {--isz:calc(var(--root-font-size, 1) * var(--fsz, 1) * 1);--w:16;--wpx:calc(var(--isz) * 16px);-webkit-tap-highlight-color:transparent;z-index:1;--p:path("M8 4l4 4,-4 4,-4-4z");}
 [class*="icon-"]:before {content:'';display:inline-block;vertical-align:-10%;width:var(--wpx);height:var(--wpx);background:currentColor;outline:10em solid currentColor;clip-path:var(--p);scale:calc(100% * var(--isz) * 16 / var(--w));transform-origin:0 0;}
