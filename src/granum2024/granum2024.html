@@ -442,10 +442,6 @@
         <small class="icon-file note">Small</small>
       </p>
       <p>
-        <a href="" class="icon-refresh success invert pad">Inverted</a>
-        <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
-      </p>
-      <p>
         <span class="neutral">Neutral</span>
         <span class="note">Note</span>
         <span class="info">Info</span>
@@ -469,73 +465,61 @@
         <span class="bord warning">Warning</span>
         <span class="bord danger">Danger</span>
       </p>
-      <p>
-        <span class="pad bord">Border</span>
-        <span class="pad invert">Invert</span>
-        <span class="pad danger">Danger</span>
-        <span class="pad danger text">Text</span>
-        <span class="pad danger bord">Border</span>
-        <span class="pad danger bg">Bg</span>
-        <span class="pad danger text bg">Text bg</span>
-        <span class="pad danger bord bg">Border bg</span>
-        <span class="pad danger text bg bord">Text bg border</span>
-        <span class="pad danger invert icon-pin">Invert</span>
-      </p>
-      <p>
-        <span class="pad bord rad">Pad text</span>
-        <button class="icon-ok">Button</button>
-        <button class="neutral icon-more">Neutral</button>
-        <button class="note icon-file">Note</button>
-        <button class="info icon-info">Info</button>
-        <button class="success icon-ok">Success</button>
-        <button class="warning icon-warning">Warning</button>
-        <button class="danger icon-ban">Danger</button>
-        <button class="bord icon-time">Border</button>
-        <button class="danger bord icon-close">Border</button>
-        <button class="danger bord text bg icon-close">Border</button>
-        <button disabled class="danger icon-spin">Disabled</button>
-      </p>
+      
+      <details>
+        <summary class="icon-next">Buttons etc.</summary>
+        <div class="pads hilite rad stack">
+        
+          <h3>Buttons</h3>
+          <span class="pad bord rad">Pad span</span>
+          <button class="icon-ok">Button</button>
+          <button class="neutral icon-more">Neutral</button>
+          <button class="note icon-file">Note</button>
+          <button class="info icon-info">Info</button>
+          <button class="success icon-ok">Success</button>
+          <button class="warning icon-warning">Warning</button>
+          <button class="danger icon-ban">Danger</button>
+          <button class="bord icon-time">Border</button>
+          <button class="danger bord icon-close">Border</button>
+          <button class="danger bord text bg icon-close">Border</button>
+          <button disabled class="danger icon-spin">Disabled</button>
+          
+          <h3>Pad</h3>
+          <span class="pad bord">Border</span>
+          <span class="pad invert">Invert</span>
+          <span class="pad danger">Danger</span>
+          <span class="pad danger text">Text</span>
+          <span class="pad danger bord">Border</span>
+          <span class="pad danger bg">Bg</span>
+          <span class="pad danger text bg">Text bg</span>
+          <span class="pad danger bord bg">Border bg</span>
+          <span class="pad danger text bg bord">Text bg border</span>
+          <span class="pad danger invert icon-pin">Invert</span>
+
+          <h3>Invert</h3>
+          <a href="" class="icon-refresh success invert pad">Inverted</a>
+          <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
+          
+        </div>
+      </details>
       
       <h2 id="form">Form <a href="#form" class="nodec">#</a></h2>
       
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
-      <form class="form resp just stretch">
+      <form class="form resp just stretch" method="get" action="?#custom">
       
         <label for="text">Text</label>
-        <input id="text" type="text">
-        
-        <br>
-        <label for="search">Search</label>
-        <input id="search" type="search">
-        
-        <br>
-        <label for="ro">Readonly</label>
-        <input id="ro" type="text" readonly value="readonly">
-
-        <br>
-        <label for="dis">Disabled</label>
-        <input id="dis" type="text" disabled value="disabled">
-
-        <br>
-        <div><label for="num">Number</label><small class="tip">Info<br>text</small></div>
-        <div>
-          <input id="num" type="number" required class="validate">
-          <small class="tip">
-            Type in the number
-            <span class="danger icon-ban">Value required</span>
-            <span class="success icon-ok">Correct value</span>
-          </small>
-        </div>
+        <input id="text" type="text" name="text">
         
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
         <div>
           <div class="input validate">
             <b>#</b>
-            <input id="custom" type="text" size="12" required>
+            <input id="custom" type="text" size="12" required name="custom">
             <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
-            <button type="submit" class="icon-ok success -bg -bord" formaction="?#custom"></button>
+            <button type="submit" class="icon-ok success -bg -bord"></button> <!-- formaction="?#custom" -->
           </div>
           <div class="tip small">
             Type in some text
@@ -543,10 +527,6 @@
             <div class="success icon-ok">Correct value</div>
           </div>
         </div>
-
-        <br>
-        <label for="area">Textarea</label>
-        <textarea id="area"></textarea>
 
         <br>
         <label class="just-c" for="sel">Select</label>
@@ -563,64 +543,111 @@
         </fieldset>
         
         <br>
-        <label for="date">Date</label>
-        <input id="date" type="date">
+        <label for="area">Textarea</label>
+        <textarea id="area"></textarea>
 
         <br>
-        <label for="time">Time</label>
-        <input id="time" type="time">
-
-        <br>
-        <label for="datetime">Datetime</label>
-        <input id="datetime" type="datetime-local">
-
-        <br>
-        <label for="file">File</label>
-        <input id="file" type="file" class="dropzone wide">
-
-        <br>
-        <label for="clr">Color</label>
-        <input id="clr" type="color">
-
-        <br>
-        <label for="range">Range</label>
-        <input id="range" type="range">
-
-        <br>
-        <a tabindex="-1" onclick="edit.focus();return false;">Edit</a> <!-- href="#edit" -->
+        <a tabindex="-1" onclick="edit.focus();return false;">Editable</a> <!-- href="#edit" -->
         <div id="edit" contenteditable class="wide"></div>
 
         <br>
-        <wbr>
-        <input type="submit" value="Submit" class="-info -bg -bord -text">
-        
-        <br>
-        <wbr>
+        <!--wbr-->
         <fieldset class="span wide">
-          <legend>Subitems</legend>
-          <div class="form resp just">
+          <legend><a href="#more" class="icon-desc">Subitems</a> <a href="#close" class="icon-close note"></a></legend>
+          <div id="more" class="target form resp just">
+              
+            <div><label for="num">Number</label><small class="tip">Force validation</small></div>
+            <div>
+              <input id="num" type="number" -required class="validate" name="num">
+              <small class="tip">
+                Type in the number
+                <span class="danger icon-ban">Value required</span>
+                <span class="success icon-ok">Correct value</span>
+              </small>
+            </div>
+        
+            <br>
+            <label for="search">Search</label>
+            <input id="search" type="search">
+            
+            <br>
+            <label for="ro">Readonly</label>
+            <input id="ro" type="text" readonly value="readonly">
+
+            <br>
+            <label for="dis">Disabled</label>
+            <input id="dis" type="text" disabled value="disabled">
+
+            <br>
             <label for="pass">Password</label>
-              <input id="pass" type="password">
-            <button class="span -wide icon-spin"> OK</button>
+            <input id="pass" type="password">
+            
+            <br>
+            <label for="date">Date</label>
+            <input id="date" type="date">
+
+            <br>
+            <label for="time">Time</label>
+            <input id="time" type="time">
+
+            <br>
+            <label for="datetime">Datetime</label>
+            <input id="datetime" type="datetime-local">
+
+            <br>
+            <label for="file">File</label>
+            <input id="file" type="file" class="dropzone wide">
+
+            <br>
+            <label for="clr">Color</label>
+            <input id="clr" type="color">
+
+            <br>
+            <label for="range">Range</label>
+            <input id="range" type="range">
+
           </div>
         </fieldset>
         
         <br>
-        <wbr>
-        <button class="just-l">Left</button>
-        
-        <br>
-        <wbr>
-        <button class="just-c" disabled>Center disabled</button>
-        
-        <br>
-        <button class="span detect">Big detect</button>
-        <div class="span just-c">
-          <div class="c inact">
-          <button>Centered span inactive</button>
-          Text
+        <fieldset class="span wide">
+          <legend><a href="#btns" class="icon-desc">Buttons</a> <a href="#close" class="icon-close note"></a></legend>
+          <div id="btns" class="target form resp just">
+            <wbr>
+            <input type="submit" value="Submit" class="-info -bg -bord -text">
+            
+            <br>
+            <button class="span -wide icon-expand"> Wide</button>
+            
+            <div class="span just-c">
+              <div class="c inact">
+              <button>Centered span inactive</button>
+              Text
+              </div>
+            </div>
+            
+            <br>
+            <wbr>
+            <button class="just-l">Left</button>
+            
+            <br>
+            <wbr>
+            <button class="just-c" disabled>Center disabled</button>
+          
+            <br>
+            <wbr>
+            <button class="just-r bord">Right</button>
+            
           </div>
-        </div>
+        </fieldset>
+        
+        
+        <br>
+        <wbr>
+        <button class="just-l icon-ok">OK</button>
+        
+        <br>
+        <button class="span detect icon-spin">Detect validity</button>
       </form>
       </div>
       
@@ -781,7 +808,7 @@
       
       <h2 id="table">Table <a href="#table" class="nodec">#</a></h2>
 
-<div class="scroll">
+<!--div class="scroll">
 <table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
 	<caption>Sample table</caption>
 	<thead>
@@ -829,7 +856,84 @@
 		<tr><td><td>&Sigma;<td>150.3<td>7.6<td></td>
 	</tfoot>
 </table>
-</div>
+</div-->
+
+      <div class="scroll scrollbar mar">
+      <table class="mid wide -bord line c4 r5 fix-head fix-col  pad hover l nobr">
+        <caption>Status colors</caption>
+        <thead>
+          <tr>
+            <th>Text<th>Link<th>Back<th>Back+text<th>Invert<th>Button</tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="">Default
+            <td><a href="x" class="icon-pin">Note</a>
+            <td class="bg">Text <a href="x">Link</a>
+            <td class="bg text">Text <a href="x">Link</a>
+            <td class="invert">Text <a href="x">Link</a>
+            <td><button class="icon-pin" type="reset">Button</button>
+          </tr>
+          <tr class="bg info">
+            <td class="">Marked
+            <td><a href="x" class="icon-edit">Note</a>
+            <td class="bg">Text <a href="x">Link</a>
+            <td class="bg text">Text <a href="x">Link</a>
+            <td class="invert">Text <a href="x">Link</a>
+            <td><button class="icon-edit" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="neutral">Neutral
+            <td><a href="x" class="neutral icon-time">Note</a>
+            <td class="neutral bg">Text <a href="x">Link</a>
+            <td class="neutral bg text">Text <a href="x">Link</a>
+            <td class="neutral invert">Text <a href="x">Link</a>
+            <td><button class="neutral icon-time" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="note">Note
+            <td><a href="x" class="note icon-file">Note</a>
+            <td class="note bg">Text <a href="x">Link</a>
+            <td class="note bg text">Text <a href="x">Link</a>
+            <td class="note invert">Text <a href="x">Link</a>
+            <td><button class="note icon-file" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="info">Info
+            <td><a href="x" class="info icon-info">Info</a>
+            <td class="info bg">Text <a href="x">Link</a>
+            <td class="info bg text">Text <a href="x">Link</a>
+            <td class="info invert">Text <a href="x">Link</a>
+            <td><button class="info icon-info" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="success">Success
+            <td><a href="x" class="success icon-ok">Success</a>
+            <td class="success bg">Text <a href="x">Link</a>
+            <td class="success bg text">Text <a href="x">Link</a>
+            <td class="success invert">Text <a href="x">Link</a>
+            <td><button class="success icon-ok" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="warning">Warning
+            <td><a href="x" class="warning icon-warning">Warning</a>
+            <td class="warning bg">Text <a href="x">Link</a>
+            <td class="warning bg text">Text <a href="x">Link</a>
+            <td class="warning invert">Text <a href="x">Link</a>
+            <td><button class="warning icon-warning" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td class="danger">Danger
+            <td><a href="x" class="danger icon-ban">Danger</a>
+            <td class="danger bg">Text <a href="x">Link</a>
+            <td class="danger bg text">Text <a href="x">Link</a>
+            <td class="danger invert">Text <a href="x">Link</a>
+            <td><button class="danger icon-ban" type="reset">Button</button>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
 
     <h2 id="icon">Icon <a href="#icon" class="nodec">#</a></h2>
 

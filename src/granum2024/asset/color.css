@@ -7,13 +7,13 @@
   /* invert */
   --front-invert: #fff;
   --back-invert: #666;
-  --link-invert: #8cf;/*#fe3;*/
+  --link-invert: #aef;/*#8cf;*//*#fe3;*/
 
   /* status */
   --front-note: #888;
   --front-info: #08a;
   --front-success: #181;
-  --front-warning: #d70;
+  --front-warning: /*#c60;*/#d70;
   --front-danger: #c00;
   --back-note: #eee;
   --back-info: #bef;

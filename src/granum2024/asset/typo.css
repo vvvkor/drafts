@@ -35,7 +35,7 @@ caption, figcaption {text-align:left;font-style:italic;}
 .c {text-align:center;}
 .r {text-align:right;}
 .mid, img.c, table.mid>*>tr>*, tr.mid>*, tr>.mid, .mid {vertical-align:middle;}
-.nobr {white-space:nowrap;}
+.nobr, button {white-space:nowrap;}
 
 /* link */
 a[href] {text-underline-offset:.2em;text-decoration-thickness:1px;}
