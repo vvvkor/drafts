@@ -8,7 +8,7 @@
     <meta name="theme-color" media="(prefers-color-scheme:dark)" content="#04a">
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="asset/granum2024.css">
-    <!--script defer src="asset/granum2024.js"></script-->
+    <script defer src="asset/granum2024.js"></script>
     <script>
       // demo icons
       document.addEventListener('DOMContentLoaded', e => {
@@ -389,7 +389,7 @@
             <li><a href="#x">nav</a></li>
           </ul>
         </li>
-        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></div></form></li>
+        <li class="shift -mid"><form data-get action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></div></form></li>
       </ul>
       
       <div class="mar">
@@ -506,7 +506,7 @@
       <h2 id="form">Form <a href="#form" class="nodec">#</a></h2>
       
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
-      <form class="form resp just stretch" method="get" action="?#custom">
+      <form data-get class="form resp just stretch" method="get" action="?#custom">
       
         <label for="text">Text</label>
         <input id="text" type="text" name="text">
@@ -536,19 +536,26 @@
         <!--wbr-->
         <fieldset class="shift -wide rad">
           <legend>Boxes</legend>
-          <div><input id="x1" type="checkbox"> <label for="x1">Box</label> <b class="x1">Checked!</b></div>
-          <div><input id="switch" type="checkbox" class="switch"> <label for="switch">Box</label></div>
-          <div><input id="radio1" type="radio" name="rad" value="1"> <label for="radio1">Box</label></div>
-          <div><input id="radio2" type="radio" name="rad" value="2"> <label for="radio2">Box</label></div>
+          <div><input id="x1" type="checkbox" data-nodes="#nodes b" value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
+          <div><input id="switch" type="checkbox" class="switch" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
+          <div><input id="radio1" type="radio" name="rad" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
+          <div><input id="radio2" type="radio" name="rad" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
+          <div id="nodes">
+            Nodes:
+            <b>One</b>
+            <b>Two</b>
+            <strong>Three</strong>
+            <strong>Four </strong>
+          </div>
         </fieldset>
         
         <br>
         <label for="area">Textarea</label>
-        <textarea id="area"></textarea>
+        <textarea id="area" name="area"></textarea>
 
         <br>
         <a tabindex="-1" onclick="edit.focus();return false;">Editable</a> <!-- href="#edit" -->
-        <div id="edit" contenteditable class="wide"></div>
+        <div data-get="area" data-area="#area" id="edit" contenteditable class="wide"></div>
 
         <br>
         <!--wbr-->
@@ -857,16 +864,20 @@
 	</tfoot>
 </table>
 </div-->
-
+      <section>
+      <input type="search" data-parent="section" data-filter="table" placeholder="Filter table">
       <div class="scroll scrollbar mar">
-      <table class="mid wide -bord line c4 r5 fix-head fix-col  pad hover l nobr">
+      <table id="table1" class="sort mid wide -bord line c4 r5 fix-head fix-col  pad hover l nobr">
         <caption>Status colors</caption>
         <thead>
           <tr>
-            <th>Text<th>Link<th>Back<th>Back+text<th>Invert<th>Button</tr>
+            <th><input type="checkbox" data-parent="table" data-check="[type='checkbox']">
+            <th>#<th>Text<th>Link<th>Back<th>Back+text<th>Invert<th>Button</tr>
         </thead>
         <tbody>
           <tr>
+            <td><input type="checkbox">
+            <td>11
             <td class="">Default
             <td><a href="x" class="icon-pin">Note</a>
             <td class="bg">Text <a href="x">Link</a>
@@ -875,6 +886,8 @@
             <td><button class="icon-pin" type="reset">Button</button>
           </tr>
           <tr class="bg info">
+            <td><input type="checkbox">
+            <td>.5
             <td class="">Marked
             <td><a href="x" class="icon-edit">Note</a>
             <td class="bg">Text <a href="x">Link</a>
@@ -883,6 +896,8 @@
             <td><button class="icon-edit" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>0
             <td class="neutral">Neutral
             <td><a href="x" class="neutral icon-time">Note</a>
             <td class="neutral bg">Text <a href="x">Link</a>
@@ -891,6 +906,8 @@
             <td><button class="neutral icon-time" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>1
             <td class="note">Note
             <td><a href="x" class="note icon-file">Note</a>
             <td class="note bg">Text <a href="x">Link</a>
@@ -899,6 +916,8 @@
             <td><button class="note icon-file" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>99
             <td class="info">Info
             <td><a href="x" class="info icon-info">Info</a>
             <td class="info bg">Text <a href="x">Link</a>
@@ -907,6 +926,8 @@
             <td><button class="info icon-info" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>1123
             <td class="success">Success
             <td><a href="x" class="success icon-ok">Success</a>
             <td class="success bg">Text <a href="x">Link</a>
@@ -915,6 +936,8 @@
             <td><button class="success icon-ok" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>100
             <td class="warning">Warning
             <td><a href="x" class="warning icon-warning">Warning</a>
             <td class="warning bg">Text <a href="x">Link</a>
@@ -923,6 +946,8 @@
             <td><button class="warning icon-warning" type="reset">Button</button>
           </tr>
           <tr>
+            <td><input type="checkbox">
+            <td>5.5
             <td class="danger">Danger
             <td><a href="x" class="danger icon-ban">Danger</a>
             <td class="danger bg">Text <a href="x">Link</a>
@@ -933,6 +958,7 @@
         </tbody>
       </table>
       </div>
+      </section>
 
 
     <h2 id="icon">Icon <a href="#icon" class="nodec">#</a></h2>

@@ -3,11 +3,12 @@
 ## Todo
 
 - minimal.css
+- table: fix-head, fix-col
 = compatible.css (no :has)
-- slider
 - @screen
 - repo: rearrange folders, build, demo page
-- js? (#back, #prev, #next, esc, splitter, dialog, drag, freedrag, pos?, progress)
+- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, !dialog, v2 (+esc,#back,#prev,#next,+toggle-class(-&select),+get-url,+hint-untitle)) (split, freedrag, pos?, progress)
++ slider
 =? container: overflow?
 -? mobile: stretch date inputs?
 + progress
