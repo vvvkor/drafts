@@ -7,7 +7,7 @@
 = compatible.css (no :has)
 - @screen
 - repo: rearrange folders, build, demo page
-- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, !dialog, v2 (+esc,#back,#prev,#next,+toggle-class(-&select),+get-url,+hint-untitle)) (split, freedrag, pos?, progress)
+- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, !dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, confirm-prompt
 + slider
 =? container: overflow?
 -? mobile: stretch date inputs?
@@ -138,3 +138,17 @@ label ... input.check + *
 .icon-x.empty:empty
 .icon-menu/close, -next/desc, -folder/open, -add/no, -expand/collapse
 .icon-spin
+
+## JavaScript
+
+.js
+form.data-get, [name].data-get="PARAM"
+table.sort
+[data-check]="SELECTOR"
+:is([type="checkbox"], [type="radio"], select)[data-nodes="SELECTOR"][data-parent="SELECTOR"][data-reverse]
+[type="search"][data-filter="SELECTOR"][data-parent="SELECTOR"]
+[contenteditable][data-area]
+[textarea][data-editor]
+a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
+#open
+( a[#ID].toggle [id].target )

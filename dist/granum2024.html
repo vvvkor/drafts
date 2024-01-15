@@ -8,7 +8,7 @@
     <meta name="theme-color" media="(prefers-color-scheme:dark)" content="#04a">
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="granum2024.min.css">
-    <!--script defer src="asset/granum2024.js"></script-->
+    <script defer src="granum2024.min.js"></script>
     <script>
       // demo icons
       document.addEventListener('DOMContentLoaded', e => {
@@ -44,7 +44,8 @@
         <a href="#list">List</a>
         <a href="#table">Table</a>
         <a href="#icon">Icon</a>
-        <label class="shift -check"><input type="checkbox" id="invert"> Invert</label>
+        <a href="#back" class="shift icon-left"></a>
+        <label class="-shift -check"><input type="checkbox" id="invert"> Invert</label>
       </div>
     </div>
   
@@ -52,10 +53,9 @@
     <div class="wide-m center pad">
       <h1 class="icon-config">Granum 2024 <small class="icon-file note">Small</small></h1>
       
-    
     <h2 id="typo">Typography <a href="#typo" class="nodec">#</a></h2>
     
-    <p>
+    <p class="-invert">
     Text
     <a href="?#">Link</a>
     <a>Unlink</a>
@@ -75,7 +75,7 @@
 <code>Code: <var>window</var> = <kbd class="text-y" onclick="this.textContent = window.innerWidth + ' x ' + window.innerHeight">click</kbd></code></pre>
 
       <details class="mar">
-      <summary class="icon-next">Tags and badges</summary>
+      <summary class="icon-next">Tags, badges, progress</summary>
         <div class="hilite pad rad stack">
           <span class="tag">Tag</span>
           <span class="tag bord">Border</span>
@@ -89,12 +89,40 @@
           <span class="tag c warning small">8</span>
           <p>
             <a href="#">Link <span class="tag info c small">1</span></a>
-            <a href="#">Link <sup class="tag success c small">8</sup></a>
-            <button>Link <span class="tag warning c small">16</span></button>
-            <button>Link <sup class="tag danger c small">100</sup></button>
+            <a href="#" class="icon-grid"><span>Link <sup class="tag success c">8</sup></span></a>
+            <a href="#">Link <sup class="tag danger c"></sup></a>
+            <a href="#" class="icon-grid"><sup class="tag danger c"></sup></a>
+            <a href="#" class="icon-grid"><sup class="tag danger c">5</sup></a>
+            <button>Button <span class="tag warning c small">16</span></button>
+            <button>Button <sup class="tag danger c">100</sup></button>
+            <button>Button <sup class="tag danger c -bord"></sup></button>
+          </p>
+            <progress value=".4">40%</progress> Default<br>
+            <progress value=".5" class="neutral">50%</progress> Neutral<br>
+            <progress value=".6" class="note">60%</progress> Note<br>
+            <progress value=".7" class="info">70%</progress> Info<br>
+            <progress value=".8" class="success">80%</progress> Success<br>
+            <progress value=".9" class="warning">90%</progress> Warning<br>
+            <progress value="1" class="danger">100%</progress> Danger
+          <p>
           </p>
         </div>
       </details>
+      
+      <details class="mar">
+      <summary class="icon-next">Image</summary>
+      <div class="pads rad hilite stack">
+        <img class="c" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="80"> Circled image
+        <hr>
+        <img class="center" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="100">
+        <hr>
+        <figure>
+          <img class="" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="100">
+          <figcaption>Figure caption</figcaption>
+        </figure>
+      </div>
+      </details>
+      
       
       <details class="mar">
       <summary class="icon-next">Headings</summary>
@@ -167,7 +195,8 @@
       <h3>Target</h3>
       
       <a href="#trg-sub">Target sub</a>
-      <a href="#trg" class="icon-next">Target</a>
+      <a href="#trg" class="icon-next toggle">T2</a>
+      <a href="#trg" class="icon-next toggle">Target</a>
       <div id="trg" class="target mar pad hilite">
         Target<br>
         <a href="#trg-sub">Target sub</a>
@@ -229,13 +258,15 @@
       
     <div class="modal full -invert">
       <div class="corner">
-        <a href="#img1" class="pad icon-first note"></a>
+        <a href="#img1" class="pad icon-first note hide-js"></a>
+        <a href="#prev" class="pad icon-prev  note show-js"></a>
+        <a href="#next" class="pad icon-next  note show-js"></a>
         <a href="#cancel" class="pad icon-close note"></a>
       </div>
-      <a href="#img2"><img id="img1" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=Red"  ></a>
-      <a href="#img3"><img id="img2" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=Green"></a>
-      <a href="#img4"><img id="img3" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=Blue" ></a>
-      <a href="#img1"><img id="img4" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=Grey" ></a>
+      <a href="#img2"><img id="img1" data-prev="#img4" data-next="#img2" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=***"  ></a>
+      <a href="#img3"><img id="img2" data-prev="#img1" data-next="#img3" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=///"></a>
+      <a href="#img4"><img id="img3" data-prev="#img2" data-next="#img4" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=~~~" ></a>
+      <a href="#img1"><img id="img4" data-prev="#img3" data-next="#img1" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=---" ></a>
     </div>
     <a href="#close-gallery" class="overlay"></a>
 
@@ -246,30 +277,30 @@
       <a href="#close-drawer-right" class="backdrop warning bg"></a>
       
       <ul>
-        <li><a href="#branch1">Accordion item 1</a>
+        <li><a href="#branch1" class="-toggle">Accordion item 1</a>
           <ul id="branch1" class="target">
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </ul>
         </li>
-        <li><a href="#branch2">Accordion item 2</a>
+        <li><a href="#branch2" class="-toggle">Accordion item 2</a>
           <ul id="branch2" class="target">
             <li>A</li>
             <li>B</li>
             <li>C</li>
           </ul>
         </li>
-        <li><a href="#branch3">Accordion item 3</a>
+        <li><a href="#branch3" class="-toggle">Accordion item 3</a>
           <ul id="branch3" class="target">
-            <li><a href="#branch31">Uno</a>
+            <li><a href="#branch31" class="-toggle">Uno</a>
               <ul id="branch31" class="target">
                 <li>X</li>
                 <li>Y</li>
                 <li>Z</li>
               </ul>
             </li>
-            <li><a href="#branch32">Dos</a>
+            <li><a href="#branch32" class="-toggle">Dos</a>
               <ul id="branch32" class="target">
                 <li>Alpha</li>
                 <li>Beta</li>
@@ -283,9 +314,9 @@
       
       <ul class="row tabs hover">
         <li><b>Tabs</b></li>
-        <li><a href="#tab1">One</a></li>
-        <li><a href="#tab2" class="-success">Two</a></li>
-        <li><a href="#tab3">Three</a></li>
+        <li><a href="#tab1" class="-toggle">One</a></li>
+        <li><a href="#tab2" class="-toggle">Two</a></li>
+        <li><a href="#tab3" class="-toggle">Three</a></li>
       </ul>
       <div class="pads hilite">
         <div id="tab1">
@@ -362,7 +393,7 @@
             <li><a href="#x">nav</a></li>
           </ul>
         </li>
-        <li class="shift -mid"><form action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></div></form></li>
+        <li class="shift -mid"><form data-get action="?#find"><div class="input"><input id="find" type="search" name="q" size="8" accesskey="4"><button class="-hover icon-find"></button></div></form></li>
       </ul>
       
       <div class="mar">
@@ -415,10 +446,6 @@
         <small class="icon-file note">Small</small>
       </p>
       <p>
-        <a href="" class="icon-refresh success invert pad">Inverted</a>
-        <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
-      </p>
-      <p>
         <span class="neutral">Neutral</span>
         <span class="note">Note</span>
         <span class="info">Info</span>
@@ -442,73 +469,61 @@
         <span class="bord warning">Warning</span>
         <span class="bord danger">Danger</span>
       </p>
-      <p>
-        <span class="pad bord">Border</span>
-        <span class="pad invert">Invert</span>
-        <span class="pad danger">Danger</span>
-        <span class="pad danger text">Text</span>
-        <span class="pad danger bord">Border</span>
-        <span class="pad danger bg">Bg</span>
-        <span class="pad danger text bg">Text bg</span>
-        <span class="pad danger bord bg">Border bg</span>
-        <span class="pad danger text bg bord">Text bg border</span>
-        <span class="pad danger invert icon-pin">Invert</span>
-      </p>
-      <p>
-        <span class="pad bord rad">Pad text</span>
-        <button class="icon-ok">Button</button>
-        <button class="neutral icon-more">Neutral</button>
-        <button class="note icon-file">Note</button>
-        <button class="info icon-info">Info</button>
-        <button class="success icon-ok">Success</button>
-        <button class="warning icon-warning">Warning</button>
-        <button class="danger icon-ban">Danger</button>
-        <button class="bord icon-time">Border</button>
-        <button class="danger bord icon-close">Border</button>
-        <button class="danger bord text bg icon-close">Border</button>
-        <button disabled class="danger icon-spin">Disabled</button>
-      </p>
+      
+      <details>
+        <summary class="icon-next">Buttons etc.</summary>
+        <div class="pads hilite rad stack">
+        
+          <h3>Buttons</h3>
+          <span class="pad bord rad">Pad span</span>
+          <button class="icon-ok">Button</button>
+          <button class="neutral icon-more">Neutral</button>
+          <button class="note icon-file">Note</button>
+          <button class="info icon-info">Info</button>
+          <button class="success icon-ok">Success</button>
+          <button class="warning icon-warning">Warning</button>
+          <button class="danger icon-ban">Danger</button>
+          <button class="bord icon-time">Border</button>
+          <button class="danger bord icon-close">Border</button>
+          <button class="danger bord text bg icon-close">Border</button>
+          <button disabled class="danger icon-spin">Disabled</button>
+          
+          <h3>Pad</h3>
+          <span class="pad bord">Border</span>
+          <span class="pad invert">Invert</span>
+          <span class="pad danger">Danger</span>
+          <span class="pad danger text">Text</span>
+          <span class="pad danger bord">Border</span>
+          <span class="pad danger bg">Bg</span>
+          <span class="pad danger text bg">Text bg</span>
+          <span class="pad danger bord bg">Border bg</span>
+          <span class="pad danger text bg bord">Text bg border</span>
+          <span class="pad danger invert icon-pin">Invert</span>
+
+          <h3>Invert</h3>
+          <a href="" class="icon-refresh success invert pad">Inverted</a>
+          <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
+          
+        </div>
+      </details>
       
       <h2 id="form">Form <a href="#form" class="nodec">#</a></h2>
       
       <div class="container resize scrollbar  hilite pad rad -wide-s center">
-      <form class="form resp just stretch">
+      <form data-get class="form resp just stretch" method="get" action="?#custom">
       
         <label for="text">Text</label>
-        <input id="text" type="text">
-        
-        <br>
-        <label for="search">Search</label>
-        <input id="search" type="search">
-        
-        <br>
-        <label for="ro">Readonly</label>
-        <input id="ro" type="text" readonly value="readonly">
-
-        <br>
-        <label for="dis">Disabled</label>
-        <input id="dis" type="text" disabled value="disabled">
-
-        <br>
-        <div><label for="num">Number</label><small class="tip">Info<br>text</small></div>
-        <div>
-          <input id="num" type="number" required class="validate">
-          <small class="tip">
-            Type in the number
-            <span class="danger icon-ban">Value required</span>
-            <span class="success icon-ok">Correct value</span>
-          </small>
-        </div>
+        <input id="text" type="text" name="text">
         
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
         <div>
           <div class="input validate">
             <b>#</b>
-            <input id="custom" type="text" size="12" required>
+            <input id="custom" type="text" size="12" required name="custom">
             <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
-            <button type="submit" class="icon-ok success -bg -bord" formaction="?#custom"></button>
+            <button type="submit" class="icon-ok success -bg -bord"></button> <!-- formaction="?#custom" -->
           </div>
           <div class="tip small">
             Type in some text
@@ -518,82 +533,139 @@
         </div>
 
         <br>
-        <label for="area">Textarea</label>
-        <textarea id="area"></textarea>
-
-        <br>
         <label class="just-c" for="sel">Select</label>
-        <select id="sel"><option value="1">1</option><option value="2">2</option></select>
+        <select id="sel" data-nodes="#nodes i">
+          <option value="">none</option>
+          <option selected value="icon-user note">user</option>
+          <option value="icon-edit info">edit</option>
+          <option value="icon-ban danger">ban</option>
+        </select>
         
         <br>
         <!--wbr-->
         <fieldset class="shift -wide rad">
           <legend>Boxes</legend>
-          <div><input id="x1" type="checkbox"> <label for="x1">Box</label> <b class="x1">Checked!</b></div>
-          <div><input id="switch" type="checkbox" class="switch"> <label for="switch">Box</label></div>
-          <div><input id="radio1" type="radio" name="rad" value="1"> <label for="radio1">Box</label></div>
-          <div><input id="radio2" type="radio" name="rad" value="2"> <label for="radio2">Box</label></div>
+          <div><input id="x1" type="checkbox" data-nodes="#nodes b" data-reverse-x value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
+          <div><input id="switch" type="checkbox" class="switch" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
+          <div><input id="radio1" type="radio" name="rad" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
+          <div><input id="radio2" type="radio" name="rad" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
+          <div id="nodes">
+            Nodes:
+            <i>One</i>
+            <i>Two</i>
+            <b>Three</b>
+            <b>Four</b>
+            <strong>Five</strong>
+            <strong>Six</strong>
+          </div>
         </fieldset>
         
         <br>
-        <label for="date">Date</label>
-        <input id="date" type="date">
+        <label for="area">Textarea</label>
+        <textarea id="area" name="area" data-editor="#edit"></textarea>
 
         <br>
-        <label for="time">Time</label>
-        <input id="time" type="time">
+        <a tabindex="-1" onclick="edit.focus();return false;">Editable</a> <!-- href="#edit" -->
+        <div data-get="area" data-area="#area" id="edit" contenteditable class="wide"></div>
 
         <br>
-        <label for="datetime">Datetime</label>
-        <input id="datetime" type="datetime-local">
-
-        <br>
-        <label for="file">File</label>
-        <input id="file" type="file" class="dropzone wide">
-
-        <br>
-        <label for="clr">Color</label>
-        <input id="clr" type="color">
-
-        <br>
-        <label for="range">Range</label>
-        <input id="range" type="range">
-
-        <br>
-        <a tabindex="-1" onclick="edit.focus();return false;">Edit</a> <!-- href="#edit" -->
-        <div id="edit" contenteditable class="wide"></div>
-
-        <br>
-        <wbr>
-        <input type="submit" value="Submit" class="-info -bg -bord -text">
-        
-        <br>
-        <wbr>
+        <!--wbr-->
         <fieldset class="span wide">
-          <legend>Subitems</legend>
-          <div class="form resp just">
+          <legend><a href="#more" class="icon-desc">Subitems</a> <a href="#close" class="icon-close note"></a></legend>
+          <div id="more" class="target form resp just">
+              
+            <div><label for="num">Number</label><small class="tip">Force validation</small></div>
+            <div>
+              <input id="num" type="number" -required class="validate" name="num">
+              <small class="tip">
+                Type in the number
+                <span class="danger icon-ban">Value required</span>
+                <span class="success icon-ok">Correct value</span>
+              </small>
+            </div>
+        
+            <br>
+            <label for="search">Search</label>
+            <input id="search" type="search">
+            
+            <br>
+            <label for="ro">Readonly</label>
+            <input id="ro" type="text" readonly value="readonly">
+
+            <br>
+            <label for="dis">Disabled</label>
+            <input id="dis" type="text" disabled value="disabled">
+
+            <br>
             <label for="pass">Password</label>
-              <input id="pass" type="password">
-            <button class="span -wide icon-spin"> OK</button>
+            <input id="pass" type="password">
+            
+            <br>
+            <label for="date">Date</label>
+            <input id="date" type="date">
+
+            <br>
+            <label for="time">Time</label>
+            <input id="time" type="time">
+
+            <br>
+            <label for="datetime">Datetime</label>
+            <input id="datetime" type="datetime-local">
+
+            <br>
+            <label for="file">File</label>
+            <input id="file" type="file" class="dropzone wide">
+
+            <br>
+            <label for="clr">Color</label>
+            <input id="clr" type="color">
+
+            <br>
+            <label for="range">Range</label>
+            <input id="range" type="range">
+
           </div>
         </fieldset>
         
         <br>
-        <wbr>
-        <button class="just-l">Left</button>
-        
-        <br>
-        <wbr>
-        <button class="just-c" disabled>Center disabled</button>
-        
-        <br>
-        <button class="span detect">Big detect</button>
-        <div class="span just-c">
-          <div class="c inact">
-          <button>Centered span inactive</button>
-          Text
+        <fieldset class="span wide">
+          <legend><a href="#btns" class="icon-desc">Buttons</a> <a href="#close" class="icon-close note"></a></legend>
+          <div id="btns" class="target form resp just">
+            <wbr>
+            <input type="submit" value="Submit" class="-info -bg -bord -text">
+            
+            <br>
+            <button class="span -wide icon-expand"> Wide</button>
+            
+            <div class="span just-c">
+              <div class="c inact">
+              <button>Centered span inactive</button>
+              Text
+              </div>
+            </div>
+            
+            <br>
+            <wbr>
+            <button class="just-l">Left</button>
+            
+            <br>
+            <wbr>
+            <button class="just-c" disabled>Center disabled</button>
+          
+            <br>
+            <wbr>
+            <button class="just-r bord">Right</button>
+            
           </div>
-        </div>
+        </fieldset>
+        
+        
+        <br>
+        <wbr>
+        <button class="just-l icon-ok">OK</button>
+        
+        <br>
+        <button class="span detect icon-spin">Detect validity</button>
       </form>
       </div>
       
@@ -633,7 +705,7 @@
             <div class="danger bg col-0">Auto</div>
           </div>
           <div class="row wrap -mid mar resp-s">
-            <div class="info bg col-3 stick">3 stick</div>
+            <div class="info bg col-3 stick">3 stick (inside nearest scrollable)</div>
             <div class="success bg col-2">2</div>
             <div class="warning bg col-1">1</div>
             <div class="danger bg col-0">Auto<br> width</div>
@@ -673,6 +745,36 @@
         </div>
       </details>
 
+      <details class="mar">
+        <summary>Slider</summary>
+        <div class="slider scrollbar nodec rad">    
+          <div id="slide1" class="pad hilite row mid stretch">
+            <div class="c">
+              <a href="#slide4">&larr;</a>
+              One
+              <a href="#slide2">&rarr;</a>
+            </div>
+          </div>
+          <div id="slide2" class="info bg row mid">
+            <a href="#slide1" class="pad hover">&lsaquo;</a>
+            <div class="col-1 c pad">Two</div>
+            <a href="#slide3" class="pad hover">&rsaquo;</a>
+          </div>
+          <div id="slide3" class="pad warning bg">
+            Three
+          </div>
+          <div id="slide4" class="pad danger invert">
+            Four
+          </div>
+        </div>
+        <nav class="c nodec">
+          <a href="#slide1" class="pad">&#x25cf;</a>
+          <a href="#slide2" class="pad">&#x25cf;</a>
+          <a href="#slide3" class="pad">&#x25cf;</a>
+          <a href="#slide4" class="pad">&#x25cf;</a>
+        </nav>
+      </details>
+      
       <div class="stack mar rad pad note bg">
         <p>Stacked paragraph one.</p>
         <p>Stacked paragraph two.</p>
@@ -690,9 +792,15 @@
       
         <ul>
           <li>One</li>
-          <li>Two</li>
-          <li>Three
-            <ul>
+          <li><a href="#open" class="icon-add"></a> Two
+            <ul class="hide">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
+          </li>
+          <li><a href="#open" class="icon-add"></a> Three
+            <ul class="-hide">
               <li>Uno</li>
               <li>Dos</li>
               <li>Tres</li>
@@ -724,7 +832,7 @@
       
       <h2 id="table">Table <a href="#table" class="nodec">#</a></h2>
 
-<div class="scroll">
+<!--div class="scroll">
 <table class="mid wide -bord line c3 r4 fix-head fix-col  pad hover l -nobr">
 	<caption>Sample table</caption>
 	<thead>
@@ -772,7 +880,103 @@
 		<tr><td><td>&Sigma;<td>150.3<td>7.6<td></td>
 	</tfoot>
 </table>
-</div>
+</div-->
+      <section>
+      <input type="search" data-parent="section" data-filter="table" placeholder="Filter table">
+      <div class="scroll scrollbar mar">
+      <table id="table1" class="sort mid wide -bord line c4 r5 fix-head fix-col  pad hover l nobr">
+        <caption>Status colors</caption>
+        <thead>
+          <tr>
+            <th><input type="checkbox" data-parent="table" data-check="[type='checkbox']">
+            <th>#<th>Text<th>Link<th>Back<th>Back+text<th>Invert<th>Button</tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="checkbox">
+            <td>11
+            <td class="">Default
+            <td><a href="x" class="icon-pin">Note</a>
+            <td class="bg">Text <a href="x">Link</a>
+            <td class="bg text">Text <a href="x">Link</a>
+            <td class="invert">Text <a href="x">Link</a>
+            <td><button class="icon-pin" type="reset">Button</button>
+          </tr>
+          <tr class="bg info">
+            <td><input type="checkbox">
+            <td>.5
+            <td class="">Marked
+            <td><a href="x" class="icon-edit">Note</a>
+            <td class="bg">Text <a href="x">Link</a>
+            <td class="bg text">Text <a href="x">Link</a>
+            <td class="invert">Text <a href="x">Link</a>
+            <td><button class="icon-edit" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>0
+            <td class="neutral">Neutral
+            <td><a href="x" class="neutral icon-time">Note</a>
+            <td class="neutral bg">Text <a href="x">Link</a>
+            <td class="neutral bg text">Text <a href="x">Link</a>
+            <td class="neutral invert">Text <a href="x">Link</a>
+            <td><button class="neutral icon-time" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>1
+            <td class="note">Note
+            <td><a href="x" class="note icon-file">Note</a>
+            <td class="note bg">Text <a href="x">Link</a>
+            <td class="note bg text">Text <a href="x">Link</a>
+            <td class="note invert">Text <a href="x">Link</a>
+            <td><button class="note icon-file" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>99
+            <td class="info">Info
+            <td><a href="x" class="info icon-info">Info</a>
+            <td class="info bg">Text <a href="x">Link</a>
+            <td class="info bg text">Text <a href="x">Link</a>
+            <td class="info invert">Text <a href="x">Link</a>
+            <td><button class="info icon-info" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>1123
+            <td class="success">Success
+            <td><a href="x" class="success icon-ok">Success</a>
+            <td class="success bg">Text <a href="x">Link</a>
+            <td class="success bg text">Text <a href="x">Link</a>
+            <td class="success invert">Text <a href="x">Link</a>
+            <td><button class="success icon-ok" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>100
+            <td class="warning">Warning
+            <td><a href="x" class="warning icon-warning">Warning</a>
+            <td class="warning bg">Text <a href="x">Link</a>
+            <td class="warning bg text">Text <a href="x">Link</a>
+            <td class="warning invert">Text <a href="x">Link</a>
+            <td><button class="warning icon-warning" type="reset">Button</button>
+          </tr>
+          <tr>
+            <td><input type="checkbox">
+            <td>5.5
+            <td class="danger">Danger
+            <td><a href="x" class="danger icon-ban">Danger</a>
+            <td class="danger bg">Text <a href="x">Link</a>
+            <td class="danger bg text">Text <a href="x">Link</a>
+            <td class="danger invert">Text <a href="x">Link</a>
+            <td><button class="danger icon-ban" type="reset">Button</button>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      </section>
+
 
     <h2 id="icon">Icon <a href="#icon" class="nodec">#</a></h2>
 

@@ -1,4 +1,42 @@
+/*! granum2024.js */
 (() => {
+  
+const act = (n, k, f) => (n.dataset.parent ? n.closest(n.dataset.parent) : document)?.querySelectorAll(n.dataset[k]).forEach(m => f(m))
+const cls = n => {
+  if (n.type == 'checkbox') act(n, 'nodes', m => m.classList[n.checked != ('reverse' in n.dataset) ? 'add' : 'remove'](...n.value.split(/\s+/)))
+  else if ((n.type == 'radio' && n.checked) || n.options) act(n, 'nodes', m => m.className = n.value)
+}
+const tgl = (n, e) => {
+  const d = n.closest('li').querySelector('ul')
+  if (d) {
+    if (e) {
+      e.preventDefault()
+      d.classList.toggle('hide')
+    }
+    n.classList[d.classList.contains('hide') ? 'remove' : 'add']('act')
+  }
+}
+/*
+const tgl2 = (n, e) => {
+  const d = (n.hash == '#open')
+    ? n.closest('li').querySelector('ul')
+    : document.querySelector(n.hash)
+  if (d) {
+    if (e) {
+      e.preventDefault()
+      d.classList.toggle('hide')
+    }
+    else {
+      if (d.classList.contains('target')) {
+        d.classList.add('hide')
+        d.classList.remove('target')
+      }
+    }
+    (d.id ? document.querySelectorAll('[href="#' + d.id + '"]') : [n])
+      .forEach(m => m.classList[d.classList.contains('hide') ? 'remove' : 'add']('act'))
+  }
+}
+*/
 
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
@@ -13,6 +51,13 @@ document.addEventListener('DOMContentLoaded', e => {
     //else n.textContent = v.join(', ')
     else n.innerHTML = v.join(', ')
   })
+  
+  // init toggle classes
+  document.querySelectorAll('[data-nodes]').forEach(n => cls(n))
+
+  // init toggle
+  document.querySelectorAll('[href="#open"]').forEach(n => tgl(n))
+  //document.querySelectorAll('[href="#open"], a.toggle').forEach(n => tgl2(n))
   
   // remove title on [data-hint]
   document.querySelectorAll('[data-hint]').forEach(n => n.removeAttribute('title'))
@@ -37,9 +82,24 @@ document.addEventListener('click', e => {
     }
   }
 
-})
+  // prev/next
+  else if (location.hash && ['#prev', '#next'].includes(n.hash)) {
+    e.preventDefault()
+    const id = document.querySelector(location.hash)?.dataset[n.hash == '#prev' ? 'prev' : 'next']
+    if (id) location.hash = id
+  }
+  
+  //go back
+  else if (n.hash == '#back') {
+    e.preventDefault()
+    history.go(-1)
+  }
+  
+  //open
+  else if (n.hash) tgl(n, e)
+  //else if (n.matches('[href="#open"], a.toggle')) tgl2(n, e)
 
-const act = (n, k, f) => (n.dataset.parent ? n.closest(n.dataset.parent) : document).querySelectorAll(n.dataset[k]).forEach(m => f(m))
+})
 
 document.addEventListener('input', e => {
   const n = e.target
@@ -48,10 +108,7 @@ document.addEventListener('input', e => {
   if (n.dataset.check) act(n, 'check', m => m.checked = n.checked && !m.closest('[hidden]'))
   
   // toggle classes
-  if (n.dataset.nodes) {
-    if (n.type == 'checkbox') act(n, 'nodes', m => m.classList[n.checked != ('reverse' in n.dataset) ? 'add' : 'remove'](...n.value.split(/\s+/)))
-    else if (n.type == 'radio') act(n, 'nodes', m => m.className = n.value)
-  }
+  if (n.dataset.nodes) cls(n)
 
   // filter table
   if (n.dataset.filter) act(n, 'filter', t => t.querySelectorAll('tbody tr')
@@ -60,6 +117,10 @@ document.addEventListener('input', e => {
   // map contenteditable to textarea
   const a = n.dataset.area
   if (a) document.querySelector(a).value = n.innerHTML
+
+  // map area to contenteditable
+  const c = n.dataset.editor
+  if (c) document.querySelector(c).innerHTML = n.value
 })
 
 document.addEventListener('keydown', e => {

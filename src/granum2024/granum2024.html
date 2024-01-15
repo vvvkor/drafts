@@ -44,7 +44,8 @@
         <a href="#list">List</a>
         <a href="#table">Table</a>
         <a href="#icon">Icon</a>
-        <label class="shift -check"><input type="checkbox" id="invert"> Invert</label>
+        <a href="#back" class="shift icon-left"></a>
+        <label class="-shift -check"><input type="checkbox" id="invert"> Invert</label>
       </div>
     </div>
   
@@ -194,7 +195,8 @@
       <h3>Target</h3>
       
       <a href="#trg-sub">Target sub</a>
-      <a href="#trg" class="icon-next">Target</a>
+      <a href="#trg" class="icon-next toggle">T2</a>
+      <a href="#trg" class="icon-next toggle">Target</a>
       <div id="trg" class="target mar pad hilite">
         Target<br>
         <a href="#trg-sub">Target sub</a>
@@ -256,13 +258,15 @@
       
     <div class="modal full -invert">
       <div class="corner">
-        <a href="#img1" class="pad icon-first note"></a>
+        <a href="#img1" class="pad icon-first note hide-js"></a>
+        <a href="#prev" class="pad icon-prev  note show-js"></a>
+        <a href="#next" class="pad icon-next  note show-js"></a>
         <a href="#cancel" class="pad icon-close note"></a>
       </div>
-      <a href="#img2"><img id="img1" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=***"  ></a>
-      <a href="#img3"><img id="img2" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=///"></a>
-      <a href="#img4"><img id="img3" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=~~~" ></a>
-      <a href="#img1"><img id="img4" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=---" ></a>
+      <a href="#img2"><img id="img1" data-prev="#img4" data-next="#img2" class="target note bg" loading="lazy" alt="Red"   src="https://placehold.co/400x200/b33/fff.png?text=***"  ></a>
+      <a href="#img3"><img id="img2" data-prev="#img1" data-next="#img3" class="target note bg" loading="lazy" alt="Green" src="https://placehold.co/300x200/393/fff.png?text=///"></a>
+      <a href="#img4"><img id="img3" data-prev="#img2" data-next="#img4" class="target note bg" loading="lazy" alt="Blue"  src="https://placehold.co/200x200/039/fff.png?text=~~~" ></a>
+      <a href="#img1"><img id="img4" data-prev="#img3" data-next="#img1" class="target note bg" loading="lazy" alt="Grey"  src="https://placehold.co/220x300/777/fff.png?text=---" ></a>
     </div>
     <a href="#close-gallery" class="overlay"></a>
 
@@ -273,30 +277,30 @@
       <a href="#close-drawer-right" class="backdrop warning bg"></a>
       
       <ul>
-        <li><a href="#branch1">Accordion item 1</a>
+        <li><a href="#branch1" class="-toggle">Accordion item 1</a>
           <ul id="branch1" class="target">
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </ul>
         </li>
-        <li><a href="#branch2">Accordion item 2</a>
+        <li><a href="#branch2" class="-toggle">Accordion item 2</a>
           <ul id="branch2" class="target">
             <li>A</li>
             <li>B</li>
             <li>C</li>
           </ul>
         </li>
-        <li><a href="#branch3">Accordion item 3</a>
+        <li><a href="#branch3" class="-toggle">Accordion item 3</a>
           <ul id="branch3" class="target">
-            <li><a href="#branch31">Uno</a>
+            <li><a href="#branch31" class="-toggle">Uno</a>
               <ul id="branch31" class="target">
                 <li>X</li>
                 <li>Y</li>
                 <li>Z</li>
               </ul>
             </li>
-            <li><a href="#branch32">Dos</a>
+            <li><a href="#branch32" class="-toggle">Dos</a>
               <ul id="branch32" class="target">
                 <li>Alpha</li>
                 <li>Beta</li>
@@ -310,9 +314,9 @@
       
       <ul class="row tabs hover">
         <li><b>Tabs</b></li>
-        <li><a href="#tab1">One</a></li>
-        <li><a href="#tab2" class="-success">Two</a></li>
-        <li><a href="#tab3">Three</a></li>
+        <li><a href="#tab1" class="-toggle">One</a></li>
+        <li><a href="#tab2" class="-toggle">Two</a></li>
+        <li><a href="#tab3" class="-toggle">Three</a></li>
       </ul>
       <div class="pads hilite">
         <div id="tab1">
@@ -530,28 +534,35 @@
 
         <br>
         <label class="just-c" for="sel">Select</label>
-        <select id="sel"><option value="1">1</option><option value="2">2</option></select>
+        <select id="sel" data-nodes="#nodes i">
+          <option value="">none</option>
+          <option selected value="icon-user note">user</option>
+          <option value="icon-edit info">edit</option>
+          <option value="icon-ban danger">ban</option>
+        </select>
         
         <br>
         <!--wbr-->
         <fieldset class="shift -wide rad">
           <legend>Boxes</legend>
-          <div><input id="x1" type="checkbox" data-nodes="#nodes b" value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
+          <div><input id="x1" type="checkbox" data-nodes="#nodes b" data-reverse-x value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
           <div><input id="switch" type="checkbox" class="switch" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
           <div><input id="radio1" type="radio" name="rad" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
           <div><input id="radio2" type="radio" name="rad" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
           <div id="nodes">
             Nodes:
-            <b>One</b>
-            <b>Two</b>
-            <strong>Three</strong>
-            <strong>Four </strong>
+            <i>One</i>
+            <i>Two</i>
+            <b>Three</b>
+            <b>Four</b>
+            <strong>Five</strong>
+            <strong>Six</strong>
           </div>
         </fieldset>
         
         <br>
         <label for="area">Textarea</label>
-        <textarea id="area" name="area"></textarea>
+        <textarea id="area" name="area" data-editor="#edit"></textarea>
 
         <br>
         <a tabindex="-1" onclick="edit.focus();return false;">Editable</a> <!-- href="#edit" -->
@@ -781,9 +792,15 @@
       
         <ul>
           <li>One</li>
-          <li>Two</li>
-          <li>Three
-            <ul>
+          <li><a href="#open" class="icon-add"></a> Two
+            <ul class="hide">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+            </ul>
+          </li>
+          <li><a href="#open" class="icon-add"></a> Three
+            <ul class="-hide">
               <li>Uno</li>
               <li>Dos</li>
               <li>Tres</li>
