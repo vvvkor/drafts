@@ -195,15 +195,24 @@
       
       <h3>Target</h3>
       
-      <a href="#trg-sub">Target sub</a>
-      <a href="#trg" class="icon-next toggle">T2</a>
-      <a href="#trg" class="icon-next toggle">Target</a>
+      <a href="#tgl" class="icon-next">ToggleA</a>
+      <a href="#tgl" class="icon-next">ToggleB</a>
+      <a href="#trg-sub" class="icon-next">Target sub</a>
+      <a href="#trg" class="icon-next">Target</a>
       <div id="trg" class="target mar pad hilite">
         Target<br>
         <a href="#trg-sub">Target sub</a>
         <div id="trg-sub" class="target mar pad hilite">
           Target sub<br>
           <a href="#trg">Target</a>
+        </div>
+      </div>
+      <div id="tgl" class="target js mem mar pad hilite">
+        Target<br>
+        <a href="#tgl-sub">Target sub</a>
+        <div id="tgl-sub" class="target js mar pad hilite">
+          Target sub<br>
+          <a href="#tgl">Target</a>
         </div>
       </div>
 
@@ -278,30 +287,30 @@
       <a href="#close-drawer-right" class="backdrop warning bg"></a>
       
       <ul>
-        <li><a href="#branch1" class="-toggle">Accordion item 1</a>
-          <ul id="branch1" class="target">
+        <li><a href="#branch1">Tree item 1 mem</a>
+          <ul id="branch1" class="target js mem">
             <li>1</li>
             <li>2</li>
             <li>3</li>
           </ul>
         </li>
-        <li><a href="#branch2" class="-toggle">Accordion item 2</a>
+        <li><a href="#branch2">Tree item 2</a>
           <ul id="branch2" class="target">
             <li>A</li>
             <li>B</li>
             <li>C</li>
           </ul>
         </li>
-        <li><a href="#branch3" class="-toggle">Accordion item 3</a>
+        <li><a href="#branch3">Tree item 3</a>
           <ul id="branch3" class="target">
-            <li><a href="#branch31" class="-toggle">Uno</a>
+            <li><a href="#branch31">Uno</a>
               <ul id="branch31" class="target">
                 <li>X</li>
                 <li>Y</li>
                 <li>Z</li>
               </ul>
             </li>
-            <li><a href="#branch32" class="-toggle">Dos</a>
+            <li><a href="#branch32">Dos</a>
               <ul id="branch32" class="target">
                 <li>Alpha</li>
                 <li>Beta</li>
@@ -315,9 +324,9 @@
       
       <ul class="row tabs hover">
         <li><b>Tabs</b></li>
-        <li><a href="#tab1" class="-toggle">One</a></li>
-        <li><a href="#tab2" class="-toggle">Two</a></li>
-        <li><a href="#tab3" class="-toggle">Three</a></li>
+        <li><a href="#tab1">One</a></li>
+        <li><a href="#tab2">Two</a></li>
+        <li><a href="#tab3">Three</a></li>
       </ul>
       <div class="pads hilite">
         <div id="tab1">

@@ -2,18 +2,25 @@
 (() => {
   
 const act = (n, k, f) => (n.dataset.parent ? n.closest(n.dataset.parent) : document)?.querySelectorAll(n.dataset[k]).forEach(m => f(m))
+
 const cls = n => {
   if (n.type == 'checkbox') act(n, 'nodes', m => m.classList[n.checked != ('reverse' in n.dataset) ? 'add' : 'remove'](...n.value.split(/\s+/)))
   else if ((n.type == 'radio' && n.checked) || n.options) act(n, 'nodes', m => m.className = n.value)
 }
-const tgl = (n, e) => {
-  const d = n.closest('li').querySelector('ul')
+
+const tgl = (n, e, store, d) => {
+  if (!d) d = (n.hash == '#open')
+    ? n.closest('li').querySelector('ul')
+    : document.querySelector(n.hash + '.toggle')
   if (d) {
-    if (e) {
-      e.preventDefault()
-      d.classList.toggle('hide')
+    if (e != null) {
+      if (e.type) e.preventDefault()
+      d.classList[e.type ? 'toggle' : (e ? 'remove' : 'add')]('hide')
     }
-    n.classList[d.classList.contains('hide') ? 'remove' : 'add']('act')
+    const h = d.classList.contains('hide')
+    if (store && d.id && d.classList.contains('mem')) localStorage.setItem('val-' + d.id, h ? '' : 1)
+    ;(d.id ? document.querySelectorAll('[href="#' + d.id + '"]') : [n])
+      .forEach(m => m.classList[h ? 'remove' : 'add']('act'))
   }
 }
 /*
@@ -41,13 +48,20 @@ const tgl2 = (n, e) => {
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
-  // restore inputs/details
+  // init toggle
+  document.querySelectorAll('.target.js').forEach(n => {
+    n.classList.remove('target')
+    n.classList.add('toggle', 'hide')
+  })
+  
+  // restore inputs/details/toggle
   document.querySelectorAll('.mem[id], form.mem [id]').forEach(n => {
     const v = localStorage.getItem('val-' + n.id)
     if (v == null) return
     if (n.matches('details')) n.open = !!v
     else if (['checkbox', 'radio'].includes(n.type)) n.checked = (v == n.value)
-    else n.value = v
+    else if (n.matches('input, select, textarea')) n.value = v
+    else tgl(null, !!v, false, n)
   })
   
   // use URL params
@@ -64,8 +78,8 @@ document.addEventListener('DOMContentLoaded', e => {
   // init toggle classes
   document.querySelectorAll('[data-nodes]').forEach(n => cls(n))
 
-  // init toggle
-  document.querySelectorAll('[href="#open"]').forEach(n => tgl(n))
+  // init toggle state
+  document.querySelectorAll('[href^="#"]').forEach(n => tgl(n))
   //document.querySelectorAll('[href="#open"], a.toggle').forEach(n => tgl2(n))
   
   // remove title on [data-hint]
@@ -107,10 +121,6 @@ document.addEventListener('click', e => {
       history.go(-1)
     }
     
-    //open
-    else if (a.hash == '#open') tgl(a, e)
-    //else if (a.matches('[href="#open"], a.toggle')) tgl2(a, e)
-
     // confirm or prompt link
     else if (a.classList.contains('dialog')) {
       e.preventDefault()
@@ -130,6 +140,10 @@ document.addEventListener('click', e => {
       }
     }
     
+    //open
+    else if (a.hash) tgl(a, e, true)
+    //else if (a.matches('[href="#open"], a.toggle')) tgl2(a, e)
+
   }
 })
 

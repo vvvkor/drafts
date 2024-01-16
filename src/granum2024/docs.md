@@ -151,7 +151,7 @@ table.sort
 [textarea][data-editor]
 a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 #open
-( a[#ID].toggle [id].target )
+a[#ID] [id].target.js.mem ([id].toggle.hide.mem)
 a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
 button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]
 :is(input, select, textarea, details)[id].mem, form.mem [id]
