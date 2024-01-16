@@ -152,3 +152,6 @@ table.sort
 a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 #open
 ( a[#ID].toggle [id].target )
+a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
+button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]
+:is(input, select, textarea, details)[id].mem

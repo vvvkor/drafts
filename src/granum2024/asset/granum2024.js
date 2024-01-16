@@ -41,6 +41,15 @@ const tgl2 = (n, e) => {
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
+  // restore inputs/details
+  document.querySelectorAll('.mem[id]').forEach(n => {
+    const v = localStorage.getItem('val-' + n.id)
+    if (v == null) return
+    if (n.matches('details')) n.open = !!v
+    else if (['checkbox', 'radio'].includes(n.type)) n.checked = (v == n.value)
+    else n.value = v
+  })
+  
   // use URL params
   const u = new URL(location.href)
   document.querySelectorAll('[data-get]:not(form), form[data-get] [name]').forEach(n => {
@@ -65,6 +74,7 @@ document.addEventListener('DOMContentLoaded', e => {
 
 document.addEventListener('click', e => {
   const n = e.target
+  const a = n.closest('a, button')
   
   // sort table
   const h = n.closest('.sort th, th.sort')
@@ -82,27 +92,55 @@ document.addEventListener('click', e => {
     }
   }
 
-  // prev/next
-  else if (location.hash && ['#prev', '#next'].includes(n.hash)) {
-    e.preventDefault()
-    const id = document.querySelector(location.hash)?.dataset[n.hash == '#prev' ? 'prev' : 'next']
-    if (id) location.hash = id
-  }
-  
-  //go back
-  else if (n.hash == '#back') {
-    e.preventDefault()
-    history.go(-1)
-  }
-  
-  //open
-  else if (n.hash) tgl(n, e)
-  //else if (n.matches('[href="#open"], a.toggle')) tgl2(n, e)
+  if (a) {
+    
+    // prev/next
+    if (location.hash && ['#prev', '#next'].includes(a.hash)) {
+      e.preventDefault()
+      const id = document.querySelector(location.hash)?.dataset[a.hash == '#prev' ? 'prev' : 'next']
+      if (id) location.hash = id
+    }
+    
+    //go back
+    else if (a.hash == '#back') {
+      e.preventDefault()
+      history.go(-1)
+    }
+    
+    //open
+    else if (a.hash == '#open') tgl(a, e)
+    //else if (a.matches('[href="#open"], a.toggle')) tgl2(a, e)
 
+    // confirm or prompt link
+    else if (a.classList.contains('dialog')) {
+      e.preventDefault()
+      const t = a.title || a.textContent
+      const h = a.href || a.dataset.href
+      if (!h) return alert(t)
+      const uu = new URL(location.href)
+      const u = new URL(h || '#cancel', location.href)
+      const p = a.dataset.prompt
+      const v = p
+        ? prompt(t, uu.searchParams.get(p) || a.dataset.def || u.searchParams.get(p) || '')
+        : (confirm(t) ? 1 : null)
+      if (v != null) {
+        u.searchParams.set(p || a.dataset.param || 'confirm', v)
+        if (a.matches('[target="_blank"], [data-blank]')) window.open(u)
+        else location.href = u
+      }
+    }
+    
+  }
 })
 
 document.addEventListener('input', e => {
   const n = e.target
+  
+  // store inputs
+  if (n.id && n.classList.contains('mem')) {
+    if (n.type == 'radio') (n.closest('form') || document).querySelectorAll(`[type="radio"][name="${n.name}"][id]`).forEach(m => localStorage.removeItem('val-' + m.id))
+    localStorage.setItem('val-' + n.id, (['checkbox', 'radio'].includes(n.type) && !n.checked) ? '' : n.value)
+  }
   
   // check all boxes
   if (n.dataset.check) act(n, 'check', m => m.checked = n.checked && !m.closest('[hidden]'))
@@ -122,6 +160,11 @@ document.addEventListener('input', e => {
   const c = n.dataset.editor
   if (c) document.querySelector(c).innerHTML = n.value
 })
+
+document.addEventListener('toggle', ({target: n}) => {
+  // store details
+  if (n.matches('details') && n.id && n.classList.contains('mem')) localStorage.setItem('val-' + n.id, n.open ? 1 : '')
+}, true)
 
 document.addEventListener('keydown', e => {
   // close modals and popups

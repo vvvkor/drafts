@@ -175,7 +175,8 @@
       </div>
       
       <div class="mar">
-        <details><summary class="hover icon-folder">Tree item 1</summary>
+        <details class="mem" id="det1">
+          <summary class="hover icon-folder">Tree item 1 mem</summary>
           <details><summary class="hover">1.1</summary>
             <ul><li>1.1.1</li><li>1.1.2</li></ul>
           </details>
@@ -183,8 +184,8 @@
             <ul><li>1.2.1</li><li>1.2.2</li></ul>
           </details>
         </details>
-        <details>
-          <summary class="hover icon-folder">Tree item 2</summary>
+        <details class="mem" id="det2">
+          <summary class="hover icon-folder">Tree item 2 mem</summary>
           <details>
             <summary class="hover">2.1</summary>
             <ul><li>2.1.1</li><li>2.1.2</li></ul>
@@ -434,6 +435,12 @@
         <a href="#target-resp" class="icon-menu hide-s">Responsive target</a>
         <div id="target-resp" class="target show-s">Shown on target and on small screen <a href="#close" class="icon-close hide-s">Close</a></div>
       </div>
+      
+      <h3>Dialog</h3>
+      
+      <button class="dialog" title="Alert text">Alert</button>
+      <a href="?q=test#find" class="dialog" title="Confirm your action" data-blank-x data-param-x="confirmed">Confirm</a>
+      <a href="?q=default#find" class="dialog" title="Type in your query" data-prompt="q">Prompt</a>
     
     
       <h2 id="color">Color <a href="#color" class="nodec">#</a></h2>
@@ -513,7 +520,7 @@
       <form data-get class="form resp just stretch" method="get" action="?#custom">
       
         <label for="text">Text</label>
-        <input id="text" type="text" name="text">
+        <input id="text" type="text" name="text" class="mem">
         
         <br>
         <div><label for="custom">Custom</label><small class="tip">Info</small></div>
@@ -534,7 +541,7 @@
 
         <br>
         <label class="just-c" for="sel">Select</label>
-        <select id="sel" data-nodes="#nodes i">
+        <select id="sel" data-nodes="#nodes i" class="mem">
           <option value="">none</option>
           <option selected value="icon-user note">user</option>
           <option value="icon-edit info">edit</option>
@@ -545,10 +552,10 @@
         <!--wbr-->
         <fieldset class="shift -wide rad">
           <legend>Boxes</legend>
-          <div><input id="x1" type="checkbox" data-nodes="#nodes b" data-reverse-x value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
-          <div><input id="switch" type="checkbox" class="switch" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
-          <div><input id="radio1" type="radio" name="rad" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
-          <div><input id="radio2" type="radio" name="rad" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
+          <div><input id="x1" type="checkbox" class="mem" data-nodes="#nodes b" data-reverse-x value="success"> <label for="x1">Box 1</label> <b class="x1">Checked!</b></div>
+          <div><input id="switch" type="checkbox" class="switch mem" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
+          <div><input id="radio1" type="radio" name="rad" class="mem" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
+          <div><input id="radio2" type="radio" name="rad" class="mem" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
           <div id="nodes">
             Nodes:
             <i>One</i>
@@ -562,7 +569,7 @@
         
         <br>
         <label for="area">Textarea</label>
-        <textarea id="area" name="area" data-editor="#edit"></textarea>
+        <textarea id="area" name="area" data-editor="#edit" class="mem"></textarea>
 
         <br>
         <a tabindex="-1" onclick="edit.focus();return false;">Editable</a> <!-- href="#edit" -->
