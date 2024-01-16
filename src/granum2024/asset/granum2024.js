@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
   // restore inputs/details
-  document.querySelectorAll('.mem[id]').forEach(n => {
+  document.querySelectorAll('.mem[id], form.mem [id]').forEach(n => {
     const v = localStorage.getItem('val-' + n.id)
     if (v == null) return
     if (n.matches('details')) n.open = !!v
@@ -137,7 +137,7 @@ document.addEventListener('input', e => {
   const n = e.target
   
   // store inputs
-  if (n.id && n.classList.contains('mem')) {
+  if (n.id && (n.classList.contains('mem') || n.form?.classList.contains('mem'))) {
     if (n.type == 'radio') (n.closest('form') || document).querySelectorAll(`[type="radio"][name="${n.name}"][id]`).forEach(m => localStorage.removeItem('val-' + m.id))
     localStorage.setItem('val-' + n.id, (['checkbox', 'radio'].includes(n.type) && !n.checked) ? '' : n.value)
   }

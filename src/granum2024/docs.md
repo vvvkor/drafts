@@ -7,7 +7,7 @@
 = compatible.css (no :has)
 - @screen
 - repo: rearrange folders, build, demo page
-- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, !dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, confirm-prompt
+- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, =dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, confirm-prompt
 + slider
 =? container: overflow?
 -? mobile: stretch date inputs?
@@ -154,4 +154,4 @@ a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 ( a[#ID].toggle [id].target )
 a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
 button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]
-:is(input, select, textarea, details)[id].mem
+:is(input, select, textarea, details)[id].mem, form.mem [id]
