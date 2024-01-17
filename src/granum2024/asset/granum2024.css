@@ -4,6 +4,7 @@
 @import "space.css";
 @import "display.css";
 @import "table.css";
+@import "table-fixed.css";
 @import "color.css";
 @import "icon-path.css";
 @import "form.css";
@@ -16,7 +17,22 @@
 @import "print.css" print;
 
 /*
-@import "table-fixed.css";
 @import "badge.css";
 @import "icon-bg.css";
+*/
+
+/*
+z-index
+  1 .icon
+  2 .fix-col td
+  3 .fix-head tfoot
+  4 .fix-head thead
+ 10 corner
+ 20 .container
+ 30 footer.stick
+ 35 .stick
+ 50 .pop, details.pop
+ 70 .backdrop
+ 80 .drawer
+100 modal
 */

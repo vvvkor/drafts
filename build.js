@@ -24,6 +24,7 @@ if (fs.existsSync(distMinJs)) fs.unlinkSync(distMinJs)
 'space',
 'display',
 'table',
+'table-fixed',
 'color',
 'icon-path',
 'form',

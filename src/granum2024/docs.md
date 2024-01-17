@@ -3,11 +3,11 @@
 ## Todo
 
 - minimal.css
-- table: fix-head, fix-col
 = compatible.css (no :has)
 - @screen
 - repo: rearrange folders, build, demo page
-- js? doc! (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, =dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, confirm-prompt
+- +js +doc (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, =dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, +alert-confirm-prompt
++ table: .fix-head, .fix-col
 + slider
 =? container: overflow?
 -? mobile: stretch date inputs?

@@ -46,7 +46,7 @@ a:where([href]:hover) {color:var(--hover);}
 a:where([href]:active), details[open] > summary, .act, .check:has(:checked) {color:var(--active);}
 
 .neutral {--ff:var(--front);--bb:var(--back);}
-.note    {--ff:var(--front-note);--bb:var(--back-note);} /* todo: transparent bg */
+.note    {--ff:var(--front-note);--bb:var(--back-note);}
 .info    {--ff:var(--front-info);--bb:var(--back-info);}
 .success {--ff:var(--front-success);--bb:var(--back-success);}
 .warning {--ff:var(--front-warning);--bb:var(--back-warning);}
