@@ -8,34 +8,39 @@ const cls = n => {
   else if ((n.type == 'radio' && n.checked) || n.options) act(n, 'nodes', m => m.className = n.value)
 }
 
-const tgl = (n, e) => {
-  const d = n.closest('li').querySelector('ul')
+const tgl = (d, e, n) => {
+  if (typeof d == 'string') d = (d == '#open')
+    ? n.closest('li').querySelector('ul')
+    : (d ? document.querySelector(d+'.toggle') : null)
   if (d) {
-    if (e) {
-      e.preventDefault()
-      d.classList.toggle('hide')
+    if (e != null) {
+      if (e.type) e.preventDefault()
+      d.classList[e.type ? 'toggle' : (e ? 'remove' : 'add')]('hide')
     }
-    n.classList[d.classList.contains('hide') ? 'remove' : 'add']('act')
+    const h = d.classList.contains('hide')
+    if (e && e.type && d.id && d.classList.contains('mem')) localStorage.setItem('val-' + d.id, h ? '' : 1)
+    ;(d.id ? document.querySelectorAll('[href="#' + d.id + '"]') : [n])
+      .forEach(m => m?.classList[h ? 'remove' : 'add']('act'))
   }
-}
-
-const tab = (n, e) => {
-  if (e) e.preventDefault()
-  const ul = n.closest('.tabs')
-  ul.nextElementSibling.querySelectorAll(':scope > [id]').forEach(d => d.classList[d.id == n.hash.slice(1) ? 'add' : 'remove']('show'))
-  ul.querySelectorAll('a[href^="#"]').forEach(a => a.classList[a == n ? 'add' : 'remove']('act'))
 }
 
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
-  // restore inputs/details
+  // init toggle
+  document.querySelectorAll('.target.js').forEach(n => {
+    n.classList.remove('target')
+    n.classList.add('toggle', 'hide')
+  })
+  
+  // restore inputs/details/toggle
   document.querySelectorAll('.mem[id], form.mem [id]').forEach(n => {
     const v = localStorage.getItem('val-' + n.id)
     if (v == null) return
     if (n.matches('details')) n.open = !!v
     else if (['checkbox', 'radio'].includes(n.type)) n.checked = (v == n.value)
-    else n.value = v
+    else if (n.matches('input, select, textarea')) n.value = v
+    else tgl(n, !!v)
   })
   
   // use URL params
@@ -45,24 +50,16 @@ document.addEventListener('DOMContentLoaded', e => {
     if (v.length < 1) return
     if (['checkbox', 'radio'].includes(n.type)) n.checked = v.includes(n.value)
     else if (n.matches('input,textarea,select')) n.value = v.join(', ')
-    else n.innerHTML = v.join(', ') // n.textContent
-  })
-  
-  // align table cells
-  document.querySelectorAll('table').forEach(n => {
-    (n.className.match(/\b[lcr]\d\d?\b/g) || [])
-    .forEach(c => {
-      n.querySelectorAll('tr>*:nth-child(' + c.slice(1) + ')')
-      .forEach(td => td.classList.add(c.slice(0, 1)))
-    })
+    //else n.textContent = v.join(', ')
+    else n.innerHTML = v.join(', ')
   })
   
   // init toggle classes
   document.querySelectorAll('[data-nodes]').forEach(n => cls(n))
 
-  // init toggle
-  document.querySelectorAll('[href="#open"]').forEach(n => tgl(n))
-  document.querySelectorAll('.tabs').forEach(t => tab(t.querySelector('a[href^="#"]')))
+  // init toggle state
+  document.querySelectorAll('[href^="#"]').forEach(n => tgl(n.hash, null, n))
+  //document.querySelectorAll('[href="#open"], a.toggle').forEach(n => tgl2(n))
   
   // remove title on [data-hint]
   document.querySelectorAll('[data-hint]').forEach(n => n.removeAttribute('title'))
@@ -103,10 +100,6 @@ document.addEventListener('click', e => {
       history.go(-1)
     }
     
-    //open
-    else if (a.hash == '#open') tgl(a, e)
-    else if (a.closest('.tabs')) tab(a, e)
-
     // confirm or prompt link
     else if (a.classList.contains('dialog')) {
       e.preventDefault()
@@ -126,6 +119,10 @@ document.addEventListener('click', e => {
       }
     }
     
+    //open
+    else if (a.hash) tgl(a.hash, e, a)
+    //else if (a.matches('[href="#open"], a.toggle')) tgl2(a, e)
+
   }
 })
 
@@ -169,5 +166,6 @@ document.addEventListener('keydown', e => {
     document.querySelectorAll('details.pop').forEach(n => n.removeAttribute('open'))
   }
 })
+
 
 })()

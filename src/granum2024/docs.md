@@ -55,7 +55,7 @@ progress
 
 .sans .serif .mono .l .r .c .mid .small
 img.c.fit
-table.wide.mid.fit.line.bord.c.c#.r#
+table.wide.mid.fit.line.bord.c(.c#.r#)
 ul.fit
 .nobr .nodec
 
@@ -151,7 +151,9 @@ table.sort
 [textarea][data-editor]
 a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 #open
-a[#ID] [id].target.js.mem ([id].toggle.hide.mem)
+(a[#ID] [id].target.js.mem) ([id].toggle.hide.mem)
 a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
 button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]
 :is(input, select, textarea, details)[id].mem, form.mem [id]
+.tabs a[#ID] + div > [id]
+table.l#.c#.r#

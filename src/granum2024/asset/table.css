@@ -7,6 +7,7 @@ table.bord>*>tr>* {border:var(--bord);}
 table.line>*>tr>* {border-bottom:var(--bord);}
   table.line>:last-child>tr:last-child>* {border-bottom:none;}
 table.c>*>tr>* {text-align:center;}
+/*
 .c1 td:nth-child(1) {text-align:center;}
 .c2 td:nth-child(2) {text-align:center;}
 .c3 td:nth-child(3) {text-align:center;}
@@ -25,3 +26,4 @@ table.c>*>tr>* {text-align:center;}
 .r7 td:nth-child(7) {text-align:right;}
 .r8 td:nth-child(8) {text-align:right;}
 .r9 td:nth-child(9) {text-align:right;}
+*/
