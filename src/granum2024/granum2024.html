@@ -45,8 +45,9 @@
         <a href="#layout">Layout</a>
         <a href="#toggle">Toggle</a>
         <a href="#icon">Icon</a>
-        <a href="#back" class="shift icon-left"></a>
+        <a href="#back" class="shift icon-left empty" title="Back"><span>Back</span></a>
         <label class="-shift -check"><input type="checkbox" id="invert"> Invert</label>
+        <a href="#customize" class="icon-config empty" title="Customize"><span>Customize</span></a>
       </div>
     </div>
   
@@ -771,7 +772,7 @@
       <br>
       <a href="#drawer-left" class="icon-left" accesskey="q">Drawer left</a>
       <a href="#drawer-anchor" class="icon-pin">Drawer anchor</a>
-      <a href="#drawer-right" class="icon-right">Drawer right</a>
+      <a href="#customize" class="icon-right">Drawer right</a>
       
       <div id="modal" class="modal -show pads -row -vert">
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
@@ -827,7 +828,7 @@
     </div>
     <a href="#close-gallery" class="overlay"></a>
 
-      <div id="drawer-right" class="drawer shift pad -container">
+      <div id="customize" class="drawer shift pad -container">
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
         <h3 class="mar">Customize style</h3>
         <form class="-form -resp mem">
@@ -847,11 +848,11 @@
               <label for="var-radius">Radius</label>
               <input id="var-radius" type="number" class="var" name="radius" min="0" max="2" step=".1" value="1" data-unit="em">
               <br>
-              <label for="var-back">Back</label>
+              <label for="var-back">Background</label>
               <input id="var-back" type="color" class="var" name="back">
             </div>
             <div class="form col-1">
-              <label for="var-front">Front</label>
+              <label for="var-front">Text</label>
               <input id="var-front" type="color" class="var" name="front">
               <br>
               <label for="var-link">Link</label>
@@ -860,10 +861,10 @@
               <label for="var-line">Line</label>
               <input id="var-line" type="color" class="var" name="line">
               <br>
-              <label for="var-linei">Line input</label>
+              <label for="var-linei">Input border</label>
               <input id="var-linei" type="color" class="var" name="line-input">
               <br>
-              <label for="var-sw">Switch</label>
+              <label for="var-sw">Switch accent</label>
               <input id="var-sw" type="color" class="var" name="input-on">
               <!--
               <br>
@@ -872,12 +873,14 @@
               -->
             </div>
           </div>
+          <hr>
           <div class="mar">
+            <label for="vars">Custom style</label>
             <textarea id="vars" class="wide" readonly></textarea>
           </div>
         </form>
       </div>
-      <a href="#close-drawer-right" class="backdrop warning bg"></a>
+      <a href="#close-customize" class="backdrop warning bg"></a>
       
       <ul>
         <li><a href="#branch1">Accordion item 1</a>

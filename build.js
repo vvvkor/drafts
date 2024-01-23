@@ -3,7 +3,7 @@
 
 const dir = './src/granum2024/'
 const src = './src/granum2024/asset/granum2024.css'
-const dist = './dist/granum2024.css'
+const dist = './dist/'
 const distMinCss = './dist/granum2024.min.css'
 const distMinJs = './dist/granum2024.min.js'
 const distHtml = './dist/granum2024.html'
@@ -71,13 +71,20 @@ if (fs.existsSync(distMinJs)) fs.unlinkSync(distMinJs)
 
 // copy demo html
 
+fs.copyFileSync(dir + 'asset/customize.js', dist + 'customize.js')
 fs.copyFileSync(dir + 'granum2024.html', distHtml)
 const replace_options = {
   files: [
     distHtml,
   ],
-  from: /asset\/granum2024\./g,
-  to: 'granum2024.min.' // + version,
+  from: [
+    /asset\/granum2024\./g,
+    /asset\/customize\./g,
+  ],
+  to: [
+    'granum2024.min.', // + version,
+    'customize.',
+  ],
 };
 
 try {

@@ -32,6 +32,7 @@ z-index
  30 footer.stick
  35 .stick
  50 .pop, details.pop
+ 60 body > .backdrop
  70 .backdrop
  80 .drawer
 100 modal

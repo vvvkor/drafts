@@ -70,6 +70,7 @@ img:target {position:absolute;display:block;inset:0;width:100%;height:100%;objec
   background:var(--backdrop);opacity:.5;
   /*backdrop-filter:blur(.1em) contrast(.7) brightness(.9);*/
 }
+:where(body > .backdrop) {z-index:60;}
 :where(:is(.modal, .drawer):is(:target, :has(:target))) + .backdrop, 
 body:has(:is(.modal, .drawer):target, :is(.modal, .drawer) :target) > .backdrop
   {display:block;}
