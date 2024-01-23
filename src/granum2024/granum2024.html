@@ -9,6 +9,7 @@
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="asset/granum2024.css">
     <script defer src="asset/granum2024.js"></script>
+    <script defer src="asset/customize.js"></script>
     <script>
       // demo icons
       document.addEventListener('DOMContentLoaded', e => {
@@ -826,9 +827,55 @@
     </div>
     <a href="#close-gallery" class="overlay"></a>
 
-      <div id="drawer-right" class="drawer shift pad">
+      <div id="drawer-right" class="drawer shift pad -container">
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
-        <h3 class="mar">Drawer right</h3>
+        <h3 class="mar">Customize style</h3>
+        <form class="-form -resp mem">
+          <div class="hilite mar pad rad">
+            <button class="var-reset">Reset</button>
+            <input type="checkbox" class="switch" checked>
+          </div>
+          <hr class="wide">
+          <div class="row gap">
+            <div class="form col-1">
+              <label for="var-gap">Gap</label>
+              <input id="var-gap" type="number" class="var" name="gap" min="0" max="2" step=".1" value="1" data-unit="em">
+              <br>
+              <label for="var-fs">Font size</label>
+              <input id="var-fs" type="number" class="var" name="root-font-size" min=".8" max="2" step=".1" value="1">
+              <br>
+              <label for="var-radius">Radius</label>
+              <input id="var-radius" type="number" class="var" name="radius" min="0" max="2" step=".1" value="1" data-unit="em">
+              <br>
+              <label for="var-back">Back</label>
+              <input id="var-back" type="color" class="var" name="back">
+            </div>
+            <div class="form col-1">
+              <label for="var-front">Front</label>
+              <input id="var-front" type="color" class="var" name="front">
+              <br>
+              <label for="var-link">Link</label>
+              <input id="var-link" type="color" class="var" name="link">
+              <br>
+              <label for="var-line">Line</label>
+              <input id="var-line" type="color" class="var" name="line">
+              <br>
+              <label for="var-linei">Line input</label>
+              <input id="var-linei" type="color" class="var" name="line-input">
+              <br>
+              <label for="var-sw">Switch</label>
+              <input id="var-sw" type="color" class="var" name="input-on">
+              <!--
+              <br>
+              <label for="var-hilite">Hilite</label>
+              <input id="var-hilite" type="color" class="var" name="hilite">
+              -->
+            </div>
+          </div>
+          <div class="mar">
+            <textarea id="vars" class="wide" readonly></textarea>
+          </div>
+        </form>
       </div>
       <a href="#close-drawer-right" class="backdrop warning bg"></a>
       

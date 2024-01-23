@@ -1,6 +1,6 @@
 :root {
   --input-off: #ccc;
-  --input-on: #06f;
+  --input-on: #06f; /*var(--link, #06f);*/
   --input-dot: #fff;
   --dot: .5em;
 }
