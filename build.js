@@ -4,9 +4,9 @@
 const dir = './src/granum2024/'
 const src = './src/granum2024/asset/granum2024.css'
 const dist = './dist/'
+const docs = './docs/'
 const distMinCss = './dist/granum2024.min.css'
 const distMinJs = './dist/granum2024.min.js'
-const distHtml = './dist/granum2024.html'
 
 const replace = require('replace-in-file');
 const {name, version} = require('./package.json');
@@ -14,8 +14,18 @@ const csso = require('csso');
 const UglifyJS = require("uglify-js"); 
 const fs = require('fs') 
 
-if (fs.existsSync(distMinCss)) fs.unlinkSync(distMinCss)
-if (fs.existsSync(distMinJs)) fs.unlinkSync(distMinJs)
+;[dist, docs].forEach(d => {
+  console.log('Clear ' + d + '...')
+  fs.readdirSync(d).forEach(n => {
+    if (fs.existsSync(d + n)) {
+      try {
+        fs.unlinkSync(d + n)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  });
+}); 
   
 ;[
 'var',
@@ -71,11 +81,13 @@ if (fs.existsSync(distMinJs)) fs.unlinkSync(distMinJs)
 
 // copy demo html
 
-fs.copyFileSync(dir + 'asset/customize.js', dist + 'customize.js')
-fs.copyFileSync(dir + 'granum2024.html', distHtml)
+fs.copyFileSync(dir + 'asset/customize.js', docs + 'customize.js')
+fs.copyFileSync(distMinCss, docs + 'granum2024.min.css')
+fs.copyFileSync(distMinJs, docs + 'granum2024.min.js')
+fs.copyFileSync(dir + 'granum2024.html', docs + 'index.html')
 const replace_options = {
   files: [
-    distHtml,
+    docs + 'index.html',
   ],
   from: [
     /asset\/granum2024\./g,
