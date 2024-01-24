@@ -45,9 +45,10 @@
         <a href="#layout">Layout</a>
         <a href="#toggle">Toggle</a>
         <a href="#icon">Icon</a>
-        <a href="#back" class="shift icon-left empty" title="Back"><span>Back</span></a>
-        <label class="-shift -check"><input type="checkbox" id="invert"> Invert</label>
-        <a href="#customize" class="icon-config empty" title="Customize"><span>Customize</span></a>
+        <label class="shift -check"><input type="checkbox" id="invert"> Invert</label>
+        <a href="#" class="icon-up empty note" title="Top"><span>Top</span></a>
+        <a href="#back" class="show-js -shift icon-left empty note" title="Back"><span>Back</span></a>
+        <a href="#customize" class="show-js icon-config empty note" title="Customize"><span>Customize</span></a>
       </div>
     </div>
   
@@ -222,14 +223,14 @@
       
         <ul>
           <li>One</li>
-          <li><a href="#open" class="icon-add"></a> Two
+          <li><a href="#open" class="show-js icon-add"></a> Two
             <ul class="hide">
               <li>1</li>
               <li>2</li>
               <li>3</li>
             </ul>
           </li>
-          <li><a href="#open" class="icon-add"></a> Three
+          <li><a href="#open" class="show-js icon-add"></a> Three
             <ul class="-hide">
               <li>Uno</li>
               <li>Dos</li>
@@ -312,13 +313,13 @@
 </table>
 </div-->
       <section>
-      <input type="search" data-parent="section" data-filter="table" placeholder="Filter table">
-      <div class="scroll scrollbar mar" style="max-height:50vh;">
-      <table id="table1" class="sort mid wide -c -bord line l3 c4 r5 fix-head fix-col  pad hover l nobr">
+      <input type="search" data-parent="section" data-filter="table" placeholder="Filter table" class="show-js">
+      <div class="scroll scrollbar mar" style="max-height:40vh;">
+      <table id="table1" class="sort mid wide -c -bord line l3 c4 r5 fix-head fix-col  -pad hover l nobr">
         <caption>Status colors</caption>
         <thead>
           <tr>
-            <th><input type="checkbox" data-parent="table" data-check="[type='checkbox']">
+            <th><input type="checkbox" data-parent="table" data-check="[type='checkbox']" class="show-js">
             <th>#<th>Text<th>Link<th>Back<th>Back+text<th>Invert<th>Button</tr>
         </thead>
         <tbody>
@@ -403,6 +404,11 @@
             <td><button class="danger icon-ban" type="reset">Button</button>
           </tr>
         </tbody>
+        <tfoot>
+          <tr>
+            <th>&Sigma;
+            <th>1<th>2<th>3<th>4<th>5<th>6<th>7</tr>
+        </tfoot>
       </table>
       </div>
       </section>
@@ -422,7 +428,7 @@
           <div class="input validate">
             <b>#</b>
             <input id="custom" type="text" size="12" required name="custom">
-            <a href="#x" class="icon-ban" onclick="this.previousElementSibling.value = ''"></a>
+            <a href="#x" class="icon-ban show-js" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
             <button type="submit" class="icon-ok success -bg -bord"></button> <!-- formaction="?#custom" -->
           </div>
@@ -450,7 +456,7 @@
           <div><input id="switch" type="checkbox" class="switch mem" data-nodes="#nodes b" value="bg"> <label for="switch">Box 2</label></div>
           <div><input id="radio1" type="radio" name="rad" class="mem" value="warning" data-nodes="#nodes strong"> <label for="radio1">Radio 3</label></div>
           <div><input id="radio2" type="radio" name="rad" class="mem" value="danger" data-nodes="#nodes strong"> <label for="radio2">Radio 4</label></div>
-          <div id="nodes">
+          <div id="nodes" class="show-js">
             Nodes:
             <i>One</i>
             <i>Two</i>
@@ -837,40 +843,44 @@
             <input type="checkbox" class="switch" checked>
           </div>
           <hr class="wide">
-          <div class="row gap">
-            <div class="form col-1">
-              <label for="var-gap">Gap</label>
-              <input id="var-gap" type="number" class="var" name="gap" min="0" max="2" step=".1" value="1" data-unit="em">
-              <br>
-              <label for="var-fs">Font size</label>
-              <input id="var-fs" type="number" class="var" name="root-font-size" min=".8" max="2" step=".1" value="1">
-              <br>
-              <label for="var-radius">Radius</label>
-              <input id="var-radius" type="number" class="var" name="radius" min="0" max="2" step=".1" value="1" data-unit="em">
-              <br>
-              <label for="var-back">Background</label>
-              <input id="var-back" type="color" class="var" name="back">
+          <div class="row gap stretch">
+            <div>
+              <div class="form">
+                <label for="var-gap">Gap</label>
+                <input id="var-gap" type="number" class="var" name="gap" min="0" max="2" step=".1" value="1" data-unit="em">
+                <br>
+                <!--label for="var-fs">Font size</label>
+                <input id="var-fs" type="number" class="var" name="root-font-size" min=".8" max="2" step=".1" value="1">
+                <br-->
+                <label for="var-radius">Radius</label>
+                <input id="var-radius" type="number" class="var" name="radius" min="0" max="2" step=".1" value="1" data-unit="em">
+                <br>
+                <label for="var-back">Background</label>
+                <input id="var-back" type="color" class="var" name="back">
+              </div>
             </div>
-            <div class="form col-1">
-              <label for="var-front">Text</label>
-              <input id="var-front" type="color" class="var" name="front">
-              <br>
-              <label for="var-link">Link</label>
-              <input id="var-link" type="color" class="var" name="link">
-              <br>
-              <label for="var-line">Line</label>
-              <input id="var-line" type="color" class="var" name="line">
-              <br>
-              <label for="var-linei">Input border</label>
-              <input id="var-linei" type="color" class="var" name="line-input">
-              <br>
-              <label for="var-sw">Switch accent</label>
-              <input id="var-sw" type="color" class="var" name="input-on">
-              <!--
-              <br>
-              <label for="var-hilite">Hilite</label>
-              <input id="var-hilite" type="color" class="var" name="hilite">
-              -->
+            <div>
+              <div class="form">
+                <label for="var-front">Text</label>
+                <input id="var-front" type="color" class="var" name="front">
+                <br>
+                <label for="var-link">Link</label>
+                <input id="var-link" type="color" class="var" name="link">
+                <br>
+                <label for="var-line">Line</label>
+                <input id="var-line" type="color" class="var" name="line">
+                <br>
+                <label for="var-linei">Input border</label>
+                <input id="var-linei" type="color" class="var" name="line-input">
+                <br>
+                <label for="var-sw">Switch accent</label>
+                <input id="var-sw" type="color" class="var" name="input-on">
+                <!--
+                <br>
+                <label for="var-hilite">Hilite</label>
+                <input id="var-hilite" type="color" class="var" name="hilite">
+                -->
+              </div>
             </div>
           </div>
           <hr>
@@ -1043,7 +1053,9 @@
       
       <h3 id="dialog">Dialog <a href="#dialog" class="nodec">#</a></h3>
       
-      <div class="row gap wrap mid">
+      <div class="hide-js">JavaScript required</div>
+      
+      <div class="row gap wrap mid show-js">
         <button class="dialog" title="Alert text">Alert</button>
         <a href="?q=test#find" class="dialog" title="Confirm your action" data-blank-x data-param-x="confirmed">Confirm</a>
         <a href="?q=default#find" class="dialog" title="Type in your query" data-prompt="q">Prompt</a>

@@ -1,7 +1,10 @@
 .fix-head, .fix-col {border-collapse:separate;}/*!*/
+  .bord:where(.fix-head, .fix-col) tr>*+* {border-left:none;}
+  .bord:where(.fix-head, .fix-col) tr+tr>* {border-top:none;}
+  .line:where(.fix-head) tfoot tr>* {border-top:var(--bord);}
 .fix-head thead, .fix-head tfoot {position:sticky;}
 .fix-head thead {top:0;z-index:4;}
 .fix-head tfoot {bottom:0;z-index:3;}
 .fix-head thead tr>:not([class*="bg-"]), .fix-head tfoot tr>:not(.bg) {background:var(--back);}
-.fix-col tr>*:first-child {position:sticky;left:0;z-index:2;box-shadow:inset -1.08em 0 0 -1em #0002;}
+.fix-col tr>*:first-child {position:sticky;left:0;z-index:2;/*box-shadow:inset -1.08em 0 0 -1em #0002;*/}
 .fix-col tbody tr>:not(.bg):first-child {background:var(--back);}
