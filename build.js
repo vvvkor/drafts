@@ -8,11 +8,13 @@ const docs = './docs/'
 const distMinCss = './dist/granum2024.min.css'
 const distMinJs = './dist/granum2024.min.js'
 
-const replace = require('replace-in-file');
-const {name, version} = require('./package.json');
-const csso = require('csso');
-const UglifyJS = require("uglify-js"); 
+const replace = require('replace-in-file')
+const {name, version} = require('./package.json')
+// const csso = require('csso')
+var CleanCSS = require('clean-css')
+const UglifyJS = require("uglify-js")
 const fs = require('fs') 
+
 
 ;[dist, docs].forEach(d => {
   console.log('Clear ' + d + '...')
@@ -24,9 +26,10 @@ const fs = require('fs')
         console.error(error)
       }
     }
-  });
-}); 
+  })
+}) 
   
+const options = { /* options */ }
 ;[
 'var',
 'reset',
@@ -46,22 +49,23 @@ const fs = require('fs')
 'slider',
 'print'
 ].forEach(n => {
-  console.log('Minify ' + n + '.css...');
-  const css = fs.readFileSync(dir + 'asset/' + n + '.css', 'utf8');
-  let min = csso.minify(css, {
-    restructure: false,
-  }).css;
-  min = '/*! ' + n + '.css */\n' + min // + 'v' + version + ' */\n' + min;
-  fs.writeFileSync(distMinCss, min + '\n\n', {flag: 'as'});
-});
+  console.log('Minify ' + n + '.css...')
+  const css = fs.readFileSync(dir + 'asset/' + n + '.css', 'utf8')
+  
+  //let min = csso.minify(css, { restructure: false }).css // no support for media ranges
+  let min = (new CleanCSS(options).minify(css)).styles
+
+  min = '/*! ' + n + '.css */\n' + min // + 'v' + version + ' */\n' + min
+  fs.writeFileSync(distMinCss, min + '\n\n', {flag: 'as'})
+})
 
 
 // minify js
 
-['granum2024']
+;['granum2024']
 .forEach(n => {
-  console.log('Minify ' + n + '.js...');
-  const js = fs.readFileSync(dir + 'asset/' + n + '.js', 'utf8');
+  console.log('Minify ' + n + '.js...')
+  const js = fs.readFileSync(dir + 'asset/' + n + '.js', 'utf8')
   var res = UglifyJS.minify(js, {
     compress: {
       // arrows: false,
@@ -74,10 +78,10 @@ const fs = require('fs')
       //preamble: '/*! ' + n + '.js v' + version + ' */',
       comments: /^!/,
     }
-  });
-  fs.writeFileSync(distMinJs, res.code);
-  if (res.error) console.error('UglifyJS failed [' + n + '.js]: ' + res.error);
-});
+  })
+  fs.writeFileSync(distMinJs, res.code)
+  if (res.error) console.error('UglifyJS failed [' + n + '.js]: ' + res.error)
+})
 
 // copy demo html
 
@@ -97,12 +101,12 @@ const replace_options = {
     'granum2024.min.', // + version,
     'customize.',
   ],
-};
+}
 
 try {
-  const results = replace.sync(replace_options);
-  console.log('Replace: \n', results);
+  const results = replace.sync(replace_options)
+  console.log('Replace: \n', results)
 }
 catch (error) {
-  console.error('Replace error:', error);
+  console.error('Replace error:', error)
 }

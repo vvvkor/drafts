@@ -5,8 +5,7 @@
   --sans: "PT Sans", Roboto, "Segoe UI", sans-serif;
   --mono: "PT Mono", monospace;
 }
-/*@media (50rem <= width) {*/
-@media (min-width: 50rem) {
+@media (50rem <= width) {
 	:root {--root-font-size: 1.2;}
 }
 
