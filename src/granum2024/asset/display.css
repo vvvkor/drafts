@@ -1,8 +1,9 @@
 .show {display:revert !important;}
 .hide, body.js .hide-js, body:not(.js) .show-js {display:none !important;}
 
-/* wide screen*/
-@media (50rem <= width) {
+/* wide screen */
+/*@media (50rem <= width) {*/ /* no support in csso */
+@media (min-width: 50rem) { /* todo: use another tool instead of csso, to support media ranges */
   .show-l {display:revert !important;}
   .hide-l {display:none !important;}
 }
@@ -11,8 +12,9 @@
   .hide-cl {display:none !important;}
 }
 
-/* medium screem */
-@media (32rem <= width < 50rem) {
+/* medium screen */
+/*@media (32rem <= width < 50rem) {*/
+@media (min-width: 32rem) and (max-width: 49.99rem) {
   .show-m {display:revert !important;}
   .hide-m {display:none !important;}
 }
@@ -22,7 +24,8 @@
 }
 
 /* narrow screen */
-@media (width < 32rem) {
+/*@media (width < 32rem) {*/
+@media (max-width: 31.99rem) {
   .show-s {display:revert !important;}
   .hide-s {display:none !important;}
 }

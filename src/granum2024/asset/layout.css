@@ -63,7 +63,8 @@ ul.row:where(:not(.vert))>li>ul {--pos:100% auto auto 0;}
 ul.row:where(:not(.vert)) ul.l {--pos:100% 0 auto auto;}
 ul.row.vert {width:var(--list-width);}
 
-@media (width < 50rem) {
+/*@media (width < 50rem) {*/
+@media (max-width: 49.99rem) {
   .row.resp {--flow:column nowrap;--push:0;}
   .row.resp .stick {align-self:stretch;}
   ul.row.resp {width:var(--list-width);}
@@ -76,7 +77,8 @@ ul.row.vert {width:var(--list-width);}
   ul.row.resp ul {--pos:0 auto auto 100%;}
 }
 
-@media (width < 32rem) {
+/*@media (width < 32rem) {*/
+@media (max-width: 31.99rem) {
   .row.resp-s {--flow:column nowrap;--push:0;}
   .row.resp-s .stick {align-self:stretch;}
   ul.row.resp-s {width:var(--list-width);}
