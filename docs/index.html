@@ -1058,6 +1058,34 @@
       
       <h3 id="dialog">Dialog <a href="#dialog" class="nodec">#</a></h3>
       
+      <p>
+        <button onclick="event.preventDefault();dlg.showModal()">Open modal dialog</button>
+        <i>Requires JS to open</i>
+      </p>
+      <p>
+        <button popovertarget="popover">Open popover</button>
+        <i>No wide support yet in 2023</i>
+      </p>
+      
+      <dialog id="dlg" class="pads shade rad -bord">
+        <div class="r"><a href="#close" class="icon-close" onclick="event.preventDefault();dlg.close()">Close</a></div>
+        <div class="stack">
+          <p>Modal Dialog</p>
+          <p><input autofocus placeholder="autofocus"></p>
+          <form method="dialog" class="marc">
+            <button class="icon-close note">Close</button>
+          </form>
+        </div>
+      </dialog>
+      
+      <div popover id="popover" class="pads shade rad -bord stack">
+        <p>Popover</p>
+        <p><input autofocus placeholder="autofocus"></p>
+        <div class="c mar"><button popovertarget="popover" class="bord icon-close">Close</button></div>
+      </div>
+      
+      <h3 id="alert">Alerts <a href="#alert" class="nodec">#</a></h3>
+      
       <div class="hide-js">JavaScript required</div>
       
       <div class="row gap wrap mid show-js">

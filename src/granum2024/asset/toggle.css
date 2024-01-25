@@ -108,6 +108,10 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   [data-hint].c:after {--pos:auto auto 100% 50%;translate:-50% 0;}
   [data-hint] {cursor:help;}
 
+/* dialog */
+[popover], dialog {border:none;}
+::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
+  
 /* tabs */
 .tabs a {border-bottom:2px solid transparent;}
 .tabs a:is(.act, :hover) {border-color:var(--link);--active:var(--link);} /*var(--front)*/
