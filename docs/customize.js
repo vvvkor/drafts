@@ -1,8 +1,10 @@
 (() => {
-  
-const def = {
+
+const defaults = {
   radius: .3,
 }
+
+let def = {}
 
 const updateOutput = () => {
   const a = document.querySelector('#vars')
@@ -15,11 +17,19 @@ const updateOutput = () => {
   }
 }
 
-document.addEventListener('DOMContentLoaded', e => {
+const setStyle = n => {
+  document.documentElement.style.setProperty('--' + n.name, n.value + (n.dataset.unit || ''))
+}
+
+const init = () => {console.log('init')
+  document.documentElement.style = ''
+  def = {...defaults}
+  
   // root-font-size[.8..2], gap[0..2], radius[0..1], line, hilite, front, back, link, input-on, line-input
   const d = document.documentElement
   const g = getComputedStyle(d)
   const s = d.style
+  
   //console.log(g.getPropertyValue('--front'))
   //s.setProperty('--front', '#c00')
   document.querySelectorAll('.var').forEach(m => {
@@ -30,16 +40,25 @@ document.addEventListener('DOMContentLoaded', e => {
     if (!(m.name in def)) def[m.name] = v
     if (s == null) m.value = v
     //console.log(m.name, v)
-    m.dispatchEvent(new Event('input', {bubbles: true}))
+    //m.dispatchEvent(new Event('input', {bubbles: true}))
+    setStyle(m)
   })
+  updateOutput()
+}
+
+document.addEventListener('DOMContentLoaded', e => {
+  const query = window.matchMedia('(prefers-color-scheme: dark)')
+  query.addEventListener('change', e => init()) // detect dark mode
+  init()
 })
-  
+
 document.addEventListener('input', e => {
   const m = e.target.closest('.var')
   if (m) {
-    document.documentElement.style.setProperty('--' + m.name, m.value + (m.dataset.unit || ''))
+    setStyle(m)
     updateOutput()
   }
+  if(e.target.id == 'invert') init() // detect dark mode
 })
 
 document.addEventListener('click', e => {
@@ -48,7 +67,7 @@ document.addEventListener('click', e => {
     e.preventDefault()
     if (m.name in def) {
       m.value = def[m.name]
-      m.dispatchEvent(new Event('input', {bubbles: true}))
+      setStyle(m)
       localStorage.removeItem('val-' + m.id)
     }
   })
