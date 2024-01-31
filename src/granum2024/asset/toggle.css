@@ -114,6 +114,7 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   
 /* tabs */
 .tabs a {border-bottom:2px solid transparent;}
+.tabs.row.gap li>:not(ul, form) {padding-block:calc(.5 * var(--gap));}
 .tabs a:is(.act, :hover) {border-color:var(--link);--active:var(--link);} /*var(--front)*/
 ul.tabs + div:not(:has(:target)) > :not(:first-child),
 ul.tabs + div:has(:target, .show) > :not(:is(:target, :has(:target)))
@@ -127,11 +128,11 @@ body:has(#tab3:target) [href="#tab3"],
 ul.tabs:not(:has(+div :target)) li:nth-child(2) a
   {border-color:var(--link);}
 /** /
-:where(.tabs:has(+div>:nth-child(1):target)>li:nth-child(1)) a {color:var(--active);}
-:where(.tabs:has(+div>:nth-child(2):target)>li:nth-child(2)) a {color:var(--active);}
-:where(.tabs:has(+div>:nth-child(3):target)>li:nth-child(3)) a {color:var(--active);}
-:where(.tabs:has(+div>:nth-child(4):target)>li:nth-child(4)) a {color:var(--active);}
-:where(.tabs:has(+div>:nth-child(5):target)>li:nth-child(5)) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(1):target)>li:nth-child(1 of :has(a))) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(2):target)>li:nth-child(2 of :has(a))) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(3):target)>li:nth-child(3 of :has(a))) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(4):target)>li:nth-child(4 of :has(a))) a {color:var(--active);}
+:where(.tabs:has(+div>:nth-child(5):target)>li:nth-child(5 of :has(a))) a {color:var(--active);}
 /**/
 
 /*

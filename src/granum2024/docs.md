@@ -106,7 +106,7 @@ body.invert
 ### Row
 
 .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick (.resp@container@media)
-ul.row ul.l
+ul.row.gap ul.l
 
 ### Stack
 
@@ -126,7 +126,7 @@ ul.row:hover - see [row]
 .modal.full.show#target
 .modal.full + (.corner a[#first] + a[#close]) + (a[#next] > img.target#target)
 .drawer.shift.show#target
-ul.row.tabs + div>#
+ul.row.tabs.gap + div>#
 (label.check > input) + *
 label ... input.check + *
 .slider (> div) + nav a
