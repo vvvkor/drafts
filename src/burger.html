@@ -1,0 +1,44 @@
+<title>Test</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  body {font:120% 'pt sans', sans-serif;margin:0;padding:0;}
+  .row {display:flex;flex-flow:row wrap;gap:.5em 1em;}
+  .row > * {display:block;}
+  .col-1 {flex:1;}
+  .row :is(ul, li) {list-style:none;margin:0;padding:0;}
+  .between {justify-content:space-between;}
+  
+  @media (width < 50em){
+    .last-s {order:999;}
+    .wide-s {min-width:100%;}
+    .row.resp {flex-flow:column nowrap;}
+    .hide-s:not(:target) {display:none;}
+  }
+  @media (width >= 50em){
+    .hide-l:not(:target) {display:none;}
+  }
+  .with:has(:target) .without-target, .with:not(:has(:target)) .with-target {display:none;}
+  
+  .mar {margin:1em 0;}
+  .pad {padding:.5em 1em;}
+  .bg-n {background-color:#9993;}
+</style>
+
+
+<header class="row mid with bg-n pad between">
+  <a href="?#"><b>Logo</b></a>
+  <a href="#menu" class="hide-l without-target last-s" accesskey="3">Menu</a>
+  <a href="#close" class="hide-l with-target last-s" accesskey="x">Close</a>
+  <nav id="menu" class="col-0 hide-s wide-s last-s bg-n">
+    <ul class="row resp">
+      <li><a href="#1">One</a></li>
+      <li><a href="#2">Two</a></li>
+      <li><a href="#3">Three</a></li>
+    </ul>
+  </nav>
+  <div class="col-1 hide-l"></div>
+  <a href="#profile"><b>Profile</b></a>
+</header>
+<main class="pad">
+  Text
+</main>
