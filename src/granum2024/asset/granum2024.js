@@ -26,6 +26,11 @@ const tab = (n, e) => {
   ul.querySelectorAll('a[href^="#"]').forEach(a => a.classList[a == n ? 'add' : 'remove']('act'))
 }
 
+const foc = (e) => {
+  const m = location.hash ? document.querySelector(location.hash)?.closest('.modal') : null
+  if (m && !m.matches(':focus-within')) ((e?.type || !location.hash ? null : m.querySelector(location.hash)) || m.querySelector('button,input,select,textarea,[contenteditable]' + (e?.type == 'focusin' ? ',[href],[tabindex]:not([tabindex="-1"])' : '')))?.focus()
+}
+
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
@@ -66,6 +71,8 @@ document.addEventListener('DOMContentLoaded', e => {
   
   // remove title on [data-hint]
   document.querySelectorAll('[data-hint]').forEach(n => n.removeAttribute('title'))
+
+  setTimeout(foc, 100)
 })
 
 document.addEventListener('click', e => {
@@ -169,5 +176,9 @@ document.addEventListener('keydown', e => {
     document.querySelectorAll('details.pop').forEach(n => n.removeAttribute('open'))
   }
 })
+
+// trap focus in modal
+document.addEventListener('focusin', foc)
+window.addEventListener('hashchange', foc)
 
 })()
