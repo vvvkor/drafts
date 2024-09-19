@@ -9,6 +9,7 @@
 - (-) +js +doc (+acts-relative-to-parent, +map-editable-to-area, +table-filter, +table-sort, +checkall, drag, =dialog, v2 (+esc,+#back,+#prev,+#next,+#open,+toggle-class,+get-url,+hint-untitle)) (split, freedrag, pos?, process), resp-class, items, +alert-confirm-prompt
 - (+) table: .fix-head, .fix-col
 - (+) slider
+- (+) columns
 - (=?) container: overflow?
 - (-?) mobile: stretch date inputs?
 - (+) progress
@@ -115,6 +116,10 @@
 ### Stick
 
 - .stick, footer.stick, .row > .stick
+
+### Columns
+
+- .columns-xs/s/m/l
 
 ## Toggle
 
