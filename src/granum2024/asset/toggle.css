@@ -37,6 +37,10 @@ html {scroll-padding-top:5rem;}
 summary {cursor:pointer;}
 summary[class*="icon-"] {/*list-style:none;*/display:block;overflow:hidden;}
 summary[class*="icon-"]::-webkit-details-marker {display:none;} /* safari */
+/* details animation * /
+details {interpolate-size:allow-keywords;height:1.5em;transition:height .3s ease;}
+details[open] {height:auto;overflow:clip;}
+*/
 
 /* details popup */
 details.pop {position:relative;}
