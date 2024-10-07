@@ -2,7 +2,7 @@
   a.nodec, .nodec a {text-decoration:none;}
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
 .resize {resize:both;overflow:auto;}
-.scroll {overflow:auto;min-width:5em;min-height:5em;}
+.scroll {overflow:auto;min-width:5em;min-height:2.5em;}
 
 pre {overflow:auto;max-height:80vh;}
 code, kbd {padding:calc(.1 * var(--gap)) calc(.2 * var(--gap));}
