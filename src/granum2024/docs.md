@@ -21,6 +21,7 @@
 - (+) validate: border & .input
 - (+) status color vars
 - (+) vars by files; inverted
+- (+) .pop fix position
 - (=?) .invert {--link:link-invert}
 - (+) mobile: footer.stick inside container? [inside scrollable]
 - (=) icon @print [enable bg grapgics]
@@ -156,6 +157,7 @@
 - [textarea][data-editor]
 - a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 - #open
+- .pop
 - (a[#ID] [id].target.js.mem) ([id].toggle.hide.mem)
 - a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
 - button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]

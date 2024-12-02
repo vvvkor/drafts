@@ -24,7 +24,7 @@ html {scroll-padding-top:5rem;}
 .gallery {}
 
 /* common */
-:where(ul.row) ul, :where(.pop) > :last-child, :where(.modal, .drawer), [data-hint]:after {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
+:where(ul.row) ul, :where(.pop) > *+:last-child, :where(.modal, .drawer, .popwin), [data-hint]:after {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
 :is(.modal, .target):where(:not(:target, :has(:target), .show)) {display:none;}
 
 /* check */
@@ -48,6 +48,9 @@ details.pop, details.pop > summary {display:inline-block;}
 details.pop > summary {vertical-align:bottom;}
 details.pop > div {position:absolute;left:0;top:100%;z-index:50;width:max-content;min-width:5em;max-width:var(--list-width);}
 details.pop.l > div {left:auto;right:0;}
+
+/* pop auto position */
+.popwin {position:fixed;z-index:110;max-width:var(--list-width);max-height:45vh;overflow:auto;}
 
 /* modal - do not nest!*/
 .modal {z-index:100;position:fixed;overflow:auto;}
@@ -99,13 +102,13 @@ div.pop {display:inline-block;}
   ul.row li:has(ul)>a {padding-right:calc(1.5 * var(--gap));}
   ul.row li:has(ul)>a:after {content:'\a0\a0\203a';color:var(--front);opacity:.5;position:absolute;right:.5em;top:50%;transform:translateY(-50%);}
   /**/
-div.pop:not(:hover, :focus-within, [open]) > :last-child, ul.row li:not(:hover, :focus-within)>ul {display:none;}
-div.pop>:last-child, ul.row ul, [data-hint]:after {position:absolute;--pos:0 auto auto 100%;inset:var(--pos);/*transform:var(--mov);*/z-index:50;}
-div.pop>:last-child, ul.row ul {min-width:var(--list-width);}
+div.pop:not(:hover, :focus-within, [open]) > *+:last-child, ul.row li:not(:hover, :focus-within)>ul {display:none;}
+div.pop>*+:last-child, ul.row ul, [data-hint]:after {position:absolute;--pos:0 auto auto 100%;inset:var(--pos);/*transform:var(--mov);*/z-index:50;}
+div.pop>*+:last-child, ul.row ul {min-width:var(--list-width);}
 ul.row ul {padding:calc(1 * var(--gap)) 0;}
-  div.pop>:last-child:not(:has(div.pop)), ul.row ul:not(:has(ul)) {max-height:var(--pop-height);overflow:auto;}
-  div.pop>:last-child {--pos:100% auto auto 0;}
-  div.pop.l>:last-child {--pos:100% 0 auto auto;}
+  div.pop>*+:last-child:not(:has(div.pop)), ul.row ul:not(:has(ul)) {max-height:var(--pop-height);overflow:auto;}
+  div.pop>*+:last-child {--pos:100% auto auto 0;}
+  div.pop.l>*+:last-child {--pos:100% 0 auto auto;}
 [data-hint]:is(:hover, :focus):after {content:attr(data-hint);}
   [data-hint]:after {white-space:nowrap;padding:calc(.2 * var(--gap)) calc(.5 * var(--gap));--pos:auto auto 100% 0;}
   [data-hint].l:after {--pos:auto 0 100% auto;}

@@ -177,6 +177,40 @@ document.addEventListener('keydown', e => {
   }
 })
 
+/*
+document.addEventListener('focus', e => {
+  const p = e.target.closest('.pop')
+  if (p) p.dispatchEvent(new Event('mouseover'))
+})
+
+document.addEventListener('blur', e => {
+  const p = e.target.closest('.pop')
+  if (p && p._win) p._win.classList.add('hide')
+})
+*/
+
+document.addEventListener('mouseover', e => {
+  // fix popup position, allow overflow
+  const w = e.target.closest?.('.popwin')
+  const n = e.target.closest?.('.pop:not(details)')
+  const p = n ? n.querySelector(':scope > *+:last-child') : null
+  if (!w) document.querySelectorAll('.popwin').forEach(p => p.classList.add('hide'))
+  if (p && !n._win) {
+    n._win = p
+    p.classList.add('popwin')
+    document.body.append(p)
+  }
+  if (n && n._win) {
+    const b = n.getBoundingClientRect()
+    n._win.style.cssText = ''
+    if (b.left + b.right < window.innerWidth/2) n._win.style.left = b.left + 'px'
+    else n._win.style.right = (document.documentElement.clientWidth - b.right) + 'px'
+    if (b.top + b.bottom < window.innerHeight) n._win.style.top = b.bottom + 'px'
+    else n._win.style.bottom = (document.documentElement.clientHeight - b.top) + 'px'
+    n._win.classList.remove('hide')
+  }
+})
+
 // trap focus in modal
 document.addEventListener('focusin', foc)
 window.addEventListener('hashchange', foc)
