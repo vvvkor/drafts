@@ -21,7 +21,7 @@
 - (+) validate: border & .input
 - (+) status color vars
 - (+) vars by files; inverted
-- (+) .pop fix position
+- (+) .pop.pos fix position
 - (=?) .invert {--link:link-invert}
 - (+) mobile: footer.stick inside container? [inside scrollable]
 - (=) icon @print [enable bg grapgics]
@@ -108,7 +108,7 @@
 ### Row
 
 - .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick (.resp@container@media)
-- ul.row.gap ul.l
+- ul.row.gap.click ul.l
 
 ### Stack
 
@@ -125,8 +125,8 @@
 ## Toggle
 
 - details.pop.l[open] summary.icon-x > :last-child
-- ul.row:hover - see [row]
-- .pop.l:hover
+- ul.row.click:hover - see [row]
+- .pop.pos.l:hover
 - [data-hint]:hover
 - .target#target
 - .modal.full.show#target
@@ -157,7 +157,7 @@
 - [textarea][data-editor]
 - a[#prev] a[#next] :target[data-prev="#ID"][data-next="#ID"]
 - #open
-- .pop
+- .pop.pos .popwin
 - (a[#ID] [id].target.js.mem) ([id].toggle.hide.mem)
 - a.dialog[title][href][target="_blank"][data-prompt][data-def][data-param]
 - button.dialog[title][data-href][data-blank][data-prompt][data-def][data-param]

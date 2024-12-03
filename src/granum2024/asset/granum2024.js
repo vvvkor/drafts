@@ -192,7 +192,8 @@ document.addEventListener('blur', e => {
 document.addEventListener('mouseover', e => {
   // fix popup position, allow overflow
   const w = e.target.closest?.('.popwin')
-  const n = e.target.closest?.('.pop:not(details)')
+  //const n = e.target.closest?.('.pop:not(details)')
+  const n = e.target.closest?.('.pop.pos')
   const p = n ? n.querySelector(':scope > *+:last-child') : null
   if (!w) document.querySelectorAll('.popwin').forEach(p => p.classList.add('hide'))
   if (p && !n._win) {
@@ -203,7 +204,7 @@ document.addEventListener('mouseover', e => {
   if (n && n._win) {
     const b = n.getBoundingClientRect()
     n._win.style.cssText = ''
-    if (b.left + b.right < window.innerWidth/2) n._win.style.left = b.left + 'px'
+    if (b.left + b.right < window.innerWidth) n._win.style.left = b.left + 'px'
     else n._win.style.right = (document.documentElement.clientWidth - b.right) + 'px'
     if (b.top + b.bottom < window.innerHeight) n._win.style.top = b.bottom + 'px'
     else n._win.style.bottom = (document.documentElement.clientHeight - b.top) + 'px'
