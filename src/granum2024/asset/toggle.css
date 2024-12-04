@@ -54,7 +54,7 @@ details.pop.l > div {left:auto;right:0;}
 
 /* modal - do not nest!*/
 .modal {z-index:100;position:fixed;overflow:auto;}
-.modal:not(.full) {min-height:10rem;max-height:90dvh;min-width:18rem;max-width:90vw;inset:50% auto auto 50%;transform:translate(-50%,-50%);}
+.modal:not(.full) {min-height:10rem;max-height:90dvh;min-width:18rem;max-width:90vw;inset:38% auto auto 50%;transform:translate(-50%,-38%);}
 .modal.full {inset:0;/*calc(5 * var(--gap));*/}
 body:has(.modal.full:target, .modal.full :target) {overflow:hidden;}
 /* animations */
@@ -103,7 +103,7 @@ div.pop {display:inline-block;}
   ul.row li:has(ul)>a:after {content:'\a0\a0\203a';color:var(--front);opacity:.5;position:absolute;right:.5em;top:50%;transform:translateY(-50%);}
   /**/
 div.pop:not(:hover, :focus-within, [open]) > *+:last-child, ul.row li:not(:hover, :focus-within)>ul, 
-  ul.row:has(li:hover) li:not(:hover) > ul, /* hide focused when there is hover */
+  ul.row:hover li:not(:hover) > ul, /* hide focused when there is hover */
   ul.row.click:not(:focus-within) ul /* require click */
   {display:none;}
 div.pop>*+:last-child, ul.row ul, [data-hint]:after {position:absolute;--pos:0 auto auto 100%;inset:var(--pos);/*transform:var(--mov);*/z-index:50;}
