@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en" class="-invert">
+  <head>
+    <meta charset="utf-8">
+    <title>One Path Icons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fff">
+    <meta name="theme-color" media="(prefers-color-scheme:dark)" content="#04a">
+    <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="one-path-icons.css">
+    <script>
+      // demo icons
+      document.addEventListener('DOMContentLoaded', e => {
+        [...document.querySelectorAll('.icons [class*="icon-"]')].forEach((n, i) => {
+          n.title = '' + (1 + i) + '. ' + n.getAttribute('class').slice(5)
+          n.classList.add('pad', 'hover', 'c')
+          n.dataset.hint = n.title
+        });
+      })
+    </script>
+    <style>
+      html {font:120%/1.5 "pt sans",calibri,sans-serif;--icon-scale:1.2;}
+      .icons [class*="icon-"] {padding:.5em;background:#eee;}
+      .icons [class*="icon-"] {padding:.5em;background:#eee;}
+    </style>
+  </head>
+  <body class="diagonals">
+    <h1 class="icon-image"> Heading 1</h1>
+    <h2 class="icon-image"> Heading 2</h1>
+    <h3 class="icon-image"> Heading 3</h1>
+    <h4 class="icon-image"> Heading 4</h1>
+    <h5 class="icon-image"> Heading 5</h1>
+    <h6 class="icon-image"> Heading 6</h1>
+    <p>
+      <a class="icon-ban status-danger"> Danger</a>
+      <a class="icon-warning status-warning"> Warning</a>
+      <a class="icon-ok status-success"> Success</a>
+      <a class="icon-info status-info"> Info</a>
+      <a class="icon-text status-note"> Note</a>
+      <a href="#" class="icon-link"> Link</a>
+      <small class="icon-expand"> Small</small>
+    </p>
+
+    <div class="icons">
+    
+    <h2>Navigation</h2>
+    <a class="icon-menu"></a>
+      <a class="icon-menu act"></a>
+    <a class="icon-more"></a>
+    <a class="icon-home"></a>
+    <a class="icon-find"></a>
+    <a class="icon-close"></a>
+    <a class="icon-exit"></a>
+    
+    <h2>Arrows</h2>
+    <a class="icon-up"></a>
+    <a class="icon-down"></a>
+    <a class="icon-left"></a>
+    <a class="icon-right"></a>
+    <a class="icon-asc"></a>
+    <a class="icon-desc"></a>
+    <a class="icon-prev"></a>
+    <a class="icon-next"></a>
+    <a class="icon-upload"></a>
+    <a class="icon-download"></a>
+    <a class="icon-first"></a>
+    <a class="icon-last"></a>
+    
+    <h2>Objects</h2>
+    <a class="icon-file"></a>
+    <a class="icon-attach"></a>
+    <a class="icon-audio"></a>
+    <a class="icon-video"></a>
+    <a class="icon-image"></a>
+    <a class="icon-text"></a>
+    <a class="icon-chart"></a>
+    <a class="icon-link"></a>
+    <a class="icon-phone"></a>
+    <a class="icon-mail"></a>
+    <a class="icon-box"></a>
+    <a class="icon-sound"></a>
+    <a class="icon-mic"></a>
+    <a class="icon-photo"></a>
+    <a class="icon-world"></a>
+    <a class="icon-flag"></a>
+    <a class="icon-pin"></a>
+    <a class="icon-date"></a>
+    <a class="icon-time"></a>
+    <a class="icon-card"></a>
+    <a class="icon-key"></a>
+    <a class="icon-lock"></a>
+    <a class="icon-storage"></a>
+    
+    <h2>View</h2>
+    <a class="icon-refresh"></a>
+    <a class="icon-view"></a>
+    <a class="icon-list"></a>
+    <a class="icon-grid"></a>
+    <a class="icon-tree"></a>
+    <a class="icon-folder"></a>
+    <a class="icon-open"></a>
+    <a class="icon-layers"></a>
+    <a class="icon-expand"></a>
+    <a class="icon-collapse"></a>
+    <a class="icon-columns"></a>
+    
+    <h2>Editing / Actions</h2>
+    <a class="icon-add"></a>
+    <a class="icon-edit"></a>
+    <a class="icon-delete status-danger"></a>
+    <a class="icon-sort"></a>
+    <a class="icon-share"></a>
+    <a class="icon-print"></a>
+    <a class="icon-play"></a>
+    <a class="icon-pause"></a>
+    <a class="icon-stop"></a>
+    <a class="icon-rec"></a>
+    <a class="icon-copy"></a>
+    <a class="icon-send"></a>
+    <a class="icon-sum"></a>
+    <a class="icon-power"></a>
+    <a class="icon-energy"></a>
+    <a class="icon-chat"></a>
+    
+    <h2>Status</h2>
+    <a class="icon-ok"></a>
+    <a class="icon-no"></a>
+    <a class="icon-ban"></a>
+    <a class="icon-warning"></a>
+    <a class="icon-info"></a>
+    <a class="icon-help"></a>
+    <a class="icon-bookmark"></a>
+    <a class="icon-star"></a>
+    <a class="icon-heart"></a>
+    <a class="icon-tag"></a>
+    
+    <h2>Config</h2>
+    <a class="icon-user"></a>
+    <a class="icon-config"></a>
+    <a class="icon-settings"></a>
+    
+    <h2>Special</h2>
+    <a class="icon-none"></a>
+    <a class="icon-unknown"></a>
+    <a class="icon-spin"></a>
+    </div>
+      
+  </body>
+</html>
