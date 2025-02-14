@@ -15,13 +15,16 @@
           n.title = '' + (1 + i) + '. ' + n.getAttribute('class').slice(5)
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
+          if (n.classList.contains('status-danger')) n.addEventListener('click', e => e.target.classList.toggle('act'))
         });
       })
     </script>
     <style>
-      html {font:120%/1.5 "pt sans",calibri,sans-serif;--icon-scale:1.2;}
-      .icons [class*="icon-"] {padding:.5em;background:#eee;}
-      .icons [class*="icon-"] {padding:.5em;background:#eee;}
+      html {--font-scale:1.2;font:calc(100% * var(--font-scale))/1.5 "pt sans",calibri,sans-serif;--icon-scale:var(--font-scale);}
+      .icons h2 {margin:.5rem 0 .2rem 0;}
+      .icons [class*="icon-"] {padding:.5em;background:#eee;line-height:1;display:inline-block;}
+      .icons [class*="icon-"].act {background:#fc6;}
+      .icons [class*="icon-"]:hover {box-shadow:inset 0 0 2em #ccc9;}
     </style>
   </head>
   <body class="diagonals">
@@ -44,13 +47,19 @@
     <div class="icons">
     
     <h2>Navigation</h2>
-    <a class="icon-menu"></a>
-      <a class="icon-menu act"></a>
+    <a class="icon-menu status-danger"></a>
     <a class="icon-more"></a>
     <a class="icon-home"></a>
     <a class="icon-find"></a>
+    <a class="icon-user"></a>
+    <a class="icon-config"></a>
+    <a class="icon-settings"></a>
     <a class="icon-close"></a>
     <a class="icon-exit"></a>
+
+    <a class="icon-world"></a>
+    <a class="icon-flag"></a>
+    <a class="icon-pin"></a>
     
     <h2>Arrows</h2>
     <a class="icon-up"></a>
@@ -58,9 +67,9 @@
     <a class="icon-left"></a>
     <a class="icon-right"></a>
     <a class="icon-asc"></a>
-    <a class="icon-desc"></a>
+    <a class="icon-desc status-danger"></a>
     <a class="icon-prev"></a>
-    <a class="icon-next"></a>
+    <a class="icon-next status-danger"></a>
     <a class="icon-upload"></a>
     <a class="icon-download"></a>
     <a class="icon-first"></a>
@@ -73,17 +82,14 @@
     <a class="icon-video"></a>
     <a class="icon-image"></a>
     <a class="icon-text"></a>
-    <a class="icon-chart"></a>
     <a class="icon-link"></a>
     <a class="icon-phone"></a>
     <a class="icon-mail"></a>
+    <a class="icon-print"></a>
     <a class="icon-box"></a>
     <a class="icon-sound"></a>
     <a class="icon-mic"></a>
     <a class="icon-photo"></a>
-    <a class="icon-world"></a>
-    <a class="icon-flag"></a>
-    <a class="icon-pin"></a>
     <a class="icon-date"></a>
     <a class="icon-time"></a>
     <a class="icon-card"></a>
@@ -97,34 +103,34 @@
     <a class="icon-list"></a>
     <a class="icon-grid"></a>
     <a class="icon-tree"></a>
-    <a class="icon-folder"></a>
-    <a class="icon-open"></a>
+    <a class="icon-chart"></a>
+    <a class="icon-folder status-danger"></a>
+    <a class="icon-open status-danger"></a>
     <a class="icon-layers"></a>
-    <a class="icon-expand"></a>
-    <a class="icon-collapse"></a>
+    <a class="icon-expand status-danger"></a>
+    <a class="icon-collapse status-danger"></a>
     <a class="icon-columns"></a>
     
-    <h2>Editing / Actions</h2>
-    <a class="icon-add"></a>
+    <h2>Actions</h2>
+    <a class="icon-add status-danger"></a>
+    <a class="icon-no status-danger"></a>
     <a class="icon-edit"></a>
-    <a class="icon-delete status-danger"></a>
+    <a class="icon-delete"></a>
+    <a class="icon-copy"></a>
     <a class="icon-sort"></a>
-    <a class="icon-share"></a>
-    <a class="icon-print"></a>
+    <a class="icon-sum"></a>
     <a class="icon-play"></a>
     <a class="icon-pause"></a>
     <a class="icon-stop"></a>
     <a class="icon-rec"></a>
-    <a class="icon-copy"></a>
     <a class="icon-send"></a>
-    <a class="icon-sum"></a>
+    <a class="icon-share"></a>
+    <a class="icon-chat"></a>
     <a class="icon-power"></a>
     <a class="icon-energy"></a>
-    <a class="icon-chat"></a>
     
     <h2>Status</h2>
     <a class="icon-ok"></a>
-    <a class="icon-no"></a>
     <a class="icon-ban"></a>
     <a class="icon-warning"></a>
     <a class="icon-info"></a>
@@ -133,11 +139,6 @@
     <a class="icon-star"></a>
     <a class="icon-heart"></a>
     <a class="icon-tag"></a>
-    
-    <h2>Config</h2>
-    <a class="icon-user"></a>
-    <a class="icon-config"></a>
-    <a class="icon-settings"></a>
     
     <h2>Special</h2>
     <a class="icon-none"></a>
