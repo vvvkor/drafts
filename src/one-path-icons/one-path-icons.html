@@ -15,11 +15,21 @@
           n.title = '' + (1 + i) + '. ' + n.getAttribute('class').slice(5)
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
+          n.addEventListener('click', e => {
+            demo.className = 'debug-icon ' + e.target.className
+            const s = window.getComputedStyle(e.target);
+            code.innerText = '--w: ' + s.getPropertyValue('--w') + '\n--p: ' + s.getPropertyValue('--p')
+            const p = 100 / s.getPropertyValue('--w');
+            demo.style.setProperty('--bgs',`${p}% ${p}%`)
+          })
         });
       })
     </script>
     <style>
-      html {--font-scale:1.2;font:calc(100% * var(--font-scale))/1.5 "pt sans",calibri,sans-serif;--icon-scale:var(--font-scale);}
+      html {--font-scale:1;font:calc(100% * var(--font-scale))/1.5 "pt sans",calibri,sans-serif;--icon-scale:var(--font-scale);}
+      pre {white-space: pre-wrap;}
+      .row {display:flex;gap:1em;}
+      .row > * {flex:1;}
       .icons h2 {margin:.5rem 0 .2rem 0;}
       .icons [class*="icon-"] {padding:.5em;background:#eee;line-height:1;display:inline-block;}
       .icons [class*="icon-"].act {background:#fc6;}
@@ -27,21 +37,30 @@
     </style>
   </head>
   <body class="diagonals">
-    <h1 class="icon-image"> Heading 1</h1>
-    <h2 class="icon-image"> Heading 2</h1>
-    <h3 class="icon-image"> Heading 3</h1>
-    <h4 class="icon-image"> Heading 4</h1>
-    <h5 class="icon-image"> Heading 5</h1>
-    <h6 class="icon-image"> Heading 6</h1>
-    <p>
-      <a class="icon-ban status-danger"> Danger</a>
-      <a class="icon-warning status-warning"> Warning</a>
-      <a class="icon-ok status-success"> Success</a>
-      <a class="icon-info status-info"> Info</a>
-      <a class="icon-text status-note"> Note</a>
-      <a href="#" class="icon-link"> Link</a>
-      <small class="icon-expand"> Small</small>
-    </p>
+    
+    <div class="row">
+      <div>
+        <h1 class="icon-image"> Heading 1</h1>
+        <h2 class="icon-image"> Heading 2</h1>
+        <h3 class="icon-image"> Heading 3</h1>
+        <h4 class="icon-image"> Heading 4</h1>
+        <h5 class="icon-image"> Heading 5</h1>
+        <h6 class="icon-image"> Heading 6</h1>
+      </div>
+      <p>
+        <a class="icon-ban status-danger"> Danger</a><br>
+        <a class="icon-warning status-warning"> Warning</a><br>
+        <a class="icon-ok status-success"> Success</a><br>
+        <a class="icon-info status-info"> Info</a><br>
+        <a class="icon-text status-note"> Note</a><br>
+        <a href="#" class="icon-link"> Link</a><br>
+        <small class="icon-expand"> Small</small>
+      </p>
+      <div>
+        <div id="demo" style="--icon-scale:20;" class="icon-chart debug-icon"></div>
+        <pre id="code"></pre>
+      </div>
+    </div>
 
     <div class="icons">
     

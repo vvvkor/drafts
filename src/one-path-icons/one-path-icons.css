@@ -27,11 +27,33 @@ h6 {--icon-scale: .7;}
   vertical-align: -12%;
   width: var(--size);
   height: var(--size);
+  transform-origin: 0 0;
+  /* clip */
   background: currentColor;
   outline: 10em solid currentColor;
   clip-path: var(--p);
   scale: calc(100% * var(--scale) * var(--base) / var(--w));
-  transform-origin: 0 0;
+  /* test * /
+  outline:thin solid #ccc;
+  /**/
+}
+
+[class*="icon-"].debug-icon {position:relative;}
+[class*="icon-"].debug-icon:after {
+  content: '';
+  display: inline-block;
+  vertical-align: -12%;
+  width: var(--size);
+  height: var(--size);
+  background:
+    linear-gradient(to right, #9996 1px, transparent 1px),
+    linear-gradient(to bottom, #9996 1px, transparent 1px)
+    #9993;
+  background-size: var(--bgs, 10% 10%);
+  position:absolute;
+  left:0;
+  top:0;
+  z-index:-1;
 }
 
 .icon-spin:before {clip-path:none;outline:none;scale:1;
