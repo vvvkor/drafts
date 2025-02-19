@@ -10,30 +10,85 @@
     <link rel="stylesheet" href="one-path-icons.css">
     <script>
       // demo icons
+      /*
+        todo:
+        - edit --w
+        - get resulting css for modified icon
+        - avoid overflow on incorrect path
+      */
       document.addEventListener('DOMContentLoaded', e => {
         [...document.querySelectorAll('.icons [class*="icon-"]')].forEach((n, i) => {
           n.title = '' + (1 + i) + '. ' + n.getAttribute('class').slice(5)
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
           n.addEventListener('click', e => {
-            demo.className = 'debug-icon ' + e.target.className
-            const s = window.getComputedStyle(e.target);
+            demo.className = e.target.className
+            const s = window.getComputedStyle(e.target)
             code.innerText = '--w: ' + s.getPropertyValue('--w') + '\n--p: ' + s.getPropertyValue('--p')
             const p = 100 / s.getPropertyValue('--w');
+            demo.style.removeProperty('--p')
             demo.style.setProperty('--bgs',`${p}% ${p}%`)
+            const path = s.getPropertyValue('--p')
+            output.innerText = path
+            area.value = path
+              .replace(/^.*?"(.*)".*?$/s, '$1')
+              .replace(/(z)/gi, '$1\n')
+              .replace(/([macql])/gi, '\n$1')
+              .replace(/^\s+/, '')
           })
+          area.addEventListener('input', e => {
+            let path = area.value
+              .replace(/\s+/g, ' ')
+              .replace(/^\s+|\s+$/gs, '')
+              .replace(/ ([z-])/g, '$1')
+            path = 'path("' + path + '")'
+            const err = path.match(/-\.\D/) || path.match(/-[^\.\d]/)
+            area.style.backgroundColor = err ? '#fee' : ''
+            if (!err) {
+              demo.style.setProperty('--p', path)
+              output.innerText = path
+            }
+          })
+          iconMenu.click()
         });
       })
     </script>
     <style>
       html {--font-scale:1;font:calc(100% * var(--font-scale))/1.5 "pt sans",calibri,sans-serif;--icon-scale:var(--font-scale);}
-      pre {white-space: pre-wrap;}
+      pre {white-space: pre-wrap;margin:.5em 0;padding:.5em;background:#ccc3;}
+      textarea {width:100%;height:20em;}
       .row {display:flex;gap:1em;}
       .row > * {flex:1;}
       .icons h2 {margin:.5rem 0 .2rem 0;}
       .icons [class*="icon-"] {padding:.5em;background:#eee;line-height:1;display:inline-block;}
       .icons [class*="icon-"].act {background:#fc6;}
       .icons [class*="icon-"]:hover {box-shadow:inset 0 0 2em #ccc9;}
+      /* test */
+      #demo {
+        --icon-scale: 20;
+        color: #0006;
+        position: relative;
+        width: var(--size);
+        height: var(--size);
+      }
+      #demo:before, #demo:after {
+        content: '';
+        display: block;
+        vertical-align: bottom;
+        width: var(--size);
+        height: var(--size);
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+      #demo:after {
+        background:
+          linear-gradient(to right, #9996 1px, transparent 1px),
+          linear-gradient(to bottom, #9996 1px, transparent 1px)
+          #9993;
+        background-size: var(--bgs, 10% 10%);
+        z-index: -1;
+      }
     </style>
   </head>
   <body class="diagonals">
@@ -57,15 +112,20 @@
         <small class="icon-expand"> Small</small>
       </p>
       <div>
-        <div id="demo" style="--icon-scale:20;" class="icon-chart debug-icon"></div>
+        <div id="demo" class="icon-menu"></div>
+        Source:
         <pre id="code"></pre>
+        Edit shape
+        <textarea id="area"></textarea>
+        Result CSS
+        <pre id="output"></pre>
       </div>
     </div>
 
     <div class="icons">
     
     <h2>Navigation</h2>
-    <a class="icon-menu"></a>
+    <a class="icon-menu" id="iconMenu"></a>
     <a class="icon-more"></a>
     <a class="icon-home"></a>
     <a class="icon-find"></a>
