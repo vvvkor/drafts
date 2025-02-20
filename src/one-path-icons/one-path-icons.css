@@ -1,21 +1,11 @@
-h1 {--icon-scale: 2;}
-h2 {--icon-scale: 1.5;}
-h3 {--icon-scale: 1.17;}
-h4, html {--icon-scale: 1;}
-h5, small {--icon-scale: .83;}
-h6 {--icon-scale: .7;}
-.status-note {color: #888;}
-.status-info {color: #08a;}
-.status-success {color: #181;}
-.status-warning {color: #c60;}
-.status-danger {color: #c00;}
-  
 [class*="icon-"] {
   --base: 16; /* default font size, px */
-  --scale: var(--icon-scale, 1);
-  --size: calc(var(--scale) * var(--base) * 1px);
+  --path-scale: var(--icon-scale, 1);
+  --size: calc(var(--path-scale) * var(--base) * 1px);
+  --valign: calc((12px * var(--scale, 1) - var(--size)) / 2);/*-12%;*/
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
+  overflow: hidden;
   /* default icon */
   --w: 16;
   --p: path("M8 4l4 4,-4 4,-4-4z");
@@ -24,7 +14,7 @@ h6 {--icon-scale: .7;}
 [class*="icon-"]:before {
   content: '';
   display: inline-block;
-  vertical-align: -12%;
+  vertical-align: var(--valign);
   width: var(--size);
   height: var(--size);
   transform-origin: 0 0;
@@ -32,7 +22,7 @@ h6 {--icon-scale: .7;}
   background: currentColor;
   outline: 10em solid currentColor;
   clip-path: var(--p);
-  scale: calc(100% * var(--scale) * var(--base) / var(--w));
+  scale: calc(100% * var(--path-scale) * var(--base) / var(--w));
   /* test * /
   outline:thin solid #ccc;
   /**/
@@ -127,9 +117,9 @@ background:none;width:.8em;height:.8em;border-radius:50%;border:.15em solid;bord
 .icon-layers {--w:13;--p:path("M.5 5l6-3 6 3-6 3zm2 0l4 2 4-2-4-2zm-2 3l2-1 4 2 4-2 2 1-6 3z");}
 .icon-none {--w:9;--p:path("M1 1z");}
 
-/* todo: bell, anchor, move, book, case, db, code, shield, cloud, sun, moon, random, trash */
+/* todo: bell, anchor, move, book, case, db, code, shield, cloud, moon, random, trash */
 
 .icon-contrast {--w:12;--p:path("M6 1a5 5 0 1 0 .01 0M6 2v8a4 4 0 1 1 0-8z");}
 .icon-dashboard {--w:9;--p:path("M.75 1h3v4h-3zm0 5h3v2h-3M5.25 1h3v2h-3zm0 3h3v4h-3z");}
-.icon-battery {--w:14;--p:path("M1 3h11v3h1v2h-1v3h-11z m10 7 v-6h-6z");}
+.icon-battery {--w:14;--p:path("M1 3h11v3h1v2h-1v3h-11zm8 7h2v-6h-5z");}
 .icon-sun {--w:16;--p:path("M8 1l2 2h3v3l2 2-2 2v3h-3l-2 2-2-2h-3v-3l-2-2 2-2v-3h3z m0 2.5 a4.5 4.5 0 1 0 .01 0z");}

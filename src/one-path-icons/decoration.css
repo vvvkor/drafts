@@ -1,0 +1,23 @@
+/* scale */
+
+h1 {--font-scale: 2;}
+h2 {--font-scale: 1.5;}
+h3 {--font-scale: 1.17;}
+h4, html {--font-scale: 1;}
+h5, small {--font-scale: .83;}
+h6 {--font-scale: .7;}
+h1, h2, h3, h4, h5, h6 {margin:1.5rem 0 1rem 0;}
+html, h1, h2, h3, h4, h5, h6, small {
+  --scale:calc(var(--root-font-scale, 1) * var(--font-scale, 1));
+  --icon-scale:var(--scale);
+  font-size:calc(1rem * var(--font-scale, 1));
+  /*font-size:calc(16px * var(--scale));*/
+}
+
+/* colors */
+
+.status-note {color: #888;}
+.status-info {color: #08a;}
+.status-success {color: #181;}
+.status-warning {color: #c60;}
+.status-danger {color: #c00;}
