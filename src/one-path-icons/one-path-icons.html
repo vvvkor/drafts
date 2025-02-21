@@ -70,9 +70,9 @@
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
           n.addEventListener('click', e => {
+            if (e.ctrlKey) switchIcon(e.target)
             initEditor(e.target)
             updatePreview()
-            switchIcon(n)
           })
           ePath.addEventListener('input', updatePreview)
           eWidth.addEventListener('input', updatePreview)
