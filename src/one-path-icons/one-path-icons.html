@@ -10,34 +10,58 @@
     <link rel="stylesheet" href="one-path-icons.css">
     <link rel="stylesheet" href="decoration.css">
     <script>
-      // demo icons
-      /*
-        todo:
-        - edit --w
-        - get resulting css for modified icon
-        - avoid overflow on incorrect path
-      */
-      const pack = s => s
+      const packPath = s => s
         .replace(/\s+/g, ' ')
         .replace(/^\s+|\s+$/gs, '')
         .replace(/ \s?([a-z\-])\s?/g, '$1')
       
-      const unpack = s => s
+      const unpackPath = s => s
         .replace(/^.*?"(.*)".*?$/s, '$1')
         .replace(/(z)/gi, '$1\n')
         .replace(/([macql])/gi, '\n$1')
         .replace(/^\s+/, '')
       
-      const updateDemo = (w, p) => {
-        p = 'path("' + pack(p) + '")'
-        demo.style.setProperty('--w', w)
-        demo.style.setProperty('--p', p)
-        output.innerText = cssIcon(w, p)
+      const iconClass = n => [...n.classList].find(v => v.match(/icon-/)) || 'icon-x'
+      
+      const setIcon = (n, c) => {
+        const i = iconClass(n)
+        if (i) n.classList.replace(i, c)
+        else n.classList.add(c)
+      }
+      
+      const switchIcon = (n) => {
+        if (!n.dataset.act) return
+        if (!n.dataset.inact) n.dataset.inact = iconClass(n)
+        n.classList.toggle('act')
+        setIcon(n, n.dataset[n.classList.contains('act') ? 'act' : 'inact'])
       }
       
       const cssIcon = (w, p) => {
-        const n = [...demo.classList].find(v => v.match(/icon-/)) || 'icon-x'
-        return '.' + n + ' {--w:' + w + ';--p:' + p + ';}'
+        const c = iconClass(ePreview)
+        return '.' + c + ' {--w:' + w + ';--p:' + p + ';}'
+      }
+      
+      const initEditor = n => {
+        //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
+        setIcon(ePreview, iconClass(n))
+        const s = window.getComputedStyle(n)
+        const w = s.getPropertyValue('--w')
+        const p = s.getPropertyValue('--p')
+        eSource.innerText = '--w: ' + w + '\n--p: ' + p
+        eWidth.value = w
+        ePath.value = unpackPath(p)
+      }
+      
+      const updatePreview = (e) => {
+        const w = eWidth.value
+        const p = 'path("' + packPath(ePath.value) + '")'
+        // bg grid
+        const q = 100 / w;
+        ePreview.style.setProperty('--bgs',`${q}% ${q}%`)
+        // path
+        ePreview.style.setProperty('--w', w)
+        ePreview.style.setProperty('--p', p)
+        eOutput.innerText = cssIcon(w, p)
       }
       
       document.addEventListener('DOMContentLoaded', e => {
@@ -46,40 +70,34 @@
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
           n.addEventListener('click', e => {
-            demo.className = e.target.className
-            const s = window.getComputedStyle(e.target)
-            const w = s.getPropertyValue('--w')
-            const p = s.getPropertyValue('--p')
-            code.innerText = '--w: ' + w + '\n--p: ' + p
-            // bg grid
-            const q = 100 / w;
-            demo.style.setProperty('--bgs',`${q}% ${q}%`)
-            // init editor
-            grid.value = w
-            area.value = unpack(p)
-            updateDemo(grid.value, area.value)
+            initEditor(e.target)
+            updatePreview()
+            switchIcon(n)
           })
-          area.addEventListener('input', e => updateDemo(area.value))
-          iconMenu.click()
+          ePath.addEventListener('input', updatePreview)
+          eWidth.addEventListener('input', updatePreview)
         });
+        iconMenu.click()
       })
     </script>
     <style>
-      html {--root-font-scale:1;font:calc(100% * var(--root-font-scale, 1))/1.5 "pt sans",calibri,sans-serif;}
-      table, input {font-size:100%;}
+      html {--root-font-scale:1;font:calc(100% * var(--root-font-scale, 1))/1.5 "pt sans",calibri,sans-serif;--base-icon-size:20;}
+      table, input {font:inherit;}
       body {margin:0;padding:1em;}
       pre {white-space: pre-wrap;margin:.5em 0;padding:.5em;background:#ccc3;}
       textarea {width:100%;height:16em;}
+
       .row {display:flex;gap:2em;}
       .row > * {flex:1;}
       @media (width < 64rem) { .row {flex-direction:column;} }
+      
       .icons {max-width:20em;margin:1em auto;}
       .icons h3 {margin:.5em 0 .2em 0;display:none;}
       .icons [class*="icon-"] {padding:.5em;background:#eee;line-height:1;display:inline-block;}
-      /*.icons [class*="icon-"].act {background:#fc6;}*/
       .icons [class*="icon-"]:hover {box-shadow:inset 0 0 2em #ccc9;}
-      /* test */
-      #demo {
+      .icons [class*="icon-"].act {background:#fc6;}
+
+      .preview {
         --icon-scale: 20;
         color: #0006;
         position: relative;
@@ -87,7 +105,7 @@
         height: var(--size);
         overflow: hidden;
       }
-      #demo:before, #demo:after {
+      .preview:before, .preview:after {
         content: '';
         display: block;
         vertical-align: bottom;
@@ -97,7 +115,7 @@
         left: 0;
         top: 0;
       }
-      #demo:after {
+      .preview:after {
         background:
           linear-gradient(to right, #9996 1px, transparent 1px),
           linear-gradient(to bottom, #9996 1px, transparent 1px)
@@ -117,7 +135,7 @@
         <div class="icons">
   
           <h3>Navigation</h3>
-          <a class="icon-menu" id="iconMenu"></a>
+          <a class="icon-menu" id="iconMenu" data-act="icon-close"></a>
           <a class="icon-more"></a>
           <a class="icon-home"></a>
           <a class="icon-find"></a>
@@ -136,10 +154,10 @@
           <a class="icon-down"></a>
           <a class="icon-left"></a>
           <a class="icon-right"></a>
-          <a class="icon-asc"></a>
-          <a class="icon-desc"></a>
-          <a class="icon-prev"></a>
-          <a class="icon-next"></a>
+          <a class="icon-asc" data-act="icon-desc"></a>
+          <a class="icon-desc" data-act="icon-asc"></a>
+          <a class="icon-prev" data-act="icon-next"></a>
+          <a class="icon-next" data-act="icon-prev"></a>
           <a class="icon-upload"></a>
           <a class="icon-download"></a>
           <a class="icon-first"></a>
@@ -174,23 +192,23 @@
           <a class="icon-grid"></a>
           <a class="icon-tree"></a>
           <a class="icon-chart"></a>
-          <a class="icon-folder"></a>
-          <a class="icon-open"></a>
+          <a class="icon-folder" data-act="icon-open"></a>
+          <a class="icon-open" data-act="icon-folder"></a>
           <a class="icon-layers"></a>
-          <a class="icon-expand"></a>
-          <a class="icon-collapse"></a>
+          <a class="icon-expand" data-act="icon-collapse"></a>
+          <a class="icon-collapse" data-act="icon-expand"></a>
           <a class="icon-columns"></a>
           
           <h3>Actions</h3>
-          <a class="icon-add"></a>
-          <a class="icon-no"></a>
+          <a class="icon-add" data-act="icon-no"></a>
+          <a class="icon-no" data-act="icon-add"></a>
           <a class="icon-edit"></a>
           <a class="icon-delete"></a>
           <a class="icon-copy"></a>
           <a class="icon-sort"></a>
           <a class="icon-sum"></a>
-          <a class="icon-play"></a>
-          <a class="icon-pause"></a>
+          <a class="icon-play" data-act="icon-pause"></a>
+          <a class="icon-pause" data-act="icon-play"></a>
           <a class="icon-stop"></a>
           <a class="icon-rec"></a>
           <a class="icon-send"></a>
@@ -227,8 +245,8 @@
           <a class="icon-code"></a>
           <a class="icon-shield"></a>
           <a class="icon-cloud"></a>
-          <a class="icon-sun"></a>
-          <a class="icon-moon"></a>
+          <a class="icon-sun" data-act="icon-moon"></a>
+          <a class="icon-moon" data-act="icon-sun"></a>
           <a class="icon-random"></a>
           <a class="icon-trash"></a>
           <a class="icon-dashboard"></a>
@@ -237,37 +255,37 @@
       
       <div>
         <h2>Preview</h2>
-        <div id="demo" class="icon-menu"></div>
+        <div id="ePreview" class="preview icon-menu"></div>
         Source:
-        <pre id="code"></pre>
+        <pre id="eSource"></pre>
         Grid size
-        <input id="grid"><br>
+        <input id="eWidth"><br>
         Edit shape
-        <textarea id="area"></textarea>
+        <textarea id="ePath"></textarea>
         Result CSS
-        <pre id="output"></pre>
+        <pre id="eOutput"></pre>
       </div>
       
       <div>
         <h2>Font scale</h2>
         <div>
-          <h1 class="icon-image"> Heading 1</h1>
-          <h2 class="icon-image"> Heading 2</h1>
-          <h3 class="icon-image"> Heading 3</h1>
-          <h4 class="icon-image"> Heading 4</h1>
-          <h5 class="icon-image"> Heading 5</h1>
-          <h6 class="icon-image"> Heading 6</h1>
+          <h1 class="icon-image">Heading 1</h1>
+          <h2 class="icon-image">Heading 2</h1>
+          <h3 class="icon-image">Heading 3</h1>
+          <h4 class="icon-image">Heading 4</h1>
+          <h5 class="icon-image">Heading 5</h1>
+          <h6 class="icon-image">Heading 6</h1>
         </div>
         
         <h2>Status colors</h2>
         <p>
-          <a class="icon-ban status-danger"> Danger</a><br>
-          <a class="icon-warning status-warning"> Warning</a><br>
-          <a class="icon-ok status-success"> Success</a><br>
-          <a class="icon-info status-info"> Info</a><br>
-          <a class="icon-text status-note"> Note</a><br>
-          <a href="#" class="icon-link"> Link</a><br>
-          <small class="icon-expand"> Small</small>
+          <a class="icon-ban status-danger">Danger</a><br>
+          <a class="icon-warning status-warning">Warning</a><br>
+          <a class="icon-ok status-success">Success</a><br>
+          <a class="icon-info status-info">Info</a><br>
+          <a class="icon-text status-note">Note</a><br>
+          <a href="#" class="icon-link">Link</a><br>
+          <small class="icon-expand">Small</small>
         </p>
         
         <!--table>

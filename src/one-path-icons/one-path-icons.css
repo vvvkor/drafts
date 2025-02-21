@@ -1,8 +1,8 @@
 [class*="icon-"] {
-  --base: 16; /* default font size, px */
+  --base: var(--base-icon-size, 20); /* default font size, px (16..24) */
   --path-scale: var(--icon-scale, 1);
   --size: calc(var(--path-scale) * var(--base) * 1px);
-  --valign: calc((12px * var(--scale, 1) - var(--size)) / 2);/*-12%;*/
+  --valign: calc((12px * var(--scale, 1) - var(--size)) / 2); /* -12%; */
   -webkit-tap-highlight-color: transparent;
   z-index: 1;
   overflow: hidden;
@@ -15,6 +15,7 @@
   content: '';
   display: inline-block;
   vertical-align: var(--valign);
+  box-sizing: border-box;
   width: var(--size);
   height: var(--size);
   transform-origin: 0 0;
@@ -28,9 +29,28 @@
   /**/
 }
 
-.icon-spin:before {clip-path:none;outline:none;scale:1;
-background:none;width:.8em;height:.8em;border-radius:50%;border:.15em solid;border-top-color:transparent;transform-origin:center;animation:rotating 1s linear infinite;}
+/* space after icon */
+:where([class*="icon-"]:not(:empty)):before {
+  margin-right: .3em;
+}
+
+/* spinner */
 @keyframes rotating { to {transform:rotate(360deg);} }
+.icon-spin:before {
+  /* unset */
+  background: none;
+  outline: none;
+  clip-path: none;
+  scale: 1;
+  /* circle */
+  border-radius: 50%;
+  border: .15em solid;
+  border-top-color: transparent;
+  transform-origin: center;
+  animation: rotating 1s linear infinite;
+}
+
+/* icon shapes */
 
 .icon-menu {--w:7;--p:path("M.5 1h6v1h-6zm0 2h6v1h-6zm0 2h6v1h-6z");}
 .icon-more {--w:17;--p:path("M7 2h3v3h-3zm0 5h3v3h-3zm0 5h3v3h-3z");}
@@ -117,9 +137,11 @@ background:none;width:.8em;height:.8em;border-radius:50%;border:.15em solid;bord
 .icon-layers {--w:13;--p:path("M.5 5l6-3 6 3-6 3zm2 0l4 2 4-2-4-2zm-2 3l2-1 4 2 4-2 2 1-6 3z");}
 .icon-none {--w:9;--p:path("M1 1z");}
 
-/* todo: bell, anchor, move, book, case, db, code, shield, cloud, moon, random, trash */
+/* todo: bell, anchor, move, book, case, db, code, shield, cloud, moon, random, trash, hide */
 
 .icon-contrast {--w:12;--p:path("M6 1a5 5 0 1 0 .01 0M6 2v8a4 4 0 1 1 0-8z");}
 .icon-dashboard {--w:9;--p:path("M.75 1h3v4h-3zm0 5h3v2h-3M5.25 1h3v2h-3zm0 3h3v4h-3z");}
 .icon-battery {--w:14;--p:path("M1 3h11v3h1v2h-1v3h-11zm8 7h2v-6h-5z");}
 .icon-sun {--w:16;--p:path("M8 1l2 2h3v3l2 2-2 2v3h-3l-2 2-2-2h-3v-3l-2-2 2-2v-3h3z m0 2.5 a4.5 4.5 0 1 0 .01 0z");}
+/*.icon-sun2 {--w:12;--p:path("m4 1q2 2 4 0q0 3 3 3q-2 2 0 4q-3 0-3 3q-2-2-4 0q0-3-3-3q2-2 0-4q3 0 3-3zm2 2a3 3 0 1 0 .01 0");}*/
+.icon-moon {--w:16;--p:path("M8 2a6 6 0 1 0 6 6a4.7 4.75 0 1 1-6-6z");}
