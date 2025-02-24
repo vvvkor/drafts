@@ -10,38 +10,44 @@
     <link rel="stylesheet" href="one-path-icons.css">
     <link rel="stylesheet" href="decoration.css">
     <script>
-      const packPath = s => s
-        .replace(/\s+/g, ' ')
-        .replace(/^\s+|\s+$/gs, '')
-        .replace(/ \s?([a-z\-])\s?/g, '$1')
+      function packPath (s) {
+        return s
+          .replace(/\s+/gs, ' ')
+          .replace(/^\s+|\s+$/gs, '')
+          .replace(/\s?([a-z\-])\s?/g, '$1')
+      }
       
-      const unpackPath = s => s
-        .replace(/^.*?"(.*)".*?$/s, '$1')
-        .replace(/(z)/gi, '$1\n')
-        .replace(/([macql])/gi, '\n$1')
-        .replace(/^\s+/, '')
+      function unpackPath (s) {
+        return s
+          .replace(/^.*?"(.*)".*?$/s, '$1')
+          .replace(/(z)/gi, '$1\n')
+          .replace(/([macql])/gi, '\n$1')
+          .replace(/^\s+/, '')
+      }
       
-      const iconClass = n => [...n.classList].find(v => v.match(/icon-/)) || 'icon-x'
+      function iconClass (n) {
+        return [...n.classList].find(v => v.match(/icon-/)) || 'icon-x'
+      }
       
-      const setIcon = (n, c) => {
+      function setIcon (n, c) {
         const i = iconClass(n)
         if (i) n.classList.replace(i, c)
         else n.classList.add(c)
       }
       
-      const switchIcon = (n) => {
+      function switchIcon (n) {
         if (!n.dataset.act) return
         if (!n.dataset.inact) n.dataset.inact = iconClass(n)
         n.classList.toggle('act')
         setIcon(n, n.dataset[n.classList.contains('act') ? 'act' : 'inact'])
       }
       
-      const cssIcon = (w, p) => {
+      function cssIcon (w, p) {
         const c = iconClass(ePreview)
         return '.' + c + ' {--w:' + w + ';--p:' + p + ';}'
       }
       
-      const initEditor = n => {
+      function initEditor (n) {
         //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
         setIcon(ePreview, iconClass(n))
         const s = window.getComputedStyle(n)
@@ -52,7 +58,7 @@
         ePath.value = unpackPath(p)
       }
       
-      const updatePreview = (e) => {
+      function updatePreview (e) {
         const w = eWidth.value
         const p = 'path("' + packPath(ePath.value) + '")'
         // bg grid
@@ -62,6 +68,18 @@
         ePreview.style.setProperty('--w', w)
         ePreview.style.setProperty('--p', p)
         eOutput.innerText = cssIcon(w, p)
+      }
+      
+      function copyToClipboard (text) {
+        console.log('copy', text)
+        const a = document.createElement('textarea')
+        a.textContent = text
+        a.style.position = 'fixed' // prevent scrolling
+        document.body.appendChild(a)
+        a.select()
+        try { return document.execCommand('copy') }
+        catch (e) { return prompt('Copy to clipboard: Ctrl+C, Enter', text) }
+        finally { document.body.removeChild(a) }
       }
       
       document.addEventListener('DOMContentLoaded', e => {
@@ -78,6 +96,12 @@
           eWidth.addEventListener('input', updatePreview)
         });
         iconMenu.click()
+        eCopy.addEventListener ('click', e => {
+          e.preventDefault()
+          const c = copyToClipboard(eOutput.innerText)
+          eCopied.classList.add(...(c ? ['icon-ok', 'status-success'] : ['icon-ban', 'status-danger']))
+          setTimeout(() => eCopied.className = '', 2000)
+        })
       })
     </script>
     <style>
@@ -85,7 +109,8 @@
       table, input {font:inherit;}
       body {margin:0;padding:1em;}
       pre {white-space: pre-wrap;margin:.5em 0;padding:.5em;background:#ccc3;}
-      textarea {width:100%;height:16em;}
+      [type="number"] {width:5em;}
+      textarea {width:100%;height:12em;}
 
       .row {display:flex;gap:2em;}
       .row > * {flex:1;}
@@ -98,7 +123,7 @@
       .icons [class*="icon-"].act {background:#fc6;}
 
       .preview {
-        --icon-scale: 20;
+        --icon-scale: 14;
         color: #0006;
         position: relative;
         width: var(--size);
@@ -238,8 +263,8 @@
           <a class="icon-battery"></a>
           <a class="icon-bell"></a>
           <a class="icon-anchor"></a>
-          <a class="icon-move"></a>
           <a class="icon-book"></a>
+          <a class="icon-manual"></a>
           <a class="icon-case"></a>
           <a class="icon-db"></a>
           <a class="icon-code"></a>
@@ -247,6 +272,7 @@
           <a class="icon-cloud"></a>
           <a class="icon-sun" data-act="icon-moon"></a>
           <a class="icon-moon" data-act="icon-sun"></a>
+          <a class="icon-move"></a>
           <a class="icon-random"></a>
           <a class="icon-trash"></a>
           <a class="icon-dashboard"></a>
@@ -256,13 +282,13 @@
       <div>
         <h2>Preview</h2>
         <div id="ePreview" class="preview icon-menu"></div>
-        Source:
         <pre id="eSource"></pre>
+        <h2>Playground</h2>
         Grid size
-        <input id="eWidth"><br>
-        Edit shape
+        <input id="eWidth" type="number"><br>
+        Edit path - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands">Manual</a>
         <textarea id="ePath"></textarea>
-        Result CSS
+        Result CSS - <a href="#copy" id="eCopy">Copy</a> <a id="eCopied"></a>
         <pre id="eOutput"></pre>
       </div>
       
