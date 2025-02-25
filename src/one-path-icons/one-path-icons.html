@@ -79,7 +79,7 @@
         setPath(ePreview, w, p)
         setPath(ePreviewHead, w, p)
         setPath(eResultLabel, w, p)
-        eSymbols.textContent = 'Symbols: ' + ePath.value.length + ' / ' + packed.length + ' / ' + eOutput.innerText.length
+        eSymbols.textContent = 'input: ' + ePath.value.length + ', packed: ' + packed.length + ', css: ' + eOutput.innerText.length
       }
       
       function copyToClipboard (text) {
@@ -307,7 +307,7 @@
         <input id="eWidth" type="number"><br>
         Edit path
         - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands">Manual</a>
-        - <span id="eSymbols" title="input / packed path / full css"></span>
+        - <small id="eSymbols"></small>
         <textarea id="ePath"></textarea>
         <span id="eResultLabel" class="limited"></span> Result CSS - <a href="#copy" id="eCopy">Copy</a> <a id="eCopied"></a>
         <pre id="eOutput"></pre>
