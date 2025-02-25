@@ -50,6 +50,7 @@
       function initEditor (n) {
         //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
         const c = iconClass(n)
+        eName.textContent = c
         setIcon(ePreview, c)
         setIcon(ePreviewHead, c)
         setIcon(eResultLabel, c)
@@ -298,7 +299,7 @@
       </div>
       
       <div>
-        <h2><span id="ePreviewHead" class="limited"></span> Preview</h2>
+        <h2><span id="ePreviewHead" class="limited"></span> Preview: <span id="eName"></span></h2>
         <div id="ePreview" class="preview limited icon-menu"></div>
         <pre id="eSource"></pre>
         <h2>Playground</h2>
