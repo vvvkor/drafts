@@ -140,7 +140,7 @@
 /* todo: -random, hide, pie */
 
 .icon-contrast {--w:12;--p:path("M6 1a5 5 0 1 0 .01 0M6 2v8a4 4 0 1 1 0-8z");}
-.icon-dashboard {--w:9;--p:path("M.75 1h3v4h-3zm0 5h3v2h-3M5.25 1h3v2h-3zm0 3h3v4h-3z");}
+.icon-layout {--w:9;--p:path("M.75 1h3v4h-3zm0 5h3v2h-3M5.25 1h3v2h-3zm0 3h3v4h-3z");}
 .icon-battery {--w:14;--p:path("M1 3h11v3h1v2h-1v3h-11zm8 7h2v-6h-5z");}
 .icon-sun {--w:16;--p:path("M8 1l2 2h3v3l2 2-2 2v3h-3l-2 2-2-2h-3v-3l-2-2 2-2v-3h3z m0 2.5 a4.5 4.5 0 1 0 .01 0z");}
 /*.icon-sun2 {--w:12;--p:path("m4 1q2 2 4 0q0 3 3 3q-2 2 0 4q-3 0-3 3q-2-2-4 0q0-3-3-3q2-2 0-4q3 0 3-3zm2 2a3 3 0 1 0 .01 0");}*/
