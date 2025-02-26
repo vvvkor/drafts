@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#fff">
     <meta name="theme-color" media="(prefers-color-scheme:dark)" content="#04a">
-    <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23666'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Cpath%20fill='%23d60'%20d='M8%201l2%202h3v3l2%202-2%202v3h-3l-2%202-2-2h-3v-3l-2-2%202-2v-3h3z%20m0%202.5%20a4.5%204.5%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="one-path-icons.css">
     <link rel="stylesheet" href="decoration.css">
     <script>
@@ -111,7 +111,7 @@
         eCopy.addEventListener ('click', e => {
           e.preventDefault()
           const c = copyToClipboard(eOutput.innerText)
-          eCopied.classList.add(...(c ? ['icon-ok', 'status-success'] : ['icon-ban', 'status-danger']))
+          eCopied.classList.add(...(c ? ['icon-check', 'status-success'] : ['icon-ban', 'status-danger']))
           setTimeout(() => eCopied.className = '', 2000)
         })
       })
@@ -180,7 +180,7 @@
   
           <h3>Navigation</h3>
           <a class="icon-menu" id="iconMenu" data-act="icon-close"></a>
-          <a class="icon-more"></a>
+          <a class="icon-dots"></a>
           <a class="icon-home"></a>
           <a class="icon-find"></a>
           <a class="icon-user"></a>
@@ -189,7 +189,7 @@
           <a class="icon-close"></a>
           <a class="icon-exit"></a>
 
-          <a class="icon-world"></a>
+          <a class="icon-globe"></a>
           <a class="icon-flag"></a>
           <a class="icon-place"></a>
           
@@ -206,6 +206,8 @@
           <a class="icon-download"></a>
           <a class="icon-first"></a>
           <a class="icon-last"></a>
+          <a class="icon-move"></a>
+          <a class="icon-refresh"></a>
           
           <h3>Objects</h3>
           <a class="icon-file"></a>
@@ -215,6 +217,7 @@
           <a class="icon-image"></a>
           <a class="icon-text"></a>
           <a class="icon-link"></a>
+          <a class="icon-anchor"></a>
           <a class="icon-phone"></a>
           <a class="icon-mail"></a>
           <a class="icon-print"></a>
@@ -227,30 +230,39 @@
           <a class="icon-card"></a>
           <a class="icon-key"></a>
           <a class="icon-lock"></a>
+          <a class="icon-shield"></a>
+          <a class="icon-db"></a>
           <a class="icon-storage"></a>
           
           <h3>View</h3>
-          <a class="icon-refresh"></a>
-          <a class="icon-view"></a>
+          <a class="icon-show" data-act="icon-hide"></a>
+          <a class="icon-hide" data-act="icon-show"></a>
           <a class="icon-list"></a>
           <a class="icon-grid"></a>
-          <a class="icon-tree"></a>
+          <a class="icon-layout"></a>
+          <a class="icon-struct"></a>
           <a class="icon-chart"></a>
+          <a class="icon-pie"></a>
+          <a class="icon-contrast"></a>
           <a class="icon-folder" data-act="icon-open"></a>
           <a class="icon-open" data-act="icon-folder"></a>
+          <a class="icon-case"></a>
+          <a class="icon-book"></a>
           <a class="icon-layers"></a>
           <a class="icon-expand" data-act="icon-collapse"></a>
           <a class="icon-collapse" data-act="icon-expand"></a>
-          <a class="icon-columns"></a>
+          <a class="icon-table"></a>
           
           <h3>Actions</h3>
           <a class="icon-plus" data-act="icon-no"></a>
           <a class="icon-minus" data-act="icon-add"></a>
           <a class="icon-edit"></a>
           <a class="icon-delete"></a>
+          <a class="icon-trash"></a>
           <a class="icon-copy"></a>
           <a class="icon-sort"></a>
           <a class="icon-sum"></a>
+          <a class="icon-code"></a>
           <a class="icon-play" data-act="icon-pause"></a>
           <a class="icon-pause" data-act="icon-play"></a>
           <a class="icon-stop"></a>
@@ -260,17 +272,22 @@
           <a class="icon-chat"></a>
           <a class="icon-power"></a>
           <a class="icon-flash"></a>
+          <a class="icon-battery"></a>
           
           <h3>Status</h3>
-          <a class="icon-ok"></a>
+          <a class="icon-check"></a>
           <a class="icon-ban"></a>
           <a class="icon-warning"></a>
           <a class="icon-info"></a>
           <a class="icon-help"></a>
+          <a class="icon-bell"></a>
           <a class="icon-bookmark"></a>
-          <a class="icon-star"></a>
           <a class="icon-heart"></a>
           <a class="icon-tag"></a>
+          <a class="icon-star"></a>
+          <a class="icon-sun" data-act="icon-moon"></a>
+          <a class="icon-moon" data-act="icon-sun"></a>
+          <a class="icon-cloud"></a>
           
           <h3>Special</h3>
           <a class="icon-none"></a>
@@ -278,30 +295,13 @@
           <a class="icon-spin"></a>
           
           <h3>New</h3>
-          <a class="icon-contrast"></a>
-          <a class="icon-battery"></a>
-          <a class="icon-bell"></a>
-          <a class="icon-anchor"></a>
-          <a class="icon-book"></a>
-          <a class="icon-case"></a>
-          <a class="icon-db"></a>
-          <a class="icon-code"></a>
-          <a class="icon-shield"></a>
-          <a class="icon-cloud"></a>
-          <a class="icon-sun" data-act="icon-moon"></a>
-          <a class="icon-moon" data-act="icon-sun"></a>
-          <a class="icon-move"></a>
-          <a class="icon-trash"></a>
-          <a class="icon-layout"></a>
-          <a class="icon-hide"></a>
-          <a class="icon-pie"></a>
           <!--a class="icon-read"></a-->
           <!--a class="icon-random"></a-->
         </div>
       </div>
       
       <div>
-        <h2><span id="ePreviewHead" class="limited"></span> Preview: <span id="eName"></span></h2>
+        <h2><span id="ePreviewHead" class="limited"></span> <code id="eName"></code></h2>
         <div id="ePreview" class="preview limited icon-menu"></div>
         <pre id="eSource"></pre>
         <h2>Playground</h2>
@@ -328,12 +328,13 @@
         
         <h2>Status colors</h2>
         <p>
+          <a class="icon-refresh">Text</a><br>
+          <a href="#" class="icon-link">Link</a><br>
           <a class="icon-ban status-danger">Danger</a><br>
           <a class="icon-warning status-warning">Warning</a><br>
-          <a class="icon-ok status-success">Success</a><br>
+          <a class="icon-check status-success">Success</a><br>
           <a class="icon-info status-info">Info</a><br>
           <a class="icon-text status-note">Note</a><br>
-          <a href="#" class="icon-link">Link</a><br>
           <small class="icon-expand">Small</small>
         </p>
         
