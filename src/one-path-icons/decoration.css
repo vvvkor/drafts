@@ -21,3 +21,20 @@ html, h1, h2, h3, h4, h5, h6, small {
 .status-success {color: #181;}
 .status-warning {color: #c60;}
 .status-danger {color: #c00;}
+
+/* animations */
+
+@keyframes spin { to {transform: rotate(360deg);} }
+@keyframes dissolve { 50% {opacity: .3;} 100% {opacity: 1;} }
+@keyframes pulse { 0% {scale: calc(var(--scale) * 1.15);} 50% {scale: calc(var(--scale) * .8);} 100% {scale: calc(var(--scale) * 1.15);} }
+/*@keyframes turning { to {transform: rotate3d(0, 1, 0, 360deg);} }*/
+@keyframes flip { to {transform: rotateX(360deg);} }
+@keyframes turn { to {transform: rotateY(360deg);} }
+@keyframes swing { 25% {transform: rotate(20deg);} 75% {transform: rotate(-20deg);} }
+
+.anim-spin, .icon-spin {--fx: spin 1s linear infinite;}
+.anim-dissolve {--fx: dissolve 1s ease-in-out infinite;}
+.anim-pulse {--fx: pulse 1s ease-in-out infinite;}
+.anim-flip {--fx: flip 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*/}
+.anim-turn {--fx: turn 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*//*transform-style:preserve-3d;*/}
+.anim-swing {--fx: swing 1s linear infinite;}
