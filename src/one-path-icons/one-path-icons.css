@@ -49,8 +49,8 @@
 .fx-spin, .icon-spin {--fx: spinning 1s linear infinite;}
 .fx-dissolve {--fx: dissolving 1s ease-in-out infinite;}
 .fx-pulse {--fx: pulsing 1s ease-in-out infinite;}
-.fx-turnx {--fx: turning-x 2s linear infinite;perspective:2em;}
-.fx-turny {--fx: turning-y 2s linear infinite;perspective:2em;/*perspective-origin:0% 0%;transform-style:preserve-3d;*/}
+.fx-turnx {--fx: turning-x 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*/}
+.fx-turny {--fx: turning-y 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*//*transform-style:preserve-3d;*/}
 
 
 /* icon shapes */
