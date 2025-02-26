@@ -1,5 +1,7 @@
+@import "icons-decoration.css";
+
 [class*="icon-"] {
-  --base: var(--base-icon-size, 26); /* default font size, px (16..24) */
+  --base: var(--base-icon-size, 16); /* default font size, px (16..24) */
   --path-scale: var(--icon-scale, 1);
   --size: calc(var(--path-scale) * var(--base) * 1px);
   /*--valign: calc((12px * var(--scale, 1) - var(--size)) / 2);*/

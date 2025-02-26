@@ -1,6 +1,5 @@
 // run: node ./build.js
 
-
 const dir = './src/granum2024/'
 const src = './src/granum2024/asset/granum2024.css'
 const dist = './dist/'
@@ -110,3 +109,5 @@ try {
 catch (error) {
   console.error('Replace error:', error)
 }
+
+require('./build-icons.js')
