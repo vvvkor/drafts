@@ -8,10 +8,9 @@ h5, small {--font-scale: .83;}
 h6 {--font-scale: .7;}
 h1, h2, h3, h4, h5, h6 {margin:1.5rem 0 1rem 0;}
 html, h1, h2, h3, h4, h5, h6, small {
-  --scale:calc(var(--root-font-scale, 1) * var(--font-scale, 1));
-  --icon-scale:var(--scale);
+  --icon-scale:calc(var(--root-font-scale, 1) * var(--font-scale, 1));
   font-size:calc(1rem * var(--font-scale, 1));
-  /*font-size:calc(16px * var(--scale));*/
+  /*font-size:calc(16px * var(--icon-scale));*/
 }
 
 /* colors */
@@ -32,9 +31,9 @@ html, h1, h2, h3, h4, h5, h6, small {
 @keyframes turn { to {transform: rotateY(360deg);} }
 @keyframes swing { 25% {transform: rotate(20deg);} 75% {transform: rotate(-20deg);} }
 
-.anim-spin, .icon-spin {--fx: spin 1s linear infinite;}
-.anim-blink {--fx: blink 1s ease-in-out infinite;}
-.anim-pulse {--fx: pulse 1s ease-in-out infinite;}
-.anim-flip {--fx: flip 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*/}
-.anim-turn {--fx: turn 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*//*transform-style:preserve-3d;*/}
-.anim-swing {--fx: swing 1s linear infinite;}
+.anim-spin, .icon-spin {--anim: spin 1s linear infinite;}
+.anim-blink {--anim: blink 1s ease-in-out infinite;}
+.anim-pulse{--anim: pulse 1s ease-in-out infinite;}
+.anim-flip {--anim: flip 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*/}
+.anim-turn {--anim: turn 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*//*transform-style:preserve-3d;*/}
+.anim-swing {--anim: swing 1s linear infinite;}

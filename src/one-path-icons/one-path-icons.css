@@ -1,15 +1,32 @@
-@import "icons-decoration.css";
+/* @import "icons-decoration.css"; */
+
+/*
+uses vars:
+--base-icon-size (16) px, per page
+--icon-scale (1) per element
+internal vars:
+--base
+--path-scale
+--size
+--valign
+--w
+--p
+--shift
+--scale
+*/
 
 [class*="icon-"] {
-  --base: var(--base-icon-size, 16); /* default font size, px (16..24) */
-  --path-scale: var(--icon-scale, 1);
-  --size: calc(var(--path-scale) * var(--base) * 1px);
-  /*--valign: calc((12px * var(--scale, 1) - var(--size)) / 2);*/
-  --valign: calc((.7em - var(--size)) / 2); /* -12%; */
-  -webkit-tap-highlight-color: transparent;
+  --base: var(--base-icon-size, 16); /* default icon size, px (16..24) (per page) */
+  --path-scale: var(--icon-scale, 1); /* icon scale factor (per element) */
+  --size: calc(var(--path-scale) * var(--base) * 1px); /* icon area size, px */
+  --valign: calc((.7em - var(--size)) / 2); /* vertical shift (-12%); */
+  /* layout */
   z-index: 1;
   overflow: hidden;
-  /* default icon */
+    /*overflow: clip;*/
+    /*display: inline-block;*/
+  -webkit-tap-highlight-color: transparent; /* avoid tap highlighting */
+  /* default icon shape */
   --w: 16;
   --p: path("M8 4l4 4,-4 4,-4-4z");
 }
@@ -24,14 +41,16 @@
   transform-origin: calc(var(--w) * .5px) calc(var(--w) * .5px);
   /* clip */
   background: currentColor;
-  outline: 10em solid currentColor;
+  outline: 10em solid currentColor; /* for paths bigger then icon area */
   clip-path: var(--p);
-  --scale: calc(100% * var(--path-scale) * var(--base) / var(--w));
-  translate: calc((var(--size) - (var(--w) * 1px)) / 2) calc((var(--size) - (var(--w) * 1px)) / 2);
-  scale: var(--scale);
-  animation: var(--fx, none);
+  --shift: calc((var(--size) - (var(--w) * 1px)) / 2);
+  --scale: calc(var(--path-scale) * var(--base) / var(--w));
+  translate: var(--shift) var(--shift); /* centrify path inside icon area */
+  scale: var(--scale); /* scale path */
+  animation: var(--anim, none);
   /* test * /
-  outline:thin solid #ccc;
+  color: #9993;
+  outline: thin solid #ccc;
   /**/
 }
 
@@ -117,7 +136,7 @@
 .icon-flash {--w:11;--p:path("M5 1.5l-2 4h2l-2 5 5-6h-2l2-3z");}
 .icon-sound {--w:9;--p:path("M3 6h-2v-3h2l3-2v7zm3.7-3q2 1.5 0 3z");}
 .icon-mic {--w:20;--p:path("M7 5a3 3 0 1 1 6 0v4a3 3 0 1 1-6 0zm-2 4a5 5 0 1 0 10 0zm4 4v3h-3v2h8v-2h-3v-3z");}
-.icon-photo {--w:10;--p:path("M1 2.5h2l1-1h2l1 1h2v5h-8zm4 .5a1.8 1.8 0 1 0 .01 0z");}
+.icon-photo {--w:10;--p:path("M1 3h2l1-1h2l1 1h2v5h-8zm4 .5a1.8 1.8 0 1 0 .01 0z");}
 .icon-print {--w:10;--p:path("M1 2.5h2v-1h4v1h2v4h-8zm2 2l-1 4h6l-1-4zm4-1h1v-.5h-1z");}
 .icon-play {--w:12;--p:path("M3 2v8l7-4z");}
 .icon-pause {--w:9;--p:path("M2 2h2v5h-2zm3 0h2v5h-2z");}
