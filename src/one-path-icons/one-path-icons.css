@@ -2,13 +2,15 @@
 
 /*
 uses vars:
---base-icon-size (16) px, per page
+--base-icon-size (20) px, per page
 --icon-scale (1) per element
+--icon-gap (.3em)
 internal vars:
 --base
 --path-scale
 --size
 --valign
+--icon-gap
 --w
 --p
 --shift
@@ -16,7 +18,7 @@ internal vars:
 */
 
 [class*="icon-"] {
-  --base: var(--base-icon-size, 16); /* default icon size, px (16..24) (per page) */
+  --base: var(--base-icon-size, 20); /* default icon size, px (16..24) (per page) */
   --path-scale: var(--icon-scale, 1); /* icon scale factor (per element) */
   --size: calc(var(--path-scale) * var(--base) * 1px); /* icon area size, px */
   --valign: calc((.7em - var(--size)) / 2); /* vertical shift (-12%); */
@@ -56,7 +58,10 @@ internal vars:
 
 /* space after icon */
 :where([class*="icon-"]:not(:empty)):before {
-  margin-right: .3em;
+  margin-right: var(--icon-gap, .3em);
+}
+[class*="icon-"]:empty:first-child + :last-child {
+  margin-left: var(--icon-gap, .3em);
 }
 
 /* icon shapes */
@@ -95,7 +100,7 @@ internal vars:
 .icon-send {--w:12;--p:path("M1 2l10 4-10 4 1.5-3.6 6-.4-6-.4z");}
 
 .icon-sort {--w:7;--p:path("M1 1h2v1h-2zm0 2h3.5v1h-3.5zm0 2h5v1h-5z");}
-.icon-home {--w:10;--p:path("M1 4.8h1v4h2v-3h2v3h2v-4h1l-4-4z");}
+.icon-home {--w:10;--p:path("M9 4v5h-3v-3h-2v3h-3v-5l4-3z");}
 .icon-close {--w:12;--p:path("M2 1l4 4 4-4 1 1-4 4 4 4-1 1-4-4-4 4-1-1 4-4-4-4z");}
 .icon-exit {--w:10;--p:path("M1 1h4v1h-3v6h3v1h-4zm2 3h3v-2l3 3-3 3v-2h-3z");}
 .icon-key {--w:20;--p:path("M2 16l7-7v-4l3-3q7 0 7 7l-3 3h-4l-6 6h-4zm3 1h1l6-6h-1zm11-12a1.5 1.5 0 1 0 .01 .01z");}
@@ -165,6 +170,7 @@ internal vars:
 .icon-link {--w:13;--p:path("M4 5.4a4.2 2.7-45 1 0 3-.5l-.4 1a3.2 1.7-45 1 1-2.5 .5zM8.9 7.6a4.2 2.7-45 1 0-3 .5l.4-1a3.2 1.7-45 1 1 2.5-.5z");}
 .icon-hide {--w:12;--p:path("M1 4q5 4 10 0v1q-5 4-10 0zm2 1.7h1l-1 3h-.5zm2.5 1h1v3h-.5zm2.5-1h1l1 3h-.5z");}
 .icon-pie {--w:24;--p:path("M12 2a10 10 0 1 0 .01 0m0 10l7.7 2a8 8 0 1 1-7.7-10");}
+.icon-app {--w:12;--p:path("M1 2h10v8h-10zm1 2v5h8v-5z");}
 .icon-spin {--w:18;--p:path("M9 1a8 8 0 1 0 8 8h-2a6 6 0 1 1-6-6");}
 
 /* todo: random */
@@ -185,5 +191,7 @@ internal vars:
 .icon-pie2 {--w:20;--p:path("M9 11l8.5 2a8 8 0 1 1-8.5-11zM11 2a8 8 0 0 1 6.8 9l-6.8-1.6");}
 .icon-pie3 {--w:20;--p:path("M10 2a8 8 0 1 0 .01 0m0 8l5.6 2a6 6 0 1 1-5.6-8");}
 .icon-phone0 {--w:13;--p:path("M3 1l2 3-1.2 1.2 4 4 1.2-1.2 3 2c-3 6 -15 -6 -9-9z");}
+.icon-home0 {--w:10;--p:path("M1 4.8h1v4h2v-3h2v3h2v-4h1l-4-4z");}
+
 
 /**/
