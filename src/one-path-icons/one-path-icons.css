@@ -127,7 +127,7 @@ internal vars:
 .icon-phone {--w:12;--p:path("M3 1l2 3-2 1 4 4 1-2 3 2c-3 6-14-5-8-8z");}
 .icon-chat {--w:12;--p:path("M6 1.2a5 4 0 1 0 .01 0zm0 1a4 3 0 1 1-.01 0zm-3.8 5.5l-1 3 4-2z");}
 .icon-bookmark {--w:8;--p:path("M4 5l-2 2v-6h4v6z");}
-.icon-star {--w:32;--p:path("M16 2l9 28-23-18 28 0-23 18z");}
+.icon-star {--w:32;--p:path("M16 1l9 28-23-18 28 0-23 18z");}
 .icon-heart {--w:6;--p:path("M3 2c2-2 4 1 0 3c-4-2-2-5 0-3z");}
 .icon-tag {--w:9;--p:path("M1 5.2l4-4h3v3l-4 4zm6-3.1a.6 .6 0 1 0 .01 .01z");}
 .icon-expand {--w:10;--p:path("M1 1h3v1h-2v2h-1zm5 0h3v3h-1v-2h-2zm2 5h1v3h-3v-1h2zm-7 0h1v2h2v1h-3z");}
@@ -152,7 +152,7 @@ internal vars:
 
 
 .icon-contrast {--w:12;--p:path("M6 1a5 5 0 1 0 .01 0M6 2v8a4 4 0 1 1 0-8z");}
-.icon-layout {--w:9;--p:path("M.75 1h3v4h-3zm0 5h3v2h-3M5.25 1h3v2h-3zm0 3h3v4h-3z");}
+.icon-layout {--w:9;--p:path("M.9 1h3v4h-3zm0 5h3v2h-3M5.1 1h3v2h-3zm0 3h3v4h-3z");}
 .icon-battery {--w:14;--p:path("M1 3h11v3h1v2h-1v3h-11zm8 7h2v-6h-5z");}
 .icon-sun {--w:16;--p:path("M8 1l2 2h3v3l2 2-2 2v3h-3l-2 2-2-2h-3v-3l-2-2 2-2v-3h3zm0 2.5a4.5 4.5 0 1 0 .01 0z");}
 /*.icon-sun2 {--w:12;--p:path("m4 1q2 2 4 0q0 3 3 3q-2 2 0 4q-3 0-3 3q-2-2-4 0q0-3-3-3q2-2 0-4q3 0 3-3zm2 2a3 3 0 1 0 .01 0");}*/
