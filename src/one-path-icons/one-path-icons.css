@@ -205,5 +205,6 @@ internal vars:
 .icon-open0 {--w:12;--p:path("M.5 1.5h4l1 2h6.3l-2.3 7h-9zm3 3l-2 5h7l2-5z");}
 .icon-rec0 {--w:10;--p:path("M5 2a3 3 0 1 0 .01 0z");}
 .icon-rec1 {--w:10;--p:path("M5 1a4 4 0 1 0 .01 0zm0 1a3 3 0 1 1-.01 0zm0 1a2 2 0 1 0 .01 0z");}
+.icon-info1 {--w:20;--p:path("M10 2a8 8 0 1 0 .01 0zm.3 5a1.5 1.5 0 1 1 .01 0zm-2.5 2c7-2 1 6 4 6-7 2-1-6-4-6");}
 
 /**/
