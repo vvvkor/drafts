@@ -149,7 +149,7 @@ internal vars:
 .icon-play {--w:12;--p:path("M3 2v8l7-4z");}
 .icon-pause {--w:9;--p:path("M2 2h2v5h-2zm3 0h2v5h-2z");}
 .icon-stop {--w:9;--p:path("M2 2h5v5h-5z");}
-.icon-rec {--w:10;--p:path("M5 2a3 3 0 1 0 .01 0z");}
+.icon-rec {--w:18;--p:path("M9 2a7 7 0 1 0 .01 0zm0 1a6 6 0 1 1-.01 0zm0 2a4 4 0 1 0 .01 0z");}
 .icon-layers {--w:13;--p:path("M.5 5l6-3 6 3-6 3zm2 0l4 2 4-2-4-2zm-2 3l2-1 4 2 4-2 2 1-6 3z");}
 .icon-none {--w:9;--p:path("M1 1z");}
 
@@ -168,7 +168,7 @@ internal vars:
 .icon-move {--w:16;--p:path("M8 1l3 3h-2v3h3v-2l3 3-3 3v-2h-3v3h2l-3 3-3-3h2v-3h-3v2l-3-3 3-3v2h3v-3h-2z");}
 .icon-shield {--w:12;--p:path("M6 1q3 2 5 2q-1 7-5 8q-4-1-5-8q2 0 5-2zm0 1q-2 1.4-4 1.8q1 5 4 6");}
 .icon-case {--w:13;--p:path("M1 3.5h3v-2h5v2h3v8h-11zm4 0h3v-1h-3zm6 2l-3 1h-3l-3-1v5h9zm-4 0h-1v2h1z");}
-.icon-bell {--w:14;--p:path("M2 10.6v-1c2 0 0-7 4-7q1-3 2 0c4 0 2 7 4 7v1zm3 .7q2 3.5 4 0");}
+.icon-bell {--w:14;--p:path("M2 10.5v-1c2 0 0-7 4-7q1-3 2 0c4 0 2 7 4 7v1zm3 .8q2 3.5 4 0");}
 .icon-anchor {--w:20;--p:path("M9 5a2 2 0 1 1 2 0h3v2h-3v8q3 0 4-3h-1l2-2 2 2h-1c-1 4-7 6-7 7c0-1-6-3-7-7h-1l2-2 2 2h-1q1 3 4 3v-8h-3v-2z");}
 .icon-link {--w:30;--p:path("M 7 13q-8 8-3 13t12-2 2-12c-1-1-3 1-2 2q3 3-2 8t-8 2 2-8zm16 4q8-8 3-13t-12 2-2 12c1 1 3-1 2-2q-3-3 2-8t8-2-2 8z");}
 .icon-external {--w:11;--p:path("M8.1 2h-2.1v-1h4v4h-1v-2.1l-6 5.1zm.9 4v4h-8v-8h4v1h-3v6h6v-3z");}
@@ -203,5 +203,7 @@ internal vars:
 .icon-cube1 {--w:18;--p:path("M9 2l7 2v9l-7 3-7-3v-9zm-6 2.8v7.5l5.8 2.5v-8z");}
 .icon-cube2 {--w:16;--p:path("M8 1l7 2v9l-7 3-7-3v-9zm-6 3v7.3l5.4 2.4v-8zm12 7.3v-7.5l-5.4 1.9v8z");}
 .icon-open0 {--w:12;--p:path("M.5 1.5h4l1 2h6.3l-2.3 7h-9zm3 3l-2 5h7l2-5z");}
+.icon-rec0 {--w:10;--p:path("M5 2a3 3 0 1 0 .01 0z");}
+.icon-rec1 {--w:10;--p:path("M5 1a4 4 0 1 0 .01 0zm0 1a3 3 0 1 1-.01 0zm0 1a2 2 0 1 0 .01 0z");}
 
 /**/
