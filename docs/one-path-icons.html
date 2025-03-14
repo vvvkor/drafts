@@ -10,180 +10,8 @@
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23d00'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="one-path-icons.min.css">
     <link rel="stylesheet" href="icons-decoration.min.css">
-    <script>
-      function packPath (s) {
-        return s
-          .replace(/\s+/gs, ' ')
-          .replace(/^\s+|\s+$/gs, '')
-          .replace(/\s?([a-z\-])\s?/g, '$1')
-      }
-      
-      function pathString (s) {
-        return packPath(s.replace(/^.*?"(.*)".*?$/s, '$1'))
-      }
-      
-      function unpackPath (s) {
-        return pathString(s)
-          .replace(/(z)/gi, '$1\n')
-          .replace(/([macql])/gi, '\n$1')
-          .replace(/^\s+/, '')
-      }
-      
-      function iconClass (n, def='icon-x', trim=false) {
-        return ([...n.classList].find(v => v.match(/icon-/)) || def).slice(trim ? 5 : 0)
-      }
-      
-      function setIcon (n, c) {
-        const i = iconClass(n, '')
-        if (i) n.classList.replace(i, c)
-        else n.classList.add(c)
-      }
-      
-      function switchIcon (n) {
-        if (!n.dataset.act) return
-        if (!n.dataset.inact) n.dataset.inact = iconClass(n)
-        n.classList.toggle('act')
-        setIcon(n, n.dataset[n.classList.contains('act') ? 'act' : 'inact'])
-      }
-      
-      function cssIcon (w, p) {
-        const c = iconClass(ePreview)
-        return '.' + c + ' {--w:' + w + ';--p:' + p + ';}'
-      }
-      
-      function svgIcon (w, p, sz=false) {
-        return '<svg xmlns="http://www.w3.org/2000/svg"' + (sz ? ' width="124" height="124"' : '') + ' viewBox="0 0 ' + w + ' ' + w + '"><path d="' + pathString(p) + '"/></svg>'
-      }
-      
-      function symbolIcon (w, p) {
-        const c = iconClass(ePreview)
-        return '<symbol id="' + c + '" viewBox="0 0 ' + w + ' ' + w + '"><path d="' + pathString(p) + '"/></svg>'
-      }
-      
-      function encodeSvg(svg) {
-        return svg.replace('<svg', (~svg.indexOf('xmlns') ? '<svg' : '<svg xmlns="http://www.w3.org/2000/svg"'))
-          .replace(/"/g, '\'')
-          .replace(/%/g, '%25')
-          .replace(/#/g, '%23')
-          .replace(/\{/g, '%7B')
-          .replace(/\}/g, '%7D')
-          .replace(/</g, '%3C')
-          .replace(/>/g, '%3E')
-      }
-      
-      function urlIcon (w, p) {
-        return 'data:image/svg+xml;utf8,' + encodeSvg(svgIcon(w, p))
-      }
-      
-      function bgIcon (w, p) {
-        //const c = iconClass(ePreview)
-        //return `.${c} {background:url("${urlIcon(w, p)}");}`
-        return `background-image:url("${urlIcon(w, p)}");`
-      }
-      
-      function clipIcon (w, p) {
-        return `mask-image:url("${urlIcon(w, p)}");`
-      }
-      
-      function initEditor (n) {
-        //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
-        const c = iconClass(n)
-        eName.textContent = c
-        setIcon(ePreview, c)
-        setIcon(ePreviewHead, c)
-        setIcon(eResultIcon, c)
-        const s = window.getComputedStyle(n)
-        const w = s.getPropertyValue('--w')
-        const p = s.getPropertyValue('--p')
-        eSource.innerText = '--w: ' + w + '\n--p: ' + p
-        eWidth.value = w
-        ePath.value = unpackPath(p)
-      }
-      
-      function setPath (n, w, p) {
-        n.style.setProperty('--w', w)
-        n.style.setProperty('--p', p)
-      }
-      
-      function updatePreview (e) {
-        const w = eWidth.value
-        const packed = packPath(ePath.value)
-        const p = 'path("' + packed + '")'
-        // bg grid
-        const q = 100 / w;
-        ePreview.style.setProperty('--bgs',`${q}% ${q}%`)
-        // path formats
-        const result = {
-          Path: cssIcon(w, p),
-          Svg: svgIcon(w, p),
-          Symbol: symbolIcon(w, p),
-          Uri: urlIcon(w, p),
-          Bg: bgIcon(w, p),
-          Clip: clipIcon(w, p),
-        }
-        Object.entries(result).forEach(([k, v]) => {
-          window['eOutput' + k].innerText = v
-          window['eOutput' + k + 'Length'].innerText = v.length
-        })
-        // big preview
-        setPath(ePreview, w, p)
-        setPath(ePreviewHead, w, p)
-        // formats preview
-        setPath(eResultIcon, w, p)
-        eResultSvg.innerHTML = result.Svg
-        eResultSymbol.innerHTML = `<span hidden><svg>${result.Symbol}</svg></span> <svg><use href="#${iconClass(ePreview)}"/></svg>`
-        eResultImg.src = result.Uri
-        eResultBg.style = result.Bg
-        eResultClip.style = result.Clip
-        eSymbols.textContent = 'input: ' + ePath.value.length + ', packed: ' + packed.length + ', css: ' + eOutputPath.innerText.length
-      }
-      
-      function copyToClipboard (text) {
-        console.log('copy', text)
-        const a = document.createElement('textarea')
-        a.textContent = text
-        a.style.position = 'fixed' // prevent scrolling
-        document.body.appendChild(a)
-        a.select()
-        try { return document.execCommand('copy') }
-        catch (e) { return prompt('Copy to clipboard: Ctrl+C, Enter', text) }
-        finally { document.body.removeChild(a) }
-      }
-      
-      document.addEventListener('DOMContentLoaded', e => {
-        [...document.querySelectorAll('.icons [class*="icon-"]')].forEach((n, i) => {
-          const ic = iconClass(n, '', true)
-          n.title = '' + (1 + i) + '. ' + ic
-          n.classList.add('pad', 'hover', 'c')
-          n.dataset.hint = n.title
-          n.addEventListener('click', e => {
-            if (e.ctrlKey) switchIcon(e.target)
-            initEditor(e.target)
-            updatePreview()
-          })
-          const hint = document.createElement('span')
-          hint.textContent = ic // n.title
-          n.append(hint)
-          ePath.addEventListener('input', updatePreview)
-          eWidth.addEventListener('input', updatePreview)
-        });
-        iconMenu.click()
-        document.addEventListener('click', e => {
-          const copy = e.target.matches('a.copy[href*="#"]')
-          if (copy) {
-            const src = document.querySelector(e.target.hash)
-            if (src) {
-              e.preventDefault()
-              const c = copyToClipboard(src.innerText)
-              e.target.querySelectorAll('.status').forEach(n => {
-                n.classList.add(...(c ? ['icon-check', 'status-success'] : ['icon-ban', 'status-danger']))
-                setTimeout(() => n.className = '', 2000)
-              })
-            }
-          }
-        }, true)
-      })
-    </script>
+    <script defer src="icons-tools.js"></script>
+    <script defer src="icons-gen.js"></script>
     <style>
       html {--root-font-scale:1;font:calc(100% * var(--root-font-scale, 1))/1.5 "pt sans",calibri,sans-serif;--base-icon-size:20;}
       table, input {font:inherit;}
@@ -388,18 +216,21 @@
           - <small id="eSymbols"></small>
           <textarea id="ePath"></textarea>
         </p>
-        <span id="eResultIcon" class="limited status-info"></span>
-        CSS path (<span id="eOutputPathLength"></span>) - <a href="#eOutputPath" class="copy">Copy <span class="status"></span></a> <pre id="eOutputPath"></pre>
-        <span id="eResultSvg" class="ic status-info"></span>
-        SVG (<span id="eOutputSvgLength"></span>) - <a href="#eOutputSvg" class="copy">Copy <span class="status"></span></a> <pre id="eOutputSvg"></pre>
-        <span id="eResultSymbol" class="ic status-info"></span>
-        Symbol (<span id="eOutputSymbolLength"></span>) - <a href="#eOutputSymbol" class="copy">Copy <span class="status"></span></a> <pre id="eOutputSymbol"></pre>
-        <img id="eResultImg" class="ic status-info">
-        Data URL (<span id="eOutputUriLength"></span>) - <a href="#eOutputUri" class="copy">Copy <span class="status"></span></a> <pre id="eOutputUri"></pre>
-        <span id="eResultBg" class="ic status-info"></span>
-        CSS bg (<span id="eOutputBgLength"></span>) - <a href="#eOutputBg" class="copy">Copy <span class="status"></span></a> <pre id="eOutputBg"></pre>
-        <span id="eResultClip" class="ic mask status-info"></span>
-        CSS clip (<span id="eOutputClipLength"></span>) - <a href="#eOutputClip" class="copy">Copy <span class="status"></span></a> <pre id="eOutputClip"></pre>
+        
+        <span id="eResult_path" class="limited status-info"></span>
+        CSS path (<span id="eOutput_path_length"></span>) - <a href="#eOutput_path" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_path"></pre>
+        <span id="eResult_inline" class="limited status-info"></span>
+        CSS inline (<span id="eOutput_inline_length"></span>) - <a href="#eOutput_inline" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_inline"></pre>
+        <span id="eResult_svg" class="ic status-info"></span>
+        SVG (<span id="eOutput_svg_length"></span>) - <a href="#eOutput_svg" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_svg"></pre>
+        <span id="eResult_symbol" class="ic status-info"></span>
+        Symbol (<span id="eOutput_symbol_length"></span>) - <a href="#eOutput_symbol" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_symbol"></pre>
+        <img id="eResult_url" class="ic status-info">
+        Data URL (<span id="eOutput_url_length"></span>) - <a href="#eOutput_url" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_url"></pre>
+        <span id="eResult_bg" class="ic status-info"></span>
+        CSS bg (<span id="eOutput_bg_length"></span>) - <a href="#eOutput_bg" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_bg"></pre>
+        <span id="eResult_clip" class="ic mask status-info"></span>
+        CSS clip (<span id="eOutput_clip_length"></span>) - <a href="#eOutput_clip" class="copy">Copy <span class="status"></span></a> <pre id="eOutput_clip"></pre>
       </div>
       
       <div>
@@ -447,7 +278,6 @@
     todo:
     - export in all formats
     - code cleanup
-    - css shape format
   -->
   </body>
 </html>
