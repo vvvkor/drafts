@@ -18,9 +18,12 @@
           .replace(/\s?([a-z\-])\s?/g, '$1')
       }
       
+      function pathString (s) {
+        return packPath(s.replace(/^.*?"(.*)".*?$/s, '$1'))
+      }
+      
       function unpackPath (s) {
-        return s
-          .replace(/^.*?"(.*)".*?$/s, '$1')
+        return pathString(s)
           .replace(/(z)/gi, '$1\n')
           .replace(/([macql])/gi, '\n$1')
           .replace(/^\s+/, '')
@@ -48,13 +51,47 @@
         return '.' + c + ' {--w:' + w + ';--p:' + p + ';}'
       }
       
+      function svgIcon (w, p, sz=false) {
+        return '<svg xmlns="http://www.w3.org/2000/svg"' + (sz ? ' width="124" height="124"' : '') + ' viewBox="0 0 ' + w + ' ' + w + '"><path d="' + pathString(p) + '"/></svg>'
+      }
+      
+      function symbolIcon (w, p) {
+        const c = iconClass(ePreview)
+        return '<symbol id="' + c + '" viewBox="0 0 ' + w + ' ' + w + '"><path d="' + pathString(p) + '"/></svg>'
+      }
+      
+      function encodeSvg(svg) {
+        return svg.replace('<svg', (~svg.indexOf('xmlns') ? '<svg' : '<svg xmlns="http://www.w3.org/2000/svg"'))
+          .replace(/"/g, '\'')
+          .replace(/%/g, '%25')
+          .replace(/#/g, '%23')
+          .replace(/\{/g, '%7B')
+          .replace(/\}/g, '%7D')
+          .replace(/</g, '%3C')
+          .replace(/>/g, '%3E')
+      }
+      
+      function urlIcon (w, p) {
+        return 'data:image/svg+xml;utf8,' + encodeSvg(svgIcon(w, p))
+      }
+      
+      function bgIcon (w, p) {
+        //const c = iconClass(ePreview)
+        //return `.${c} {background:url("${urlIcon(w, p)}");}`
+        return `background-image:url("${urlIcon(w, p)}");`
+      }
+      
+      function clipIcon (w, p) {
+        return `mask-image:url("${urlIcon(w, p)}");`
+      }
+      
       function initEditor (n) {
         //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
         const c = iconClass(n)
         eName.textContent = c
         setIcon(ePreview, c)
         setIcon(ePreviewHead, c)
-        setIcon(eResultLabel, c)
+        setIcon(eResultIcon, c)
         const s = window.getComputedStyle(n)
         const w = s.getPropertyValue('--w')
         const p = s.getPropertyValue('--p')
@@ -75,12 +112,30 @@
         // bg grid
         const q = 100 / w;
         ePreview.style.setProperty('--bgs',`${q}% ${q}%`)
-        // path
-        eOutput.innerText = cssIcon(w, p)
+        // path formats
+        const result = {
+          Path: cssIcon(w, p),
+          Svg: svgIcon(w, p),
+          Symbol: symbolIcon(w, p),
+          Uri: urlIcon(w, p),
+          Bg: bgIcon(w, p),
+          Clip: clipIcon(w, p),
+        }
+        Object.entries(result).forEach(([k, v]) => {
+          window['eOutput' + k].innerText = v
+          window['eOutput' + k + 'Length'].innerText = v.length
+        })
+        // big preview
         setPath(ePreview, w, p)
         setPath(ePreviewHead, w, p)
-        setPath(eResultLabel, w, p)
-        eSymbols.textContent = 'input: ' + ePath.value.length + ', packed: ' + packed.length + ', css: ' + eOutput.innerText.length
+        // formats preview
+        setPath(eResultIcon, w, p)
+        eResultSvg.innerHTML = result.Svg
+        eResultSymbol.innerHTML = `<span hidden><svg>${result.Symbol}</svg></span> <svg><use href="#${iconClass(ePreview)}"/></svg>`
+        eResultImg.src = result.Uri
+        eResultBg.style = result.Bg
+        eResultClip.style = result.Clip
+        eSymbols.textContent = 'input: ' + ePath.value.length + ', packed: ' + packed.length + ', css: ' + eOutputPath.innerText.length
       }
       
       function copyToClipboard (text) {
@@ -113,12 +168,20 @@
           eWidth.addEventListener('input', updatePreview)
         });
         iconMenu.click()
-        eCopy.addEventListener ('click', e => {
-          e.preventDefault()
-          const c = copyToClipboard(eOutput.innerText)
-          eCopied.classList.add(...(c ? ['icon-check', 'status-success'] : ['icon-ban', 'status-danger']))
-          setTimeout(() => eCopied.className = '', 2000)
-        })
+        document.addEventListener('click', e => {
+          const copy = e.target.matches('a.copy[href*="#"]')
+          if (copy) {
+            const src = document.querySelector(e.target.hash)
+            if (src) {
+              e.preventDefault()
+              const c = copyToClipboard(src.innerText)
+              e.target.querySelectorAll('.status').forEach(n => {
+                n.classList.add(...(c ? ['icon-check', 'status-success'] : ['icon-ban', 'status-danger']))
+                setTimeout(() => n.className = '', 2000)
+              })
+            }
+          }
+        }, true)
       })
     </script>
     <style>
@@ -129,6 +192,9 @@
       [type="number"] {width:5em;}
       textarea {width:100%;height:12em;}
       a {text-decoration:none;}
+      .ic, .ic > svg {width:1.25em;height:1.25em;}
+      .ic {vertical-align:-15%;display:inline-block;background:transparent no-repeat center / contain;}
+      .ic.mask {background:currentColor;/*mask:linear-gradient(#000, #000) no-repeat center / contain;*/}
 
       .row {display:flex;gap:2em;}
       .row > * {flex:1;}
@@ -141,13 +207,16 @@
       .icons [class*="icon-"]:hover {box-shadow:inset 0 0 1em #ccc9;}
       .icons [class*="icon-"].act {background:#fc6;}
 
+      #ePreviewHead{
+        color: #0009;
+      }
+      
       .limited {
         position: relative;
         display: inline-block;
         width: var(--size);
         height: var(--size);
         overflow: hidden;
-        color: #0009;
         translate: 0 20%;
       }
       
@@ -309,16 +378,28 @@
       <div>
         <h2><span id="ePreviewHead" class="limited"></span><code id="eName"></code></h2>
         <div id="ePreview" class="preview limited icon-menu"></div>
-        <pre id="eSource"></pre>
-        <h2>Playground</h2>
-        Grid fractions
-        <input id="eWidth" type="number"><br>
-        Edit path
-        - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands">Manual</a>
-        - <small id="eSymbols"></small>
-        <textarea id="ePath"></textarea>
-        <span id="eResultLabel" class="limited"></span> Result CSS - <a href="#copy" id="eCopy">Copy</a> <a id="eCopied"></a>
-        <pre id="eOutput"></pre>
+        <pre id="eSource" hidden></pre>
+        <h2 hidden>Playground</h2>
+        <p>
+          Grid
+          <input id="eWidth" type="number"><br>
+          Path
+          - <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/d#path_commands">Manual</a>
+          - <small id="eSymbols"></small>
+          <textarea id="ePath"></textarea>
+        </p>
+        <span id="eResultIcon" class="limited status-info"></span>
+        CSS path (<span id="eOutputPathLength"></span>) - <a href="#eOutputPath" class="copy">Copy <span class="status"></span></a> <pre id="eOutputPath"></pre>
+        <span id="eResultSvg" class="ic status-info"></span>
+        SVG (<span id="eOutputSvgLength"></span>) - <a href="#eOutputSvg" class="copy">Copy <span class="status"></span></a> <pre id="eOutputSvg"></pre>
+        <span id="eResultSymbol" class="ic status-info"></span>
+        Symbol (<span id="eOutputSymbolLength"></span>) - <a href="#eOutputSymbol" class="copy">Copy <span class="status"></span></a> <pre id="eOutputSymbol"></pre>
+        <img id="eResultImg" class="ic status-info">
+        Data URL (<span id="eOutputUriLength"></span>) - <a href="#eOutputUri" class="copy">Copy <span class="status"></span></a> <pre id="eOutputUri"></pre>
+        <span id="eResultBg" class="ic status-info"></span>
+        CSS bg (<span id="eOutputBgLength"></span>) - <a href="#eOutputBg" class="copy">Copy <span class="status"></span></a> <pre id="eOutputBg"></pre>
+        <span id="eResultClip" class="ic mask status-info"></span>
+        CSS clip (<span id="eOutputClipLength"></span>) - <a href="#eOutputClip" class="copy">Copy <span class="status"></span></a> <pre id="eOutputClip"></pre>
       </div>
       
       <div>
@@ -362,5 +443,11 @@
       
     </div>
       
+  <!--
+    todo:
+    - export in all formats
+    - code cleanup
+    - css shape format
+  -->
   </body>
 </html>
