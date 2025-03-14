@@ -16,7 +16,13 @@ const fs = require('fs')
 
 
 // cleanup
-;[dist + 'one-path-icons.min.css', dist + 'icons-decoration.min.css', docs + 'one-path-icons.min.css'].forEach(f => {
+;[
+  dist + 'one-path-icons.min.css',
+  dist + 'icons-decoration.min.css',
+  docs + 'one-path-icons.min.css',
+  docs + 'icons-tools.js',
+  docs + 'icons-gen.js',
+].forEach(f => {
   if (fs.existsSync(f)) {
     try {fs.unlinkSync(dist + 'one-path-icons.min.css') }
     catch (e) { console.error(e) }
@@ -55,6 +61,9 @@ const options = {
 
 //fs.copyFileSync(distMinCss, docs + 'one-path-icons.min.css')
 fs.copyFileSync(dir + 'one-path-icons.html', docs + 'one-path-icons.html')
+fs.copyFileSync(dir + 'icons-tools.js', docs + 'icons-tools.js')
+fs.copyFileSync(dir + 'icons-gen.js', docs + 'icons-gen.js')
+
 const replace_options = {
   files: [
     docs + 'one-path-icons.html',
