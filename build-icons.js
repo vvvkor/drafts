@@ -1,5 +1,4 @@
 // run: node ./build-icons.js
-
 process.chdir('./src/one-path-icons/')
 
 const dir = './'
@@ -13,25 +12,29 @@ const {name, version} = require('./package.json')
 var CleanCSS = require('clean-css')
 const UglifyJS = require("uglify-js")
 const fs = require('fs') 
-
-
-// cleanup
-;[
-  dist + 'one-path-icons.min.css',
-  dist + 'icons-decoration.min.css',
-  docs + 'one-path-icons.min.css',
-  docs + 'icons-tools.js',
-  docs + 'icons-gen.js',
-].forEach(f => {
-  if (fs.existsSync(f)) {
-    try {fs.unlinkSync(dist + 'one-path-icons.min.css') }
-    catch (e) { console.error(e) }
-  }
-})
-  
+const path = require('path') 
+const tools = require('./src/one-path-icons/icons-tools2.js')
+const size = 200
 const options = {
   inline: ['local'], // @import
 }
+
+
+// cleanup
+/*
+;[dist, docs].forEach(d => {
+  console.log('Clear ' + d + '...')
+  fs.readdirSync(d).forEach(n => {
+    if (fs.existsSync(d + n)) {
+      try {
+        fs.unlinkSync(d + n)
+      } catch (error) {
+        console.error(error)
+      }
+    }
+  })
+}) 
+*/
 
 ;[
   'one-path-icons',
@@ -55,6 +58,23 @@ const options = {
   fs.writeFileSync(dist + fn, min, {flag: 'w'})
   fs.copyFileSync(dist + fn, docs + fn)
 })
+
+// svg
+console.log('Generate SVG...')
+// parse one-path-icons.css,
+const css = fs.readFileSync(dir + 'one-path-icons.css', 'utf8')
+const icons = css.matchAll(/\.icon-([\w\-]+)\s*\{(.*?--w:(\d+);.*?path\("(.*?)"\).*?)\}/sg)
+const paths = [...icons].filter(i => !i[1].match(/\d/)).map(i => [i[1], i[3], i[4]])
+//console.log(paths.map(i => i[0]))
+console.log('Icons:', paths.length)
+// foreach icon gen & save svg
+const symbols = []
+paths.forEach(([name, width, path]) => {
+  const svg = tools.icon.svg(width, path, '', size, size)
+  symbols.push(tools.icon.symbol(width, path, 'icon-' + name))
+  fs.writeFileSync(dist + 'icon-' + name + '.svg', svg, {flag: 'w'})
+})
+fs.writeFileSync(dist + 'icons-symbols.svg', '<svg xmlns="http://www.w3.org/2000/svg">\n' + symbols.join('\n') + '\n</svg>', {flag: 'w'})
 
 
 // copy demo html

@@ -1,5 +1,5 @@
 //import './assets/main.css'
-window.iconTools = (() => {
+const tools = (() => {
   
   function packPath (s) {
     return s
@@ -131,3 +131,5 @@ window.iconTools = (() => {
     },
   }
 })()
+
+export default tools

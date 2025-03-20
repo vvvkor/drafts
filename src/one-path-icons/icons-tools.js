@@ -93,7 +93,7 @@ window.iconTools = (() => {
   }
 
   function symbolIcon (w, p, id) {
-    return '<symbol id="' + id + '" viewBox="0 0 ' + w + ' ' + w + '"><path d="' + p + '"/></svg>'
+    return '<symbol id="' + id + '" viewBox="0 0 ' + w + ' ' + w + '"><path d="' + p + '"/></symbol>'
   }
 
   function urlIcon (w, p) {
