@@ -1,6 +1,6 @@
 /* @import "icons-decoration.css"; */
 
-:is(.ibg, .imask):before, .icon {content:'';display:inline-block;width:1.2em;height:1.2em;vertical-align:-18%;}
+:is(.ibg, .imask):before, .icon {content:'';display:inline-block;width:1.25em;height:1.25em;vertical-align:-18%;}
 use {fill:currentColor;}
 .ibg:before   {background:var(--i, transparent) no-repeat center / contain; /* color with filter */ }
 .imask:before {background:currentColor;mask-image:var(--i);}
