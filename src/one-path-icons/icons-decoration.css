@@ -31,7 +31,7 @@ html, h1, h2, h3, h4, h5, h6, small {
 @keyframes turn { to {transform: rotateY(360deg);} }
 @keyframes swing { 25% {transform: rotate(20deg);} 75% {transform: rotate(-20deg);} }
 
-.anim-spin, .icon-spin {--anim: spin 1s linear infinite;}
+.anim-spin, .icon-spin, .ico-spin {--anim: spin 1s linear infinite;}
 .anim-blink {--anim: blink 1s ease-in-out infinite;}
 .anim-pulse{--anim: pulse 1s ease-in-out infinite;}
 .anim-flip {--anim: flip 2s linear infinite;/*perspective:1.5em;perspective-origin:calc(var(--size) / 2) calc(var(--size) / 2);/*display:inline-block;*/}

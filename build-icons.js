@@ -83,7 +83,7 @@ console.log('Generate SVG in dist...')
 const css = fs.readFileSync(dir + 'one-path-icons.css', 'utf8')
 const icons = css.matchAll(/\.icon-([\w\-]+)\s*\{(.*?--w:(\d+);.*?path\("(.*?)"\).*?)\}/sg)
 const paths = [...icons].filter(i => !i[1].match(/\d/)).map(i => [i[1], i[3], i[4]])
-//console.log(paths.map(i => i[0]))
+//console.log(paths.map(i => i[0]).sort())
 console.log('Icons:', paths.length)
 // foreach icon gen & save svg
 const symbols = []

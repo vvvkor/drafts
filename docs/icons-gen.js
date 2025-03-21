@@ -1,4 +1,5 @@
 const tools = iconTools
+const local = (location.host == 'localhost' || !location.host)
 
 function initEditor (n) {
   //ePreview.classList.replace(iconClass(ePreview), iconClass(n))
@@ -14,6 +15,26 @@ function initEditor (n) {
   eSource.innerText = '--w: ' + w + '\n--p: ' + p
   eWidth.value = w
   ePath.value = tools.formatPath(p)
+}
+
+function initDemo () {
+  const icons = [...document.querySelectorAll('.icons [class*="icon-"]')]
+    .map(n => tools.iconClass(n, '', true))
+    .filter(n => n != 'unknown')
+  console.log('Icons (' + icons.length + '): ' + icons.join(' '))
+  const demo = {
+    Mask: '',
+    Bg: '',
+    Svg: '',
+    Symbol: '',
+  }
+  icons.forEach((n, i) => {
+    demo.Mask += '<a class="imask ico-' + n + '" title="' + (i+1) + '. ' + n + '">'
+    demo.Bg += '<a class="ibg ico-' + n + '">'
+    demo.Svg += '<img class="icon" src="svg/icon-' + n + '.svg">'
+    demo.Symbol += '<svg class="icon"><use href="svg/icons-symbols.svg#' + n + '"></svg>'
+  })
+  Object.entries(demo).forEach(([k, v]) => window['demo' + k].innerHTML = v)
 }
 
 function updatePreview (e) {
@@ -77,4 +98,5 @@ document.addEventListener('DOMContentLoaded', e => {
   }, true)
   
   iconMenu.click()
+  initDemo()
 })

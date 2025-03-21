@@ -32,7 +32,6 @@
 <symbol id="copy" viewBox="0 0 12 12"><path d="M2 3h1v7h5v1h-6zm2-2h6v8h-6zm1 1v6h4v-6z"/></symbol>
 <symbol id="mail" viewBox="0 0 14 14"><path d="M1 2.5h12v9h-12zm1 1v1l5 3 5-3v-1zm0 2v5h10v-5l-5 3z"/></symbol>
 <symbol id="send" viewBox="0 0 12 12"><path d="M1 2l10 4-10 4 1.5-3.6 6-.4-6-.4z"/></symbol>
-<symbol id="sort" viewBox="0 0 10 10"><path d="M1 1h4v2h-4zm0 3h6v2h-6zm0 3h8v2h-8z"/></symbol>
 <symbol id="sort" viewBox="0 0 17 17"><path d="M2 2h5v3h-5zm0 5h9v3h-9zm0 5h13v3h-13z"/></symbol>
 <symbol id="home" viewBox="0 0 10 10"><path d="M9 4v5h-3v-3h-2v3h-3v-5l4-3z"/></symbol>
 <symbol id="close" viewBox="0 0 12 12"><path d="M2 1l4 4 4-4 1 1-4 4 4 4-1 1-4-4-4 4-1-1 4-4-4-4z"/></symbol>
