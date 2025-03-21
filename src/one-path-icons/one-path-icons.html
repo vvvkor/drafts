@@ -9,10 +9,11 @@
     <!--link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2016%2016'%3E%3Cpath%20fill='%23c60'%20d='M8%201l2%202h3v3l2%202-2%202v3h-3l-2%202-2-2h-3v-3l-2-2%202-2v-3h3z%20m0%202.5%20a4.5%204.5%200%201%200%20.01%200z'/%3E%3C/svg%3E"-->
     <link rel="icon" type="image/svg" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20220%20220'%3E%3Cpath%20fill='%23d00'%20d='M35%2067l75%20-44%2075%2044%200%2089-75%2044-75-44zm75%208a35%2035%200%201%200%20.01%200z'/%3E%3C/svg%3E">
     <link rel="stylesheet" href="one-path-icons.css">
+    <link rel="stylesheet" href="one-path-icons.var.css">
     <link rel="stylesheet" href="icons-decoration.css">
-    <script type="module" src="icons-gen1.js"></script>
-    <!--script defer src="icons-tools.js"></script>
-    <script defer src="icons-gen.js"></script-->
+    <!--script type="module" src="icons-gen1.js"></script-->
+    <script defer src="icons-tools.js"></script>
+    <script defer src="icons-gen.js"></script>
     <style>
       html {--root-font-scale:1;font:calc(100% * var(--root-font-scale, 1))/1.5 "pt sans",calibri,sans-serif;--base-icon-size:20;}
       table, input {font:inherit;}
@@ -267,10 +268,17 @@
           <a class="icon-bell     anim-swing">Swing</a><br>
         </p>
         
+        <h2>Variants</h2>
+        <a class="imask ico-refresh status-success">Mask</a><br>
+        <span><a class="ibg ico-refresh status-success"></a><span>Bg (color with CSS filters)</span></span><br>
+        <img class="icon" src="svg/icon-refresh.svg"> SVG (external IMG)<br>
+        <svg class="icon status-success"><use href="svg/icons-symbols.svg#refresh"></svg> Symbol (USE)
+        
         <!--table>
           <tr><th>A</th><th>B</th></tr>
           <tr><td>1</td><td>2<br>22</td></tr>
         </table-->
+        
       </div>
       
     </div>

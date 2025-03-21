@@ -1,5 +1,17 @@
 /* @import "icons-decoration.css"; */
 
+:is(.ibg, .imask):before, .icon {content:'';display:inline-block;width:1.2em;height:1.2em;vertical-align:-18%;}
+use {fill:currentColor;}
+.ibg:before   {background:var(--i, transparent) no-repeat center / contain; /* color with filter */ }
+.imask:before {background:currentColor;mask-image:var(--i);}
+/* space after icon */
+:where(:is(.ibg, .imask):not(:empty)):before {
+  margin-right: var(--icon-gap, .3em);
+}
+:where(:is(.ibg, .imask):empty:first-child):is(a, i, span, small) + * {
+  margin-left: var(--icon-gap, .3em);
+}
+
 /*
 uses vars:
 --base-icon-size (20) px, per page

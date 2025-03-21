@@ -1,5 +1,12 @@
-//import './assets/main.css'
-window.iconTools = (() => {
+// UMD pattern
+;(function (root, factory) {
+  if (typeof define === 'function' && define.amd) define([], factory)
+  else if (typeof module === 'object' && module.exports) module.exports = factory()
+  else root.iconTools = factory()
+} (typeof self !== 'undefined' ? self : this, function () {
+//
+
+return (() => {
   
   function packPath (s) {
     return s
@@ -108,6 +115,10 @@ window.iconTools = (() => {
     return `mask-image:url("${urlIcon(w, p)}");`
   }
   
+  function varIcon (w, p) {
+    return `--i:url("${urlIcon(w, p)}");`
+  }
+  
   return {
     packPath,
     formatPath,
@@ -128,6 +139,10 @@ window.iconTools = (() => {
       url: urlIcon,
       bg: bgIcon,
       clip: clipIcon,
+      'var': varIcon,
     },
   }
 })()
+
+
+}));

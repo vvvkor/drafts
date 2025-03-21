@@ -1,4 +1,6 @@
 // run: node ./build-icons.js
+console.log('')
+console.log('# Build Icons')
 process.chdir('./src/one-path-icons/')
 
 const dir = './'
@@ -13,28 +15,44 @@ var CleanCSS = require('clean-css')
 const UglifyJS = require("uglify-js")
 const fs = require('fs') 
 const path = require('path') 
-const tools = require('./src/one-path-icons/icons-tools2.js')
+const tools = require('./src/one-path-icons/icons-tools.js')
 const size = 200
 const options = {
   inline: ['local'], // @import
 }
 
-
 // cleanup
-/*
-;[dist, docs].forEach(d => {
-  console.log('Clear ' + d + '...')
-  fs.readdirSync(d).forEach(n => {
-    if (fs.existsSync(d + n)) {
-      try {
-        fs.unlinkSync(d + n)
-      } catch (error) {
-        console.error(error)
-      }
-    }
-  })
+
+;[dist + 'svg/', docs + 'svg/'].forEach(d => {
+  console.log('Clear ' + d + ' ...')
+  //fs.readdirSync(d).forEach(n => fs.unlinkSync(d + n))
+  fs.rmSync(d, {recursive: true, force: true})
 }) 
-*/
+
+;[
+  dist + 'one-path-icons.min.css',
+  dist + 'one-path-icons.bg.css',
+  dist + 'one-path-icons.clip.css',
+  dist + 'icons-decoration.min.css',
+  docs + 'one-path-icons.min.css',
+  docs + 'one-path-icons.bg.css',
+  docs + 'one-path-icons.clip.css',
+  docs + 'icons-decoration.min.css',
+  docs + 'icons-tools.js',
+  docs + 'icons-gen.js',
+  docs + 'one-path-icons.html',
+].forEach(f => {
+  console.log('Remove ' + f + ' ...')
+  if (fs.existsSync(f)) fs.unlinkSync(f)
+})
+
+// create subdirs
+
+if (!fs.existsSync(dist + 'svg/')) fs.mkdirSync(dist + 'svg/')
+if (!fs.existsSync(docs + 'svg/')) fs.mkdirSync(docs + 'svg/')
+ 
+
+// prepare css
 
 ;[
   'one-path-icons',
@@ -56,11 +74,11 @@ const options = {
   //fs.writeFileSync(distMinCss, min + '\n\n', {flag: 'as'})
   const fn = n + '.min.css'
   fs.writeFileSync(dist + fn, min, {flag: 'w'})
-  fs.copyFileSync(dist + fn, docs + fn)
 })
 
-// svg
-console.log('Generate SVG...')
+// generate svg & symbols & css
+
+console.log('Generate SVG in dist...')
 // parse one-path-icons.css,
 const css = fs.readFileSync(dir + 'one-path-icons.css', 'utf8')
 const icons = css.matchAll(/\.icon-([\w\-]+)\s*\{(.*?--w:(\d+);.*?path\("(.*?)"\).*?)\}/sg)
@@ -69,20 +87,32 @@ const paths = [...icons].filter(i => !i[1].match(/\d/)).map(i => [i[1], i[3], i[
 console.log('Icons:', paths.length)
 // foreach icon gen & save svg
 const symbols = []
+const vars = []
+const clips = []
 paths.forEach(([name, width, path]) => {
   const svg = tools.icon.svg(width, path, '', size, size)
-  symbols.push(tools.icon.symbol(width, path, 'icon-' + name))
-  fs.writeFileSync(dist + 'icon-' + name + '.svg', svg, {flag: 'w'})
+  symbols.push(tools.icon.symbol(width, path, /*'icon-' + */name))
+  vars.push('.ico-' + name +' {' + tools.icon.var(width, path) + '}')
+  fs.writeFileSync(dist + 'svg/icon-' + name + '.svg', svg, {flag: 'w'})
 })
-fs.writeFileSync(dist + 'icons-symbols.svg', '<svg xmlns="http://www.w3.org/2000/svg">\n' + symbols.join('\n') + '\n</svg>', {flag: 'w'})
+fs.writeFileSync(dist + 'svg/icons-symbols.svg', '<svg xmlns="http://www.w3.org/2000/svg">\n' + symbols.join('\n') + '\n</svg>', {flag: 'w'})
+fs.writeFileSync(dist + 'one-path-icons.var.css', vars.join('\n'), {flag: 'w'})
 
+// copy to docs
 
-// copy demo html
+console.log('Copy to docs...')
+fs.readdirSync(dist + 'svg/').forEach(n => fs.copyFileSync(dist + 'svg/' + n, docs + 'svg/' + n))
+;[
+  dist + 'one-path-icons.min.css',
+  dist + 'one-path-icons.var.css',
+  dist + 'icons-decoration.min.css',
+  dir + 'one-path-icons.html',
+  dir + 'icons-tools.js',
+  dir + 'icons-gen.js',
+  
+].forEach(f => fs.copyFileSync(f, docs + path.basename(f)))
 
-//fs.copyFileSync(distMinCss, docs + 'one-path-icons.min.css')
-fs.copyFileSync(dir + 'one-path-icons.html', docs + 'one-path-icons.html')
-fs.copyFileSync(dir + 'icons-tools.js', docs + 'icons-tools.js')
-fs.copyFileSync(dir + 'icons-gen.js', docs + 'icons-gen.js')
+// replace content
 
 const replace_options = {
   files: [
@@ -100,7 +130,7 @@ const replace_options = {
 
 try {
   const results = replace.sync(replace_options)
-  console.log('Replace: \n', results)
+  console.log('Replace content: \n', results)
 }
 catch (error) {
   console.error('Replace error:', error)
