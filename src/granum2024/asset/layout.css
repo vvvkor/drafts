@@ -30,6 +30,7 @@
 .col-0 {flex:initial;}
 .col-2 {flex:2;}
 .col-3 {flex:3;}
+.row > * {min-width:0;}
 .row > .push {margin-right:var(--push);}
 .row > .shift {margin-left:var(--push);}
 .row > .push + .shift {margin-left:0;}
