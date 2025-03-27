@@ -76,13 +76,13 @@ if (!fs.existsSync(docs + 'svg/')) fs.mkdirSync(docs + 'svg/')
   fs.writeFileSync(dist + fn, min, {flag: 'w'})
 })
 
-// generate svg & symbols & css
+// generate svg & symbols & css & lists
 
 console.log('Generate SVG in dist...')
 // parse one-path-icons.css,
 const css = fs.readFileSync(dir + 'one-path-icons.css', 'utf8')
 const icons = css.matchAll(/\.icon-([\w\-]+)\s*\{(.*?--w:(\d+);.*?path\("(.*?)"\).*?)\}/sg)
-const paths = [...icons].filter(i => !i[1].match(/\d/)).map(i => [i[1], i[3], i[4]])
+const paths = [...icons].filter(i => !i[1].match(/\d/)).map(i => [i[1], i[3], i[4]]).sort((a, b) => a[0] < b[0] ? -1 : 1)
 //console.log(paths.map(i => i[0]).sort())
 console.log('Icons:', paths.length)
 // foreach icon gen & save svg
@@ -97,6 +97,8 @@ paths.forEach(([name, width, path]) => {
 })
 fs.writeFileSync(dist + 'svg/icons-symbols.svg', '<svg xmlns="http://www.w3.org/2000/svg">\n' + symbols.join('\n') + '\n</svg>', {flag: 'w'})
 fs.writeFileSync(dist + 'one-path-icons.var.css', vars.join('\n'), {flag: 'w'})
+fs.writeFileSync(dist + 'icons-names.js', 'export default [' + paths.map(([name]) => `'${name}'`).join(', ') + ']', {flag: 'w'})
+fs.writeFileSync(dist + 'icons-paths.js', 'export default {\n' + paths.map(([name, width, path]) => `  ${name}: [${width}, '${path}']`).join(',\n') + '\n}', {flag: 'w'})
 
 // copy to docs
 
