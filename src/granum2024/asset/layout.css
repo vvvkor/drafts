@@ -4,7 +4,7 @@
 /* can not have <html> as container, because modals are centered inside container */
 /* do not use .modal and .drawer inside container (position and z-index issues) */
 /* Chromium crashes 2024-08-08; see also: form.css @container {} */
-/*.container {container: block / inline-size;}*/
+.container {container: block / inline-size;}
   /*position:relative;z-index:20;*/
 
 /* row */
