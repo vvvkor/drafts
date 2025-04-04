@@ -4,7 +4,7 @@
 :is(.ibg, .imask):before {content:'';}
 use {fill:currentColor;}
 .ibg:before   {background:var(--i, transparent) no-repeat center / contain; /* color with filter */ }
-.imask:before {background:currentColor;mask-image:var(--i);}
+.imask:before {background:currentColor;mask-image:var(--i);mask-repeat:no-repeat;}
 /* space after icon */
 :where(:is(.ibg, .imask):not(:empty)):before {
   margin-right: var(--icon-gap, .3em);

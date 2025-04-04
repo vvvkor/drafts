@@ -1,4 +1,5 @@
-export default {
+//export default {
+window.iconPaths = {
   anchor: [20, 'M9 5a2 2 0 1 1 2 0h3v2h-3v8q3 0 4-3h-1l2-2 2 2h-1c-1 4-7 6-7 7c0-1-6-3-7-7h-1l2-2 2 2h-1q1 3 4 3v-8h-3v-2z'],
   app: [12, 'M1 2h10v8h-10zm1 2v5h8v-5z'],
   asc: [10, 'M1 6l4-4 4 4-1 1-3-3-3 3z'],

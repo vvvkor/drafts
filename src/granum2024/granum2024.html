@@ -10,11 +10,15 @@
     <link rel="stylesheet" href="asset/granum2024.css">
     <script defer src="asset/granum2024.js"></script>
     <script defer src="asset/customize.js"></script>
+    <script defer src="asset/icon-paths.js"></script>
     <script>
       // demo icons
       document.addEventListener('DOMContentLoaded', e => {
-        [...document.querySelectorAll('.icons [class*="icon-"]')].forEach(n => {
-          n.title = n.getAttribute('class').slice(5)
+        Object.entries(window.iconPaths).forEach(([name, [width, path]]) => {
+          divIcons.innerHTML += `<a class="icon-${name}"></a>`
+        });
+        [...document.querySelectorAll('.icons [class*="icon-"]')].forEach((n, i) => {
+          n.title = (i + 1) + '. ' + n.getAttribute('class').slice(5)
           n.classList.add('pad', 'hover', 'c')
           n.dataset.hint = n.title
         });
@@ -119,7 +123,7 @@
       </details>
       
       <details class="mar">
-      <summary class="icon-next">Image</summary>
+      <summary class="icon-folder">Image</summary>
       <div class="pads rad hilite stack">
         <img class="c" alt="" src="https://placehold.co/400x200/b33/fff.png?text=***" width="80"> Circled image
         <hr>
@@ -134,7 +138,7 @@
       
       
       <details class="mar">
-      <summary class="icon-next">Headings</summary>
+      <summary class="icon-expand">Headings</summary>
         <div class="hilite pad rad stack">
           <h1>Heading 1<b class="-target"><br>has a second line</b></h1>
           <p>Some text. <span class="-target">More text. And more text. And more text. And more text. And more text. Another word. And more text. Like this one.<br> Final line.</span> 
@@ -187,16 +191,16 @@
       </p>
       
       <details>
-        <summary class="icon-next">Buttons etc.</summary>
+        <summary class="icon-menu">Buttons etc.</summary>
         <div class="pads hilite rad stack">
         
           <h3>Buttons</h3>
           <span class="pad bord rad">Pad span</span>
-          <button class="icon-ok">Button</button>
-          <button class="neutral icon-more">Neutral</button>
+          <button class="icon-check">Button</button>
+          <button class="neutral icon-dots">Neutral</button>
           <button class="note icon-file">Note</button>
           <button class="info icon-info">Info</button>
-          <button class="success icon-ok">Success</button>
+          <button class="success icon-check">Success</button>
           <button class="warning icon-warning">Warning</button>
           <button class="danger icon-ban">Danger</button>
           <button class="bord icon-time">Border</button>
@@ -214,11 +218,11 @@
           <span class="pad danger text bg">Text bg</span>
           <span class="pad danger bord bg">Border bg</span>
           <span class="pad danger text bg bord">Text bg border</span>
-          <span class="pad danger invert icon-pin">Invert</span>
+          <span class="pad danger invert icon-place">Invert</span>
 
           <h3>Invert</h3>
           <a href="" class="icon-refresh success invert pad">Inverted</a>
-          <span class="danger invert pad"><a href="" class="icon-pin">Inside inverted</a></span>
+          <span class="danger invert pad"><a href="" class="icon-place">Inside inverted</a></span>
           
         </div>
       </details>
@@ -229,14 +233,14 @@
       
         <ul>
           <li>One</li>
-          <li><a href="#open" class="show-js icon-add"></a> Two
+          <li><a href="#open" class="show-js icon-plus"></a> Two
             <ul class="hide">
               <li>1</li>
               <li>2</li>
               <li>3</li>
             </ul>
           </li>
-          <li><a href="#open" class="show-js icon-add"></a> Three
+          <li><a href="#open" class="show-js icon-plus"></a> Three
             <ul class="-hide">
               <li>Uno</li>
               <li>Dos</li>
@@ -334,11 +338,11 @@
             <td><input type="checkbox">
             <td>11
             <td class="">Default
-            <td><a href="x" class="icon-pin">Note</a>
+            <td><a href="x" class="icon-place">Note</a>
             <td class="bg">Text <a href="x">Link</a>
             <td class="bg text">Text <a href="x">Link</a>
             <td class="invert">Text <a href="x">Link</a>
-            <td><button class="icon-pin" type="reset">Button</button>
+            <td><button class="icon-place" type="reset">Button</button>
           </tr>
           <tr class="bg info">
             <td><input type="checkbox">
@@ -384,11 +388,11 @@
             <td><input type="checkbox">
             <td>1123
             <td class="success">Success
-            <td><a href="x" class="success icon-ok">Success</a>
+            <td><a href="x" class="success icon-check">Success</a>
             <td class="success bg">Text <a href="x">Link</a>
             <td class="success bg text">Text <a href="x">Link</a>
             <td class="success invert">Text <a href="x">Link</a>
-            <td><button class="success icon-ok" type="reset">Button</button>
+            <td><button class="success icon-check" type="reset">Button</button>
           </tr>
           <tr>
             <td><input type="checkbox">
@@ -437,12 +441,12 @@
             <input id="custom" type="text" size="12" required name="custom">
             <a href="#x" class="icon-ban show-js" onclick="this.previousElementSibling.value = ''"></a>
             <details class="pop l"><summary class="icon-desc"></summary><div class="pad">Popup</div></details>
-            <button type="submit" class="icon-ok success -bg -bord"></button> <!-- formaction="?#custom" -->
+            <button type="submit" class="icon-check success -bg -bord"></button> <!-- formaction="?#custom" -->
           </div>
           <div class="tip small">
             Type in some text
             <div class="danger icon-ban">Value required</div>
-            <div class="success icon-ok">Correct value</div>
+            <div class="success icon-check">Correct value</div>
           </div>
         </div>
 
@@ -494,7 +498,7 @@
               <small class="tip">
                 Type in the number
                 <span class="danger icon-ban">Value required</span>
-                <span class="success icon-ok">Correct value</span>
+                <span class="success icon-check">Correct value</span>
               </small>
             </div>
         
@@ -576,7 +580,7 @@
         
         <br>
         <wbr>
-        <button class="just-l icon-ok">OK</button>
+        <button class="just-l icon-check">OK</button>
         
         <br>
         <button class="span detect icon-spin">Detect validity</button>
@@ -752,7 +756,7 @@
       <h3 id="details">Details <a href="#details" class="nodec">#</a></h3>
       
       <details class="hilite mar">
-        <summary class="icon-add hover">Summary</summary>
+        <summary class="icon-plus hover">Summary</summary>
         <div class="pad">
           Details
           <details>
@@ -765,7 +769,7 @@
       
       <div class="mar">
       Before <details class="pop -l hilite">
-        <summary class="icon-add hover">Popup summary</summary>
+        <summary class="icon-plus hover">Popup summary</summary>
         <div class="pad">
           Details.
           <details class="pop -l">
@@ -823,19 +827,19 @@
 
       <br>
       <a href="#modal" class="icon-collapse" accesskey="w">Modal</a>
-      <a href="#anchor" class="icon-pin" accesskey="a">Anchor</a>
+      <a href="#anchor" class="icon-place" accesskey="a">Anchor</a>
       <a href="#modal-full" class="icon-expand">Modal full</a>
       <a href="#img1" class="icon-image">Gallery</a>
       <br>
       <a href="#drawer-left" class="icon-left" accesskey="q">Drawer left</a>
-      <a href="#drawer-anchor" class="icon-pin">Drawer anchor</a>
+      <a href="#drawer-anchor" class="icon-place">Drawer anchor</a>
       <a href="#customize" class="icon-right">Drawer right</a>
       
       <div id="modal" class="modal -show pads -row -vert">
         <!--header>Head</header><div class="col-1 scroll"-->
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
         <h3 class="mar">Modal</h3>
-        <a href="#anchor" class="icon-pin">Anchor</a><br>
+        <a href="#anchor" class="icon-place">Anchor</a><br>
         <a href="#modal-sub" class="icon-copy">Modal sub</a><br>
         <a href="#drawer-left" class="icon-left">Drawer</a><br>
         <p><input></p>
@@ -869,7 +873,7 @@
         <div class="r"><a href="#close" class="icon-close">Close</a></div>
         <h3 class="mar">Drawer left</h3>
         <a href="#modal" class="icon-expand">Modal</a><br>
-        <a href="#drawer-anchor" class="icon-pin">Drawer anchor</a>
+        <a href="#drawer-anchor" class="icon-place">Drawer anchor</a>
         <p><input id="drawer-anchor"></p>
         <details class="mar -scroll">
           <summary class="icon-expand">Expand</summary>
@@ -1046,7 +1050,7 @@
           <ul class="l">
             <li><a href="?" class="icon-info info ic">Semantics</a></li>
             <li><a href="?" class="icon-bookmark danger ic">Decoration</a></li>
-            <li><a href="?" class="icon-energy warning ic">Function</a></li>
+            <li><a href="?" class="icon-flash warning ic">Function</a></li>
           </ul>
         </li>
         <li class="-push"><a tabindex="0">Tags</a>
@@ -1147,10 +1151,20 @@
       </div>
     
 
+    <h2 id="animation">Animations <a href="#animation" class="nodec">#</a></h2>
+    <ul class="fit">
+      <li><a class="icon-refresh  success anim-spin">Spin</a><br>
+      <li><a class="icon-heart    danger  anim-pulse">Pulse</a><br>
+      <li><a class="icon-warning  warning anim-blink">Blink</a><br>
+      <li><a class="icon-bookmark note    anim-flip">Flip</a><br>
+      <li><a class="icon-anchor   info    anim-turn">Turn</a><br>
+      <li><a class="icon-bell     neutral anim-swing">Swing</a><br>
+    </ul>
+      
     <h2 id="icon">Icon <a href="#icon" class="nodec">#</a></h2>
 
-    <div class="icons">
-    <a class="icon-menu"></a>
+    <div class="icons" id="divIcons">
+    <!--a class="icon-menu"></a>
     <a class="icon-sort"></a>
     <a class="icon-more"></a>
     <a class="icon-grid"></a>
@@ -1233,7 +1247,7 @@
     <a class="icon-layers"></a>
     <a class="icon-none"></a>
     <a class="icon-unknown"></a>
-    <a class="icon-spin"></a>
+    <a class="icon-spin"></a-->
     </div>
       
     <hr>
