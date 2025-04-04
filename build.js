@@ -38,7 +38,9 @@ const options = { /* options */ }
 'table',
 'table-fixed',
 'color',
-'icon-path',
+//'icon-path',
+'icon-vars',
+'icon-animate',
 'form',
 'input',
 'custom-switch',
@@ -85,6 +87,7 @@ const options = { /* options */ }
 // copy demo html
 
 fs.copyFileSync(dir + 'asset/customize.js', docs + 'customize.js')
+fs.copyFileSync(dir + 'asset/icon-paths.js', docs + 'icon-paths.js')
 fs.copyFileSync(distMinCss, docs + 'granum2024.min.css')
 fs.copyFileSync(distMinJs, docs + 'granum2024.min.js')
 fs.copyFileSync(dir + 'granum2024.html', docs + 'index.html')
@@ -95,10 +98,12 @@ const replace_options = {
   from: [
     /asset\/granum2024\./g,
     /asset\/customize\./g,
+    /asset\/icon-paths\./g,
   ],
   to: [
     'granum2024.min.', // + version,
     'customize.',
+    'icon-paths.',
   ],
 }
 
