@@ -3,6 +3,7 @@
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
 .resize {resize:both;overflow:auto;}
 .scroll {overflow:auto;min-width:5em;min-height:2.5em;}
+/*::-webkit-resizer {border:3em solid red;background:blue;}*/ /* can not make it larger */
 
 pre {overflow:auto;max-height:80vh;}
 code, kbd {padding:calc(.1 * var(--gap)) calc(.2 * var(--gap));}
