@@ -34,15 +34,12 @@ const foc = (e) => {
 const copy = (s) => {
   const a = document.createElement('textarea')
   a.textContent = s
-  a.style.position = 'fixed' // prevent scrolling
+  //a.style.position = 'fixed' // prevent scrolling
   document.body.appendChild(a)
   a.select()
-  document.execCommand('copy')
-  /*
   try { return document.execCommand('copy') }
   catch (e) { return prompt('Copy to clipboard: Ctrl+C, Enter', s) }
   finally { document.body.removeChild(a) }
-  */
 }
 
 
