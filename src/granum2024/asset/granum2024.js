@@ -31,18 +31,6 @@ const foc = (e) => {
   if (m && !m.matches(':focus-within')) ((e?.type || !location.hash ? null : m.querySelector(location.hash)) || m.querySelector('button,input,select,textarea,[contenteditable]' + (e?.type == 'focusin' ? ',[href],[tabindex]:not([tabindex="-1"])' : '')))?.focus()
 }
 
-const copy = (s) => {
-  const a = document.createElement('textarea')
-  a.textContent = s
-  //a.style.position = 'fixed' // prevent scrolling
-  document.body.appendChild(a)
-  a.select()
-  try { return document.execCommand('copy') }
-  catch (e) { return prompt('Copy to clipboard: Ctrl+C, Enter', s) }
-  finally { document.body.removeChild(a) }
-}
-
-
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
@@ -150,7 +138,8 @@ document.addEventListener('click', e => {
       const n = document.querySelector(a.hash)
       if (n) {
         e.preventDefault()
-        copy(n.value || n.textContent)
+        n.select()
+        document.execCommand('copy') 
         const c = a.className
         a.className = 'icon-check success'
         setTimeout(() => a.className = c, 3000)
