@@ -50,7 +50,7 @@
 - .container .form.resp.just.stretch > .shift.span.just-l/c/r/s
 - .input .switch .dropzone .validate .detect
 - label.check, input.check
-- .row.stretch details.pop .backdrop
+- .row.stretch details.pop .backdrop .row>.resize
 - .grid-xs/s/m/l.gap > .span-2/3/4
 - .slider
 - progress
@@ -109,7 +109,7 @@
 
 ### Row
 
-- .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick (.resp@container@media)
+- .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick.resize (.resp@container@media)
 - ul.row.gap.click ul.l
 
 ### Stack
@@ -166,3 +166,4 @@
 - :is(input, select, textarea, details)[id].mem, form.mem [id]
 - .tabs a[#ID] + div > [id]
 - table.l#.c#.r#
+- a.copy[#source]

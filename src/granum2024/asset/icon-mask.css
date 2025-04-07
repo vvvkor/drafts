@@ -1,0 +1,24 @@
+/* bg mask */
+[class*="icon-"]:before {
+  --icon-size: calc(1em * var(--icon-scale, 1.25));
+  content: '';
+  display: inline-block;
+  width: var(--icon-size);
+  height:var(--icon-size);
+  vertical-align:calc((1em - var(--icon-size)) / 2 - .1em);
+  animation: var(--anim, none);
+  background: currentColor;
+  mask-image: var(--i);
+  mask-repeat: no-repeat;
+}
+
+/* space after icon */
+[class*="icon-"].empty > * {
+  display:none;
+}
+:where([class*="icon-"]:not(:empty, .empty, :has(>sup))):before {
+  margin-right: var(--icon-mar, .3em);
+}
+:where([class*="icon-"]:empty:first-child):is(a, i, span, small) + * {
+  margin-left: var(--icon-mar, .3em);
+}

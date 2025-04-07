@@ -451,6 +451,16 @@
         </div>
 
         <br>
+        <div><label for="copy">Copy</label></div>
+        <div>
+          <div class="input">
+            <!--span id="copy1">Copied text</span-->
+            <input id="copy" type="text" readonly value="Copied value" class="bg">
+            <a href="#copy" class="icon-copy note copy"></a>
+          </div>
+        </div>
+
+        <br>
         <label class="just-c" for="sel">Select</label>
         <select id="sel" data-nodes="#nodes i" class="mem">
           <option value="">none</option>
@@ -735,6 +745,31 @@
           <a href="#slide3" class="pad">&#x25cf;</a>
           <a href="#slide4" class="pad">&#x25cf;</a>
         </nav>
+      </details>
+      
+      <details class="mar">
+        <summary>Horizontal responsize splitter</summary>
+        <div class="row gap resp">
+          <div class="resize bg warning pad">Left column</div>
+          <div class="resize bg info pad">Center<br>column</div>
+          <div class="col-1 bg success pad">Right column</div>
+        </div>
+      </details>
+      
+      <details class="mar">
+        <summary>Vertical splitter</summary>
+        <div class="row gap vert">
+          <div class="resize bg warning pad">Top</div>
+          <div class="resize bg success pad">Bottom</div>
+        </div>
+      </details>
+      
+      <details class="mar">
+        <summary>Vertical full height splitter</summary>
+        <div class="row gap vert full">
+          <div class="resize bg warning pad">Top</div>
+          <div class="col-1 bg success pad">Bottom</div>
+        </div>
       </details>
       
       <div class="row resp-s gap stretch mar">
