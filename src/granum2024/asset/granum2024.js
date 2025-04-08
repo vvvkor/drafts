@@ -139,7 +139,7 @@ document.addEventListener('click', e => {
       if (n) {
         e.preventDefault()
         n.select()
-        if (document.execCommand('copy')) {
+        if (document.execCommand('copy') && !a.classList.contains('success')) {
           const c = a.className
           a.className = 'icon-check success copy'
           setTimeout(() => a.className = c, 3000)
