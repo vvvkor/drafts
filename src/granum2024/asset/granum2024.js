@@ -139,10 +139,11 @@ document.addEventListener('click', e => {
       if (n) {
         e.preventDefault()
         n.select()
-        document.execCommand('copy') 
-        const c = a.className
-        a.className = 'icon-check success'
-        setTimeout(() => a.className = c, 3000)
+        if (document.execCommand('copy')) {
+          const c = a.className
+          a.className = 'icon-check success'
+          setTimeout(() => a.className = c, 3000)
+        }
       }
     }
     
