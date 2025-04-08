@@ -167,3 +167,4 @@
 - .tabs a[#ID] + div > [id]
 - table.l#.c#.r#
 - a.copy[#source]
+- a.pass[#target]

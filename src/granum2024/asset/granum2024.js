@@ -141,9 +141,20 @@ document.addEventListener('click', e => {
         n.select()
         if (document.execCommand('copy')) {
           const c = a.className
-          a.className = 'icon-check success'
+          a.className = 'icon-check success copy'
           setTimeout(() => a.className = c, 3000)
         }
+      }
+    }
+    
+    // show password
+    else if (a.classList.contains('pass')) {
+      const n = document.querySelector(a.hash)
+      if (n) {
+        e.preventDefault()
+        const on = (n.type == 'password')
+        n.type = on ? 'text' : 'password'
+        a.className = on ? 'icon-show neutral pass' : 'icon-hide neutral pass'
       }
     }
     

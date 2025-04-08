@@ -6,6 +6,7 @@
 
 button, [type="submit"], [type="search"] {-webkit-appearance:none;} /* safari */
 select::-moz-focus-inner, button::-moz-focus-inner, [type="submit"]::-moz-focus-inner {border:none;padding:0;} /* firefox */
+input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 100em var(--back-default) inset; } /* avoid autofill highlighting */
 /*::-webkit-calendar-picker-indicator {display:none;}*/
 
 /* inputs */
