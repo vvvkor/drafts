@@ -57,7 +57,7 @@
 
 ## Typography
 
-- .sans .serif .mono .l .r .c .mid .small
+- .sans .serif .mono .l .r .c .mid .small .regular
 - img.c.fit
 - table.wide.mid.fit.line.bord.c(.c#.r#)
 - ul.fit
