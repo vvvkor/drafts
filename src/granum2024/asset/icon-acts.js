@@ -1,0 +1,26 @@
+module.exports = {
+  copy: 'check',
+  menu: 'close',
+  
+  //plus: 'minus',
+  minus: 'plus',
+  //open: 'folder',
+  folder: 'open',
+  //show: 'hide',
+  hide: 'show',
+  
+  expand: 'collapse',
+  //collapse: 'expand',
+  desc: 'asc',
+  //asc: 'desc',
+  next: 'prev',
+  //prev: 'next',
+  sun: 'moon',
+  //moon: 'sun',
+  check: 'ban',
+  //ban: 'check',
+  play: 'pause',
+  //pause: 'play',
+  rec: 'stop',
+  //stop: 'rec',
+}

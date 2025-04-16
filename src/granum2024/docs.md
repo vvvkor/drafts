@@ -2,8 +2,8 @@
 
 ## Todo
 
-- (-) icons: synonyms (ok, search, pin, more, add, world, tree, view, columns, storage, energy); sory by category
-- (-) toggle active with js?
+- (+) icons: synonyms (ok, search, pin, more, add, world, tree, view, columns, no, energy); sory by category
+- (+) toggle active with [css] (js?)
 - (-) minimal.css
 - (=) compatible.css (no :has)
 - (-) @screen

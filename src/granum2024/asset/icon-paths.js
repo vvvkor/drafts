@@ -1,5 +1,12 @@
-//export default {
-window.iconPaths = {
+// UMD pattern
+;(function (root, factory) {
+  if (typeof define === 'function' && define.amd) define([], factory)
+  else if (typeof module === 'object' && module.exports) module.exports = factory()
+  else root.iconPaths = factory()
+} (typeof self !== 'undefined' ? self : this, function () {
+//
+
+return {
   anchor: [20, 'M9 5a2 2 0 1 1 2 0h3v2h-3v8q3 0 4-3h-1l2-2 2 2h-1c-1 4-7 6-7 7c0-1-6-3-7-7h-1l2-2 2 2h-1q1 3 4 3v-8h-3v-2z'],
   app: [12, 'M1 2h10v8h-10zm1 2v5h8v-5z'],
   asc: [10, 'M1 6l4-4 4 4-1 1-3-3-3 3z'],
@@ -103,3 +110,5 @@ window.iconPaths = {
   video: [12, 'M1 3h7v2l3-2v6l-3-2v2h-7z'],
   warning: [15, 'M7.5 1.2l-6.4 12h12.8zm0 9a1 1 0 1 1-.01 0c-3-7 3-7 0 0z']
 }
+
+}));

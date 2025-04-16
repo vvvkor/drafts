@@ -19,8 +19,9 @@
         });
         [...document.querySelectorAll('.icons [class*="icon-"]')].forEach((n, i) => {
           n.title = (i + 1) + '. ' + n.getAttribute('class').slice(5)
-          n.classList.add('pad', 'hover', 'c')
+          n.classList.add('pad', 'hover', 'c'/*, 'act'*/)
           n.dataset.hint = n.title
+          n.addEventListener('click', e => n.classList.toggle('act'))
         });
       })
     </script>

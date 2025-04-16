@@ -13,12 +13,49 @@ const {name, version} = require('./package.json')
 var CleanCSS = require('clean-css')
 const UglifyJS = require("uglify-js")
 const fs = require('fs') 
+const iconPaths = require(dir + 'asset/icon-paths.js')
+const synonyms = require(dir + 'asset/icon-synonyms.js')
+const acts = require(dir + 'asset/icon-acts.js')
 
+// tools
 
-;[dist, docs].forEach(d => {
+function encodeSvg(svg) {
+  return svg.replace('<svg', (~svg.indexOf('xmlns') ? '<svg' : '<svg xmlns="http://www.w3.org/2000/svg"'))
+    .replace(/"/g, '\'')
+    .replace(/%/g, '%25')
+    .replace(/#/g, '%23')
+    .replace(/\{/g, '%7B')
+    .replace(/\}/g, '%7D')
+    .replace(/</g, '%3C')
+    .replace(/>/g, '%3E')
+}
+function svgIcon (w, p) {
+  return '<svg xmlns="http://www.w3.org/2000/svg"' + ' viewBox="0 0 ' + w + ' ' + w + '"><path d="' + p + '"/></svg>'
+}
+function cssMaskIcon (w, p, n, s, a) {
+  const names = [n, ...s]
+  const sel = names.map(v => '.icon-' + v).join(', ')
+    + (a && a.length ? a.map(v => `, .icon-${v}.check:has(:checked), [open]>.icon-${v}, .icon-${v}[href^="#"]:has(+:target), .icon-${v}.act`).join('') : '')
+    //.icon-menu.check:has(:checked), [open]>.icon-menu, .icon-menu[href^="#"]:has(+:target), .icon-menu.act
+  return `${sel} {--i:url("data:image/svg+xml;utf8,${encodeSvg(svgIcon(w, p))}");}`
+}
+
+// build src/icon-shapes.css
+
+const icons = []
+Object.entries(iconPaths).forEach(([n, [w, p]]) => {
+  const syn = Object.entries(synonyms).filter(([s, orig]) => orig == n).map(([s]) => s)
+  const act = Object.entries(acts).filter(([a, b]) => b == n || syn.includes(b)).map(([a]) => a)
+  icons.push(cssMaskIcon(w, p, n, syn, act))
+})
+fs.writeFileSync('./src/granum2024/asset/icon-shapes.css', icons.join('\n'), {flag: 'w'})
+
+// cleanup
+
+;[/*dist + 'svg/', docs + 'svg/',*/ dist, docs].forEach(d => {
   console.log('Clear ' + d + '...')
   fs.readdirSync(d).forEach(n => {
-    if (fs.existsSync(d + n)) {
+    if (fs.existsSync(d + n) && fs.lstatSync(d + n).isFile()) {
       try {
         fs.unlinkSync(d + n)
       } catch (error) {
@@ -27,7 +64,9 @@ const fs = require('fs')
     }
   })
 }) 
-  
+
+// build css
+
 const options = { /* options */ }
 ;[
 'var',
