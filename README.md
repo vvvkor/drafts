@@ -4,7 +4,6 @@
 
 ### CSS features
 
-- `clip-path` SVG icons (80+)
 - custom checkbox, radio, switch
 - interactive components: modal, drawer, gallery, popup, tooltips, dropdown, tabs, slider
 - responsive components (dropdown, form, flex, grid)
@@ -14,6 +13,8 @@
 - custom input with prefix and suffix
 - form validation
 - status colors, spacing, tags, badges
+- `mask-image` SVG icons (100+)
+- <del>`clip-path` SVG icons (80+)</del>
 
 ### JS features
 
