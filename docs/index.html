@@ -1191,7 +1191,7 @@
       
       <p>
         <button type="button" command="show-modal" commandfor="dlg25">Modal dialog & popover 2025</button>
-        <dialog id="dlg25" class="shade rad">
+        <dialog id="dlg25" closedby="any" class="shade rad">
           <div class="pads stick r bg note">
               <button type="button" command="close" commandfor="dlg25" class="icon-close fit note"></button>
           </div>
@@ -1227,7 +1227,7 @@
                 <button popovertarget="hint3" class="fit">Term3</button>
                 <dialog popover="hint" id="hint3" class="small pad bord shade rad">Hint3</dialog>
               </dialog>
-              <dialog id="dlg-nested" class="pads shade rad stack">
+              <dialog id="dlg-nested" closedby="any" class="pads shade rad stack">
                 <p>Nested dialog</p>
                 <button type="button" command="close" commandfor="dlg-nested">Close</button>
               </dialog>
