@@ -119,8 +119,19 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   [data-hint] {cursor:help;}
 
 /* dialog */
-[popover], dialog {border:none;}
+:where([popover], dialog) {border:none;padding:0;}
 ::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
+
+[popover] {
+  position:fixed;
+  /*position-anchor:--anc;*/ /* button {anchor-name:--anc;}*/
+  position-area:bottom span-right;
+  /*top:anchor(bottom);left:anchor(left);*/
+  position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+  /*max-width:var(--list-width);*/
+  margin:calc(.5 * var(--gap)) 0;
+}
+
   
 /* tabs */
 .tabs a {border-bottom:2px solid transparent;}

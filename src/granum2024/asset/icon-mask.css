@@ -5,7 +5,7 @@
   display: inline-block;
   width: var(--icon-size);
   height:var(--icon-size);
-  vertical-align:calc((1em - var(--icon-size)) / 2 - .1em);
+  vertical-align:calc((1em - var(--icon-size)) / 2 - .14em);
   animation: var(--anim, none);
   background: currentColor;
   mask-image: var(--i);
