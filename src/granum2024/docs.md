@@ -141,6 +141,10 @@
 - #target + .backdrop, body>.backdrop
 - #x1:checked .x1
 
+- button[command="show-modal"][commandfor="ID"].fit ... dialog[id][closedby="any"].full.drawer.shift
+- button[popovertarget="ID"].fit ... dialog[id][popover]
+- button[popovertarget="ID"].fit ... dialog[id][popover="hint"]
+
 ## Icons
 
 - .icon-x.empty:empty

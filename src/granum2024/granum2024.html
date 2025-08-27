@@ -1191,14 +1191,15 @@
       
       <p>
         <button type="button" command="show-modal" commandfor="dlg25">Modal dialog & popover 2025</button>
-        <dialog id="dlg25" closedby="any" class="shade rad">
-          <div class="pads stick r bg note">
+        <dialog id="dlg25" closedby="any" class="shade rad -full -drawer -shift">
+        <!--div class="vert row" style="max-height:90dvh;"-->
+          <header class="pads stick r bg note">
               <button type="button" command="close" commandfor="dlg25" class="icon-close fit note"></button>
-          </div>
+          </header>
           <!--div class="row vert" style="max-height:80vh;"-->
-          <div class="pads">
+          <div class="pads -col-1 scroll">
             <!--a class="icon-close bg info bord -pad rad"></a-->
-            <div class="col-1 scroll mar">
+            <div class="mar">
               <b>Requires Invoker Commands API to work without JS</b><br>
               Closes on Escape<br>
               <s>Closes on click out</s><br>
@@ -1239,6 +1240,7 @@
             <button popovertarget="hint2" class="fit">Term2</button>
             <dialog popover="hint" id="hint2" class="small pad nobr bg warning">Hint2 texttexttext text text text text text text text text text</dialog>
           </footer>
+        <!--/div-->
         </dialog>
       </p>
       

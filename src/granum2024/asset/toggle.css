@@ -67,9 +67,9 @@ img:target {position:absolute;display:block;inset:0;width:100%;height:100%;objec
 
 /* drawer */
 .drawer {--wdr:calc(1em + var(--drawer-width));position:fixed;inset:0 auto 0 calc(0em - var(--wdr));width:min(var(--drawer-width), 80%);z-index:80;transition:left .2s, right .2s;overflow:auto;}
-.drawer:is(:target, :has(:target), .show) {left:0;}
+.drawer:is(:target, :has(:target), .show, dialog/*:open*/) {left:0;}
 .drawer.shift {inset:0 calc(0px - var(--wdr)) 0 auto;}
-.drawer.shift:is(:target, :has(:target), .show) {right:0;}
+.drawer.shift:is(:target, :has(:target), .show, dialog) {right:0;}
 
 /* backdrop */
 :where(.backdrop) {
@@ -119,6 +119,14 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   [data-hint] {cursor:help;}
 
 /* dialog */
+dialog.full {inset:0;margin:0;width:auto;height:auto;max-width:none;max-height:none;}
+dialog.drawer {height:auto;max-height:none;margin:0;}
+body:has(dialog.full:open) {overflow:hidden;}
+/*
+@media (width < 32rem) {
+  dialog:not([popover]) {inset:0;width:auto;height:auto;max-width:none;max-height:none;}
+}
+*/
 :where([popover], dialog) {border:none;padding:0;}
 dialog:not([popover])::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
 button[popovertarget].fit {border-bottom:thin dashed;/*outline:none;*/}
