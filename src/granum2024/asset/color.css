@@ -67,6 +67,7 @@ body a.invert {color:var(--link-invert);}
 button:not(.bord, .fit) {background-color:var(--ff, var(--link));}
 :where(.tag):not(.bord) {background-color:var(--ff, var(--front-note));}
 :where(button, .tag):is(.bord, .fit):not(.bg) {background-color:var(--back);/*var(--back-default);*//*var(--bb, var(--back-default));*/}
+:where(button).fit:not(.bg) {background-color:transparent;}
 
 .input, input, select, textarea, button, [contenteditable] {outline:.2em solid transparent;outline-offset:0;}
 :where(.input, input, select, textarea, button, [contenteditable]):is(:focus, :focus-visible, :hover) {outline-color:var(--outline-hover);}

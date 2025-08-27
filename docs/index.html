@@ -1073,7 +1073,7 @@
         <li><a tabindex="0"><span>Style<br><small class="note">CSS</small></span></a>
           <ul>
             <li><a tabindex="0"><span class="col-1">Color<br><small class="note">Status</small></span><small class="tag c -success">3</small></a>
-              <ul>
+              <ul class="rad">
                 <li><a href="#x" class="danger">Red</a></li>
                 <li><a href="#x" class="success">Green</a></li>
                 <li><a href="#x" class="info">Blue</a></li>
@@ -1188,6 +1188,59 @@
         <p><input data-autofocus placeholder="autofocus"></p>
         <div class="c mar"><button popovertarget="popover" class="bord icon-close">Close</button></div>
       </div>
+      
+      <p>
+        <button type="button" command="show-modal" commandfor="dlg25">Modal dialog & popover 2025</button>
+        <dialog id="dlg25" class="shade rad">
+          <div class="pads stick r bg note">
+              <button type="button" command="close" commandfor="dlg25" class="icon-close fit note"></button>
+          </div>
+          <!--div class="row vert" style="max-height:80vh;"-->
+          <div class="pads">
+            <!--a class="icon-close bg info bord -pad rad"></a-->
+            <div class="col-1 scroll mar">
+              <b>Requires Invoker Commands API to work without JS</b><br>
+              Closes on Escape<br>
+              <s>Closes on click out</s><br>
+              Traps focus<br>
+              Has styleable ::backdrop<br>
+            </div>
+            <footer class="mar">
+              <input autofocus placeholder="autofocus">
+              <button type="button" command="close" commandfor="dlg25">Close</button>
+            </footer>
+            <footer class="">
+              <div class="r">
+                <button type="button" command="show-modal" commandfor="dlg-nested">Nested modal dialog</button>
+                <button popovertarget="po" data-style="anchor-name:--anc;">
+                  Popover
+                </button>
+              </div>
+              <dialog id="po" popover class="pads shade rad nobr" data-style="position-anchor:--anc;">
+                <b>Requires anchor support for positioning</b><br>
+                Position relative to anchor (invoker is the default anchor!)<br>
+                Can show outside of parent<br>
+                Closes on Escape<br>
+                Closes on click outside<br>
+                Closes on opening another popover<br>
+                Position fallback options<br>
+                <button popovertarget="hint3" class="fit">Term3</button>
+                <dialog popover="hint" id="hint3" class="small pad bord shade rad">Hint3</dialog>
+              </dialog>
+              <dialog id="dlg-nested" class="pads shade rad stack">
+                <p>Nested dialog</p>
+                <button type="button" command="close" commandfor="dlg-nested">Close</button>
+              </dialog>
+            </footer>
+          </div>
+          <footer class="pads stick r bg note">
+            <button popovertarget="hint1" class="fit">Term1</button>
+            <dialog popover="hint" id="hint1" class="small pad bord shade rad">Hint1</dialog>
+            <button popovertarget="hint2" class="fit">Term2</button>
+            <dialog popover="hint" id="hint2" class="small pad nobr bg warning">Hint2 texttexttext text text text text text text text text text</dialog>
+          </footer>
+        </dialog>
+      </p>
       
       <h3 id="alert">Alerts <a href="#alert" class="nodec">#</a></h3>
       

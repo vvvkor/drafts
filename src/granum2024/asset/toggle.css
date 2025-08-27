@@ -120,7 +120,8 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
 
 /* dialog */
 :where([popover], dialog) {border:none;padding:0;}
-::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
+dialog:not([popover])::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
+button[popovertarget].fit {border-bottom:thin dashed;/*outline:none;*/}
 
 [popover] {
   position:fixed;
@@ -130,6 +131,11 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
   /*max-width:var(--list-width);*/
   margin:calc(.5 * var(--gap)) 0;
+}
+
+[popover="hint"] {
+  position-area:top span-all;
+  position-try-fallbacks:top span-right, top span-left, bottom span-all, bottom span-right, bottom span-left;
 }
 
   
