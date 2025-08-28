@@ -1,14 +1,17 @@
 /*
 + pop - details.pop
-- hint
-- dropdown
+~ hint
++ dropdown
 + toggle - details
 + accordion - .target nested
 + tree - details nested
-- tabs
++ tabs
 + modal
 + drawer
-- gallery
+~ gallery
++ dialog
++ popover
+~ popover=hint
 */
 
 :root {
