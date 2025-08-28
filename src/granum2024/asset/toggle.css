@@ -65,15 +65,17 @@ ul.row ul {animation:.3s appear;}
 */
 :is(.modal, dialog):not(.full, .drawer), dialog:not(.drawer)::backdrop {opacity:0;transition:opacity .2s, display .2s allow-discrete, overlay .2s allow-discrete;}
 :is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:1;}
+dialog.drawer{transition:left .2s, right .2s, display .2s allow-discrete, overlay .2s allow-discrete;}
+
+/* clean-css ignore:start */
 @starting-style {
   :is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:0;}
 }
-
-dialog.drawer{transition:left .2s, right .2s, display .2s allow-discrete, overlay .2s allow-discrete;}
 @starting-style {
   dialog:not(.shift).drawer[class][class]{left:calc(0em - var(--wdr));}
   dialog.shift.drawer[class][class]{right:calc(0em - var(--wdr));}
 }
+/* clean-css ignore:end */
 
 /* gallery*/
 img:target {position:absolute;display:block;inset:0;width:100%;height:100%;object-fit:contain;}

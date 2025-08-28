@@ -67,7 +67,9 @@ fs.writeFileSync('./src/granum2024/asset/icon-shapes.css', icons.join('\n'), {fl
 
 // build css
 
-const options = { /* options */ }
+const options = {
+  // keepSpecialComments: '*',
+}
 ;[
 'var',
 'reset',
