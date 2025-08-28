@@ -31,6 +31,13 @@ const foc = (e) => {
   if (m && !m.matches(':focus-within')) ((e?.type || !location.hash ? null : m.querySelector(location.hash)) || m.querySelector('button,input,select,textarea,[contenteditable]' + (e?.type == 'focusin' ? ',[href],[tabindex]:not([tabindex="-1"])' : '')))?.focus()
 }
 
+const dlg = e => {
+  const n = document.querySelector(location.hash)
+  const m = document.querySelector('dialog[open]:not([popover])')
+  if (m && !m.contains(n)) m.close()
+  if (n && n.matches('dialog:not([popover])')) n.showModal()
+}
+
 document.addEventListener('DOMContentLoaded', e => {
   document.body.classList.add('js')
   
@@ -72,6 +79,10 @@ document.addEventListener('DOMContentLoaded', e => {
   // remove title on [data-hint]
   document.querySelectorAll('[data-hint]').forEach(n => n.removeAttribute('title'))
 
+  // open dialog by hash
+  dlg()
+  
+  // set focus
   setTimeout(foc, 100)
 })
 
@@ -191,6 +202,11 @@ document.addEventListener('toggle', ({target: n}) => {
   // store details
   if (n.matches('details') && n.id && n.classList.contains('mem')) localStorage.setItem('val-' + n.id, n.open ? 1 : '')
 }, true)
+
+// open dialog by hash
+window.addEventListener('hashchange', dlg)
+
+// old-style modals and popups
 
 document.addEventListener('keydown', e => {
   // close modals and popups

@@ -57,9 +57,23 @@ details.pop.l > div {left:auto;right:0;}
 .modal:not(.full) {min-height:10rem;max-height:90dvh;min-width:18rem;max-width:90vw;inset:38% auto auto 50%;transform:translate(-50%,-38%);}
 .modal.full {inset:0;/*calc(5 * var(--gap));*/}
 body:has(.modal.full:target, .modal.full :target) {overflow:hidden;}
+
 /* animations */
-.modal:not(.full)/*, ul.row ul*/ {animation:appear .3s;}
+/*
+ul.row ul {animation:.3s appear;}
 @keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
+*/
+:is(.modal, dialog):not(.full, .drawer), dialog:not(.drawer)::backdrop {opacity:0;transition:opacity .2s, display .2s allow-discrete, overlay .2s allow-discrete;}
+:is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:1;}
+@starting-style {
+  :is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:0;}
+}
+
+dialog.drawer{transition:left .2s, right .2s, display .2s allow-discrete, overlay .2s allow-discrete;}
+@starting-style {
+  dialog:not(.shift).drawer[class][class]{left:calc(0em - var(--wdr));}
+  dialog.shift.drawer[class][class]{right:calc(0em - var(--wdr));}
+}
 
 /* gallery*/
 img:target {position:absolute;display:block;inset:0;width:100%;height:100%;object-fit:contain;}
@@ -67,9 +81,9 @@ img:target {position:absolute;display:block;inset:0;width:100%;height:100%;objec
 
 /* drawer */
 .drawer {--wdr:calc(1em + var(--drawer-width));position:fixed;inset:0 auto 0 calc(0em - var(--wdr));width:min(var(--drawer-width), 80%);z-index:80;transition:left .2s, right .2s;overflow:auto;}
-.drawer:is(:target, :has(:target), .show, dialog/*:open*/) {left:0;}
+.drawer:not(.shift):is(:target, :has(:target), .show, dialog[open]) {left:0em;}
 .drawer.shift {inset:0 calc(0px - var(--wdr)) 0 auto;}
-.drawer.shift:is(:target, :has(:target), .show, dialog) {right:0;}
+.drawer.shift:is(:target, :has(:target), .show, dialog[open]) {right:0em;}
 
 /* backdrop */
 :where(.backdrop) {
@@ -119,6 +133,9 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   [data-hint] {cursor:help;}
 
 /* dialog */
+button[popovertarget].fit {border-bottom:thin dashed;/*outline:none;*/}
+:where(dialog, [popover]) {border:none;padding:0;}
+dialog:not([popover])::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
 dialog.full {inset:0;margin:0;width:auto;height:auto;max-width:none;max-height:none;}
 dialog.drawer {height:auto;max-height:none;margin:0;}
 body:has(dialog.full:open) {overflow:hidden;}
@@ -127,9 +144,6 @@ body:has(dialog.full:open) {overflow:hidden;}
   dialog:not([popover]) {inset:0;width:auto;height:auto;max-width:none;max-height:none;}
 }
 */
-:where([popover], dialog) {border:none;padding:0;}
-dialog:not([popover])::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
-button[popovertarget].fit {border-bottom:thin dashed;/*outline:none;*/}
 
 [popover] {
   max-height:var(--pop-height);
