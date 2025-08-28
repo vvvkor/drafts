@@ -1191,6 +1191,13 @@
       
       <p>
         <button type="button" command="show-modal" commandfor="dlg25">Modal dialog & popover 2025</button>
+        <select id="sel-dialog" data-nodes="#dlg25" class="mem">
+          <option selected value="shade rad">basic</option>
+          <option value="shade rad full">fullscreen</option>
+          <option value="shade rad drawer">drawer left</option>
+          <option value="shade rad drawer shift">drawer right</option>
+        </select>
+
         <dialog id="dlg25" closedby="any" class="shade rad -full -drawer -shift">
         <!--div class="vert row" style="max-height:90dvh;"-->
           <header class="pads stick r bg note">
@@ -1227,7 +1234,7 @@
                 Closes on click outside<br>
                 Closes on opening another popover<br>
                 <button popovertarget="hint3" class="fit">Term3</button><br>
-                <dialog popover="hint" id="hint3" class="small pad bord shade rad">Hint3</dialog>
+                <dialog popover="hint" id="hint3" class="small pad bord shade rad">Hint3 text text text text</dialog>
                 1<br>
                 2<br>
                 3<br>
