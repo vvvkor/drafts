@@ -1,5 +1,7 @@
 .fit {margin:0;border:none;padding:0;border-radius:0;}
-  button.fit {min-width:0;line-height:1.35;}
+  button.fit, button.link {min-width:0;line-height:1.35;}
+  button.link {display:inline;border:none;padding:0;border-radius:0;text-decoration:underline;}
+  button.link:not(:focus-visible) {outline:none;}
   a.nodec, .nodec a {text-decoration:none;}
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
 .resize {resize:both;overflow:auto;}

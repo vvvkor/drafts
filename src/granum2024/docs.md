@@ -34,6 +34,11 @@
 - (=) .h1
 - (=) .check
 
+## Avoid
+
+- button.fit
+- button.link
+
 ## Changes
 
 - .report -- .tip
@@ -141,9 +146,9 @@
 - #target + .backdrop, body>.backdrop
 - #x1:checked .x1
 
-- button[command="show-modal"][commandfor="ID"].fit ... dialog[id][closedby="any"].full.drawer.shift
-- button[popovertarget="ID"].fit ... dialog[id][popover]
-- button[popovertarget="ID"].fit ... dialog[id][popover="hint"]
+- button[command="show-modal"][commandfor="ID"].link.fit ... dialog[id][closedby="any"].full.drawer.shift
+- button[popovertarget="ID"].link.fit ... dialog[id][popover]
+- button[popovertarget="ID"].link.fit ... dialog[id][popover="hint"]
 
 ## Icons
 

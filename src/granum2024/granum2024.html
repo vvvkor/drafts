@@ -1210,10 +1210,13 @@
             <div class="mar">
               <b>Requires Invoker Commands API to work without JS</b><br>
               Closes on Escape<br>
-              <s>Closes on click out</s><br>
+              Closes on click out<br>
+              Closes on opening another dialog<br>
               Traps focus<br>
               Has styleable ::backdrop<br>
               Autofocus<br>
+              Nestable<br>
+              <i>Requires JS to open by link or by hash</i>
             </div>
             <footer class="mar">
               <input autofocus placeholder="autofocus">
@@ -1237,9 +1240,12 @@
                 Closes on click outside<br>
                 Closes on opening another popover<br>
                 Autofocus<br>
+                Nestable<br>
+                <i>Requires JS to work on hover</i><br>
+                <i>Requires JS to have hint on non-buttons</i><br>
                 <hr>
                 <button popovertarget="hint3" class="fit">Term3</button><br>
-                <dialog popover="hint" id="hint3" class="small pad bord shade rad">Hint3 text text text text</dialog>
+                <dialog popover="hint" id="hint3" data-class="small pad bord shade rad">Hint3 text text text text</dialog>
                 <input autofocus placeholder="autofocus"><br>
                 1<br>
                 2<br>
@@ -1249,6 +1255,23 @@
                 6<br>
                 7<br>
                 8<br>
+                
+                
+                <!-- basic dialog and popover -->
+                
+                <button type="button" command="show-modal" commandfor="dlg2">Simple Nested Dialog</button>
+                <dialog id="dlg2" closedby="any" class="pads shade rad stack c">
+                  <p>Simple Nested Dialog</p>
+                  <button command="close" commandfor="dlg2">Close</button>
+                </dialog>
+                
+                <button popovertarget="po2">Simple Nested Popover</button>
+                <dialog id="po2" popover class="pads shade rad stack c">
+                  <p>Simple Nested Popover</p>
+                  <button popovertarget="po2">Close</button>
+                </dialog>
+
+                
               </dialog>
               <dialog id="dlg-nested" closedby="any" class="pads shade rad stack">
                 <p>Nested dialog</p>
@@ -1257,10 +1280,11 @@
             </footer>
           </div>
           <footer class="pads stick r bg note">
-            <button popovertarget="hint1" class="fit">Term1</button>
-            <dialog popover="hint" id="hint1" class="small pad bord shade rad">Hint1</dialog>
+            <a href="#x">Link</a>
+            <button popovertarget="hint1" class="link">Term1</button>
+            <dialog popover="hint" id="hint1" data-class="small pad bord shade rad">Hint1</dialog>
             <button popovertarget="hint2" class="fit">Term2</button>
-            <dialog popover="hint" id="hint2" class="small pad nobr bg warning">Hint2 texttexttext text text text text text text text text text</dialog>
+            <dialog popover="hint" id="hint2" data-class="l small pad nobr bg warning">Hint2 texttexttext text text text text text text<br>text text text</dialog>
           </footer>
         <!--/div-->
         </dialog>
