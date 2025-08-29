@@ -110,7 +110,7 @@
 ### Row
 
 - .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick.resize (.resp@container@media)
-- ul.row.gap.click ul.l
+- ul.row.gap.click.trans ul.l
 
 ### Stack
 

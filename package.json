@@ -1,6 +1,6 @@
 {
   "name": "granum",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "devDependencies": {
     "clean-css": "^5.3.3",
     "replace-in-file": "^7.1.0",

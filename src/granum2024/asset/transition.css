@@ -1,22 +1,19 @@
 :root {
-  --dur: .3s;
+  --dur: .25s;
 }
-/*@keyframes delay-appear { 0% {opacity:0;} 30% {opacity:0;} 100% {opacity:1;} }*/
+@keyframes delay-appear { 0% {opacity:0;} 30% {opacity:0;} 100% {opacity:1;} }
 @keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
 @keyframes slide-left { 0% {left:calc(0em - var(--wdr));} 100% {left:0;} }
 @keyframes slide-right { 0% {right:calc(0em - var(--wdr));} 100% {right:0;} }
 
-.tip > * {animation:appear calc(var(--dur));}
+.tip > * {animation:delay-appear calc(var(--dur));}
 
 /*
 details {interpolate-size:allow-keywords;height:1.5em;transition:height .3s ease;}
 details[open] {height:auto;overflow:clip;}
 */
 
-/*
-ul.row ul {animation:.3s appear;}
-@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
-*/
+ul.row.trans ul {animation:appear var(--dur);}
 
 .drawer:not(dialog) {transition:left var(--dur), right var(--dur);}
 
