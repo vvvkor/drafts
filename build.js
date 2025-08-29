@@ -89,6 +89,7 @@ const options = {
 'dropzone',
 'layout',
 'toggle',
+'transition',
 'slider',
 'print'
 ].forEach(n => {

@@ -25,7 +25,3 @@
 /*:not(:user-valid, :user-invalid) + .tip > :is(.danger, .success), :user-valid + .tip > .danger, :user-invalid + .tip > .success {display:none;}*/
 :valid + .tip > .danger, :invalid + .tip > .success {display:none;}
 .input:not(:has(:invalid)) + .tip > .danger, .input:has(:invalid) + .tip > .success {display:none;}
-
-/* animations */
-.tip > * {animation:delay-appear .5s;}
-@keyframes delay-appear { 0% {opacity:0;} 30% {opacity:0;} 100% {opacity:1;} }

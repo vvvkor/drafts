@@ -1,0 +1,41 @@
+:root {
+  --dur: .3s;
+}
+/*@keyframes delay-appear { 0% {opacity:0;} 30% {opacity:0;} 100% {opacity:1;} }*/
+@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
+@keyframes slide-left { 0% {left:calc(0em - var(--wdr));} 100% {left:0;} }
+@keyframes slide-right { 0% {right:calc(0em - var(--wdr));} 100% {right:0;} }
+
+.tip > * {animation:appear calc(var(--dur));}
+
+/*
+details {interpolate-size:allow-keywords;height:1.5em;transition:height .3s ease;}
+details[open] {height:auto;overflow:clip;}
+*/
+
+/*
+ul.row ul {animation:.3s appear;}
+@keyframes appear { 0% {opacity:0;} 100% {opacity:1;} }
+*/
+
+.drawer:not(dialog) {transition:left var(--dur), right var(--dur);}
+
+/* simple mode (smooth in, sharp out) */
+:is(.modal, dialog):not(.full, .drawer) {animation:appear var(--dur);}
+dialog.drawer{animation:slide-left var(--dur);}
+dialog.drawer.shift{transition:none;animation:slide-right var(--dur);}
+
+/* complex mode (smooth in and out) * /
+:is(.modal, dialog):not(.full, .drawer), dialog:not(.drawer)::backdrop {opacity:0;transition:opacity var(--dur), display var(--dur) allow-discrete, overlay var(--dur) allow-discrete;}
+:is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:1;}
+dialog.drawer{transition:left var(--dur), right var(--dur), display var(--dur) allow-discrete, overlay var(--dur) allow-discrete;}
+*/
+
+/* required for complex mode */
+/* clean-css ignore:start * /
+@starting-style {
+  :is(.modal:target, dialog:is([open], :popover-open)):not(.full, .drawer), dialog:is([open], :popover-open)::backdrop {opacity:0;}
+  dialog:not(.shift).drawer[class][class]{left:calc(0em - var(--wdr));}
+  dialog.shift.drawer[class][class]{right:calc(0em - var(--wdr));}
+}
+/* clean-css ignore:end */
