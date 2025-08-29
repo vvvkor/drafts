@@ -27,7 +27,7 @@ html {scroll-padding-top:5rem;}
 .gallery {}
 
 /* common */
-:where(ul.row) ul, :where(.pop) > *+:last-child, :where(.modal, .drawer, .popwin), [data-hint]:after, dialog[popover="hint"] {box-sizing:border-box;background:var(--back-warning);box-shadow:var(--shade);}
+:where(ul.row) ul, :where(.pop) > *+:last-child, :where(.modal, .drawer, .popwin, dialog), [data-hint]:after, dialog[popover="hint"] {box-sizing:border-box;background:var(--back);box-shadow:var(--shade);}
 :is(.modal, .target):where(:not(:target, :has(:target), .show)) {display:none;}
 
 /* check */
@@ -138,7 +138,6 @@ ul.row ul {padding:calc(1 * var(--gap)) 0;}
   [data-hint] {cursor:help;}
 
 /* dialog */
-button[popovertarget].fit {border-bottom:thin dashed;/*outline:none;*/}
 :where(dialog, [popover]) {border:none;padding:0;}
 dialog:not([popover])::backdrop {background:#6665;/*var(--backdrop);*//*pointer-events:all !important;*//*-a11y*/}
 dialog.full {inset:0;margin:0;width:auto;height:auto;max-width:none;max-height:none;}

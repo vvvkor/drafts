@@ -1,7 +1,7 @@
 .fit {margin:0;border:none;padding:0;border-radius:0;}
-  button.fit, button.link {min-width:0;line-height:1.35;}
-  button.link {display:inline;border:none;padding:0;border-radius:0;text-decoration:underline;}
-  button.link:not(:focus-visible) {outline:none;}
+  button.fit {min-width:0;padding:0 .2em;}
+  button.nodec {all:unset;color:var(--ff);}
+  button.nodec:focus-visible {outline:.2em solid var(--outline-focus-visible);}
   a.nodec, .nodec a {text-decoration:none;}
 .full {box-sizing:border-box;height:100vh;height:100dvh;}
 .resize {resize:both;overflow:auto;}
@@ -17,7 +17,7 @@ pre code {padding:0;border:none;border-radius:0;}
 legend {padding:0 calc(.25 * var(--gap));}
 /*.bord,*/ kbd, fieldset, hr {border:var(--bord);}
 hr {border-width:thin 0 0 0;}
-.rad, .tag, code, kbd, pre, button, [type="submit"] {border-radius:var(--radius);}
+.rad, .tag, code, kbd, pre, button, button.fit, [type="submit"] {border-radius:var(--radius);}
 abbr {border-bottom:thin dotted;text-decoration:none;}
 /*sub, sup {line-height:0em;}*/
 .tag {padding:0 .5em;display:inline-block;line-height:1.5;}

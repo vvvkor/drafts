@@ -211,7 +211,6 @@
           
           <h3>Pad</h3>
           <span class="pad bord">Border</span>
-          <span class="pad invert">Invert</span>
           <span class="pad danger">Danger</span>
           <span class="pad danger text">Text</span>
           <span class="pad danger bord">Border</span>
@@ -219,11 +218,14 @@
           <span class="pad danger text bg">Text bg</span>
           <span class="pad danger bord bg">Border bg</span>
           <span class="pad danger text bg bord">Text bg border</span>
-          <span class="pad danger invert icon-place">Invert</span>
 
           <h3>Invert</h3>
-          <a href="" class="icon-refresh success invert pad">Inverted</a>
-          <span class="danger invert pad"><a href="" class="icon-place">Inside inverted</a></span>
+          <span class="invert">Span</span>
+          <span class="danger invert icon-place">Icon</span>
+          <span class="pad invert">Pad</span>
+          <span class="pad danger invert icon-place">Icon pad</span>
+          <a href="" class="icon-refresh success invert pad">Link</a>
+          <span class="danger invert pad">Span <a href="" class="icon-place">Link inside span</a></span>
           
         </div>
       </details>
@@ -1172,7 +1174,7 @@
         <i>No wide support yet in 2023</i>
       </p>
       
-      <dialog id="dlg" class="pads shade rad -bord">
+      <dialog id="dlg" class="pads rad">
         <div class="r"><a href="#close" class="icon-close" onclick="event.preventDefault();dlg.close()">Close</a></div>
         <div class="stack">
           <p>Modal Dialog</p>
@@ -1199,10 +1201,10 @@
           <option value="shade rad drawer shift">drawer right</option>
         </select>
 
-        <dialog id="dlg25" closedby="any" class="shade rad -full -drawer -shift">
+        <dialog id="dlg25" closedby="any" class="rad -full -drawer">
         <!--div class="vert row" style="max-height:90dvh;"-->
           <header class="pads stick r bg note">
-              <button type="button" command="close" commandfor="dlg25" class="icon-close fit note"></button>
+              <button type="button" command="close" commandfor="dlg25" class="icon-close nodec -neutral note"></button>
           </header>
           <!--div class="row vert" style="max-height:80vh;"-->
           <div class="pads -col-1 scroll">
@@ -1216,7 +1218,8 @@
               Has styleable ::backdrop<br>
               Autofocus<br>
               Nestable<br>
-              <i>Requires JS to open by link or by hash</i>
+              <i>Requires JS to open by link or by hash</i><br>
+              <span class="invert">Invert</span><br>
             </div>
             <footer class="mar">
               <input autofocus placeholder="autofocus">
@@ -1230,7 +1233,7 @@
                 </button>
                 <!--a href="#po">Popover</a-->
               </div>
-              <dialog id="po" popover class="pads shade rad nobr" data-style="position-anchor:--anc;">
+              <dialog id="po" popover class="pads rad nobr" data-style="position-anchor:--anc;">
                 <b>Requires anchor support for positioning</b><br>
                 Position relative to anchor<br>
                 Invoker is the default anchor<br>
@@ -1244,9 +1247,9 @@
                 <i>Requires JS to work on hover</i><br>
                 <i>Requires JS to have hint on non-buttons</i><br>
                 <hr>
-                <button popovertarget="hint3" class="fit">Term3</button><br>
-                <dialog popover="hint" id="hint3" data-class="small pad bord shade rad">Hint3 text text text text</dialog>
-                <input autofocus placeholder="autofocus"><br>
+                <button popovertarget="hint3" class="nodec">Term3</button><br>
+                <dialog popover="hint" id="hint3" data-class="small">Hint3 text text text text</dialog>
+                <p><input autofocus placeholder="autofocus"></p>
                 1<br>
                 2<br>
                 3<br>
@@ -1281,10 +1284,23 @@
           </div>
           <footer class="pads stick r bg note">
             <a href="#x">Link</a>
-            <button popovertarget="hint1" class="link">Term1</button>
-            <dialog popover="hint" id="hint1" data-class="small pad bord shade rad">Hint1</dialog>
-            <button popovertarget="hint2" class="fit">Term2</button>
-            <dialog popover="hint" id="hint2" data-class="l small pad nobr bg warning">Hint2 texttexttext text text text text text text<br>text text text</dialog>
+            <!--
+            <span class="tag">Tag</span>
+            <span class="tag bord">Tag</span>
+            <span class="tag warning">Tag</span>
+            <span class="tag bord warning">Tag</span>
+            <button class="fit">Fit</button>
+            <button class="fit warning">Fit Warn</button>
+            <button class="bord">Bord</button>
+            <button class="bord warning">Bord Warn</button>
+            <button class="bord fit">Bord Fit</button>
+            <button class="bord fit warning">Bord Fit Warn</button>
+            <button class="warning">Warn</button>
+            -->
+            <button popovertarget="hint1" class="nodec info">Term1</button>
+            <dialog popover="hint" id="hint1" data-class="small">Hint1</dialog>
+            <button popovertarget="hint2" class="fit info">Term2</button>
+            <dialog popover="hint" id="hint2" data-class="l small">Hint2 <span class="warning">texttexttext</span> text text text text text text<br>text text text</dialog>
           </footer>
         <!--/div-->
         </dialog>

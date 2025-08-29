@@ -205,8 +205,9 @@ document.addEventListener('toggle', ({target: n}) => {
 
 // open dialog by hash
 window.addEventListener('hashchange', dlg)
+window.addEventListener('close', e => (e.target.id == location.hash.slice(1)) ? location.hash = '#close' : null, true)
 
-// old-style modals and popups
+/* old-style modals and popups */
 
 document.addEventListener('keydown', e => {
   // close modals and popups

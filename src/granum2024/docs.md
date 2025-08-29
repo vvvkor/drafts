@@ -34,11 +34,6 @@
 - (=) .h1
 - (=) .check
 
-## Avoid
-
-- button.fit
-- button.link
-
 ## Changes
 
 - .report -- .tip
@@ -48,7 +43,7 @@
 
 ## Additions
 
-- .nodec
+- .nodec, button.nodec
 - .bord.danger...
 - .mars .pads .wide-s/m/l
 - .show-s/m/l .hide-s/m/l .show-cs/cm/cl .hide-cs/cm/cl
@@ -146,9 +141,9 @@
 - #target + .backdrop, body>.backdrop
 - #x1:checked .x1
 
-- button[command="show-modal"][commandfor="ID"].link.fit ... dialog[id][closedby="any"].full.drawer.shift
-- button[popovertarget="ID"].link.fit ... dialog[id][popover]
-- button[popovertarget="ID"].link.fit ... dialog[id][popover="hint"]
+- button[command="show-modal"][commandfor="ID"] ... dialog[id][closedby="any"].full.drawer.shift
+- button[popovertarget="ID"] ... dialog[id][popover]
+- button[popovertarget="ID"] ... dialog[id][popover="hint"]
 
 ## Icons
 
