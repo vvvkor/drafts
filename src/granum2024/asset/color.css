@@ -55,7 +55,7 @@ button   {--ff:var(--link);}
 .warning {--ff:var(--front-warning);--bb:var(--back-warning);}
 .danger  {--ff:var(--front-danger);--bb:var(--back-danger);}
 
-.text, .ic:before, :where(.neutral, .note, .info, .success, .warning, .danger):not(.bg, .ic), button, .tag {color:var(--ff, var(--front));}
+.text, .ic:before, :where(.neutral, .note, .info, .success, .warning, .danger, button, .tag):not(.bg, .ic) {color:var(--ff, var(--front));}
 .bg, button, .tag {background-color:var(--bb, var(--back));}
 .bord {border:thin solid var(--ff, var(--line));}
 :where(button, .tag):not(.bord) {color:var(--front-invert);background-color:var(--ff, var(--front-note));}

@@ -133,7 +133,8 @@ body:has(dialog.full:open) {overflow:hidden;}
   /*position-anchor:--anc;*/ /* button {anchor-name:--anc;}*/
   position-area:bottom span-right;
   /*top:anchor(bottom);left:anchor(left);*/
-  position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+  /*position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline, span-all span-all;*/
+  position-try-fallbacks: top span-right, bottom span-left, top span-left;
   /*max-width:var(--list-width);*/
   margin:calc(.5 * var(--gap)) 0;
 }

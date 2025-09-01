@@ -26,7 +26,7 @@
       })
     </script>
   </head>
-  <body class="diagonals">
+  <body class="diagonals trans">
     <div class="stick shade small">
       <!--ul class="row hover">
         <li><a href="?#">Granum v2</a></li>
@@ -191,7 +191,7 @@
         <span class="bord danger">Danger</span>
       </p>
       
-      <details>
+      <details open>
         <summary class="icon-menu">Buttons etc.</summary>
         <div class="pads hilite rad stack">
         
@@ -206,7 +206,8 @@
           <button class="danger icon-ban">Danger</button>
           <button class="bord icon-time">Border</button>
           <button class="danger bord icon-close">Border</button>
-          <button class="danger bord text bg icon-close">Border</button>
+          <button class="danger bord -text bg icon-close">Border</button>
+          <button class="danger bord -text bg icon-close">Border</button>
           <button disabled class="danger icon-spin">Disabled</button>
           
           <h3>Pad</h3>
@@ -1070,7 +1071,7 @@
     
       <h3 id="hover">Hover <a href="#hover" class="nodec">#</a></h3>
       
-      <ul class="row -click -gap hilite mid hover resp -scroll -scrollbar trans">
+      <ul class="row -click -gap hilite mid hover resp -scroll -scrollbar trans-off">
       <!--ul class="row gap"-->
         <li><a tabindex="0"><span>Style<br><small class="note">CSS</small></span></a>
           <ul>
@@ -1185,11 +1186,11 @@
         </div>
       </dialog>
       
-      <div popover id="popover" class="pads shade rad -bord stack">
+      <dialog popover id="popover" class="pads shade rad -bord stack">
         <p>Popover</p>
         <p><input data-autofocus placeholder="autofocus"></p>
         <div class="c mar"><button popovertarget="popover" class="bord icon-close">Close</button></div>
-      </div>
+      </dialog>
       
       <p>
         <button type="button" command="show-modal" commandfor="dlg25">Modal dialog & popover 2025</button>

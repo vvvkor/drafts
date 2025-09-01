@@ -110,7 +110,7 @@
 ### Row
 
 - .row.wrap.resp.resp-s.vert.gap.mid.stretch > .col-0/1/2/3.push.shift.stick.resize (.resp@container@media)
-- ul.row.gap.click.trans ul.l
+- ul.row.gap.click ul.l
 
 ### Stack
 
@@ -145,9 +145,15 @@
 - button[popovertarget="ID"] ... dialog[id][popover]
 - button[popovertarget="ID"] ... dialog[id][popover="hint"]
 
+## Transtitions
+
+- .trans, .trans-off/fast/slow
+- .icon-x.anim-spin/blink/pulse/flip-turn/swing
+
 ## Icons
 
 - .icon-x.empty:empty
+- .icon-menu/close, -next/desc, -folder/open, -add/no, -expand/collapse
 - .icon-menu/close, -next/desc, -folder/open, -add/no, -expand/collapse
 - .icon-spin
 
