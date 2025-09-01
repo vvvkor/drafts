@@ -1,0 +1,9 @@
+.vision {font-size:24px;position:fixed;top:0;left:50%;translate:-50% 0;z-index:100;background:#fff;padding:.2em 1em;border:thin solid #666;border-top:none;border-radius:.2em;}
+.contrast .vision-hide, html:not(.contrast) .vision-show {display:none;}
+.contrast {
+  body {filter:contrast(1) grayscale(.8);}
+  button {border-width:thick;}
+  &.noimg {
+    img, svg, [class*="icon-"]:before {visibility:hidden;}
+  }
+}
