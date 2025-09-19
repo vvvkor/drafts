@@ -11,7 +11,7 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 100em var(--back-default) i
 
 /* inputs */
 
-.input, input:where(:not([type="checkbox"], [type="radio"], [type="color"], [type="range"], [type="file"])), select, textarea, [contenteditable]/*, label:has([type="file"])*/ {border:thin solid var(--line-input);border-radius:calc(.5 * var(--radius));padding:calc(.5 * var(--gap));background-color:var(--back-default);/*line-height:1.5;min-height:1.5em;*/}
+.input, input:where(:not([type="checkbox"], [type="radio"], [type="color"], [type="range"], [type="file"])), select, textarea, [contenteditable]/*, label:has([type="file"])*/ {border:thin solid var(--line-input);border-radius:calc(.5 * var(--radius));padding:calc(.5 * var(--gap));color:var(--front-default);background-color:var(--back-default);/*line-height:1.5;min-height:1.5em;*/}
 button {border-radius:var(--radius);}
 button:not(:disabled), .check {cursor:pointer;}
   /*button*/:disabled {opacity:.5;cursor:not-allowed;}
