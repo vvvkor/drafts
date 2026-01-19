@@ -1,0 +1,130 @@
+<style>
+
+body {font:120%/1.5 sans-serif;}
+button, table, input, textarea, select, [contenteditable] {font:inherit;}
+.mar {margin:1em 0;}
+.pad {padding:.5em 1em;}
+.hide-link-underline a {text-decoration: none;}
+
+/* 1. global defaults */
+:root{
+  --neutral: #555;
+  --neutral-lite: #eee;
+  --invert-lite: #fff;
+  --invert: #000;
+    --base-border: #ddd;
+    --base-line: 2px;
+    --input-bg: #fff;
+    --input-text: #909;
+    --input-border: #999;
+    --base-radius:.3em;
+  --primary-lite: #def;
+  --primary: #039;
+  --primary-lite: #def;
+  --note: #888;
+  --note-lite: #eee;
+  --info: #08a;
+  --info-lite: #bef;
+  --success: #181;
+  --success-lite: #beb;
+  --warning: #d70;
+  --warning-lite: #fd9;
+  --danger: #c00;
+  --danger-lite: #fbb;
+}
+
+/* 2. element and state defaults */
+a {--dark1: var(--primary);}
+button, .inv, .tag {--border:transparent;}
+input, textarea, select, [contenteditable] {--text:var(--input-text);--bg:var(--input-bg);--base-border:var(--input-border);--border:var(--dark, var(--base-border));}
+:visited {}
+:hover {}
+:active {}
+:invalid {}
+:focus {}
+:focus-visible {}
+:disabled {}
+
+/* 3. hue pallette */
+.neutral {--dark:var(--neutral);--lite:var(--neutral-lite);}
+.primary, button {--dark:var(--primary);--lite:var(--primary-lite);}
+/*.invert {--dark:var(--invert);--lite:var(--invert-lite);}*/
+.primary {--dark:var(--primary);--lite:var(--primary-lite);}
+.note {--dark:var(--note);--lite:var(--note-lite);}
+.info {--dark:var(--info);--lite:var(--info-lite);}
+.success {--dark:var(--success);--lite:var(--success-lite);}
+.warning {--dark:var(--warning);--lite:var(--warning-lite);}
+.danger {--dark:var(--danger);--lite:var(--danger-lite);}
+
+
+/* 4. mapping */
+a {--text:var(--dark1, var(--primary));}
+.text, .bord, :where(.neutral, .primary, .danger, .warning, .success, .info, .note):not(.bg) {--text:var(--dark, var(--dark1, var(--neutral)));}
+:where(button, .inv, .tag):not(.bg, .bord) {--text:var(--invert-lite);--bg:var(--dark, var(--dark1, var(--invert)));}
+.bg {--bg:var(--lite, var(--neutral-lite));}
+.bord {--border:var(--dark, var(--base-border));}
+
+/* 5. apply */
+body {
+  color: var(--neutral);
+  background-color: #fff; var(--neutral-lite);
+}
+.bg {background-clip: border-box;}
+:where(
+  input, textarea, select, [contenteditable],
+  button, .inv, .tag,
+  .bord
+)
+{
+  border: var(--base-line) solid var(--border, var(--text));
+  border-radius: var(--base-radius);
+  box-sizing: border-box;
+  background-clip: border-box;
+}
+
+:where(
+  a,
+  input, textarea, select, [contenteditable],
+  button, .inv, .tag,
+  .neutral, .primary, .danger, .warning, .success, .info, .note,
+  .text, .bg, .bord
+) {
+  color: var(--text);
+  background-color: var(--bg);
+  border-color: var(--border);
+  /* display:inline-block; */
+}
+
+</style>
+
+<body class="hide-link-underline">
+  <div>
+    todo: :visited, .act, :hover, :focus
+  </div>
+</body>
+
+<script>
+  const tags = ['span', 'a', 'input', 'button']
+  const classes = ['', 'bord', 'bg', 'bg bord', /*'bg bord text',*/ 'inv']
+  const states = ['', 'neutral', 'primary', 'note', 'info', 'success', 'warning', 'danger']
+  for (const tag of tags) {
+    const sec = document.createElement('section')
+    sec.classList.add('mar')
+    for (const cls of classes) {
+      const row = document.createElement('div')
+      for (const state of states) {
+        const item = document.createElement(tag)
+        const inp = (tag == 'input')
+        const lnk = (tag == 'a')
+        const prop = inp ? 'value' : 'textContent'
+        item[prop] = lnk ? 'link' : tag // + '.' + cls
+        if (inp) item.size = 3
+        if (lnk) item.href = '#link'
+        item.classList.add(...[...cls.split(' '), state].filter(v => v))
+        row.append(item, ' ')
+      }
+      sec.append(row)
+    }
+    document.body.append(sec)
+  }
+</script>
