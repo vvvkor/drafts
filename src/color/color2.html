@@ -55,7 +55,7 @@ input, textarea, select, [contenteditable] {--tag-text:var(--input-text);--tag-b
 /* 3. hue pallette */
 .neutral {--dark:var(--neutral);--lite:var(--neutral-lite);}
 .primary, button {--dark:var(--primary);--lite:var(--primary-lite);}
-/*.invert {--dark:var(--invert);--lite:var(--invert-lite);}*/
+/*.inv {--dark:var(--invert);--lite:var(--invert-lite);}*/
 .primary {--dark:var(--primary);--lite:var(--primary-lite);}
 .note {--dark:var(--note);--lite:var(--note-lite);}
 .info {--dark:var(--info);--lite:var(--info-lite);}
@@ -65,7 +65,14 @@ input, textarea, select, [contenteditable] {--tag-text:var(--input-text);--tag-b
 
 
 /* 4. mapping */
-.text, :where(.neutral, .primary, .danger, .warning, .success, .info, .note):not(.bg, .bord) {--text:var(--dark, var(--tag-text, var(--neutral)));}
+.text, /*.bord,*/ :is(.neutral, .primary, .danger, .warning, .success, .info, .note):where(:not(
+  /* .bg without .text or .bord: do not set text color */
+    .bg:not(.bord)
+  /* does .bord set text color ? */
+    /* v1. .bord sets text color for all */
+    /*, .bord /* v2. .bord does not set text color */
+    , .bord:is(input, textarea, select, [contenteditable]) /* v3. .bord sets text color except for inputs */
+)) {--text:var(--dark, var(--tag-text, var(--neutral)));}
 :where(button, .inv, .tag):not(.bg, .bord) {--text:var(--invert-lite);--bg:var(--dark, var(--tag-text, var(--invert)));}
 .bg {--bg:var(--lite, var(--tag-bg, var(--neutral-lite)));}
 .bord {--border:var(--dark, var(--tag-border, var(--base-border)));}
@@ -85,7 +92,7 @@ body {
   border: var(--base-line) solid var(--border, var(--text));
   border-radius: var(--base-radius);
   box-sizing: border-box;
-  background-clip: border-box;
+  /* background-clip: border-box; /* default */
 }
 
 :where(
@@ -131,12 +138,13 @@ html.invert, html:has(#config-invert-body:checked) {--mode:invert(.95) hue-rotat
       const row = document.createElement('div')
       for (const state of states) {
         const item = document.createElement(tag)
-        const inp = (tag == 'input')
         const lnk = (tag == 'a')
+        const inp = (tag == 'input')
+        const btn = (tag == 'button')
         const prop = inp ? 'value' : 'textContent'
         item[prop] = lnk ? 'link' : tag // + '.' + cls
         if (inp) item.size = 3
-        if (inp) item.name = 'in'
+        if (inp || btn) item.name = 'in'
         if (lnk) item.href = '#link'
         item.classList.add(...[...cls.split(' '), state].filter(v => v))
         row.append(item, ' ')
