@@ -4,6 +4,7 @@ body:has(#config-undec-links:checked) a {text-decoration: none;}
 
 body {font:120%/1.5 sans-serif;}
 button, table, input, textarea, select, [contenteditable] {font:inherit;}
+table {border-collapse:collapse;}
 .mar {margin:1em 0;}
 .pad {padding:.5em 1em;}
 
@@ -42,8 +43,9 @@ button, table, input, textarea, select, [contenteditable] {font:inherit;}
 /* 2. element and state defaults */
 a {--tag-text: var(--primary);--text:var(--tag-text, var(--neutral));}
 button {--tag-bg:var(--button-bg);--bg:var(--tag-bg, var(--neutral-lite));}
-button, .inv, .tag {--border:transparent;}
+button, :where(.inv:not(tr>*), .tag) {--border:transparent;}
 input, textarea, select, [contenteditable] {--tag-text:var(--input-text);--tag-bg:var(--input-bg);--tag-border:var(--input-border);--border: var(--tag-border);--text:var(--tag-text, var(--neutral));--bg:var(--tag-bg, var(--neutral-lite));}
+table, tr>* {--tag-border:var(--base-border);}
 :visited {}
 :hover {}
 :active {}
@@ -86,14 +88,17 @@ body {
 :where(
   input, textarea, select, [contenteditable],
   button, .inv, .tag,
-  .bord
-)
+  .bord, table.bord td
+):where(:not(:is(.inv, .bord):is(table, td)))
 {
   border: var(--base-line) solid var(--border, var(--text));
   border-radius: var(--base-radius);
   box-sizing: border-box;
   /* background-clip: border-box; /* default */
 }
+tr>* {border-radius:0;}
+td.bord {border-color:inherit;--l:var(--base-line);outline:var(--l) solid var(--border);outline-offset:calc(-1 * var(--l));}
+tr:hover{--l:var(--base-line);outline:var(--l) solid purple;outline-offset:calc(-1 * var(--l));}
 
 :where(
   a,
@@ -128,14 +133,16 @@ html.invert, html:has(#config-invert-body:checked) {--mode:invert(.95) hue-rotat
 </body>
 
 <script>
-  const tags = ['span', 'a', 'input', 'button']
+  const tags = ['span', 'a', 'input', 'button', 'td']
   const classes = ['', 'bg', 'bg text', 'bord', 'bord text', 'bord bg', 'bord text bg', 'inv']
   const states = ['', 'neutral', 'primary', 'note', 'info', 'success', 'warning', 'danger']
   for (const tag of tags) {
-    const sec = document.createElement('section')
+    const tab = (tag == 'td')
+    const sec = document.createElement(tab ? 'table' : 'section')
     sec.classList.add('mar')
+    if (tab) sec.classList.add('bord')
     for (const cls of classes) {
-      const row = document.createElement('div')
+      const row = document.createElement(tab ? 'tr' : 'div')
       for (const state of states) {
         const item = document.createElement(tag)
         const lnk = (tag == 'a')
