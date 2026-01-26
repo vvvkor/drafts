@@ -19,12 +19,13 @@ table {border-collapse:collapse;}
   --base-line: 2px;
   --base-radius:.3em;
   --base-border: #ddd;
+  --base-shadow-hover: #9993;
   /* tags */
   --button-bg: #fff;
   --input-bg: #fff;
   --input-text: #000;
   --input-border: #ccc;
-  /* ststus */
+  /* status */
   --primary-lite: #def;
   --primary: #039;
   --primary-lite: #def;
@@ -45,7 +46,7 @@ a {--tag-text: var(--primary);--text:var(--tag-text, var(--neutral));}
 button {--tag-bg:var(--button-bg);--bg:var(--tag-bg, var(--neutral-lite));}
 button, :where(.inv:not(tr>*), .tag) {--border:transparent;}
 input, textarea, select, [contenteditable] {--tag-text:var(--input-text);--tag-bg:var(--input-bg);--tag-border:var(--input-border);--border: var(--tag-border);--text:var(--tag-text, var(--neutral));--bg:var(--tag-bg, var(--neutral-lite));}
-table, tr>* {--tag-border:var(--base-border);}
+tr>* {--tag-border:var(--base-border);}
 :visited {}
 :hover {}
 :active {}
@@ -73,7 +74,7 @@ table, tr>* {--tag-border:var(--base-border);}
   /* does .bord set text color ? */
     /* v1. .bord sets text color for all */
     /*, .bord /* v2. .bord does not set text color */
-    , .bord:is(input, textarea, select, [contenteditable]) /* v3. .bord sets text color except for inputs */
+    , .bord:is(input, textarea, select, [contenteditable], table) /* v3. .bord sets text color except for inputs and table>* */
 )) {--text:var(--dark, var(--tag-text, var(--neutral)));}
 :where(button, .inv, .tag):not(.bg, .bord) {--text:var(--invert-lite);--bg:var(--dark, var(--tag-text, var(--invert)));}
 .bg {--bg:var(--lite, var(--tag-bg, var(--neutral-lite)));}
@@ -87,18 +88,21 @@ body {
 .bg {background-clip: border-box;}
 :where(
   input, textarea, select, [contenteditable],
-  button, .inv, .tag,
-  .bord, table.bord td
-):where(:not(:is(.inv, .bord):is(table, td)))
+  button, .inv:not(tr>*), .tag,
+  .bord:not(table, tr>*), table.bord tr>*
+)
 {
   border: var(--base-line) solid var(--border, var(--text));
   border-radius: var(--base-radius);
   box-sizing: border-box;
   /* background-clip: border-box; /* default */
 }
+
+/* table outline */
 tr>* {border-radius:0;}
-td.bord {border-color:inherit;--l:var(--base-line);outline:var(--l) solid var(--border);outline-offset:calc(-1 * var(--l));}
-tr:hover{--l:var(--base-line);outline:var(--l) solid purple;outline-offset:calc(-1 * var(--l));}
+tr>*.bord {border-color:inherit;--l:var(--base-line);outline:var(--l) solid var(--border);outline-offset:calc(-1 * var(--l));}
+tr:hover{--l:var(--base-line);outline:var(--l) solid var(--primary);outline-offset:calc(-1 * var(--l));}
+tr:hover>*{box-shadow:inset 0 0 5em var(--base-shadow-hover);}
 
 :where(
   a,
@@ -130,6 +134,13 @@ html.invert, html:has(#config-invert-body:checked) {--mode:invert(.95) hue-rotat
     <label><input type="checkbox" id="config-invert-body"> invert-body</label><br>
     <label><input type="checkbox" id="config-undec-links"> config-undec-links</label><br>
   </div>
+  <table class="bord info">
+    <tr>
+      <td class="bg success bord">aaaaa
+      <td class="bg warning bord">bbbbb
+      <td class="bg danger">ccccc
+      <td class="">ddddd
+  </table>
 </body>
 
 <script>
